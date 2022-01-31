@@ -5,12 +5,14 @@ modeltype Kubernetes uses 'kube_metamodel1';
 transformation ModelToModelTransformation(in dd : UML, out traces : Kubernetes);
 
 main() {
+(dd.rootObjects())[UML::Model]->asOrderedSet()->first().map deployment2infra();
+
 
 
 }
 
-mapping UML::NamedElement::umlNodesToDeployment() : Kubernetes::Deployment {
 
-
+mapping UML::NamedElement::deployment2infra() : Kubernetes::Infrastructure {
+	name := self.name;
 }
 
