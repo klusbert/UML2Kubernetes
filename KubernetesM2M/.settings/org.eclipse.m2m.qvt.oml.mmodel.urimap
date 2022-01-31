@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="ASCII"?>
 <uriMap:MappingContainer xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:uriMap="http:///www.eclipse.org/m2m/qvt/oml/MModelUriMap/1.0.0">
-  <mapping sourceURI="kube_metamodel1" targetURI="platform:/resource/kubernetes_meta_model/model/kubernetes_metamodel.ecore"/>
+  <mapping sourceURI="http://www.example.org/kubernetesModel" targetURI="platform:/resource/kubernetes_meta_model/model/kubernetes_metamodel.ecore"/>
 </uriMap:MappingContainer>

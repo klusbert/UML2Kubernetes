@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<http://www.example.org/kubernetes_metamodel:Infrastructure xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:http://www.example.org/kubernetes_metamodel="http://www.example.org/kubernetesModel" xsi:schemaLocation="http://www.example.org/kubernetesModel ../../kubernetes_meta_model/model/kubernetes_metamodel.ecore" name="KubernetesUMLDeplyoment"/>

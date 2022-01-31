@@ -1,0 +1,42 @@
+modeltype UML uses 'http://www.eclipse.org/uml2/5.0.0/UML';
+modeltype KuberntesMetaModel uses 'http://www.example.org/kubernetesModel';
+
+
+transformation umlDD2cloudInfrastructure(in dd : UML, out traces : KuberntesMetaModel);
+
+main() {
+
+//Get name of diagram
+
+(dd.rootObjects())[UML::Model]->asOrderedSet()->first().map deployment2infra();
+
+dd.devices() -> map device2server();
+}
+
+
+mapping UML::NamedElement::deployment2infra() : KuberntesMetaModel::Infrastructure {
+	name := self.name;
+}
+
+
+mapping UML::Device::device2server() : KuberntesMetaModel::Deployment {
+	var containerInfra := resolveoneIn(UML::NamedElement::deployment2infra);
+	name := self.name;
+	
+	
+	
+}
+
+
+helper UML::devices() : Set(UML::Device) {
+	// When running the transformation from the simulation tool, the UML domain must 
+	// contain a single activity at its root 
+	assert warning (self.rootObjects()[UML::Device]->size() < 1) with log ("No single Device instance was found at the root of the UML input model, trying to use the first Activity in the model instead");
+	
+	if (self.rootObjects()[UML::Device]->isEmpty().not()) {
+		log("Devices found: " + self.rootObjects()[UML::Device]->asOrderedSet()->first().name);
+		return self.rootObjects()[UML::Device]->asOrderedSet();
+	};
+	// This execution path is useful when running the transformation at development time
+	return self.objectsOfType(UML::Device)->asOrderedSet();
+}
