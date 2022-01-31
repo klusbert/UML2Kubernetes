@@ -1,0 +1,16 @@
+modeltype UML uses 'http://www.eclipse.org/uml2/5.0.0/UML';
+modeltype Kubernetes uses 'kube_metamodel1';
+
+
+transformation ModelToModelTransformation(in dd : UML, out traces : Kubernetes);
+
+main() {
+
+
+}
+
+mapping UML::NamedElement::umlNodesToDeployment() : Kubernetes::Deployment {
+
+
+}
+

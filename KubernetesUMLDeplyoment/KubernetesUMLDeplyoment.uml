@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:KubernetesUMLProfile="http:///schemas/KubernetesUMLProfile/_wS8E0IKIEey6FqRmL7NqgQ/31" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/KubernetesUMLProfile/_wS8E0IKIEey6FqRmL7NqgQ/31 ../KubernetesUMLProfile/KubernetesUMLProfile.profile.uml#_wS8E0YKIEey6FqRmL7NqgQ">
+  <uml:Model xmi:id="__cY9AH9jEeyXt-NBRolQsA" name="KubernetesUMLDeplyoment" visibility="private">
+    <packageImport xmi:type="uml:PackageImport" xmi:id="__cviUH9jEeyXt-NBRolQsA">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:ExecutionEnvironment" xmi:id="_2k7XoH9kEeyXt-NBRolQsA" name="ExecutionEnvironment">
+      <nestedClassifier xmi:type="uml:Node" xmi:id="_8a_zIH9kEeyXt-NBRolQsA" name="Nginx"/>
+      <nestedClassifier xmi:type="uml:Node" xmi:id="_pwo64H9mEeyXt-NBRolQsA" name="Mysql"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:CommunicationPath" xmi:id="_5sGSAH9mEeyXt-NBRolQsA" memberEnd="_5sIHMH9mEeyXt-NBRolQsA _5sIHMX9mEeyXt-NBRolQsA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_5sHgIH9mEeyXt-NBRolQsA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_5sHgIX9mEeyXt-NBRolQsA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_5sIHMH9mEeyXt-NBRolQsA" name="node4" type="_pwo64H9mEeyXt-NBRolQsA" association="_5sGSAH9mEeyXt-NBRolQsA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_5sIHMX9mEeyXt-NBRolQsA" name="node" type="_8a_zIH9kEeyXt-NBRolQsA" association="_5sGSAH9mEeyXt-NBRolQsA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Node" xmi:id="_uioYUH9oEeyXt-NBRolQsA" name="Internet"/>
+    <packagedElement xmi:type="uml:CommunicationPath" xmi:id="_zZL3kH9oEeyXt-NBRolQsA" memberEnd="_zZMeoX9oEeyXt-NBRolQsA _zZMeon9oEeyXt-NBRolQsA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_zZL3kX9oEeyXt-NBRolQsA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_zZMeoH9oEeyXt-NBRolQsA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_zZMeoX9oEeyXt-NBRolQsA" name="nginx" type="_8a_zIH9kEeyXt-NBRolQsA" association="_zZL3kH9oEeyXt-NBRolQsA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_zZMeon9oEeyXt-NBRolQsA" name="internet" type="_uioYUH9oEeyXt-NBRolQsA" association="_zZL3kH9oEeyXt-NBRolQsA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Node" xmi:id="_00k3gH9oEeyXt-NBRolQsA" name="Outsider"/>
+    <packagedElement xmi:type="uml:CommunicationPath" xmi:id="_4C3YcH9oEeyXt-NBRolQsA" memberEnd="_4C3_gn9oEeyXt-NBRolQsA _4C3_g39oEeyXt-NBRolQsA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_4C3_gH9oEeyXt-NBRolQsA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_4C3_gX9oEeyXt-NBRolQsA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_4C3_gn9oEeyXt-NBRolQsA" name="internet" type="_uioYUH9oEeyXt-NBRolQsA" association="_4C3YcH9oEeyXt-NBRolQsA"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_4C3_g39oEeyXt-NBRolQsA" name="outsider" type="_00k3gH9oEeyXt-NBRolQsA" association="_4C3YcH9oEeyXt-NBRolQsA"/>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_ogP78H9kEeyXt-NBRolQsA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_di-wUIKJEey6FqRmL7NqgQ" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_di-wUYKJEey6FqRmL7NqgQ" key="Version" value="0.0.32"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_di-wUoKJEey6FqRmL7NqgQ" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_di-wU4KJEey6FqRmL7NqgQ" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_di-wVIKJEey6FqRmL7NqgQ" key="Date" value="2022-01-31"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_di-wVYKJEey6FqRmL7NqgQ" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ogQjAH9kEeyXt-NBRolQsA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="../KubernetesUMLProfile/KubernetesUMLProfile.profile.uml#_wS8E0YKIEey6FqRmL7NqgQ"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="../KubernetesUMLProfile/KubernetesUMLProfile.profile.uml#_y3Fe0H9iEeyXt-NBRolQsA"/>
+    </profileApplication>
+  </uml:Model>
+  <KubernetesUMLProfile:Deployment xmi:id="_A3Pl4H9uEeyXt-NBRolQsA" base_Node="_8a_zIH9kEeyXt-NBRolQsA" image="nginx:latest" port="80" replicas="3">
+    <environmentVariables xmi:type="KubernetesUMLProfile:EnviromentVariables" xmi:id="_YC2w4H9uEeyXt-NBRolQsA" name="DB_HOST" value="pathtomysql"/>
+    <environmentVariables xmi:type="KubernetesUMLProfile:EnviromentVariables" xmi:id="_UDQJsIKNEey6FqRmL7NqgQ" name="password" value="secret"/>
+  </KubernetesUMLProfile:Deployment>
+  <KubernetesUMLProfile:Kubernetes xmi:id="_IDnF8H9uEeyXt-NBRolQsA" namespace="default" base_ExecutionEnvironment="_2k7XoH9kEeyXt-NBRolQsA"/>
+  <KubernetesUMLProfile:Deployment xmi:id="_DqxA8H9vEeyXt-NBRolQsA" base_Node="_pwo64H9mEeyXt-NBRolQsA"/>
+</xmi:XMI>
