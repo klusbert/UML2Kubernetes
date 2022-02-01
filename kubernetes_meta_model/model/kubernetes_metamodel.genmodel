@@ -9,12 +9,15 @@
     <genClasses ecoreClass="kubernetes_metamodel.ecore#//Infrastructure">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//Infrastructure/nameSpace"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//Infrastructure/apiVersion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//Infrastructure/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference kubernetes_metamodel.ecore#//Infrastructure/deployments"/>
     </genClasses>
     <genClasses ecoreClass="kubernetes_metamodel.ecore#//Deployment">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//Deployment/image"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//Deployment/port"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//Deployment/replicas"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//Deployment/enviromentVariables"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference kubernetes_metamodel.ecore#//Deployment/enviromentVariables"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//Deployment/name"/>
     </genClasses>
     <genClasses ecoreClass="kubernetes_metamodel.ecore#//EnviromentVariables">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//EnviromentVariables/name"/>

@@ -15,22 +15,6 @@
       <ownedEnd xmi:type="uml:Property" xmi:id="_5sIHMH9mEeyXt-NBRolQsA" name="node4" type="_pwo64H9mEeyXt-NBRolQsA" association="_5sGSAH9mEeyXt-NBRolQsA"/>
       <ownedEnd xmi:type="uml:Property" xmi:id="_5sIHMX9mEeyXt-NBRolQsA" name="node" type="_8a_zIH9kEeyXt-NBRolQsA" association="_5sGSAH9mEeyXt-NBRolQsA"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Node" xmi:id="_uioYUH9oEeyXt-NBRolQsA" name="Internet"/>
-    <packagedElement xmi:type="uml:CommunicationPath" xmi:id="_zZL3kH9oEeyXt-NBRolQsA" memberEnd="_zZMeoX9oEeyXt-NBRolQsA _zZMeon9oEeyXt-NBRolQsA">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_zZL3kX9oEeyXt-NBRolQsA" source="org.eclipse.papyrus">
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_zZMeoH9oEeyXt-NBRolQsA" key="nature" value="UML_Nature"/>
-      </eAnnotations>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_zZMeoX9oEeyXt-NBRolQsA" name="nginx" type="_8a_zIH9kEeyXt-NBRolQsA" association="_zZL3kH9oEeyXt-NBRolQsA"/>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_zZMeon9oEeyXt-NBRolQsA" name="internet" type="_uioYUH9oEeyXt-NBRolQsA" association="_zZL3kH9oEeyXt-NBRolQsA"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Node" xmi:id="_00k3gH9oEeyXt-NBRolQsA" name="Outsider"/>
-    <packagedElement xmi:type="uml:CommunicationPath" xmi:id="_4C3YcH9oEeyXt-NBRolQsA" memberEnd="_4C3_gn9oEeyXt-NBRolQsA _4C3_g39oEeyXt-NBRolQsA">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_4C3_gH9oEeyXt-NBRolQsA" source="org.eclipse.papyrus">
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_4C3_gX9oEeyXt-NBRolQsA" key="nature" value="UML_Nature"/>
-      </eAnnotations>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_4C3_gn9oEeyXt-NBRolQsA" name="internet" type="_uioYUH9oEeyXt-NBRolQsA" association="_4C3YcH9oEeyXt-NBRolQsA"/>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_4C3_g39oEeyXt-NBRolQsA" name="outsider" type="_00k3gH9oEeyXt-NBRolQsA" association="_4C3YcH9oEeyXt-NBRolQsA"/>
-    </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_ogP78H9kEeyXt-NBRolQsA">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_G1vQcIKWEey-2IXCprflnQ" source="PapyrusVersion">
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_G1vQcYKWEey-2IXCprflnQ" key="Version" value="0.0.34"/>
@@ -50,5 +34,5 @@
     <environmentVariables xmi:type="KubernetesUMLProfile:EnviromentVariables" xmi:id="_UDQJsIKNEey6FqRmL7NqgQ" name="password" value="secret"/>
   </KubernetesUMLProfile:Deployment>
   <KubernetesUMLProfile:Kubernetes xmi:id="_IDnF8H9uEeyXt-NBRolQsA" namespace="default" base_ExecutionEnvironment="_2k7XoH9kEeyXt-NBRolQsA"/>
-  <KubernetesUMLProfile:Deployment xmi:id="_DqxA8H9vEeyXt-NBRolQsA" base_Node="_pwo64H9mEeyXt-NBRolQsA"/>
+  <KubernetesUMLProfile:Deployment xmi:id="_DqxA8H9vEeyXt-NBRolQsA" base_Node="_pwo64H9mEeyXt-NBRolQsA" image="mysql:latest"/>
 </xmi:XMI>
