@@ -2,6 +2,7 @@
 
 modeltype UML uses 'http://www.eclipse.org/uml2/5.0.0/UML';
 modeltype KuberntesMetaModel uses 'http://www.example.org/kubernetesModel';
+modeltype kuberProfile uses 'http://kubernetesProfile';
 
 transformation umlDD2cloudInfrastructure(in dd : UML, out traces : KuberntesMetaModel);
 
@@ -43,10 +44,32 @@ mapping UML::Node::nodesToDeployment() : KuberntesMetaModel::Deployment {
  This datatype is craeted in KuberntesUMLProfile and  atributes(name and value).
  The variable enviromentVariables can hold zero to many of this data type. 0..* 
 **/
+//helper UML::Node::getEnviromentVariables() : EnviromentVariables{
+//	var test :=	self.getValue(self.getDeployment(),"enviromentVariables").oclAsType(EnviromentVariables);
+	
+//}
+
+
 helper UML::Node::getEnviromentVariables() : EnviromentVariables{
-	var test :=	self.getValue(self.getDeployment(),"enviromentVariables").oclAsType(EnviromentVariables);
+	var stereot := self.getDeployment();
+	log("Debug: found stereotype " + stereot.toString());
+	
+	
+	var environmentVariables :=	self.getValue(stereot,"environmentVariables"); //.oclAsType(KuberProfile2::EnviromentVariables);
+	log("Debug: Found environment variables: Size of list ios" +  environmentVariables->flatten()->size().toString() + " and value:" + environmentVariables.toString());
+	var firstEnvironmentVariable := environmentVariables->flatten()->asSequence()->first();
+	
+	log("Debug: First environment variable. Trying to get its value as KuberProfile::EnviromentVariables. " + firstEnvironmentVariable.oclAsType(kuberProfile::EnviromentVariables).toString());
+
+	var name := firstEnvironmentVariable.oclAsType(kuberProfile::EnviromentVariables).name;
+	
+	var value := firstEnvironmentVariable.oclAsType(kuberProfile::EnviromentVariables).value;
+	
+	log("Debug: First environment variable content: name="+name+" and value="+value); 
+
 	
 }
+
 
 helper UML::Node::getReplicas() : Integer {
 
