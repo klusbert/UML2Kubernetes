@@ -31,8 +31,8 @@ mapping UML::Node::nodesToDeployment() : KuberntesMetaModel::Deployment {
 		result.image := self.getImage();
 		result.port := self.getPort();
 		result.replicas := self.getReplicas();
-		
-		self.getEnviromentVariables();
+	
+		result.enviromentVariables := self.getEnviromentVariables();
 		containerInfra.deployments +=result;
 	}
 
@@ -56,18 +56,17 @@ helper UML::Node::getEnviromentVariables() : EnviromentVariables{
 	
 	
 	var environmentVariables :=	self.getValue(stereot,"environmentVariables"); //.oclAsType(KuberProfile2::EnviromentVariables);
-	log("Debug: Found environment variables: Size of list ios" +  environmentVariables->flatten()->size().toString() + " and value:" + environmentVariables.toString());
-	var firstEnvironmentVariable := environmentVariables->flatten()->asSequence()->first();
+	var firstEnvironmentVariable := environmentVariables->flatten()->asSequence()->first();	
 	
-	log("Debug: First environment variable. Trying to get its value as KuberProfile::EnviromentVariables. " + firstEnvironmentVariable.oclAsType(kuberProfile::EnviromentVariables).toString());
-
 	var name := firstEnvironmentVariable.oclAsType(kuberProfile::EnviromentVariables).name;
 	
 	var value := firstEnvironmentVariable.oclAsType(kuberProfile::EnviromentVariables).value;
 	
-	log("Debug: First environment variable content: name="+name+" and value="+value); 
 
-	
+	var newEnv = new EnviromentVariables();
+	newEnv.name := name;
+	newEnv.value := value;
+	return newEnv;
 }
 
 
