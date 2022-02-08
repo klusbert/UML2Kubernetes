@@ -4,15 +4,17 @@ modeltype UML uses 'http://www.eclipse.org/uml2/5.0.0/UML';
 modeltype KuberntesMetaModel uses 'http://www.example.org/kubernetesModel';
 modeltype kuberProfile uses 'http://kubernetesProfile';
 
-transformation umlDD2cloudInfrastructure(in dd : UML, out traces : KuberntesMetaModel);
+transformation umlDD2cloudInfrastructure(in input : UML, out output : KuberntesMetaModel);
 
 main() {
 
 //Get name of diagram
 
-(dd.rootObjects())[UML::Model]->asOrderedSet()->first().map deployment2infra();
+(input.rootObjects())[UML::Model]->asOrderedSet()->first().map deployment2infra();
 
-dd.nodes() -> map nodesToDeployment();
+input.nodes() -> map nodesToDeployment();
+input.paths() -> map communicationPathToService();
+
 
 }
 
@@ -36,7 +38,10 @@ mapping UML::Node::nodesToDeployment() : KuberntesMetaModel::Deployment {
 		containerInfra.deployments +=result;
 	}
 
+}
 
+mapping UML::CommunicationPath::communicationPathToService(): KuberntesMetaModel::Service {
+		port :=10;
 
 }
 
@@ -106,6 +111,19 @@ helper UML::Node::getDeployment() : UML::Stereotype {
 	return null;	
 }
 
+helper UML::Node::getPVC() : UML::Stereotype {
+	self.getAppliedStereotypes() -> forEach(stereot){
+	
+	log("Found Stereotype " + stereot.name + " in " + self.name);
+	};
+	if (self.isStereotypeApplied(self.getAppliedStereotype("KubernetesUMLProfile::PersistentData"))) { 
+		var stereoType = self.getAppliedStereotype("KubernetesUMLProfile::PersistentData");
+		return stereoType
+	};
+	return null;	
+}
+
+
 
 helper UML::nodes() : Set(UML::Node) {
 	// When running the transformation from the simulation tool, the UML domain must 
@@ -121,6 +139,16 @@ helper UML::nodes() : Set(UML::Node) {
 	return nodes;
 }
 
+helper UML::paths() : Set(UML::CommunicationPath){
+	
+	if (self.rootObjects()[UML::CommunicationPath]->isEmpty().not()) {
+		return self.rootObjects()[UML::CommunicationPath]->asOrderedSet();
+	};
+	var cPaths := self.objectsOfType(UML::CommunicationPath)->asOrderedSet();
+	// This execution path is useful when running the transformation at development time
+	return cPaths;
+
+}
 
 
 

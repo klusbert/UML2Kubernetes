@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:KubernetesUMLProfile="http:///schemas/KubernetesUMLProfile/_QT9lwIKTEey6FqRmL7NqgQ/33" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/KubernetesUMLProfile/_QT9lwIKTEey6FqRmL7NqgQ/33 ../KubernetesUMLProfile/KubernetesUMLProfile.profile.uml#_QT9lwYKTEey6FqRmL7NqgQ">
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:KubernetesUMLProfile="http:///schemas/KubernetesUMLProfile/_efhk4IjbEey529FX91493Q/34" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/KubernetesUMLProfile/_efhk4IjbEey529FX91493Q/34 ../KubernetesUMLProfile/KubernetesUMLProfile.profile.uml#_efjaEIjbEey529FX91493Q">
   <uml:Model xmi:id="__cY9AH9jEeyXt-NBRolQsA" name="KubernetesUMLDeplyoment" visibility="private">
     <packageImport xmi:type="uml:PackageImport" xmi:id="__cviUH9jEeyXt-NBRolQsA">
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
@@ -7,6 +7,7 @@
     <packagedElement xmi:type="uml:ExecutionEnvironment" xmi:id="_2k7XoH9kEeyXt-NBRolQsA" name="ExecutionEnvironment">
       <nestedClassifier xmi:type="uml:Node" xmi:id="_8a_zIH9kEeyXt-NBRolQsA" name="Nginx"/>
       <nestedClassifier xmi:type="uml:Node" xmi:id="_pwo64H9mEeyXt-NBRolQsA" name="Mysql"/>
+      <nestedClassifier xmi:type="uml:Node" xmi:id="_GupwsIjbEey529FX91493Q" name="MysqlPVC"/>
     </packagedElement>
     <packagedElement xmi:type="uml:CommunicationPath" xmi:id="_5sGSAH9mEeyXt-NBRolQsA" memberEnd="_5sIHMH9mEeyXt-NBRolQsA _5sIHMX9mEeyXt-NBRolQsA">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_5sHgIH9mEeyXt-NBRolQsA" source="org.eclipse.papyrus">
@@ -15,16 +16,18 @@
       <ownedEnd xmi:type="uml:Property" xmi:id="_5sIHMH9mEeyXt-NBRolQsA" name="node4" type="_pwo64H9mEeyXt-NBRolQsA" association="_5sGSAH9mEeyXt-NBRolQsA"/>
       <ownedEnd xmi:type="uml:Property" xmi:id="_5sIHMX9mEeyXt-NBRolQsA" name="node" type="_8a_zIH9kEeyXt-NBRolQsA" association="_5sGSAH9mEeyXt-NBRolQsA"/>
     </packagedElement>
+    <packagedElement xmi:type="uml:Node" xmi:id="_CXKv4IjXEey529FX91493Q" name="Outsider"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_roiCgIjbEey529FX91493Q" client="_pwo64H9mEeyXt-NBRolQsA" supplier="_GupwsIjbEey529FX91493Q"/>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_ogP78H9kEeyXt-NBRolQsA">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_G1vQcIKWEey-2IXCprflnQ" source="PapyrusVersion">
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_G1vQcYKWEey-2IXCprflnQ" key="Version" value="0.0.34"/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_G1vQcoKWEey-2IXCprflnQ" key="Comment" value=""/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_G1vQc4KWEey-2IXCprflnQ" key="Copyright" value=""/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_G1vQdIKWEey-2IXCprflnQ" key="Date" value="2022-01-31"/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_G1vQdYKWEey-2IXCprflnQ" key="Author" value=""/>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_mFGPIIjbEey529FX91493Q" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_mFGPIYjbEey529FX91493Q" key="Version" value="0.0.35"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_mFGPIojbEey529FX91493Q" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_mFGPI4jbEey529FX91493Q" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_mFGPJIjbEey529FX91493Q" key="Date" value="2022-02-08"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_mFGPJYjbEey529FX91493Q" key="Author" value=""/>
       </eAnnotations>
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ogQjAH9kEeyXt-NBRolQsA" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="../KubernetesUMLProfile/KubernetesUMLProfile.profile.uml#_QT9lwYKTEey6FqRmL7NqgQ"/>
+        <references xmi:type="ecore:EPackage" href="../KubernetesUMLProfile/KubernetesUMLProfile.profile.uml#_efjaEIjbEey529FX91493Q"/>
       </eAnnotations>
       <appliedProfile xmi:type="uml:Profile" href="../KubernetesUMLProfile/KubernetesUMLProfile.profile.uml#_y3Fe0H9iEeyXt-NBRolQsA"/>
     </profileApplication>
@@ -35,4 +38,5 @@
   </KubernetesUMLProfile:Deployment>
   <KubernetesUMLProfile:Kubernetes xmi:id="_IDnF8H9uEeyXt-NBRolQsA" namespace="default" base_ExecutionEnvironment="_2k7XoH9kEeyXt-NBRolQsA"/>
   <KubernetesUMLProfile:Deployment xmi:id="_DqxA8H9vEeyXt-NBRolQsA" base_Node="_pwo64H9mEeyXt-NBRolQsA" image="mysql:latest"/>
+  <KubernetesUMLProfile:PersistentData xmi:id="_nIwrkIjbEey529FX91493Q" base_Node="_GupwsIjbEey529FX91493Q"/>
 </xmi:XMI>
