@@ -3,12 +3,12 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="kubernetes_metamodel" nsURI="http://www.example.org/kubernetesModel"
     nsPrefix="http://www.example.org/kubernetes_metamodel">
   <eClassifiers xsi:type="ecore:EClass" name="Infrastructure">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nameSpace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="apiVersion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByte"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="Kubernetes"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="deployments" upperBound="-1"
         eType="#//Deployment"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="namespace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Deployment">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="image" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

@@ -12,20 +12,32 @@ main() {
 
 (input.rootObjects())[UML::Model]->asOrderedSet()->first().map deployment2infra();
 
-input.nodes() -> map nodesToDeployment();
-input.paths() -> map communicationPathToService();
 
+input.excutionEnviroment() ->map executionEnviromentToInfra();
+input.nodes() -> map nodesToDeployment();
+input.dependencies() -> map dependencyToService();
 
 }
+
 
 mapping UML::NamedElement::deployment2infra() : KuberntesMetaModel::Infrastructure {
-	name := self.name;
+
 }
+
+
+// this need to be fixed this is the root element 
+mapping UML::ExecutionEnvironment::executionEnviromentToInfra() : KuberntesMetaModel::Infrastructure{
+	var containerInfra := resolveoneIn(UML::NamedElement::deployment2infra);
+	var clusterInformation := self.getClusterInformation();
+	apiVersion :=self.getValue(clusterInformation, "apiVersion").oclAsType(Integer);
+	namespace := self.getValue(clusterInformation, "namespace").oclAsType(String);
+}
+
 
 
 
 mapping UML::Node::nodesToDeployment() : KuberntesMetaModel::Deployment {
-	var containerInfra := resolveoneIn(UML::NamedElement::deployment2infra);
+	var containerInfra := resolveoneIn(UML::ExecutionEnvironment::executionEnviromentToInfra);
 	name := self.name;
 	var deploy := self.getDeployment();
 	if(deploy <> null){
@@ -40,8 +52,8 @@ mapping UML::Node::nodesToDeployment() : KuberntesMetaModel::Deployment {
 
 }
 
-mapping UML::CommunicationPath::communicationPathToService(): KuberntesMetaModel::Service {
-		port :=10;
+mapping UML::Dependency::dependencyToService(): KuberntesMetaModel::Service {
+		port :=15;
 
 }
 
@@ -99,6 +111,8 @@ helper UML::Node::getImage() : String {
 }
 
 
+
+
 helper UML::Node::getDeployment() : UML::Stereotype {
 	self.getAppliedStereotypes() -> forEach(stereot){
 	
@@ -111,6 +125,19 @@ helper UML::Node::getDeployment() : UML::Stereotype {
 	return null;	
 }
 
+
+helper UML::Node::getClusterInformation() : UML::Stereotype{
+	self.getAppliedStereotypes() -> forEach(stereot){
+	
+	log("Found Stereotype " + stereot.name + " in " + self.name);
+	};
+	if (self.isStereotypeApplied(self.getAppliedStereotype("KubernetesUMLProfile::Kubernetes"))) { 
+		var stereoType = self.getAppliedStereotype("KubernetesUMLProfile::Kubernetes");
+		return stereoType
+	};
+	return null;	
+	
+}
 helper UML::Node::getPVC() : UML::Stereotype {
 	self.getAppliedStereotypes() -> forEach(stereot){
 	
@@ -124,7 +151,11 @@ helper UML::Node::getPVC() : UML::Stereotype {
 }
 
 
-
+helper UML::excutionEnviroment() : Set(UML::ExecutionEnvironment){
+	var enviroments := self.objectsOfType(UML::ExecutionEnvironment)->asOrderedSet();
+	// This execution path is useful when running the transformation at development time
+	return enviroments;
+}
 helper UML::nodes() : Set(UML::Node) {
 	// When running the transformation from the simulation tool, the UML domain must 
 	// contain a single activity at its root 
@@ -139,16 +170,17 @@ helper UML::nodes() : Set(UML::Node) {
 	return nodes;
 }
 
-helper UML::paths() : Set(UML::CommunicationPath){
+helper UML::dependencies() : Set(UML::Dependency){
 	
-	if (self.rootObjects()[UML::CommunicationPath]->isEmpty().not()) {
-		return self.rootObjects()[UML::CommunicationPath]->asOrderedSet();
+	if (self.rootObjects()[UML::Dependency]->isEmpty().not()) {
+		return self.rootObjects()[UML::Dependency]->asOrderedSet();
 	};
-	var cPaths := self.objectsOfType(UML::CommunicationPath)->asOrderedSet();
+	var depe := self.objectsOfType(UML::Dependency)->asOrderedSet();
 	// This execution path is useful when running the transformation at development time
-	return cPaths;
+	return depe;
 
 }
+
 
 
 
