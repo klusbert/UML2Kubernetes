@@ -1,0 +1,22 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: phpMyAdmin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: phpMyAdmin
+  template:
+    metadata:
+      labels:
+        app: phpMyAdmin
+    spec:
+      containers:
+        - name: phpMyAdmin
+          image: nginx:latest
+          ports:
+            - containerPort: 85
+			
+         

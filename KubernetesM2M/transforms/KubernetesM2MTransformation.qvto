@@ -1,0 +1,162 @@
+
+
+modeltype UML uses 'http://www.eclipse.org/uml2/5.0.0/UML';
+modeltype KuberntesMetaModel uses 'http://www.example.org/kubernetesModel';
+modeltype kuberProfile uses 'http://kubernetesProfile';
+
+
+transformation umlDD2cloudInfrastructure(in input : UML, out output : KuberntesMetaModel);
+
+main() {
+
+//Get name of diagram
+
+(input.rootObjects())[UML::Model]->asOrderedSet()->first().map deployment2infra();
+
+
+input.excutionEnviroment() ->map executionEnviromentToInfra();
+input.nodes() -> map nodesToDeployment();
+
+}
+
+mapping UML::NamedElement::deployment2infra() : KuberntesMetaModel::Infrastructure {
+	name := self.name;
+}
+
+
+mapping UML::ExecutionEnvironment::executionEnviromentToInfra() : KuberntesMetaModel::Infrastructure{
+	var containerInfra := resolveoneIn(UML::NamedElement::deployment2infra);
+	var clusterInformation := self.getClusterInformation();
+	containerInfra.apiVersion :=self.getValue(clusterInformation, "apiVersion").oclAsType(Integer);
+	containerInfra.namespace := self.getValue(clusterInformation, "namespace").oclAsType(String);
+
+	
+}
+
+
+
+
+mapping UML::Node::nodesToDeployment() : KuberntesMetaModel::Deployment {
+	var containerInfra := resolveoneIn(UML::NamedElement::deployment2infra);
+	name := self.name;
+	var deploy := self.getDeployment();
+	if(deploy <> null){
+	
+		result.image := self.getImage();
+		result.port := self.getPort();
+		result.replicas := self.getReplicas();
+	
+		result.enviromentVariables += self.getEnviromentVariables();
+		containerInfra.deployments +=result;
+	}
+
+
+
+}
+
+/**
+ This datatype is craeted in KuberntesUMLProfile and  atributes(name and value).
+ The variable enviromentVariables can hold zero to many of this data type. 0..* 
+**/
+//helper UML::Node::getEnviromentVariables() : EnviromentVariables{
+//	var test :=	self.getValue(self.getDeployment(),"enviromentVariables").oclAsType(EnviromentVariables);
+	
+//}
+
+
+helper UML::Node::getEnviromentVariables() : OrderedSet(EnviromentVariables){
+	var stereot := self.getDeployment();
+	var environmentVariables :=	self.getValue(stereot,"environmentVariables"); //.oclAsType(KuberProfile2::EnviromentVariables);
+	var nodeEnviromentVars: Set(EnviromentVariables);
+	
+	
+	environmentVariables->flatten()->asSequence()->forEach(variable){		
+	    var name := variable.oclAsType(kuberProfile::EnviromentVariables).name;
+	    var value := variable.oclAsType(kuberProfile::EnviromentVariables).value;
+	    var newEnv = new EnviromentVariables();	
+		newEnv.name := name;
+	    newEnv.value := value;
+				
+		nodeEnviromentVars +=newEnv;              
+	};	
+	return nodeEnviromentVars->asOrderedSet();
+}
+
+
+helper UML::Node::getClusterInformation() : UML::Stereotype{
+	self.getAppliedStereotypes() -> forEach(stereot){
+	
+	log("Found Stereotype " + stereot.name + " in " + self.name);
+	};
+	if (self.isStereotypeApplied(self.getAppliedStereotype("KubernetesUMLProfile::Kubernetes"))) { 
+		var stereoType = self.getAppliedStereotype("KubernetesUMLProfile::Kubernetes");
+		return stereoType
+	};
+	return null;	
+	
+}
+
+
+helper UML::Node::getReplicas() : Integer {
+
+	if( self.getDeployment() <> null){
+		return self.getValue(self.getDeployment(),"replicas").oclAsType(Integer);
+	};
+	return null;	
+}
+
+helper UML::Node::getPort() : Integer {
+
+	if( self.getDeployment() <> null){
+		return self.getValue(self.getDeployment(),"port").oclAsType(Integer);
+	};
+	return null;	
+}
+helper UML::Node::getImage() : String {
+	if (self.getDeployment() = null) {
+		return null;
+	};
+	var image := self.getValue(self.getDeployment(), "image").oclAsType(String);
+	return image;
+}
+
+
+helper UML::Node::getDeployment() : UML::Stereotype {
+	self.getAppliedStereotypes() -> forEach(stereot){
+	
+	log("Found Stereotype " + stereot.name + " in " + self.name);
+	};
+	if (self.isStereotypeApplied(self.getAppliedStereotype("KubernetesUMLProfile::Deployment"))) { 
+		var stereoType = self.getAppliedStereotype("KubernetesUMLProfile::Deployment");
+		return stereoType
+	};
+	return null;	
+}
+
+
+
+helper UML::excutionEnviroment() : Set(UML::ExecutionEnvironment){
+	var enviroments := self.objectsOfType(UML::ExecutionEnvironment)->asOrderedSet();
+	// This execution path is useful when running the transformation at development time
+	return enviroments;
+}
+
+
+helper UML::nodes() : Set(UML::Node) {
+	// When running the transformation from the simulation tool, the UML domain must 
+	// contain a single activity at its root 
+	assert warning (self.rootObjects()[UML::Node]->size() < 1) with log ("No single Device instance was found at the root of the UML input model, trying to use the first Activity in the model instead");
+	
+	if (self.rootObjects()[UML::Node]->isEmpty().not()) {
+		log("Nodes found: " + self.rootObjects()[UML::Node]->asOrderedSet()->first().name);
+		return self.rootObjects()[UML::Node]->asOrderedSet();
+	};
+	var nodes := self.objectsOfType(UML::Node)->asOrderedSet();
+	// This execution path is useful when running the transformation at development time
+	return nodes;
+}
+
+
+
+
+

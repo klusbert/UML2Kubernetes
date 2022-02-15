@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:kubernetes_metamodel="http://www.example.org/kubernetesModel" xsi:schemaLocation="http://www.example.org/kubernetesModel ../../kubernetes_meta_model/model/kubernetes_metamodel.ecore">
+  <kubernetes_metamodel:Infrastructure namespace="default" apiVersion="1" name="KubernetesUMLDeplyoment" deployments="/2"/>
+  <kubernetes_metamodel:Infrastructure/>
+  <kubernetes_metamodel:Deployment image="nginx:latest" port="85" replicas="1" enviromentVariables="/3" name="phpMyAdmin"/>
+  <kubernetes_metamodel:EnviromentVariables name="test" value="2342"/>
+</xmi:XMI>
