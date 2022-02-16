@@ -22,8 +22,8 @@
     </profileApplication>
   </uml:Model>
   <KubernetesUMLProfile:Kubernetes xmi:id="_IDnF8H9uEeyXt-NBRolQsA" namespace="default" base_ExecutionEnvironment="_2k7XoH9kEeyXt-NBRolQsA"/>
-  <KubernetesUMLProfile:Deployment xmi:id="_EmswAI5dEeybzOyb5yASWA" base_Node="_8a_zIH9kEeyXt-NBRolQsA" image="nginx:latest" port="85">
-    <environmentVariables xmi:type="KubernetesUMLProfile:EnviromentVariables" xmi:id="_N0nREI5dEeybzOyb5yASWA" name="test" value="2342"/>
+  <KubernetesUMLProfile:Deployment xmi:id="_EmswAI5dEeybzOyb5yASWA" base_Node="_8a_zIH9kEeyXt-NBRolQsA" image="nginx:latest" port="95">
+    <environmentVariables xmi:type="KubernetesUMLProfile:EnviromentVariables" xmi:id="_N0nREI5dEeybzOyb5yASWA" name="test" value="tja"/>
     <accessibility xmi:type="KubernetesUMLProfile:Service" xmi:id="_0HXk4I5eEeybzOyb5yASWA"/>
   </KubernetesUMLProfile:Deployment>
 </xmi:XMI>

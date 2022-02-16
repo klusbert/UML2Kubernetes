@@ -17,6 +17,6 @@ spec:
         - name: phpMyAdmin
           image: nginx:latest
           ports:
-            - containerPort: 85
+            - containerPort: 95
 			
          
