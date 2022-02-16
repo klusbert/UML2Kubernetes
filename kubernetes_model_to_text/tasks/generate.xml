@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="generate" name="kubernetes_model_to_text">
-    <property name="ECLIPSE_HOME" value="../../../../eclipse/modeling-2021-12/eclipse"/>
+    <property name="ECLIPSE_HOME" value="../../../../eclipse/modeling-2021-06/eclipse"/>
     <property name="ECLIPSE_WORKSPACE" value="../../../../eclipse-workspace"/>
 
     <!-- The classpath with only the dependencies used by the project -->
