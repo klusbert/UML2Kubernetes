@@ -2,30 +2,48 @@
 [module generate('http://www.example.org/kubernetesModel')]
 
 
-[template public generateElement(aDeployment : Deployment)]
+[template public generateElement(anInfrastructure : Infrastructure)]
 [comment @main/]
-[file (aDeployment.name, false, 'UTF-8')]
+[file (anInfrastructure.name + '.yml', false, 'UTF-8')]
+---
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: [anInfrastructure.namespace.toLowerCase() /]
+  labels:
+    name: [anInfrastructure.namespace.toLowerCase() /]
+
+[if (anInfrastructure.deployments->notEmpty())]
+	[for (deployment: Deployment | anInfrastructure.deployments)]
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: [aDeployment.name /]
+  name: [deployment.name.toLowerCase() /]
+  namespace: [anInfrastructure.namespace /]
 spec:
-  replicas: [aDeployment.replicas /]
+  replicas: [deployment.replicas /]
   selector:
     matchLabels:
-      app: [aDeployment.name /]
+      app: [deployment.name.toLowerCase() /]
   template:
     metadata:
       labels:
-        app: [aDeployment.name /]
+        app: [deployment.name.toLowerCase() /]
     spec:
       containers:
-        - name: [aDeployment.name /]
-          image: [aDeployment.image /]
+        - name: [deployment.name.toLowerCase() /]
+          image: [deployment.image /]
           ports:
-            - containerPort: [aDeployment.port /]
-			
-         
+            - containerPort: [deployment.port /]
+	 [if (deployment.enviromentVariables->notEmpty())]
+          env:
+          [for (envar: EnviromentVariables | deployment.enviromentVariables)]
+           - name: [envar.name /]
+             value: [envar.value /]
+		  [/for]
+	 [/if]	
+	[/for]
+	[/if]	
 [/file]
 [/template]

@@ -14,13 +14,52 @@ main() {
 (input.rootObjects())[UML::Model]->asOrderedSet()->first().map deployment2infra();
 
 
-input.excutionEnviroment() ->map executionEnviromentToInfra();
+//input.excutionEnviroment() ->map executionEnviromentToInfra();
 input.nodes() -> map nodesToDeployment();
-
+input.dependensies() -> map dependencyToService();
 }
 
+
+mapping UML::Dependency::dependencyToService() : KuberntesMetaModel::Service {
+
+	 
+	var containerInfra := resolveoneIn(UML::NamedElement::deployment2infra);
+	
+
+	var accessibilityStereoType = self.getAccessibility();
+	if(accessibilityStereoType <> null){
+		var isSourceNode := self.source->asSequence()->first().oclIsTypeOf(UML::Node);
+		var isTargetNode := self.target->asSequence()->first().oclIsTypeOf(UML::Node);
+		// check if both source and target is of type node
+		
+	    if( isSourceNode and isTargetNode){
+		 
+		
+		   var port := self.getValue(accessibilityStereoType,"accessPort").oclAsType(Integer);
+		   var publicAccess := self.getValue(accessibilityStereoType,"public").oclAsType(Boolean);
+		   log(port.toString());
+		   containerInfra->deployments->flatten()->asSequence()->forEach(deployment){
+		   	
+		   	
+		   	log("asd");
+		   };
+		   // create a service for the mathcing deployment here..
+		   
+		};
+		
+	};
+	
+}
 mapping UML::NamedElement::deployment2infra() : KuberntesMetaModel::Infrastructure {
 	name := self.name;
+	self->ownedElement->flatten()->asSequence()->forEach(element){
+		if(element.oclIsKindOf(UML::ExecutionEnvironment)){
+			var executionEnv := element.oclAsType(UML::ExecutionEnvironment);
+			var clusterInformation := executionEnv.getClusterInformation();
+			apiVersion := executionEnv.getValue(clusterInformation,"apiVersion").oclAsType(Integer);			
+			namespace := executionEnv.getValue(clusterInformation, "namespace").oclAsType(String);			
+		};
+	};
 }
 
 
@@ -38,19 +77,18 @@ mapping UML::ExecutionEnvironment::executionEnviromentToInfra() : KuberntesMetaM
 
 mapping UML::Node::nodesToDeployment() : KuberntesMetaModel::Deployment {
 	var containerInfra := resolveoneIn(UML::NamedElement::deployment2infra);
-	name := self.name;
+	
 	var deploy := self.getDeployment();
 	if(deploy <> null){
-	
+		result.name := self.name;
 		result.image := self.getImage();
 		result.port := self.getPort();
 		result.replicas := self.getReplicas();
 	
 		result.enviromentVariables += self.getEnviromentVariables();
+	
 		containerInfra.deployments +=result;
-	}
-
-
+	} 
 
 }
 
@@ -122,9 +160,8 @@ helper UML::Node::getImage() : String {
 
 
 helper UML::Node::getDeployment() : UML::Stereotype {
-	self.getAppliedStereotypes() -> forEach(stereot){
-	
-	log("Found Stereotype " + stereot.name + " in " + self.name);
+	self.getAppliedStereotypes() -> forEach(stereot){	
+		log("Found Stereotype " + stereot.name + " in " + self.name);
 	};
 	if (self.isStereotypeApplied(self.getAppliedStereotype("KubernetesUMLProfile::Deployment"))) { 
 		var stereoType = self.getAppliedStereotype("KubernetesUMLProfile::Deployment");
@@ -133,6 +170,16 @@ helper UML::Node::getDeployment() : UML::Stereotype {
 	return null;	
 }
 
+helper UML::Dependency::getAccessibility() : UML::Stereotype {
+	self.getAppliedStereotypes() -> forEach(stereot){	
+		log("Found Stereotype " + stereot.name + " in " + self.name);
+	};
+	if (self.isStereotypeApplied(self.getAppliedStereotype("KubernetesUMLProfile::Accessibility"))) { 
+		var stereoType = self.getAppliedStereotype("KubernetesUMLProfile::Accessibility");
+		return stereoType
+	};
+	return null;	
+}
 
 
 helper UML::excutionEnviroment() : Set(UML::ExecutionEnvironment){
@@ -155,7 +202,9 @@ helper UML::nodes() : Set(UML::Node) {
 	// This execution path is useful when running the transformation at development time
 	return nodes;
 }
-
+helper UML::dependensies() : Set(UML::Dependency){
+	return self.objectsOfType(UML::Dependency);
+}
 
 
 

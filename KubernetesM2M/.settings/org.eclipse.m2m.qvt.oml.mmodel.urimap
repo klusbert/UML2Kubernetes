@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
 <uriMap:MappingContainer xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:uriMap="http:///www.eclipse.org/m2m/qvt/oml/MModelUriMap/1.0.0">
   <mapping sourceURI="http://www.example.org/kubernetesModel" targetURI="platform:/resource/kubernetes_meta_model/model/kubernetes_metamodel.ecore"/>
-  <mapping sourceURI="http://kubernetesProfile" targetURI="platform:/resource/KubernetesUMLProfile/KubernetesUMLProfile.profile.uml#_sqz6cY5jEeybzOyb5yASWA"/>
+  <mapping sourceURI="http://kubernetesProfile" targetURI="platform:/resource/KubernetesUMLProfile/KubernetesUMLProfile.profile.uml#_y7bj4I8nEeyuX4CWyZecqA"/>
 </uriMap:MappingContainer>
