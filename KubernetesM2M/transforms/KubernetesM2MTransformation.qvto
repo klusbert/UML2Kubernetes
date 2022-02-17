@@ -5,6 +5,9 @@ modeltype KuberntesMetaModel uses 'http://www.example.org/kubernetesModel';
 modeltype kuberProfile uses 'http://kubernetesProfile';
 
 
+///https://sdqweb.ipd.kit.edu/wiki/QVT#Global_variables
+
+
 transformation umlDD2cloudInfrastructure(in input : UML, out output : KuberntesMetaModel);
 
 main() {
@@ -14,82 +17,73 @@ main() {
 (input.rootObjects())[UML::Model]->asOrderedSet()->first().map deployment2infra();
 
 
-//input.excutionEnviroment() ->map executionEnviromentToInfra();
 input.nodes() -> map nodesToDeployment();
 input.dependensies() -> map dependencyToService();
 }
 
 
-mapping UML::Dependency::dependencyToService() : KuberntesMetaModel::Service {
-
-	 
+mapping UML::Dependency::dependencyToService() : KuberntesMetaModel::Service 
+	when {
+		//safeguard
+		self.getAccessibility() <> null;
+	}{
 	var containerInfra := resolveoneIn(UML::NamedElement::deployment2infra);
-	
-
 	var accessibilityStereoType = self.getAccessibility();
-	if(accessibilityStereoType <> null){
-		var isSourceNode := self.source->asSequence()->first().oclIsTypeOf(UML::Node);
-		var isTargetNode := self.target->asSequence()->first().oclIsTypeOf(UML::Node);
+
+	var isSourceNode := self.source->asSequence()->first().oclIsTypeOf(UML::Node);
+	var isTargetNode := self.target->asSequence()->first().oclIsTypeOf(UML::Node);
 		// check if both source and target is of type node
 		
-	    if( isSourceNode and isTargetNode){
+	if( isSourceNode and isTargetNode){
 		 
 		
-		   var port := self.getValue(accessibilityStereoType,"accessPort").oclAsType(Integer);
-		   var publicAccess := self.getValue(accessibilityStereoType,"public").oclAsType(Boolean);
-		   log(port.toString());
-		   containerInfra->deployments->flatten()->asSequence()->forEach(deployment){
-		   	
-		   	
-		   	log("asd");
-		   };
+		var port := self.getValue(accessibilityStereoType,"accessPort").oclAsType(Integer);
+		var publicAccess := self.getValue(accessibilityStereoType,"public").oclAsType(Boolean);
+		log(port.toString());
+		containerInfra->deployments->flatten()->asSequence()->forEach(deployment){ 	
+			log("asd");
+		};
 		   // create a service for the mathcing deployment here..
 		   
-		};
+	};
 		
-	};
+	
 	
 }
-mapping UML::NamedElement::deployment2infra() : KuberntesMetaModel::Infrastructure {
+mapping UML::NamedElement::deployment2infra() : KuberntesMetaModel::Infrastructure 
+	when {
+		// should only allow one executionEnviroment..
+		self->ownedElement->flatten()[UML::ExecutionEnvironment]->size() =1;
+	}{
+	
 	name := self.name;
-	self->ownedElement->flatten()->asSequence()->forEach(element){
-		if(element.oclIsKindOf(UML::ExecutionEnvironment)){
-			var executionEnv := element.oclAsType(UML::ExecutionEnvironment);
-			var clusterInformation := executionEnv.getClusterInformation();
-			apiVersion := executionEnv.getValue(clusterInformation,"apiVersion").oclAsType(Integer);			
-			namespace := executionEnv.getValue(clusterInformation, "namespace").oclAsType(String);			
-		};
-	};
-}
-
-
-mapping UML::ExecutionEnvironment::executionEnviromentToInfra() : KuberntesMetaModel::Infrastructure{
-	var containerInfra := resolveoneIn(UML::NamedElement::deployment2infra);
-	var clusterInformation := self.getClusterInformation();
-	containerInfra.apiVersion :=self.getValue(clusterInformation, "apiVersion").oclAsType(Integer);
-	containerInfra.namespace := self.getValue(clusterInformation, "namespace").oclAsType(String);
-
+	var executionEnv := self->ownedElement->flatten()->asSequence()[UML::ExecutionEnvironment]->first();
+	var clusterInformation := executionEnv.getClusterInformation();
+	apiVersion :=executionEnv.getValue(clusterInformation, "apiVersion").oclAsType(Integer);
+	namespace := executionEnv.getValue(clusterInformation, "namespace").oclAsType(String);
 	
 }
 
 
-
-
-mapping UML::Node::nodesToDeployment() : KuberntesMetaModel::Deployment {
+mapping UML::Node::nodesToDeployment() : KuberntesMetaModel::Deployment 
+	when {
+		// a guard to only map nodes that has the stereotype of the Deployment type.
+		self.getDeployment() <> null;
+	}{
 	var containerInfra := resolveoneIn(UML::NamedElement::deployment2infra);
-	
 	var deploy := self.getDeployment();
-	if(deploy <> null){
-		result.name := self.name;
-		result.image := self.getImage();
-		result.port := self.getPort();
-		result.replicas := self.getReplicas();
 	
-		result.enviromentVariables += self.getEnviromentVariables();
-	
-		containerInfra.deployments +=result;
-	} 
 
+	result.name := self.name;
+	result.image := self.getImage();
+	result.port := self.getPort();
+	result.replicas := self.getReplicas();
+	
+	result.enviromentVariables += self.getEnviromentVariables();
+	containerInfra.deployments +=result;
+	
+	
+	
 }
 
 /**
@@ -198,9 +192,12 @@ helper UML::nodes() : Set(UML::Node) {
 		log("Nodes found: " + self.rootObjects()[UML::Node]->asOrderedSet()->first().name);
 		return self.rootObjects()[UML::Node]->asOrderedSet();
 	};
+
 	var nodes := self.objectsOfType(UML::Node)->asOrderedSet();
 	// This execution path is useful when running the transformation at development time
 	return nodes;
+
+
 }
 helper UML::dependensies() : Set(UML::Dependency){
 	return self.objectsOfType(UML::Dependency);

@@ -2,9 +2,8 @@
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:kubernetes_metamodel="http://www.example.org/kubernetesModel" xsi:schemaLocation="http://www.example.org/kubernetesModel ../../kubernetes_meta_model/model/kubernetes_metamodel.ecore">
   <kubernetes_metamodel:Infrastructure namespace="generated" apiVersion="1" name="KubernetesUMLDeplyoment" deployments="/1 /4"/>
   <kubernetes_metamodel:Deployment image="nginx:latest" port="80" replicas="5" enviromentVariables="/2 /3" name="phpMyAdmin"/>
-  <kubernetes_metamodel:EnviromentVariables name="PMA_HOST" value="mysql-svc.default.svc.cluster.local"/>
   <kubernetes_metamodel:EnviromentVariables name="MYSQL_ROOT_PASSWORD" value="password"/>
+  <kubernetes_metamodel:EnviromentVariables name="PMA_HOST" value="mysql-svc.default.svc.cluster.local"/>
   <kubernetes_metamodel:Deployment image="mysql:latest&#xD;&#xA;" port="80" replicas="1" name="Node6"/>
-  <kubernetes_metamodel:Deployment/>
   <kubernetes_metamodel:Service/>
 </xmi:XMI>
