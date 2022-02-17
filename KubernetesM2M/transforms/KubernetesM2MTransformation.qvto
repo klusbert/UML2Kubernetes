@@ -30,6 +30,8 @@ mapping UML::Dependency::dependencyToService() : KuberntesMetaModel::Service
 	var containerInfra := resolveoneIn(UML::NamedElement::deployment2infra);
 	var accessibilityStereoType = self.getAccessibility();
 
+	var target := self.target->asSequence()->first().oclAsType(UML::Node);
+	var source := self.source->asSequence()->first().oclAsType(UML::Node);
 	var isSourceNode := self.source->asSequence()->first().oclIsTypeOf(UML::Node);
 	var isTargetNode := self.target->asSequence()->first().oclIsTypeOf(UML::Node);
 		// check if both source and target is of type node
@@ -40,9 +42,16 @@ mapping UML::Dependency::dependencyToService() : KuberntesMetaModel::Service
 		var port := self.getValue(accessibilityStereoType,"accessPort").oclAsType(Integer);
 		var publicAccess := self.getValue(accessibilityStereoType,"public").oclAsType(Boolean);
 		log(port.toString());
-		containerInfra->deployments->flatten()->asSequence()->forEach(deployment){ 	
-			log("asd");
+		var targetDeployment := resolveIn(UML::Node::nodesToDeployment)->select(d | d.identifier = target.qualifiedName)->first();	
+	
+		var p := source.isOutsider();
+		result.port := targetDeployment.port;
+		result.publicAccess := false;
+
+		if(source.isOutsider()){
+			result.publicAccess := true;
 		};
+		targetDeployment.service := result;
 		   // create a service for the mathcing deployment here..
 		   
 	};
@@ -50,12 +59,17 @@ mapping UML::Dependency::dependencyToService() : KuberntesMetaModel::Service
 	
 	
 }
+
+helper UML::Node::isOutsider() : Boolean{
+	///if not resolved then it is an outsider.	
+    var outSider :=resolveIn(UML::Node::nodesToDeployment)->select(d | d.identifier = self.qualifiedName)->first().oclIsTypeOf(KuberntesMetaModel::Deployment) != true;
+	return outSider;
+}
 mapping UML::NamedElement::deployment2infra() : KuberntesMetaModel::Infrastructure 
 	when {
 		// should only allow one executionEnviroment..
 		self->ownedElement->flatten()[UML::ExecutionEnvironment]->size() =1;
-	}{
-	
+	}{	
 	name := self.name;
 	var executionEnv := self->ownedElement->flatten()->asSequence()[UML::ExecutionEnvironment]->first();
 	var clusterInformation := executionEnv.getClusterInformation();
@@ -78,8 +92,11 @@ mapping UML::Node::nodesToDeployment() : KuberntesMetaModel::Deployment
 	result.image := self.getImage();
 	result.port := self.getPort();
 	result.replicas := self.getReplicas();
-	
+
 	result.enviromentVariables += self.getEnviromentVariables();
+	
+	//use the qualified name as an identifier to later resolv this, qualified name should be unique in each model.
+	result.identifier := self.qualifiedName;
 	containerInfra.deployments +=result;
 	
 	

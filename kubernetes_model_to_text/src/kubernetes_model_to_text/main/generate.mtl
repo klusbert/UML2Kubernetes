@@ -42,8 +42,27 @@ spec:
            - name: [envar.name /]
              value: [envar.value /]
 		  [/for]
-	 [/if]	
+	 [/if]
+	[if (deployment.service->notEmpty())]	
+[for (svc: Service | deployment.service)]
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: [deployment.name.toLowerCase() /]
+  namespace: [anInfrastructure.namespace /]
+spec:
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: [deployment.port /]
+  selector:
+    app: [deployment.name /]
+[/for]
+    [/if]
 	[/for]
-	[/if]	
+[/if]	
+
+
 [/file]
 [/template]

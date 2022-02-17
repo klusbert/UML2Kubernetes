@@ -13,7 +13,7 @@ metadata:
   name: phpmyadmin
   namespace: generated
 spec:
-  replicas: 1
+  replicas: 5
   selector:
     matchLabels:
       app: phpmyadmin
@@ -32,3 +32,53 @@ spec:
              value: password
            - name: PMA_HOST
              value: mysql-svc.default.svc.cluster.local
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: phpmyadmin
+  namespace: generated
+spec:
+  type: LoadBalancer
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+  selector:
+    app: phpMyAdmin
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+  namespace: generated
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+        - name: mysql
+          image: mysql
+          ports:
+            - containerPort: 3336
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+  namespace: generated
+spec:
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 3336
+  selector:
+    app: mysql
+
+
