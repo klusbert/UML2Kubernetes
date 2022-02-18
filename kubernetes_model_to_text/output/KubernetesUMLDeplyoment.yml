@@ -78,6 +78,8 @@ spec:
           env:
             - name: MYSQL_ROOT_PASSWORD
               value: password
+            - name: MYSQL_DATABASE
+              value: wordpress
           volumeMounts:
             - name: mysql-persistent-storage
               mountPath: /var/lib/mysql
@@ -108,6 +110,73 @@ spec:
       targetPort: 3306
   selector:
     app: mysql
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wordpress
+  namespace: generated
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wordpress
+  template:
+    metadata:
+      labels:
+        app: wordpress
+    spec:
+      volumes:
+       - name: wordpress-persistent-storage
+         persistentVolumeClaim:
+           claimName: wordpress-pvc
+      containers:
+        - name: wordpress
+          image: wordpress
+          ports:
+            - containerPort: 80
+          env:
+            - name: WORDPRESS_DB_NAME
+              value: wordpress
+            - name: WORDPRESS_DB_HOST
+              value: mysql.generated.svc.cluster.local
+            - name: WORDPRESS_DB_PASSWORD
+              value: password
+            - name: WORDPRESS_DB_USER
+              value: root
+          volumeMounts:
+            - name: wordpress-persistent-storage
+              mountPath: /var/www/html
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: wordpress-pvc
+  namespace: generated
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: wordpress
+  namespace: generated
+  annotations:
+    service.beta.kubernetes.io/openstack-internal-load-balancer: "false"
+spec:
+  selector:
+    app: wordpress
+  type: LoadBalancer
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
 
 
 
