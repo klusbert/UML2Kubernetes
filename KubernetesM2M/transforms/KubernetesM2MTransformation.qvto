@@ -42,7 +42,8 @@ mapping UML::Dependency::dependencyToService() : KuberntesMetaModel::Service
 		var port := self.getValue(accessibilityStereoType,"accessPort").oclAsType(Integer);
 		var publicAccess := self.getValue(accessibilityStereoType,"public").oclAsType(Boolean);
 		log(port.toString());
-		var targetDeployment := resolveIn(UML::Node::nodesToDeployment)->select(d | d.identifier = target.qualifiedName)->first();	
+
+		var targetDeployment := target.resolveoneIn(UML::Node::nodesToDeployment);
 	
 		var p := source.isOutsider();
 		result.port := targetDeployment.port;
@@ -92,6 +93,7 @@ mapping UML::Node::nodesToDeployment() : KuberntesMetaModel::Deployment
 	result.image := self.getImage();
 	result.port := self.getPort();
 	result.replicas := self.getReplicas();
+	result.dataPersistent := self.getDataPersistent();
 
 	result.enviromentVariables += self.getEnviromentVariables();
 	
@@ -123,6 +125,14 @@ helper UML::Node::getEnviromentVariables() : OrderedSet(EnviromentVariables){
 	    var name := variable.oclAsType(kuberProfile::EnviromentVariables).name;
 	    var value := variable.oclAsType(kuberProfile::EnviromentVariables).value;
 	    var newEnv = new EnviromentVariables();	
+	    
+	    if(value.startsWith("dns")){	    
+	    	var dnsURI := value.replaceAll("dns:","");	   	
+	   		//uri format serviceName.namespace.svc.cluster.local
+	   		var nameSpace := resolveoneIn(UML::NamedElement::deployment2infra).namespace;
+	    
+	    	value := dnsURI + "." + nameSpace +".svc.cluster.local";
+	    };
 		newEnv.name := name;
 	    newEnv.value := value;
 				
@@ -131,6 +141,22 @@ helper UML::Node::getEnviromentVariables() : OrderedSet(EnviromentVariables){
 	return nodeEnviromentVars->asOrderedSet();
 }
 
+helper UML::Node::getDataPersistent() : PersistentData{
+	var stereot := self.getDeployment();
+	var dataPersistent :=	self.getValue(stereot,"dataPersistent");
+	if(dataPersistent <> null){
+		var size := dataPersistent.oclAsType(kuberProfile::PersistentData).sizeInGB;
+		var mountPath := dataPersistent.oclAsType(kuberProfile::PersistentData).mountPath;
+		var pd := new PersistentData();
+		pd.mountPath := mountPath;
+		pd.sizeInGB := size;
+		return pd;
+	
+	};
+
+	
+	return null;
+}
 
 helper UML::Node::getClusterInformation() : UML::Stereotype{
 	self.getAppliedStereotypes() -> forEach(stereot){

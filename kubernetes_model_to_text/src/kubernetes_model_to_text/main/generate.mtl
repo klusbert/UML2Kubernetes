@@ -31,6 +31,12 @@ spec:
       labels:
         app: [deployment.name.toLowerCase() /]
     spec:
+	 [if (deployment.dataPersistent->notEmpty())]
+      volumes:
+       - name: [deployment.name.toLowerCase() +'-persistent-storage'/]
+         persistentVolumeClaim:
+           claimName: [deployment.name.toLowerCase() +'-pvc'/]
+	 [/if]
       containers:
         - name: [deployment.name.toLowerCase() /]
           image: [deployment.image /]
@@ -39,12 +45,48 @@ spec:
 	 [if (deployment.enviromentVariables->notEmpty())]
           env:
           [for (envar: EnviromentVariables | deployment.enviromentVariables)]
-           - name: [envar.name /]
-             value: [envar.value /]
+            - name: [envar.name /]
+              value: [envar.value /]
 		  [/for]
+	 [/if]
+	 [if (deployment.dataPersistent->notEmpty())]        
+          volumeMounts:
+            - name: [deployment.name.toLowerCase() +'-persistent-storage'/]
+              mountPath: [deployment.dataPersistent.mountPath /]
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: [deployment.name.toLowerCase() +'-pvc'/]
+  namespace: [anInfrastructure.namespace /]
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: [deployment.dataPersistent.sizeInGB  +'Gi'/]
 	 [/if]
 	[if (deployment.service->notEmpty())]	
 [for (svc: Service | deployment.service)]
+
+[if (svc.publicAccess)]
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: [deployment.name.toLowerCase() /]
+  namespace: [anInfrastructure.namespace /]
+  annotations:
+    service.beta.kubernetes.io/openstack-internal-load-balancer: "false"
+spec:
+  selector:
+    app: [deployment.name.toLowerCase() /]
+  type: LoadBalancer
+  ports:
+    - name: http
+      port: [svc.port /]
+      targetPort: [deployment.port /]
+[else]
 ---
 apiVersion: v1
 kind: Service
@@ -55,9 +97,12 @@ spec:
   type: ClusterIP
   ports:
     - protocol: TCP
-      port: [deployment.port /]
+      port: [svc.port /]
+      targetPort: [deployment.port /]
   selector:
-    app: [deployment.name /]
+    app: [deployment.name.toLowerCase() /]
+[/if]
+
 [/for]
     [/if]
 	[/for]

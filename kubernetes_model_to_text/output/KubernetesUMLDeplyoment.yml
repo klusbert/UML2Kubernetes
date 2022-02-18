@@ -13,7 +13,7 @@ metadata:
   name: phpmyadmin
   namespace: generated
 spec:
-  replicas: 5
+  replicas: 1
   selector:
     matchLabels:
       app: phpmyadmin
@@ -24,28 +24,32 @@ spec:
     spec:
       containers:
         - name: phpmyadmin
-          image: nginx:latest
+          image: phpmyadmin/phpmyadmin
           ports:
             - containerPort: 80
           env:
-           - name: MYSQL_ROOT_PASSWORD
-             value: password
-           - name: PMA_HOST
-             value: mysql-svc.default.svc.cluster.local
+            - name: PMA_HOST
+              value: mysql.generated.svc.cluster.local
+            - name: MYSQL_ROOT_PASSWORD
+              value: password
+
 ---
-apiVersion: v1
 kind: Service
+apiVersion: v1
 metadata:
   name: phpmyadmin
   namespace: generated
+  annotations:
+    service.beta.kubernetes.io/openstack-internal-load-balancer: "false"
 spec:
+  selector:
+    app: phpmyadmin
   type: LoadBalancer
   ports:
     - name: http
       port: 80
       targetPort: 80
-  selector:
-    app: phpMyAdmin
+
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -62,11 +66,34 @@ spec:
       labels:
         app: mysql
     spec:
+      volumes:
+       - name: mysql-persistent-storage
+         persistentVolumeClaim:
+           claimName: mysql-pvc
       containers:
         - name: mysql
-          image: mysql
+          image: mysql:5.6
           ports:
-            - containerPort: 3336
+            - containerPort: 3306
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: password
+          volumeMounts:
+            - name: mysql-persistent-storage
+              mountPath: /var/lib/mysql
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: mysql-pvc
+  namespace: generated
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 4Gi
+
 ---
 apiVersion: v1
 kind: Service
@@ -77,8 +104,10 @@ spec:
   type: ClusterIP
   ports:
     - protocol: TCP
-      port: 3336
+      port: 3306
+      targetPort: 3306
   selector:
     app: mysql
+
 
 
