@@ -20,7 +20,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: [deployment.name.toLowerCase() /]
-  namespace: [anInfrastructure.namespace /]
+  namespace: [anInfrastructure.namespace.toLowerCase() /]
 spec:
   replicas: [deployment.replicas /]
   selector:
@@ -58,7 +58,7 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: [deployment.name.toLowerCase() +'-pvc'/]
-  namespace: [anInfrastructure.namespace /]
+  namespace: [anInfrastructure.namespace.toLowerCase() /]
 spec:
   accessModes:
     - ReadWriteOnce
@@ -75,7 +75,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: [deployment.name.toLowerCase() /]
-  namespace: [anInfrastructure.namespace /]
+  namespace: [anInfrastructure.namespace.toLowerCase() /]
 spec:
   selector:
     app: [deployment.name.toLowerCase() /]
@@ -90,7 +90,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: [deployment.name.toLowerCase() /]
-  namespace: [anInfrastructure.namespace /]
+  namespace: [anInfrastructure.namespace.toLowerCase() /]
 spec:
   type: ClusterIP
   ports:

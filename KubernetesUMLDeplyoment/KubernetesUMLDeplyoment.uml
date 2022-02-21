@@ -28,7 +28,7 @@
       <appliedProfile xmi:type="uml:Profile" href="../KubernetesUMLProfile/KubernetesUMLProfile.profile.uml#_y3Fe0H9iEeyXt-NBRolQsA"/>
     </profileApplication>
   </uml:Model>
-  <KubernetesUMLProfile:Kubernetes xmi:id="_IDnF8H9uEeyXt-NBRolQsA" namespace="generated" base_ExecutionEnvironment="_2k7XoH9kEeyXt-NBRolQsA"/>
+  <KubernetesUMLProfile:Kubernetes xmi:id="_IDnF8H9uEeyXt-NBRolQsA" namespace="UML" base_ExecutionEnvironment="_2k7XoH9kEeyXt-NBRolQsA"/>
   <KubernetesUMLProfile:Accessibility xmi:id="_Mp5C8I8kEeyInqig3yfUpA" base_Dependency="_T7l2UI8hEeyInqig3yfUpA"/>
   <KubernetesUMLProfile:Accessibility xmi:id="_BFwhEI_XEeykh6AkEb--hQ" base_Dependency="__GmswI_WEeykh6AkEb--hQ"/>
   <KubernetesUMLProfile:Deployment xmi:id="_K6AFcJCfEey5pfBfWsdixw" base_Node="_8a_zIH9kEeyXt-NBRolQsA" image="phpmyadmin/phpmyadmin">

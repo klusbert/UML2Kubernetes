@@ -2,16 +2,16 @@
 kind: Namespace
 apiVersion: v1
 metadata:
-  name: generated
+  name: uml
   labels:
-    name: generated
+    name: uml
 
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: phpmyadmin
-  namespace: generated
+  namespace: uml
 spec:
   replicas: 1
   selector:
@@ -29,7 +29,7 @@ spec:
             - containerPort: 80
           env:
             - name: PMA_HOST
-              value: mysql.generated.svc.cluster.local
+              value: mysql.UML.svc.cluster.local
             - name: MYSQL_ROOT_PASSWORD
               value: password
 
@@ -38,7 +38,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: phpmyadmin
-  namespace: generated
+  namespace: uml
 spec:
   selector:
     app: phpmyadmin
@@ -53,7 +53,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mysql
-  namespace: generated
+  namespace: uml
 spec:
   replicas: 1
   selector:
@@ -74,10 +74,10 @@ spec:
           ports:
             - containerPort: 3306
           env:
-            - name: MYSQL_ROOT_PASSWORD
-              value: password
             - name: MYSQL_DATABASE
               value: wordpress
+            - name: MYSQL_ROOT_PASSWORD
+              value: password
           volumeMounts:
             - name: mysql-persistent-storage
               mountPath: /var/lib/mysql
@@ -86,7 +86,7 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: mysql-pvc
-  namespace: generated
+  namespace: uml
 spec:
   accessModes:
     - ReadWriteOnce
@@ -99,7 +99,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: mysql
-  namespace: generated
+  namespace: uml
 spec:
   type: ClusterIP
   ports:
@@ -114,7 +114,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: wordpress
-  namespace: generated
+  namespace: uml
 spec:
   replicas: 1
   selector:
@@ -137,12 +137,12 @@ spec:
           env:
             - name: WORDPRESS_DB_NAME
               value: wordpress
-            - name: WORDPRESS_DB_HOST
-              value: mysql.generated.svc.cluster.local
-            - name: WORDPRESS_DB_PASSWORD
-              value: password
             - name: WORDPRESS_DB_USER
               value: root
+            - name: WORDPRESS_DB_PASSWORD
+              value: password
+            - name: WORDPRESS_DB_HOST
+              value: mysql.UML.svc.cluster.local
           volumeMounts:
             - name: wordpress-persistent-storage
               mountPath: /var/www/html
@@ -151,7 +151,7 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: wordpress-pvc
-  namespace: generated
+  namespace: uml
 spec:
   accessModes:
     - ReadWriteOnce
@@ -164,7 +164,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: wordpress
-  namespace: generated
+  namespace: uml
 spec:
   selector:
     app: wordpress
