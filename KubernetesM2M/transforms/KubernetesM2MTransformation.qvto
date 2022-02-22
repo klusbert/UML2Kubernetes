@@ -1,8 +1,11 @@
-
+import PrimativeDataTypesHelper;
+import StereoTypeHelper;
+import DeploymentTransformation;
 
 modeltype UML uses 'http://www.eclipse.org/uml2/5.0.0/UML';
 modeltype KuberntesMetaModel uses 'http://www.example.org/kubernetesModel';
 modeltype kuberProfile uses 'http://kubernetesProfile';
+
 
 
 ///https://sdqweb.ipd.kit.edu/wiki/QVT#Global_variables
@@ -15,7 +18,6 @@ main() {
 //Get name of diagram
 
 (input.rootObjects())[UML::Model]->asOrderedSet()->first().map deployment2infra();
-
 
 input.nodes() -> map nodesToDeployment();
 input.dependensies() -> map dependencyToService();
@@ -41,8 +43,7 @@ mapping UML::Dependency::dependencyToService() : KuberntesMetaModel::Service
 		
 		var port := self.getValue(accessibilityStereoType,"accessPort").oclAsType(Integer);
 		var publicAccess := self.getValue(accessibilityStereoType,"public").oclAsType(Boolean);
-		log(port.toString());
-
+	
 		var targetDeployment := target.resolveoneIn(UML::Node::nodesToDeployment);
 	
 		var p := source.isOutsider();
@@ -61,9 +62,11 @@ mapping UML::Dependency::dependencyToService() : KuberntesMetaModel::Service
 	
 }
 
-helper UML::Node::isOutsider() : Boolean{
+helper UML::Node::isOutsider() : Boolean {
 	///if not resolved then it is an outsider.	
-    var outSider :=resolveIn(UML::Node::nodesToDeployment)->select(d | d.identifier = self.qualifiedName)->first().oclIsTypeOf(KuberntesMetaModel::Deployment) != true;
+   // var outSider :=resolveIn(UML::Node::nodesToDeployment)->select(d | d.identifier = self.qualifiedName)->first().oclIsTypeOf(KuberntesMetaModel::Deployment) != true;
+	
+	var outSider := self.resolveIn(UML::Node::nodesToDeployment)->size() = 0;
 	return outSider;
 }
 mapping UML::NamedElement::deployment2infra() : KuberntesMetaModel::Infrastructure 
@@ -92,140 +95,33 @@ mapping UML::NamedElement::deployment2infra() : KuberntesMetaModel::Infrastructu
 mapping UML::Node::nodesToDeployment() : KuberntesMetaModel::Deployment 
 	when {
 		// a guard to only map nodes that has the stereotype of the Deployment type.
-		self.getDeployment() <> null;
+		self.getDeployment() <> null or self.getMysqlStereoType() <> null;
 	}{
 	var containerInfra := resolveoneIn(UML::NamedElement::deployment2infra);
-	var deploy := self.getDeployment();
+	var deploymentStereotype := self.getDeployment();
+	var mysqlStereotype := self.getMysqlStereoType();
 	
-
+	result.namespace := containerInfra.namespace;
+	if(deploymentStereotype <> null){
+		
+		self.deploymentToDeployment(result, deploymentStereotype);
+	};
+	if(mysqlStereotype <> null){
+		self.mysqlToDeployment(result, mysqlStereotype);		
+	};
 	result.name := self.name;
-	result.image := self.getImage();
-	result.port := self.getPort();
-	result.replicas := self.getReplicas();
-	result.dataPersistent := self.getDataPersistent();
-
-	result.enviromentVariables += self.getEnviromentVariables();
 	
-	//use the qualified name as an identifier to later resolv this, qualified name should be unique in each model.
-	result.identifier := self.qualifiedName;
-	containerInfra.deployments +=result;
-	
-	
-	
-}
-
-/**
- This datatype is craeted in KuberntesUMLProfile and  atributes(name and value).
- The variable enviromentVariables can hold zero to many of this data type. 0..* 
-**/
-//helper UML::Node::getEnviromentVariables() : EnviromentVariables{
-//	var test :=	self.getValue(self.getDeployment(),"enviromentVariables").oclAsType(EnviromentVariables);
-	
-//}
-
-
-helper UML::Node::getEnviromentVariables() : OrderedSet(EnviromentVariables){
-	var stereot := self.getDeployment();
-	var environmentVariables :=	self.getValue(stereot,"environmentVariables"); //.oclAsType(KuberProfile2::EnviromentVariables);
-	var nodeEnviromentVars: Set(EnviromentVariables);
-	
-	
-	environmentVariables->flatten()->asSequence()->forEach(variable){		
-	    var name := variable.oclAsType(kuberProfile::EnviromentVariables).name;
-	    var value := variable.oclAsType(kuberProfile::EnviromentVariables).value;
-	    var newEnv = new EnviromentVariables();	
-	    
-	    if(value.startsWith("dns")){	    
-	    	var dnsURI := value.replaceAll("dns:","");	   	
-	   		//uri format serviceName.namespace.svc.cluster.local
-	   		var nameSpace := resolveoneIn(UML::NamedElement::deployment2infra).namespace;
-	    
-	    	value := dnsURI + "." + nameSpace +".svc.cluster.local";
-	    };
-		newEnv.name := name;
-	    newEnv.value := value;
-				
-		nodeEnviromentVars +=newEnv;              
-	};	
-	return nodeEnviromentVars->asOrderedSet();
-}
-
-helper UML::Node::getDataPersistent() : PersistentData{
-	var stereot := self.getDeployment();
-	var dataPersistent :=	self.getValue(stereot,"dataPersistent");
-	if(dataPersistent <> null){
-		var size := dataPersistent.oclAsType(kuberProfile::PersistentData).sizeInGB;
-		var mountPath := dataPersistent.oclAsType(kuberProfile::PersistentData).mountPath;
-		var pd := new PersistentData();
-		pd.mountPath := mountPath;
-		pd.sizeInGB := size;
-		return pd;
-	
-	};
-
-	
-	return null;
-}
-
-helper UML::Node::getClusterInformation() : UML::Stereotype{
-	self.getAppliedStereotypes() -> forEach(stereot){
-	
-	log("Found Stereotype " + stereot.name + " in " + self.name);
-	};
-	if (self.isStereotypeApplied(self.getAppliedStereotype("KubernetesUMLProfile::Kubernetes"))) { 
-		var stereoType = self.getAppliedStereotype("KubernetesUMLProfile::Kubernetes");
-		return stereoType
-	};
-	return null;	
+	containerInfra.deployments += result;
 	
 }
 
 
-helper UML::Node::getReplicas() : Integer {
-
-	if( self.getDeployment() <> null){
-		return self.getValue(self.getDeployment(),"replicas").oclAsType(Integer);
-	};
-	return null;	
-}
-
-helper UML::Node::getPort() : Integer {
-
-	if( self.getDeployment() <> null){
-		return self.getValue(self.getDeployment(),"port").oclAsType(Integer);
-	};
-	return null;	
-}
-helper UML::Node::getImage() : String {
-	if (self.getDeployment() = null) {
-		return null;
-	};
-	var image := self.getValue(self.getDeployment(), "image").oclAsType(String);
-	return image;
-}
 
 
-helper UML::Node::getDeployment() : UML::Stereotype {
-	self.getAppliedStereotypes() -> forEach(stereot){	
-		log("Found Stereotype " + stereot.name + " in " + self.name);
-	};
-	if (self.isStereotypeApplied(self.getAppliedStereotype("KubernetesUMLProfile::Deployment"))) { 
-		var stereoType = self.getAppliedStereotype("KubernetesUMLProfile::Deployment");
-		return stereoType
-	};
-	return null;	
-}
 
-helper UML::Dependency::getAccessibility() : UML::Stereotype {
-	self.getAppliedStereotypes() -> forEach(stereot){	
-		log("Found Stereotype " + stereot.name + " in " + self.name);
-	};
-	if (self.isStereotypeApplied(self.getAppliedStereotype("KubernetesUMLProfile::Accessibility"))) { 
-		var stereoType = self.getAppliedStereotype("KubernetesUMLProfile::Accessibility");
-		return stereoType
-	};
-	return null;	
-}
+
+
+
 
 
 helper UML::excutionEnviroment() : Set(UML::ExecutionEnvironment){
@@ -235,25 +131,23 @@ helper UML::excutionEnviroment() : Set(UML::ExecutionEnvironment){
 }
 
 
+helper UML::dependensies() : Set(UML::Dependency){
+	return self.objectsOfType(UML::Dependency);
+}
+
 helper UML::nodes() : Set(UML::Node) {
-	// When running the transformation from the simulation tool, the UML domain must 
-	// contain a single activity at its root 
-	assert warning (self.rootObjects()[UML::Node]->size() < 1) with log ("No single Device instance was found at the root of the UML input model, trying to use the first Activity in the model instead");
-	
 	if (self.rootObjects()[UML::Node]->isEmpty().not()) {
 		log("Nodes found: " + self.rootObjects()[UML::Node]->asOrderedSet()->first().name);
 		return self.rootObjects()[UML::Node]->asOrderedSet();
 	};
-
 	var nodes := self.objectsOfType(UML::Node)->asOrderedSet();
 	// This execution path is useful when running the transformation at development time
 	return nodes;
+}
 
 
-}
-helper UML::dependensies() : Set(UML::Dependency){
-	return self.objectsOfType(UML::Dependency);
-}
+
+
 
 
 

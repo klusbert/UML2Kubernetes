@@ -1,0 +1,12 @@
+library PrimativeDataTypesHelper;
+modeltype UML uses 'http://www.eclipse.org/uml2/5.0.0/UML';
+
+
+helper UML::Node::getInteger(stereoType : UML::Stereotype, valueName :String) :Integer {
+	return self.getValue(stereoType, valueName).oclAsType(Integer);
+}
+
+helper UML::Node::getString(stereoType : UML::Stereotype, valueName :String) :String {
+	return self.getValue(stereoType, valueName).oclAsType(String);
+}
+

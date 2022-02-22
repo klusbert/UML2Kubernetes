@@ -1,0 +1,39 @@
+library StereoTypeHelper;
+modeltype UML uses 'http://www.eclipse.org/uml2/5.0.0/UML';
+
+
+
+helper UML::Node::getClusterInformation() : UML::Stereotype {
+	if (self.isStereotypeApplied(self.getAppliedStereotype("KubernetesUMLProfile::Kubernetes"))) { 
+		var stereoType = self.getAppliedStereotype("KubernetesUMLProfile::Kubernetes");
+		return stereoType
+	};
+	return null;	
+	
+}
+
+helper UML::Node::getDeployment() : UML::Stereotype {
+	
+	if (self.isStereotypeApplied(self.getAppliedStereotype("KubernetesUMLProfile::Deployment"))) { 
+		var stereoType = self.getAppliedStereotype("KubernetesUMLProfile::Deployment");
+		return stereoType
+	};
+	return null;	
+}
+
+helper UML::Node::getMysqlStereoType() : UML::Stereotype {
+
+	if (self.isStereotypeApplied(self.getAppliedStereotype("KubernetesUMLProfile::MysqlDB"))) { 
+		var stereoType = self.getAppliedStereotype("KubernetesUMLProfile::MysqlDB");
+		return stereoType
+	};
+	return null;	
+}
+
+helper UML::Dependency::getAccessibility() : UML::Stereotype {
+	if (self.isStereotypeApplied(self.getAppliedStereotype("KubernetesUMLProfile::Accessibility"))) { 
+		var stereoType = self.getAppliedStereotype("KubernetesUMLProfile::Accessibility");
+		return stereoType
+	};
+	return null;	
+}

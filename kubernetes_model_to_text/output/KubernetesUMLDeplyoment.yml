@@ -29,7 +29,7 @@ spec:
             - containerPort: 80
           env:
             - name: PMA_HOST
-              value: mysql.UML.svc.cluster.local
+              value: 
             - name: MYSQL_ROOT_PASSWORD
               value: password
 
@@ -42,7 +42,7 @@ metadata:
 spec:
   selector:
     app: phpmyadmin
-  type: NodePort
+  type: LoadBalancer
   ports:
     - name: http
       port: 80
@@ -74,10 +74,10 @@ spec:
           ports:
             - containerPort: 3306
           env:
-            - name: MYSQL_ROOT_PASSWORD
-              value: password
             - name: MYSQL_DATABASE
               value: wordpress
+            - name: MYSQL_ROOT_PASSWORD
+              value: password
           volumeMounts:
             - name: mysql-persistent-storage
               mountPath: /var/lib/mysql
@@ -137,12 +137,12 @@ spec:
           env:
             - name: WORDPRESS_DB_PASSWORD
               value: password
-            - name: WORDPRESS_DB_HOST
-              value: mysql.UML.svc.cluster.local
-            - name: WORDPRESS_DB_NAME
-              value: wordpress
             - name: WORDPRESS_DB_USER
               value: root
+            - name: WORDPRESS_DB_NAME
+              value: wordpress
+            - name: WORDPRESS_DB_HOST
+              value: 
           volumeMounts:
             - name: wordpress-persistent-storage
               mountPath: /var/www/html
@@ -168,11 +168,72 @@ metadata:
 spec:
   selector:
     app: wordpress
-  type: NodePort
+  type: LoadBalancer
   ports:
     - name: http
       port: 80
       targetPort: 80
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysqlmeta
+  namespace: uml
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysqlmeta
+  template:
+    metadata:
+      labels:
+        app: mysqlmeta
+    spec:
+      volumes:
+       - name: mysqlmeta-persistent-storage
+         persistentVolumeClaim:
+           claimName: mysqlmeta-pvc
+      containers:
+        - name: mysqlmeta
+          image: mysql:8.0.28
+          ports:
+            - containerPort: 3306
+          env:
+            - name: MYSQL_DATABASE
+              value: wordpress
+            - name: MYSQL_ROOT_PASSWORD
+              value: password
+          volumeMounts:
+            - name: mysqlmeta-persistent-storage
+              mountPath: /var/lib/mysql
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: mysqlmeta-pvc
+  namespace: uml
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysqlmeta
+  namespace: uml
+spec:
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 3306
+      targetPort: 3306
+  selector:
+    app: mysqlmeta
 
 
 

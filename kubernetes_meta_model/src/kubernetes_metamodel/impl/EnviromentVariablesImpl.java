@@ -75,6 +75,11 @@ public class EnviromentVariablesImpl extends MinimalEObjectImpl.Container implem
 	protected EnviromentVariablesImpl() {
 		super();
 	}
+	protected EnviromentVariablesImpl(String name, String value) {
+		super();
+		this.name = name;
+		this.value = value;
+	}
 
 	/**
 	 * <!-- begin-user-doc -->

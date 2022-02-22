@@ -66,6 +66,7 @@ public interface EnviromentVariables extends EObject {
 	 */
 	void setValue(String value);
 	
+
 	
 
 
