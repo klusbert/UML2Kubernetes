@@ -74,9 +74,18 @@ mapping UML::NamedElement::deployment2infra() : KuberntesMetaModel::Infrastructu
 	name := self.name;
 	var executionEnv := self->ownedElement->flatten()->asSequence()[UML::ExecutionEnvironment]->first();
 	var clusterInformation := executionEnv.getClusterInformation();
+
+	var enums := executionEnv.getValue(clusterInformation, "accessibilityType").oclAsType(EnumerationLiteral).specification.oclAsType(LiteralInteger).value;
 	apiVersion :=executionEnv.getValue(clusterInformation, "apiVersion").oclAsType(Integer);
 	namespace := executionEnv.getValue(clusterInformation, "namespace").oclAsType(String);
-	
+
+	if(enums = 0){
+		accessibilityType := KuberntesMetaModel::AccessibilityType::NodePort;
+	};
+	if(enums = 1){
+		accessibilityType := KuberntesMetaModel::AccessibilityType::LoadBalancer;
+	};
+		
 }
 
 

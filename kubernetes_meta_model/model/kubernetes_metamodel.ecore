@@ -9,6 +9,7 @@
         defaultValueLiteral="Kubernetes"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="deployments" upperBound="-1"
         eType="#//Deployment"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="accessibilityType" eType="#//AccessibilityType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Deployment">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="image" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -32,5 +33,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="PersistentData">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mountPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sizeInGB" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="AccessibilityType">
+    <eLiterals name="NodePort"/>
+    <eLiterals name="LoadBalancer" value="1"/>
   </eClassifiers>
 </ecore:EPackage>
