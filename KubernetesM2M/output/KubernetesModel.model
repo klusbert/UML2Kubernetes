@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:kubernetes_metamodel="http://www.example.org/kubernetesModel" xsi:schemaLocation="http://www.example.org/kubernetesModel ../../kubernetes_meta_model/model/kubernetes_metamodel.ecore">
-  <kubernetes_metamodel:Infrastructure namespace="UML" apiVersion="1" name="KubernetesUMLDeplyoment" deployments="/1 /4 /8" accessibilityType="LoadBalancer"/>
+  <kubernetes_metamodel:Infrastructure namespace="UML" apiVersion="1" name="KubernetesUMLDeplyoment" deployments="/1 /4 /8"/>
   <kubernetes_metamodel:Deployment image="phpmyadmin/phpmyadmin" port="80" replicas="1" enviromentVariables="/2 /3" name="phpMyAdmin" service="/14" identifier="KubernetesUMLDeplyoment::ExecutionEnvironment::phpMyAdmin"/>
-  <kubernetes_metamodel:EnviromentVariables/>
-  <kubernetes_metamodel:EnviromentVariables/>
+  <kubernetes_metamodel:EnviromentVariables name="PMA_HOST" value="mysql.UML.svc.cluster.local"/>
+  <kubernetes_metamodel:EnviromentVariables name="MYSQL_ROOT_PASSWORD" value="password"/>
   <kubernetes_metamodel:Deployment image="mysql:5.6" port="3306" replicas="1" enviromentVariables="/7 /6" name="mysql" service="/15" identifier="KubernetesUMLDeplyoment::ExecutionEnvironment::mysql" dataPersistent="/5"/>
-  <kubernetes_metamodel:PersistentData/>
-  <kubernetes_metamodel:EnviromentVariables/>
-  <kubernetes_metamodel:EnviromentVariables/>
-  <kubernetes_metamodel:Deployment image="wordpress" port="80" replicas="1" enviromentVariables="/12 /10 /13 /11" name="wordpress" service="/16" identifier="KubernetesUMLDeplyoment::ExecutionEnvironment::wordpress" dataPersistent="/9"/>
-  <kubernetes_metamodel:PersistentData/>
-  <kubernetes_metamodel:EnviromentVariables/>
-  <kubernetes_metamodel:EnviromentVariables/>
-  <kubernetes_metamodel:EnviromentVariables/>
-  <kubernetes_metamodel:EnviromentVariables/>
+  <kubernetes_metamodel:PersistentData mountPath="/var/lib/mysql" sizeInGB="4"/>
+  <kubernetes_metamodel:EnviromentVariables name="MYSQL_DATABASE" value="wordpress"/>
+  <kubernetes_metamodel:EnviromentVariables name="MYSQL_ROOT_PASSWORD" value="password"/>
+  <kubernetes_metamodel:Deployment image="wordpress" port="80" replicas="1" enviromentVariables="/12 /13 /10 /11" name="wordpress" service="/16" identifier="KubernetesUMLDeplyoment::ExecutionEnvironment::wordpress" dataPersistent="/9"/>
+  <kubernetes_metamodel:PersistentData mountPath="/var/www/html" sizeInGB="5"/>
+  <kubernetes_metamodel:EnviromentVariables name="WORDPRESS_DB_NAME" value="wordpress"/>
+  <kubernetes_metamodel:EnviromentVariables name="WORDPRESS_DB_USER" value="root"/>
+  <kubernetes_metamodel:EnviromentVariables name="WORDPRESS_DB_PASSWORD" value="password"/>
+  <kubernetes_metamodel:EnviromentVariables name="WORDPRESS_DB_HOST" value="mysql.UML.svc.cluster.local"/>
   <kubernetes_metamodel:Service port="80" publicAccess="true"/>
   <kubernetes_metamodel:Service port="3306"/>
   <kubernetes_metamodel:Service port="80" publicAccess="true"/>

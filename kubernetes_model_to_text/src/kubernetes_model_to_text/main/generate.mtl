@@ -79,7 +79,7 @@ metadata:
 spec:
   selector:
     app: [deployment.name.toLowerCase() /]
-  type: LoadBalancer
+  type: [anInfrastructure.accessibilityType /]
   ports:
     - name: http
       port: [svc.port /]
