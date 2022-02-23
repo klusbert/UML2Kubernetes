@@ -10,3 +10,7 @@ helper UML::Node::getString(stereoType : UML::Stereotype, valueName :String) :St
 	return self.getValue(stereoType, valueName).oclAsType(String);
 }
 
+
+helper UML::Dependency::getInteger(stereoType : UML::Stereotype, valueName :String) :Integer {
+	return self.getValue(stereoType, valueName).oclAsType(Integer);
+}

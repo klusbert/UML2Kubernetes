@@ -21,6 +21,14 @@ helper UML::Node::getDeployment() : UML::Stereotype {
 	return null;	
 }
 
+helper UML::Node::getMongoStereoType(): UML::Stereotype {
+	if (self.isStereotypeApplied(self.getAppliedStereotype("KubernetesUMLProfile::MongoDB"))) { 
+		var stereoType = self.getAppliedStereotype("KubernetesUMLProfile::MongoDB");
+		return stereoType
+	};
+	return null;	
+	
+}
 helper UML::Node::getMysqlStereoType() : UML::Stereotype {
 
 	if (self.isStereotypeApplied(self.getAppliedStereotype("KubernetesUMLProfile::MysqlDB"))) { 

@@ -42,8 +42,7 @@ mapping UML::Dependency::dependencyToService() : KuberntesMetaModel::Service
 		 
 		
 		var port := self.getValue(accessibilityStereoType,"accessPort").oclAsType(Integer);
-		var publicAccess := self.getValue(accessibilityStereoType,"public").oclAsType(Boolean);
-	
+		
 		var targetDeployment := target.resolveoneIn(UML::Node::nodesToDeployment);
 	
 		var p := source.isOutsider();
@@ -52,6 +51,7 @@ mapping UML::Dependency::dependencyToService() : KuberntesMetaModel::Service
 
 		if(source.isOutsider()){
 			result.publicAccess := true;
+			result.port := port;
 		};
 		targetDeployment.service := result;
 		   // create a service for the mathcing deployment here..
@@ -95,19 +95,23 @@ mapping UML::NamedElement::deployment2infra() : KuberntesMetaModel::Infrastructu
 mapping UML::Node::nodesToDeployment() : KuberntesMetaModel::Deployment 
 	when {
 		// a guard to only map nodes that has the stereotype of the Deployment type.
-		self.getDeployment() <> null or self.getMysqlStereoType() <> null;
+		self.getDeployment() <> null or self.getMysqlStereoType() <> null or self.getMongoStereoType() <> null;
 	}{
 	var containerInfra := resolveoneIn(UML::NamedElement::deployment2infra);
 	var deploymentStereotype := self.getDeployment();
 	var mysqlStereotype := self.getMysqlStereoType();
+	var mongoStereotype := self.getMongoStereoType();
 	
 	result.namespace := containerInfra.namespace;
 	if(deploymentStereotype <> null){
 		
-		self.deploymentToDeployment(result, deploymentStereotype);
+		self.deploymentToDeployment(result, deploymentStereotype,containerInfra.namespace);
 	};
 	if(mysqlStereotype <> null){
 		self.mysqlToDeployment(result, mysqlStereotype);		
+	};
+	if(mongoStereotype<> null){
+		self.mongoToDeployment(result, mongoStereotype);
 	};
 	result.name := self.name;
 	

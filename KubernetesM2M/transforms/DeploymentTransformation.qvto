@@ -33,17 +33,39 @@ helper UML::Node::mysqlToDeployment(inout deployment : KuberntesMetaModel::Deplo
 		deployment.enviromentVariables += rootPassword;
 		
 }
+helper UML::Node::mongoToDeployment(inout deployment : KuberntesMetaModel::Deployment, in mongoStereotype :UML::Stereotype )  {
+	deployment.port := 27017;
+	deployment.replicas := 1;
+	deployment.image := "mongo";
+	var pvc := new PersistentData();
+	pvc.mountPath := "/data/db";
+	pvc.sizeInGB := self.getInteger(mongoStereotype,"storageSizeInGB");		
+	deployment.dataPersistent := pvc;
+	
+	var rootUser := new EnviromentVariables();
+	rootUser.name :="MONGO_INITDB_ROOT_USERNAME";
+	rootUser.value := "root";	
+	
+	
+	var rootPassword := new EnviromentVariables();
+	rootPassword.name :="MONGO_INITDB_ROOT_PASSWORD";
+	rootPassword.value := self.getString(mongoStereotype, "rootPassword");		
+	
+	deployment.enviromentVariables += rootUser;
+	deployment.enviromentVariables += rootPassword;
+}
 
-helper UML::Node::deploymentToDeployment(inout deployment: KuberntesMetaModel::Deployment, in deploymentStereoType : UML::Stereotype){
+
+helper UML::Node::deploymentToDeployment(inout deployment: KuberntesMetaModel::Deployment, in deploymentStereoType : UML::Stereotype, in namespace : String){
 	    deployment.image := self.getString(deploymentStereoType,"image");
 	    deployment.port := self.getInteger(deploymentStereoType,"port");
 	    deployment.replicas := self.getInteger(deploymentStereoType,"replicas");
 	    
 	    deployment.dataPersistent := self.getDataPersistent(deploymentStereoType);
-	    deployment.enviromentVariables += self.getEnviromentVariables(deploymentStereoType);
+	    deployment.enviromentVariables += self.getEnviromentVariables(deploymentStereoType, namespace);
 }
 
-helper UML::Node::getEnviromentVariables(in deploymentStereoType : UML::Stereotype) : OrderedSet(EnviromentVariables){
+helper UML::Node::getEnviromentVariables(in deploymentStereoType : UML::Stereotype, in namespace :String) : OrderedSet(EnviromentVariables){
 
 	var environmentVariables :=	self.getValue(deploymentStereoType,"environmentVariables"); //.oclAsType(KuberProfile2::EnviromentVariables);
 	var nodeEnviromentVars: Set(EnviromentVariables);
@@ -53,14 +75,13 @@ helper UML::Node::getEnviromentVariables(in deploymentStereoType : UML::Stereoty
 	    var name := variable.oclAsType(kuberProfile::EnviromentVariables).name;
 	    var value := variable.oclAsType(kuberProfile::EnviromentVariables).value;
 	    var newEnv = new EnviromentVariables();	
-	    
-	    if(value.startsWith("dns")){	    
-	    	var dnsURI := value.replaceAll("dns:","");	   	
-	   		//uri format serviceName.namespace.svc.cluster.local
-	   		var nameSpace := self.getString(deploymentStereoType,"namespace");
-	    
-	    	value := dnsURI + "." + nameSpace.toLower() +".svc.cluster.local";
+	  
+	    if(value.indexOf("$dns") > 0){	    
+	
+	       value := value.replace("$dns",namespace.toLower() +".svc.cluster.local");	    
+		   log(value);
 	    };
+	
 		newEnv.name := name;
 	    newEnv.value := value;
 				

@@ -6,17 +6,18 @@
     </packageImport>
     <packagedElement xmi:type="uml:ExecutionEnvironment" xmi:id="_2k7XoH9kEeyXt-NBRolQsA" name="ExecutionEnvironment">
       <nestedClassifier xmi:type="uml:Node" xmi:id="_8a_zIH9kEeyXt-NBRolQsA" name="phpMyAdmin"/>
-      <nestedClassifier xmi:type="uml:Node" xmi:id="_SPBtMI8pEeyuX4CWyZecqA" name="mysql"/>
       <nestedClassifier xmi:type="uml:Node" xmi:id="_NFM8QJCgEey5pfBfWsdixw" name="wordpress"/>
-      <nestedClassifier xmi:type="uml:Node" xmi:id="_7fKhUJPOEey2Ou4iQ3wOyw" name="mysqlMeta"/>
+      <nestedClassifier xmi:type="uml:Node" xmi:id="_7fKhUJPOEey2Ou4iQ3wOyw" name="mysql"/>
+      <nestedClassifier xmi:type="uml:Node" xmi:id="_R_8t8JSQEeykRpNdXmxuDg" name="mongo"/>
+      <nestedClassifier xmi:type="uml:Node" xmi:id="_ZN3GIJSQEeykRpNdXmxuDg" name="mongoExpress"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Node" xmi:id="_TSIpoI8hEeyInqig3yfUpA" name="OutSider"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_T7l2UI8hEeyInqig3yfUpA" client="_TSIpoI8hEeyInqig3yfUpA" supplier="_8a_zIH9kEeyXt-NBRolQsA"/>
-    <packagedElement xmi:type="uml:Dependency" xmi:id="__GmswI_WEeykh6AkEb--hQ" client="_8a_zIH9kEeyXt-NBRolQsA" supplier="_SPBtMI8pEeyuX4CWyZecqA"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_js_ogJCgEey5pfBfWsdixw" client="_TSIpoI8hEeyInqig3yfUpA" supplier="_NFM8QJCgEey5pfBfWsdixw"/>
-    <packagedElement xmi:type="uml:Dependency" xmi:id="_m5pKsJCgEey5pfBfWsdixw" client="_NFM8QJCgEey5pfBfWsdixw" supplier="_SPBtMI8pEeyuX4CWyZecqA"/>
-    <packagedElement xmi:type="uml:Dependency" xmi:id="_wX9Z0JPCEeyLtIodG-cZNg" client="_TSIpoI8hEeyInqig3yfUpA" supplier="_8a_zIH9kEeyXt-NBRolQsA"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_L4NgcJPcEey3r5-Agv9zqQ" client="_NFM8QJCgEey5pfBfWsdixw" supplier="_7fKhUJPOEey2Ou4iQ3wOyw"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_9I3joJSKEeykRpNdXmxuDg" client="_8a_zIH9kEeyXt-NBRolQsA" supplier="_7fKhUJPOEey2Ou4iQ3wOyw"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_C52moJSSEeykRpNdXmxuDg" client="_ZN3GIJSQEeykRpNdXmxuDg" supplier="_R_8t8JSQEeykRpNdXmxuDg"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_DxFwoJSSEeykRpNdXmxuDg" client="_TSIpoI8hEeyInqig3yfUpA" supplier="_ZN3GIJSQEeykRpNdXmxuDg"/>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_ogP78H9kEeyXt-NBRolQsA">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_wUKVkJPbEey3r5-Agv9zqQ" source="PapyrusVersion">
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_wUKVkZPbEey3r5-Agv9zqQ" key="Version" value="0.0.97"/>
@@ -33,25 +34,26 @@
   </uml:Model>
   <KubernetesUMLProfile:Kubernetes xmi:id="_IDnF8H9uEeyXt-NBRolQsA" namespace="UML" base_ExecutionEnvironment="_2k7XoH9kEeyXt-NBRolQsA"/>
   <KubernetesUMLProfile:Accessibility xmi:id="_Mp5C8I8kEeyInqig3yfUpA" base_Dependency="_T7l2UI8hEeyInqig3yfUpA"/>
-  <KubernetesUMLProfile:Accessibility xmi:id="_BFwhEI_XEeykh6AkEb--hQ" base_Dependency="__GmswI_WEeykh6AkEb--hQ"/>
   <KubernetesUMLProfile:Deployment xmi:id="_K6AFcJCfEey5pfBfWsdixw" base_Node="_8a_zIH9kEeyXt-NBRolQsA" image="phpmyadmin/phpmyadmin">
     <environmentVariables xmi:type="KubernetesUMLProfile:EnviromentVariables" xmi:id="_OGX60JCfEey5pfBfWsdixw" name="MYSQL_ROOT_PASSWORD" value="password"/>
-    <environmentVariables xmi:type="KubernetesUMLProfile:EnviromentVariables" xmi:id="_O2kBoJCfEey5pfBfWsdixw" name="PMA_HOST" value="dns:mysql"/>
-  </KubernetesUMLProfile:Deployment>
-  <KubernetesUMLProfile:Deployment xmi:id="_SuZ14JCfEey5pfBfWsdixw" base_Node="_SPBtMI8pEeyuX4CWyZecqA" image="mysql:5.6" port="3306">
-    <environmentVariables xmi:type="KubernetesUMLProfile:EnviromentVariables" xmi:id="_XnnnkJCfEey5pfBfWsdixw" name="MYSQL_ROOT_PASSWORD" value="password"/>
-    <environmentVariables xmi:type="KubernetesUMLProfile:EnviromentVariables" xmi:id="__VQ6IJCiEey5pfBfWsdixw" name="MYSQL_DATABASE" value="wordpress"/>
-    <dataPersistent xmi:type="KubernetesUMLProfile:PersistentData" xmi:id="_ahG9MJCfEey5pfBfWsdixw" sizeInGB="4"/>
+    <environmentVariables xmi:type="KubernetesUMLProfile:EnviromentVariables" xmi:id="_O2kBoJCfEey5pfBfWsdixw" name="PMA_HOST" value="mysql.$dns"/>
   </KubernetesUMLProfile:Deployment>
   <KubernetesUMLProfile:Deployment xmi:id="_OZpmsJCgEey5pfBfWsdixw" base_Node="_NFM8QJCgEey5pfBfWsdixw" image="wordpress">
-    <environmentVariables xmi:type="KubernetesUMLProfile:EnviromentVariables" xmi:id="_VVeJUJCgEey5pfBfWsdixw" name="WORDPRESS_DB_HOST" value="dns:mysql"/>
+    <environmentVariables xmi:type="KubernetesUMLProfile:EnviromentVariables" xmi:id="_VVeJUJCgEey5pfBfWsdixw" name="WORDPRESS_DB_HOST" value="mysql.$dns"/>
     <environmentVariables xmi:type="KubernetesUMLProfile:EnviromentVariables" xmi:id="_WhoacJCgEey5pfBfWsdixw" name="WORDPRESS_DB_USER" value="root"/>
     <environmentVariables xmi:type="KubernetesUMLProfile:EnviromentVariables" xmi:id="_Xy2xwJCgEey5pfBfWsdixw" name="WORDPRESS_DB_NAME" value="wordpress"/>
     <environmentVariables xmi:type="KubernetesUMLProfile:EnviromentVariables" xmi:id="_Z4awEJCgEey5pfBfWsdixw" name="WORDPRESS_DB_PASSWORD" value="password"/>
     <dataPersistent xmi:type="KubernetesUMLProfile:PersistentData" xmi:id="_gRP6YJCgEey5pfBfWsdixw" sizeInGB="5" mountPath="/var/www/html"/>
   </KubernetesUMLProfile:Deployment>
   <KubernetesUMLProfile:Accessibility xmi:id="_k54SYJCgEey5pfBfWsdixw" base_Dependency="_js_ogJCgEey5pfBfWsdixw"/>
-  <KubernetesUMLProfile:Ingress xmi:id="_3JNEIJPCEeyLtIodG-cZNg" base_Dependency="_wX9Z0JPCEeyLtIodG-cZNg"/>
   <KubernetesUMLProfile:MysqlDB xmi:id="_-O-WgJPOEey2Ou4iQ3wOyw" base_Node="_7fKhUJPOEey2Ou4iQ3wOyw" storageSizeInGB="5"/>
   <KubernetesUMLProfile:Accessibility xmi:id="_M8fA4JPcEey3r5-Agv9zqQ" base_Dependency="_L4NgcJPcEey3r5-Agv9zqQ"/>
+  <KubernetesUMLProfile:MongoDB xmi:id="_Uxx8YJSQEeykRpNdXmxuDg" base_Node="_R_8t8JSQEeykRpNdXmxuDg"/>
+  <KubernetesUMLProfile:Deployment xmi:id="_bEBWgJSQEeykRpNdXmxuDg" base_Node="_ZN3GIJSQEeykRpNdXmxuDg" image="mongo-express" port="8081">
+    <environmentVariables xmi:type="KubernetesUMLProfile:EnviromentVariables" xmi:id="_iA5CAJSQEeykRpNdXmxuDg" name="ME_CONFIG_MONGODB_ADMINUSERNAME" value="root"/>
+    <environmentVariables xmi:type="KubernetesUMLProfile:EnviromentVariables" xmi:id="_jV5tIJSQEeykRpNdXmxuDg" name="ME_CONFIG_MONGODB_ADMINPASSWORD" value="password"/>
+    <environmentVariables xmi:type="KubernetesUMLProfile:EnviromentVariables" xmi:id="_oNhjYJSQEeykRpNdXmxuDg" name="ME_CONFIG_MONGODB_URL" value="mongodb://root:password@mongo.$dns:27017/"/>
+  </KubernetesUMLProfile:Deployment>
+  <KubernetesUMLProfile:Accessibility xmi:id="_EiO5sJSSEeykRpNdXmxuDg" base_Dependency="_DxFwoJSSEeykRpNdXmxuDg"/>
+  <KubernetesUMLProfile:Accessibility xmi:id="_FS2eUJSSEeykRpNdXmxuDg" base_Dependency="_C52moJSSEeykRpNdXmxuDg"/>
 </xmi:XMI>
