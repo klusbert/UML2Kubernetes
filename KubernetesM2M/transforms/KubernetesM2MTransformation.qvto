@@ -21,9 +21,35 @@ main() {
 
 input.nodes() -> map nodesToDeployment();
 input.dependensies() -> map dependencyToService();
+input.dependensies() -> map dependencyToIngreess();
+
+
 }
 
 
+mapping UML::Dependency::dependencyToIngreess() : KuberntesMetaModel::Ingress
+	when {
+		//safeguard
+		self.getIngress() <> null;
+	}{
+		
+	var ingress := self.getIngress();
+	var target := self.target->asSequence()->first().oclAsType(UML::Node);
+	var targetDeployment := target.resolveoneIn(UML::Node::nodesToDeployment);
+	
+	var clusterIP := new KuberntesMetaModel::Service();
+	
+	clusterIP.port := targetDeployment.port;
+	clusterIP.publicAccess:= false;
+	
+	targetDeployment.service := clusterIP;
+	log("asd");
+	
+	
+	
+	
+	
+}
 mapping UML::Dependency::dependencyToService() : KuberntesMetaModel::Service 
 	when {
 		//safeguard
@@ -31,6 +57,7 @@ mapping UML::Dependency::dependencyToService() : KuberntesMetaModel::Service
 	}{
 	var containerInfra := resolveoneIn(UML::NamedElement::deployment2infra);
 	var accessibilityStereoType = self.getAccessibility();
+	
 
 	var target := self.target->asSequence()->first().oclAsType(UML::Node);
 	var source := self.source->asSequence()->first().oclAsType(UML::Node);
@@ -48,11 +75,13 @@ mapping UML::Dependency::dependencyToService() : KuberntesMetaModel::Service
 		var p := source.isOutsider();
 		result.port := targetDeployment.port;
 		result.publicAccess := false;
-
+		result.name := "svc-" +targetDeployment.name;
 		if(source.isOutsider()){
 			result.publicAccess := true;
 			result.port := port;
+		
 		};
+	
 		targetDeployment.service := result;
 		   // create a service for the mathcing deployment here..
 		   

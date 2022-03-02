@@ -74,7 +74,7 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: [deployment.name.toLowerCase() /]
+  name: [svc.name.toLowerCase() /]
   namespace: [anInfrastructure.namespace.toLowerCase() /]
 spec:
   selector:
@@ -101,10 +101,20 @@ spec:
     app: [deployment.name.toLowerCase() /]
 [/if]
 
+
 [/for]
     [/if]
+
+
+[if (deployment.ingress->notEmpty())]
+asd
+[/if]
+
 	[/for]
 [/if]	
+
+
+
 
 
 [/file]

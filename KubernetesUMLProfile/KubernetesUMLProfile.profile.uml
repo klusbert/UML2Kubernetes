@@ -8,6 +8,601 @@
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_eaUDNH9jEeyXt-NBRolQsA" key="Date" value=""/>
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_eaUDNX9jEeyXt-NBRolQsA" key="Author" value="&lt;undefined>"/>
     </eAnnotations>
+    <contents xmi:type="ecore:EPackage" xmi:id="_WGiBgZZAEey8KYCO0o_h7Q" name="KubernetesUMLProfile" nsURI="http:///schemas/KubernetesUMLProfile/_WGiBgJZAEey8KYCO0o_h7Q/101" nsPrefix="KubernetesUMLProfile">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_WGjPoZZAEey8KYCO0o_h7Q" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_WGjPopZAEey8KYCO0o_h7Q" key="Version" value="0.0.102"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_WGjPo5ZAEey8KYCO0o_h7Q" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_WGjPpJZAEey8KYCO0o_h7Q" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_WGjPpZZAEey8KYCO0o_h7Q" key="Date" value="2022-02-25"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_WGjPppZAEey8KYCO0o_h7Q" key="Author" value=""/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_WGiBgpZAEey8KYCO0o_h7Q" name="Deployment">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_WGiBg5ZAEey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_e17oMH9jEeyXt-NBRolQsA"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_WGiBhJZAEey8KYCO0o_h7Q" name="base_Node" ordered="false">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Node"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_WGiBhpZAEey8KYCO0o_h7Q" name="image" ordered="false" lowerBound="1" defaultValueLiteral="nginx:latest">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_WGiBiJZAEey8KYCO0o_h7Q" name="environmentVariables" ordered="false" upperBound="-1" eType="_WGioyZZAEey8KYCO0o_h7Q" containment="true"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_WGiBipZAEey8KYCO0o_h7Q" name="port" ordered="false" lowerBound="1" defaultValueLiteral="80">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//Integer"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_WGiBjJZAEey8KYCO0o_h7Q" name="replicas" ordered="false" lowerBound="1" defaultValueLiteral="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//Integer"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_WGiokZZAEey8KYCO0o_h7Q" name="dataPersistent" ordered="false" lowerBound="1" eType="_WGiow5ZAEey8KYCO0o_h7Q" containment="true"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_WGiok5ZAEey8KYCO0o_h7Q" name="Kubernetes">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_WGiolJZAEey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_2Z7TcH9iEeyXt-NBRolQsA"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_WGiolZZAEey8KYCO0o_h7Q" name="namespace" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_WGiol5ZAEey8KYCO0o_h7Q" name="base_ExecutionEnvironment" ordered="false">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//ExecutionEnvironment"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_WGiomZZAEey8KYCO0o_h7Q" name="apiVersion" ordered="false" lowerBound="1" defaultValueLiteral="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//Integer"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_WGiom5ZAEey8KYCO0o_h7Q" name="accessibilityType" ordered="false" lowerBound="1" eType="_WGio0ZZAEey8KYCO0o_h7Q" defaultValueLiteral="LoadBalancer"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_WGionZZAEey8KYCO0o_h7Q" name="Accessibility">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_WGionpZAEey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_3gJpEI8jEeyInqig3yfUpA"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_WGion5ZAEey8KYCO0o_h7Q" name="accessPort" ordered="false" lowerBound="1" defaultValueLiteral="80">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//Integer"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_WGiooZZAEey8KYCO0o_h7Q" name="base_Dependency" ordered="false">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Dependency"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_WGioo5ZAEey8KYCO0o_h7Q" name="Database" abstract="true">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_WGiopJZAEey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_8fzlIJOxEeyQ3Kv72a2BVw"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_WGiopZZAEey8KYCO0o_h7Q" name="base_Node" ordered="false">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Node"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_WGiop5ZAEey8KYCO0o_h7Q" name="storageSizeInGB" ordered="false" lowerBound="1" defaultValueLiteral="3">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//Integer"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_WGioqZZAEey8KYCO0o_h7Q" name="rootPassword" ordered="false" lowerBound="1" defaultValueLiteral="password">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_WGioq5ZAEey8KYCO0o_h7Q" name="DatabaseUser">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_WGiorJZAEey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_LgA08JOyEeyQ3Kv72a2BVw"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_WGiorZZAEey8KYCO0o_h7Q" name="name" ordered="false" lowerBound="1" defaultValueLiteral="databaseUser">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_WGior5ZAEey8KYCO0o_h7Q" name="password" ordered="false" lowerBound="1" defaultValueLiteral="password">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_WGiosZZAEey8KYCO0o_h7Q" name="MysqlDB" eSuperTypes="_WGioo5ZAEey8KYCO0o_h7Q">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_WGiospZAEey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_g2mYAJOyEeyQ3Kv72a2BVw"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_WGios5ZAEey8KYCO0o_h7Q" name="version" ordered="false" lowerBound="1" defaultValueLiteral="8.0.28">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_WGiotZZAEey8KYCO0o_h7Q" name="databaseName" ordered="false" lowerBound="1" defaultValueLiteral="wordpress">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_WGiouJZAEey8KYCO0o_h7Q" name="MongoDB" eSuperTypes="_WGioo5ZAEey8KYCO0o_h7Q">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_WGiouZZAEey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_j2a_IJOyEeyQ3Kv72a2BVw"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_WGiou5ZAEey8KYCO0o_h7Q" name="Ingress">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_WGiovJZAEey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_jKcPoJPCEeyLtIodG-cZNg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_WGiovZZAEey8KYCO0o_h7Q" name="base_Dependency" ordered="false">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Dependency"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_WGiov5ZAEey8KYCO0o_h7Q" name="path" ordered="false" lowerBound="1" defaultValueLiteral="/">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eSubpackages xmi:type="ecore:EPackage" xmi:id="_WGiowZZAEey8KYCO0o_h7Q" name="DataTypes" nsURI="http:///KubernetesUMLProfile/DataTypes.ecore" nsPrefix="KubernetesUMLProfile.DataTypes">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_WGiowpZAEey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/4.0.0/UML" references="_MnphsJY_Eey8KYCO0o_h7Q"/>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_WGiow5ZAEey8KYCO0o_h7Q" name="PersistentData">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_WGioxJZAEey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_s063UJCVEey5pfBfWsdixw"/>
+          <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_WGioxZZAEey8KYCO0o_h7Q" name="sizeInGB" ordered="false" lowerBound="1" defaultValueLiteral="2">
+            <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//Integer"/>
+          </eStructuralFeatures>
+          <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_WGiox5ZAEey8KYCO0o_h7Q" name="mountPath" ordered="false" lowerBound="1" defaultValueLiteral="/var/lib/mysql">
+            <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_WGioyZZAEey8KYCO0o_h7Q" name="EnviromentVariables">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_WGioypZAEey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_McjgUH9nEeyXt-NBRolQsA"/>
+          <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_WGioy5ZAEey8KYCO0o_h7Q" name="name" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+          </eStructuralFeatures>
+          <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_WGiozZZAEey8KYCO0o_h7Q" name="value" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+      </eSubpackages>
+      <eSubpackages xmi:type="ecore:EPackage" xmi:id="_WGioz5ZAEey8KYCO0o_h7Q" name="Enums" nsURI="http:///KubernetesUMLProfile/Enums.ecore" nsPrefix="KubernetesUMLProfile.Enums">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_WGio0JZAEey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/4.0.0/UML" references="_a1rtsJY_Eey8KYCO0o_h7Q"/>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_WGio0ZZAEey8KYCO0o_h7Q" name="AccessibilityType">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_WGio0pZAEey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_Y2qeQJO4EeyQ3Kv72a2BVw"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_WGio05ZAEey8KYCO0o_h7Q" name="NodePort"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_WGio1JZAEey8KYCO0o_h7Q" name="LoadBalancer" value="1"/>
+        </eClassifiers>
+      </eSubpackages>
+    </contents>
+    <contents xmi:type="ecore:EPackage" xmi:id="_Cblg4JZAEey8KYCO0o_h7Q" name="KubernetesUMLProfile" nsURI="http:///schemas/KubernetesUMLProfile/_Cbk50JZAEey8KYCO0o_h7Q/100" nsPrefix="KubernetesUMLProfile">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_CbmH8pZAEey8KYCO0o_h7Q" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_CbmH85ZAEey8KYCO0o_h7Q" key="Version" value="0.0.101"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_CbmH9JZAEey8KYCO0o_h7Q" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_CbmH9ZZAEey8KYCO0o_h7Q" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_CbmH9pZAEey8KYCO0o_h7Q" key="Date" value="2022-02-25"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_CbmH95ZAEey8KYCO0o_h7Q" key="Author" value=""/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_Cblg4ZZAEey8KYCO0o_h7Q" name="Deployment">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Cblg4pZAEey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_e17oMH9jEeyXt-NBRolQsA"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_Cblg45ZAEey8KYCO0o_h7Q" name="base_Node" ordered="false">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Node"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_Cblg5ZZAEey8KYCO0o_h7Q" name="image" ordered="false" lowerBound="1" defaultValueLiteral="nginx:latest">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_Cblg55ZAEey8KYCO0o_h7Q" name="environmentVariables" ordered="false" upperBound="-1" eType="_CblhJZZAEey8KYCO0o_h7Q" containment="true"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_Cblg6ZZAEey8KYCO0o_h7Q" name="port" ordered="false" lowerBound="1" defaultValueLiteral="80">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//Integer"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_Cblg65ZAEey8KYCO0o_h7Q" name="replicas" ordered="false" lowerBound="1" defaultValueLiteral="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//Integer"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_Cblg7ZZAEey8KYCO0o_h7Q" name="dataPersistent" ordered="false" lowerBound="1" eType="_CblhH5ZAEey8KYCO0o_h7Q" containment="true"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_Cblg75ZAEey8KYCO0o_h7Q" name="Kubernetes">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Cblg8JZAEey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_2Z7TcH9iEeyXt-NBRolQsA"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_Cblg8ZZAEey8KYCO0o_h7Q" name="namespace" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_Cblg85ZAEey8KYCO0o_h7Q" name="base_ExecutionEnvironment" ordered="false">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//ExecutionEnvironment"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_Cblg9ZZAEey8KYCO0o_h7Q" name="apiVersion" ordered="false" lowerBound="1" defaultValueLiteral="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//Integer"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_Cblg95ZAEey8KYCO0o_h7Q" name="accessibilityType" ordered="false" lowerBound="1" eType="_CblhLZZAEey8KYCO0o_h7Q" defaultValueLiteral="LoadBalancer"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_Cblg-ZZAEey8KYCO0o_h7Q" name="Accessibility">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Cblg-pZAEey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_3gJpEI8jEeyInqig3yfUpA"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_Cblg-5ZAEey8KYCO0o_h7Q" name="accessPort" ordered="false" lowerBound="1" defaultValueLiteral="80">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//Integer"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_Cblg_ZZAEey8KYCO0o_h7Q" name="base_Dependency" ordered="false">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Dependency"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_Cblg_5ZAEey8KYCO0o_h7Q" name="Database" abstract="true">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_CblhAJZAEey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_8fzlIJOxEeyQ3Kv72a2BVw"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_CblhAZZAEey8KYCO0o_h7Q" name="base_Node" ordered="false">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Node"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_CblhA5ZAEey8KYCO0o_h7Q" name="storageSizeInGB" ordered="false" lowerBound="1" defaultValueLiteral="3">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//Integer"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_CblhBZZAEey8KYCO0o_h7Q" name="rootPassword" ordered="false" lowerBound="1" defaultValueLiteral="password">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_CblhB5ZAEey8KYCO0o_h7Q" name="DatabaseUser">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_CblhCJZAEey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_LgA08JOyEeyQ3Kv72a2BVw"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_CblhCZZAEey8KYCO0o_h7Q" name="name" ordered="false" lowerBound="1" defaultValueLiteral="databaseUser">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_CblhC5ZAEey8KYCO0o_h7Q" name="password" ordered="false" lowerBound="1" defaultValueLiteral="password">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_CblhDZZAEey8KYCO0o_h7Q" name="MysqlDB" eSuperTypes="_Cblg_5ZAEey8KYCO0o_h7Q">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_CblhDpZAEey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_g2mYAJOyEeyQ3Kv72a2BVw"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_CblhD5ZAEey8KYCO0o_h7Q" name="version" ordered="false" lowerBound="1" defaultValueLiteral="8.0.28">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_CblhEZZAEey8KYCO0o_h7Q" name="databaseName" ordered="false" lowerBound="1" defaultValueLiteral="wordpress">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_CblhFJZAEey8KYCO0o_h7Q" name="MongoDB" eSuperTypes="_Cblg_5ZAEey8KYCO0o_h7Q">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_CblhFZZAEey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_j2a_IJOyEeyQ3Kv72a2BVw"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_CblhF5ZAEey8KYCO0o_h7Q" name="Ingress">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_CblhGJZAEey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_jKcPoJPCEeyLtIodG-cZNg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_CblhGZZAEey8KYCO0o_h7Q" name="base_Dependency" ordered="false">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Dependency"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_CblhG5ZAEey8KYCO0o_h7Q" name="path" ordered="false" lowerBound="1" defaultValueLiteral="/">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eSubpackages xmi:type="ecore:EPackage" xmi:id="_CblhHZZAEey8KYCO0o_h7Q" name="DataTypes" nsURI="http:///KubernetesUMLProfile/DataTypes.ecore" nsPrefix="KubernetesUMLProfile.DataTypes">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_CblhHpZAEey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/4.0.0/UML" references="_MnphsJY_Eey8KYCO0o_h7Q"/>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_CblhH5ZAEey8KYCO0o_h7Q" name="PersistentData">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_CblhIJZAEey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_s063UJCVEey5pfBfWsdixw"/>
+          <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_CblhIZZAEey8KYCO0o_h7Q" name="sizeInGB" ordered="false" lowerBound="1" defaultValueLiteral="2">
+            <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//Integer"/>
+          </eStructuralFeatures>
+          <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_CblhI5ZAEey8KYCO0o_h7Q" name="mountPath" ordered="false" lowerBound="1" defaultValueLiteral="/var/lib/mysql">
+            <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_CblhJZZAEey8KYCO0o_h7Q" name="EnviromentVariables">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_CblhJpZAEey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_McjgUH9nEeyXt-NBRolQsA"/>
+          <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_CblhJ5ZAEey8KYCO0o_h7Q" name="name" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+          </eStructuralFeatures>
+          <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_CblhKZZAEey8KYCO0o_h7Q" name="value" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+      </eSubpackages>
+      <eSubpackages xmi:type="ecore:EPackage" xmi:id="_CblhK5ZAEey8KYCO0o_h7Q" name="Enums" nsURI="http:///KubernetesUMLProfile/Enums.ecore" nsPrefix="KubernetesUMLProfile.Enums">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_CblhLJZAEey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/4.0.0/UML" references="_a1rtsJY_Eey8KYCO0o_h7Q"/>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_CblhLZZAEey8KYCO0o_h7Q" name="AccessibilityType">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_CblhLpZAEey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_Y2qeQJO4EeyQ3Kv72a2BVw"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_CblhL5ZAEey8KYCO0o_h7Q" name="NodePort"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_CblhMJZAEey8KYCO0o_h7Q" name="LoadBalancer" value="1"/>
+        </eClassifiers>
+      </eSubpackages>
+    </contents>
+    <contents xmi:type="ecore:EPackage" xmi:id="_2YN1oZY_Eey8KYCO0o_h7Q" name="KubernetesUMLProfile" nsURI="http:///schemas/KubernetesUMLProfile/_2YN1oJY_Eey8KYCO0o_h7Q/99" nsPrefix="KubernetesUMLProfile">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2YOct5Y_Eey8KYCO0o_h7Q" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_2YOcuJY_Eey8KYCO0o_h7Q" key="Version" value="0.0.100"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_2YOcuZY_Eey8KYCO0o_h7Q" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_2YOcupY_Eey8KYCO0o_h7Q" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_2YOcu5Y_Eey8KYCO0o_h7Q" key="Date" value="2022-02-25"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_2YOcvJY_Eey8KYCO0o_h7Q" key="Author" value=""/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_2YN1opY_Eey8KYCO0o_h7Q" name="Deployment">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2YN1o5Y_Eey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_e17oMH9jEeyXt-NBRolQsA"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_2YN1pJY_Eey8KYCO0o_h7Q" name="base_Node" ordered="false">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Node"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_2YN1ppY_Eey8KYCO0o_h7Q" name="image" ordered="false" lowerBound="1" defaultValueLiteral="nginx:latest">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_2YN1qJY_Eey8KYCO0o_h7Q" name="environmentVariables" ordered="false" upperBound="-1" eType="_2YN15pY_Eey8KYCO0o_h7Q" containment="true"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_2YN1qpY_Eey8KYCO0o_h7Q" name="port" ordered="false" lowerBound="1" defaultValueLiteral="80">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//Integer"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_2YN1rJY_Eey8KYCO0o_h7Q" name="replicas" ordered="false" lowerBound="1" defaultValueLiteral="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//Integer"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_2YN1rpY_Eey8KYCO0o_h7Q" name="dataPersistent" ordered="false" lowerBound="1" eType="_2YN14JY_Eey8KYCO0o_h7Q" containment="true"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_2YN1sJY_Eey8KYCO0o_h7Q" name="Kubernetes">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2YN1sZY_Eey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_2Z7TcH9iEeyXt-NBRolQsA"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_2YN1spY_Eey8KYCO0o_h7Q" name="namespace" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_2YN1tJY_Eey8KYCO0o_h7Q" name="base_ExecutionEnvironment" ordered="false">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//ExecutionEnvironment"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_2YN1tpY_Eey8KYCO0o_h7Q" name="apiVersion" ordered="false" lowerBound="1" defaultValueLiteral="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//Integer"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_2YN1uJY_Eey8KYCO0o_h7Q" name="accessibilityType" ordered="false" lowerBound="1" eType="_2YN17pY_Eey8KYCO0o_h7Q" defaultValueLiteral="LoadBalancer"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_2YN1upY_Eey8KYCO0o_h7Q" name="Accessibility">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2YN1u5Y_Eey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_3gJpEI8jEeyInqig3yfUpA"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_2YN1vJY_Eey8KYCO0o_h7Q" name="accessPort" ordered="false" lowerBound="1" defaultValueLiteral="80">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//Integer"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_2YN1vpY_Eey8KYCO0o_h7Q" name="base_Dependency" ordered="false">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Dependency"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_2YN1wJY_Eey8KYCO0o_h7Q" name="Database" abstract="true">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2YN1wZY_Eey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_8fzlIJOxEeyQ3Kv72a2BVw"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_2YN1wpY_Eey8KYCO0o_h7Q" name="base_Node" ordered="false">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Node"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_2YN1xJY_Eey8KYCO0o_h7Q" name="storageSizeInGB" ordered="false" lowerBound="1" defaultValueLiteral="3">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//Integer"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_2YN1xpY_Eey8KYCO0o_h7Q" name="rootPassword" ordered="false" lowerBound="1" defaultValueLiteral="password">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_2YN1yJY_Eey8KYCO0o_h7Q" name="DatabaseUser">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2YN1yZY_Eey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_LgA08JOyEeyQ3Kv72a2BVw"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_2YN1ypY_Eey8KYCO0o_h7Q" name="name" ordered="false" lowerBound="1" defaultValueLiteral="databaseUser">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_2YN1zJY_Eey8KYCO0o_h7Q" name="password" ordered="false" lowerBound="1" defaultValueLiteral="password">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_2YN1zpY_Eey8KYCO0o_h7Q" name="MysqlDB" eSuperTypes="_2YN1wJY_Eey8KYCO0o_h7Q">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2YN1z5Y_Eey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_g2mYAJOyEeyQ3Kv72a2BVw"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_2YN10JY_Eey8KYCO0o_h7Q" name="version" ordered="false" lowerBound="1" defaultValueLiteral="8.0.28">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_2YN10pY_Eey8KYCO0o_h7Q" name="databaseName" ordered="false" lowerBound="1" defaultValueLiteral="wordpress">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_2YN11ZY_Eey8KYCO0o_h7Q" name="MongoDB" eSuperTypes="_2YN1wJY_Eey8KYCO0o_h7Q">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2YN11pY_Eey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_j2a_IJOyEeyQ3Kv72a2BVw"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_2YN12JY_Eey8KYCO0o_h7Q" name="Ingress">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2YN12ZY_Eey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_jKcPoJPCEeyLtIodG-cZNg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_2YN12pY_Eey8KYCO0o_h7Q" name="base_Dependency" ordered="false">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Dependency"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_2YN13JY_Eey8KYCO0o_h7Q" name="path" ordered="false" lowerBound="1" defaultValueLiteral="/">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eSubpackages xmi:type="ecore:EPackage" xmi:id="_2YN13pY_Eey8KYCO0o_h7Q" name="DataTypes" nsURI="http:///KubernetesUMLProfile/DataTypes.ecore" nsPrefix="KubernetesUMLProfile.DataTypes">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2YN135Y_Eey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/4.0.0/UML" references="_MnphsJY_Eey8KYCO0o_h7Q"/>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_2YN14JY_Eey8KYCO0o_h7Q" name="PersistentData">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2YN14ZY_Eey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_s063UJCVEey5pfBfWsdixw"/>
+          <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_2YN14pY_Eey8KYCO0o_h7Q" name="sizeInGB" ordered="false" lowerBound="1" defaultValueLiteral="2">
+            <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//Integer"/>
+          </eStructuralFeatures>
+          <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_2YN15JY_Eey8KYCO0o_h7Q" name="mountPath" ordered="false" lowerBound="1" defaultValueLiteral="/var/lib/mysql">
+            <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_2YN15pY_Eey8KYCO0o_h7Q" name="EnviromentVariables">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2YN155Y_Eey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_McjgUH9nEeyXt-NBRolQsA"/>
+          <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_2YN16JY_Eey8KYCO0o_h7Q" name="name" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+          </eStructuralFeatures>
+          <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_2YN16pY_Eey8KYCO0o_h7Q" name="value" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+      </eSubpackages>
+      <eSubpackages xmi:type="ecore:EPackage" xmi:id="_2YN17JY_Eey8KYCO0o_h7Q" name="Enums" nsURI="http:///KubernetesUMLProfile/Enums.ecore" nsPrefix="KubernetesUMLProfile.Enums">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2YN17ZY_Eey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/4.0.0/UML" references="_a1rtsJY_Eey8KYCO0o_h7Q"/>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_2YN17pY_Eey8KYCO0o_h7Q" name="AccessibilityType">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2YN175Y_Eey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_Y2qeQJO4EeyQ3Kv72a2BVw"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_2YN18JY_Eey8KYCO0o_h7Q" name="NodePort"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_2YN18ZY_Eey8KYCO0o_h7Q" name="LoadBalancer" value="1"/>
+        </eClassifiers>
+      </eSubpackages>
+    </contents>
+    <contents xmi:type="ecore:EPackage" xmi:id="_vz3-4ZY_Eey8KYCO0o_h7Q" name="KubernetesUMLProfile" nsURI="http:///schemas/KubernetesUMLProfile/_vz3-4JY_Eey8KYCO0o_h7Q/98" nsPrefix="KubernetesUMLProfile">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_vz5NAZY_Eey8KYCO0o_h7Q" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vz5NApY_Eey8KYCO0o_h7Q" key="Version" value="0.0.99"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vz5NA5Y_Eey8KYCO0o_h7Q" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vz5NBJY_Eey8KYCO0o_h7Q" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vz5NBZY_Eey8KYCO0o_h7Q" key="Date" value="2022-02-25"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vz5NBpY_Eey8KYCO0o_h7Q" key="Author" value=""/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_vz3-4pY_Eey8KYCO0o_h7Q" name="Deployment">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_vz3-45Y_Eey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_e17oMH9jEeyXt-NBRolQsA"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_vz3-5JY_Eey8KYCO0o_h7Q" name="base_Node" ordered="false">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Node"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_vz3-5pY_Eey8KYCO0o_h7Q" name="image" ordered="false" lowerBound="1" defaultValueLiteral="nginx:latest">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_vz3-6JY_Eey8KYCO0o_h7Q" name="environmentVariables" ordered="false" upperBound="-1" eType="_vz3_JpY_Eey8KYCO0o_h7Q" containment="true"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_vz3-6pY_Eey8KYCO0o_h7Q" name="port" ordered="false" lowerBound="1" defaultValueLiteral="80">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//Integer"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_vz3-7JY_Eey8KYCO0o_h7Q" name="replicas" ordered="false" lowerBound="1" defaultValueLiteral="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//Integer"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_vz3-7pY_Eey8KYCO0o_h7Q" name="dataPersistent" ordered="false" lowerBound="1" eType="_vz3_IJY_Eey8KYCO0o_h7Q" containment="true"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_vz3-8JY_Eey8KYCO0o_h7Q" name="Kubernetes">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_vz3-8ZY_Eey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_2Z7TcH9iEeyXt-NBRolQsA"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_vz3-8pY_Eey8KYCO0o_h7Q" name="namespace" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_vz3-9JY_Eey8KYCO0o_h7Q" name="base_ExecutionEnvironment" ordered="false">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//ExecutionEnvironment"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_vz3-9pY_Eey8KYCO0o_h7Q" name="apiVersion" ordered="false" lowerBound="1" defaultValueLiteral="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//Integer"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_vz3--JY_Eey8KYCO0o_h7Q" name="accessibilityType" ordered="false" lowerBound="1" eType="_vz3_LpY_Eey8KYCO0o_h7Q" defaultValueLiteral="LoadBalancer"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_vz3--pY_Eey8KYCO0o_h7Q" name="Accessibility">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_vz3--5Y_Eey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_3gJpEI8jEeyInqig3yfUpA"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_vz3-_JY_Eey8KYCO0o_h7Q" name="accessPort" ordered="false" lowerBound="1" defaultValueLiteral="80">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//Integer"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_vz3-_pY_Eey8KYCO0o_h7Q" name="base_Dependency" ordered="false">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Dependency"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_vz3_AJY_Eey8KYCO0o_h7Q" name="Database" abstract="true">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_vz3_AZY_Eey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_8fzlIJOxEeyQ3Kv72a2BVw"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_vz3_ApY_Eey8KYCO0o_h7Q" name="base_Node" ordered="false">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Node"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_vz3_BJY_Eey8KYCO0o_h7Q" name="storageSizeInGB" ordered="false" lowerBound="1" defaultValueLiteral="3">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//Integer"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_vz3_BpY_Eey8KYCO0o_h7Q" name="rootPassword" ordered="false" lowerBound="1" defaultValueLiteral="password">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_vz3_CJY_Eey8KYCO0o_h7Q" name="DatabaseUser">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_vz3_CZY_Eey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_LgA08JOyEeyQ3Kv72a2BVw"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_vz3_CpY_Eey8KYCO0o_h7Q" name="name" ordered="false" lowerBound="1" defaultValueLiteral="databaseUser">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_vz3_DJY_Eey8KYCO0o_h7Q" name="password" ordered="false" lowerBound="1" defaultValueLiteral="password">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_vz3_DpY_Eey8KYCO0o_h7Q" name="MysqlDB" eSuperTypes="_vz3_AJY_Eey8KYCO0o_h7Q">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_vz3_D5Y_Eey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_g2mYAJOyEeyQ3Kv72a2BVw"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_vz3_EJY_Eey8KYCO0o_h7Q" name="version" ordered="false" lowerBound="1" defaultValueLiteral="8.0.28">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_vz3_EpY_Eey8KYCO0o_h7Q" name="databaseName" ordered="false" lowerBound="1" defaultValueLiteral="wordpress">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_vz3_FZY_Eey8KYCO0o_h7Q" name="MongoDB" eSuperTypes="_vz3_AJY_Eey8KYCO0o_h7Q">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_vz3_FpY_Eey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_j2a_IJOyEeyQ3Kv72a2BVw"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_vz3_GJY_Eey8KYCO0o_h7Q" name="Ingress">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_vz3_GZY_Eey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_jKcPoJPCEeyLtIodG-cZNg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_vz3_GpY_Eey8KYCO0o_h7Q" name="base_Dependency" ordered="false">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Dependency"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_vz3_HJY_Eey8KYCO0o_h7Q" name="path" ordered="false" lowerBound="1" defaultValueLiteral="/">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eSubpackages xmi:type="ecore:EPackage" xmi:id="_vz3_HpY_Eey8KYCO0o_h7Q" name="DataTypes" nsURI="http:///KubernetesUMLProfile/DataTypes.ecore" nsPrefix="KubernetesUMLProfile.DataTypes">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_vz3_H5Y_Eey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/4.0.0/UML" references="_MnphsJY_Eey8KYCO0o_h7Q"/>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_vz3_IJY_Eey8KYCO0o_h7Q" name="PersistentData">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_vz3_IZY_Eey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_s063UJCVEey5pfBfWsdixw"/>
+          <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_vz3_IpY_Eey8KYCO0o_h7Q" name="sizeInGB" ordered="false" lowerBound="1" defaultValueLiteral="2">
+            <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//Integer"/>
+          </eStructuralFeatures>
+          <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_vz3_JJY_Eey8KYCO0o_h7Q" name="mountPath" ordered="false" lowerBound="1" defaultValueLiteral="/var/lib/mysql">
+            <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_vz3_JpY_Eey8KYCO0o_h7Q" name="EnviromentVariables">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_vz3_J5Y_Eey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_McjgUH9nEeyXt-NBRolQsA"/>
+          <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_vz3_KJY_Eey8KYCO0o_h7Q" name="name" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+          </eStructuralFeatures>
+          <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_vz3_KpY_Eey8KYCO0o_h7Q" name="value" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+      </eSubpackages>
+      <eSubpackages xmi:type="ecore:EPackage" xmi:id="_vz3_LJY_Eey8KYCO0o_h7Q" name="Enums" nsURI="http:///KubernetesUMLProfile/Enums.ecore" nsPrefix="KubernetesUMLProfile.Enums">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_vz3_LZY_Eey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/4.0.0/UML" references="_a1rtsJY_Eey8KYCO0o_h7Q"/>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_vz3_LpY_Eey8KYCO0o_h7Q" name="AccessibilityType">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_vz3_L5Y_Eey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_Y2qeQJO4EeyQ3Kv72a2BVw"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_vz3_MJY_Eey8KYCO0o_h7Q" name="NodePort"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_vz3_MZY_Eey8KYCO0o_h7Q" name="LoadBalancer" value="1"/>
+        </eClassifiers>
+      </eSubpackages>
+    </contents>
+    <contents xmi:type="ecore:EPackage" xmi:id="_iUJqYJY_Eey8KYCO0o_h7Q" name="KubernetesUMLProfile" nsURI="http:///schemas/KubernetesUMLProfile/_iUH1MJY_Eey8KYCO0o_h7Q/97" nsPrefix="KubernetesUMLProfile">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_iULfk5Y_Eey8KYCO0o_h7Q" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_iULflJY_Eey8KYCO0o_h7Q" key="Version" value="0.0.98"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_iULflZY_Eey8KYCO0o_h7Q" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_iULflpY_Eey8KYCO0o_h7Q" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_iULfl5Y_Eey8KYCO0o_h7Q" key="Date" value="2022-02-25"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_iULfmJY_Eey8KYCO0o_h7Q" key="Author" value=""/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_iUJqYZY_Eey8KYCO0o_h7Q" name="Deployment">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_iUJqYpY_Eey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_e17oMH9jEeyXt-NBRolQsA"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_iUJqY5Y_Eey8KYCO0o_h7Q" name="base_Node" ordered="false">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Node"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_iUJqZZY_Eey8KYCO0o_h7Q" name="image" ordered="false" lowerBound="1" defaultValueLiteral="nginx:latest">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_iUJqZ5Y_Eey8KYCO0o_h7Q" name="environmentVariables" ordered="false" upperBound="-1" eType="_iUKRfJY_Eey8KYCO0o_h7Q" containment="true"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_iUJqaZY_Eey8KYCO0o_h7Q" name="port" ordered="false" lowerBound="1" defaultValueLiteral="80">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//Integer"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_iUJqa5Y_Eey8KYCO0o_h7Q" name="replicas" ordered="false" lowerBound="1" defaultValueLiteral="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//Integer"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_iUJqbZY_Eey8KYCO0o_h7Q" name="dataPersistent" ordered="false" lowerBound="1" eType="_iUKRdpY_Eey8KYCO0o_h7Q" containment="true"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_iUJqb5Y_Eey8KYCO0o_h7Q" name="Kubernetes">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_iUJqcJY_Eey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_2Z7TcH9iEeyXt-NBRolQsA"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_iUJqcZY_Eey8KYCO0o_h7Q" name="namespace" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_iUJqc5Y_Eey8KYCO0o_h7Q" name="base_ExecutionEnvironment" ordered="false">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//ExecutionEnvironment"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_iUJqdZY_Eey8KYCO0o_h7Q" name="apiVersion" ordered="false" lowerBound="1" defaultValueLiteral="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//Integer"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_iUJqd5Y_Eey8KYCO0o_h7Q" name="accessibilityType" ordered="false" lowerBound="1" eType="_iUKRhJY_Eey8KYCO0o_h7Q" defaultValueLiteral="LoadBalancer"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_iUJqeZY_Eey8KYCO0o_h7Q" name="Accessibility">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_iUJqepY_Eey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_3gJpEI8jEeyInqig3yfUpA"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_iUJqe5Y_Eey8KYCO0o_h7Q" name="accessPort" ordered="false" lowerBound="1" defaultValueLiteral="80">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//Integer"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_iUJqfZY_Eey8KYCO0o_h7Q" name="base_Dependency" ordered="false">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Dependency"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_iUJqf5Y_Eey8KYCO0o_h7Q" name="Database" abstract="true">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_iUJqgJY_Eey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_8fzlIJOxEeyQ3Kv72a2BVw"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_iUJqgZY_Eey8KYCO0o_h7Q" name="base_Node" ordered="false">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Node"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_iUJqg5Y_Eey8KYCO0o_h7Q" name="storageSizeInGB" ordered="false" lowerBound="1" defaultValueLiteral="3">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//Integer"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_iUJqhZY_Eey8KYCO0o_h7Q" name="rootPassword" ordered="false" lowerBound="1" defaultValueLiteral="password">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_iUJqh5Y_Eey8KYCO0o_h7Q" name="DatabaseUser">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_iUJqiJY_Eey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_LgA08JOyEeyQ3Kv72a2BVw"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_iUJqiZY_Eey8KYCO0o_h7Q" name="name" ordered="false" lowerBound="1" defaultValueLiteral="databaseUser">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_iUJqi5Y_Eey8KYCO0o_h7Q" name="password" ordered="false" lowerBound="1" defaultValueLiteral="password">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_iUJqjZY_Eey8KYCO0o_h7Q" name="MysqlDB" eSuperTypes="_iUJqf5Y_Eey8KYCO0o_h7Q">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_iUJqjpY_Eey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_g2mYAJOyEeyQ3Kv72a2BVw"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_iUJqj5Y_Eey8KYCO0o_h7Q" name="version" ordered="false" lowerBound="1" defaultValueLiteral="8.0.28">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_iUJqkZY_Eey8KYCO0o_h7Q" name="databaseName" ordered="false" lowerBound="1" defaultValueLiteral="wordpress">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_iUJqlJY_Eey8KYCO0o_h7Q" name="MongoDB" eSuperTypes="_iUJqf5Y_Eey8KYCO0o_h7Q">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_iUJqlZY_Eey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_j2a_IJOyEeyQ3Kv72a2BVw"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_iUJql5Y_Eey8KYCO0o_h7Q" name="Ingress">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_iUJqmJY_Eey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_jKcPoJPCEeyLtIodG-cZNg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_iUKRcJY_Eey8KYCO0o_h7Q" name="base_Dependency" ordered="false">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Dependency"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_iUKRcpY_Eey8KYCO0o_h7Q" name="path" ordered="false" lowerBound="1" defaultValueLiteral="/">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eSubpackages xmi:type="ecore:EPackage" xmi:id="_iUKRdJY_Eey8KYCO0o_h7Q" name="DataTypes" nsURI="http:///KubernetesUMLProfile/DataTypes.ecore" nsPrefix="KubernetesUMLProfile.DataTypes">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_iUKRdZY_Eey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/4.0.0/UML" references="_MnphsJY_Eey8KYCO0o_h7Q"/>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_iUKRdpY_Eey8KYCO0o_h7Q" name="PersistentData">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_iUKRd5Y_Eey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_s063UJCVEey5pfBfWsdixw"/>
+          <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_iUKReJY_Eey8KYCO0o_h7Q" name="sizeInGB" ordered="false" lowerBound="1" defaultValueLiteral="2">
+            <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//Integer"/>
+          </eStructuralFeatures>
+          <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_iUKRepY_Eey8KYCO0o_h7Q" name="mountPath" ordered="false" lowerBound="1" defaultValueLiteral="/var/lib/mysql">
+            <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+        <eClassifiers xmi:type="ecore:EClass" xmi:id="_iUKRfJY_Eey8KYCO0o_h7Q" name="EnviromentVariables">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_iUKRfZY_Eey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_McjgUH9nEeyXt-NBRolQsA"/>
+          <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_iUKRfpY_Eey8KYCO0o_h7Q" name="name" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+          </eStructuralFeatures>
+          <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_iUKRgJY_Eey8KYCO0o_h7Q" name="value" ordered="false" lowerBound="1">
+            <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/uml2/5.0.0/Types#//String"/>
+          </eStructuralFeatures>
+        </eClassifiers>
+      </eSubpackages>
+      <eSubpackages xmi:type="ecore:EPackage" xmi:id="_iUKRgpY_Eey8KYCO0o_h7Q" name="Enums" nsURI="http:///KubernetesUMLProfile/Enums.ecore" nsPrefix="KubernetesUMLProfile.Enums">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_iUKRg5Y_Eey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/4.0.0/UML" references="_a1rtsJY_Eey8KYCO0o_h7Q"/>
+        <eClassifiers xmi:type="ecore:EEnum" xmi:id="_iUKRhJY_Eey8KYCO0o_h7Q" name="AccessibilityType">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_iUKRhZY_Eey8KYCO0o_h7Q" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_Y2qeQJO4EeyQ3Kv72a2BVw"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_iUKRhpY_Eey8KYCO0o_h7Q" name="NodePort"/>
+          <eLiterals xmi:type="ecore:EEnumLiteral" xmi:id="_iUKRh5Y_Eey8KYCO0o_h7Q" name="LoadBalancer" value="1"/>
+        </eClassifiers>
+      </eSubpackages>
+    </contents>
     <contents xmi:type="ecore:EPackage" xmi:id="_vEgrkJPbEey3r5-Agv9zqQ" name="KubernetesUMLProfile" nsURI="http:///schemas/KubernetesUMLProfile/_vEe2YJPbEey3r5-Agv9zqQ/96" nsPrefix="KubernetesUMLProfile">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_vEigwJPbEey3r5-Agv9zqQ" source="PapyrusVersion">
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vEigwZPbEey3r5-Agv9zqQ" key="Version" value="0.0.97"/>
@@ -7367,14 +7962,6 @@
       </eAnnotations>
     </icon>
   </packagedElement>
-  <packagedElement xmi:type="uml:DataType" xmi:id="_McjgUH9nEeyXt-NBRolQsA" name="EnviromentVariables" visibility="package">
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_7090QH9sEeyXt-NBRolQsA" name="name">
-      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-    </ownedAttribute>
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_--vBkH9sEeyXt-NBRolQsA" name="value">
-      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-    </ownedAttribute>
-  </packagedElement>
   <packagedElement xmi:type="uml:Stereotype" xmi:id="_2Z7TcH9iEeyXt-NBRolQsA" name="Kubernetes">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_SUjmwH9tEeyXt-NBRolQsA" name="namespace">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
@@ -7406,16 +7993,6 @@
   </packagedElement>
   <packagedElement xmi:type="uml:Extension" xmi:id="_H42V0I8kEeyInqig3yfUpA" name="E_Accessibility_Dependency22" memberEnd="_H43j8I8kEeyInqig3yfUpA _H44LAI8kEeyInqig3yfUpA">
     <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_H43j8I8kEeyInqig3yfUpA" name="extension_Accessibility" type="_3gJpEI8jEeyInqig3yfUpA" aggregation="composite" association="_H42V0I8kEeyInqig3yfUpA"/>
-  </packagedElement>
-  <packagedElement xmi:type="uml:DataType" xmi:id="_s063UJCVEey5pfBfWsdixw" name="PersistentData">
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_xfskYJCVEey5pfBfWsdixw" name="sizeInGB">
-      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-      <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_5TpB0JCVEey5pfBfWsdixw" name="sizeInGB" value="2"/>
-    </ownedAttribute>
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_0s6HQJCVEey5pfBfWsdixw" name="mountPath">
-      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-      <defaultValue xmi:type="uml:LiteralString" xmi:id="_-DbKsJCVEey5pfBfWsdixw" name="mountPath" value="/var/lib/mysql"/>
-    </ownedAttribute>
   </packagedElement>
   <packagedElement xmi:type="uml:Stereotype" xmi:id="_8fzlIJOxEeyQ3Kv72a2BVw" name="Database" isAbstract="true">
     <ownedAttribute xmi:type="uml:Property" xmi:id="__KAhkZOxEeyQ3Kv72a2BVw" name="base_Node" association="__J_TcJOxEeyQ3Kv72a2BVw">
@@ -7458,14 +8035,6 @@
   <packagedElement xmi:type="uml:Stereotype" xmi:id="_j2a_IJOyEeyQ3Kv72a2BVw" name="MongoDB">
     <generalization xmi:type="uml:Generalization" xmi:id="_ld89oJOyEeyQ3Kv72a2BVw" general="_8fzlIJOxEeyQ3Kv72a2BVw"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Enumeration" xmi:id="_Y2qeQJO4EeyQ3Kv72a2BVw" name="AccessibilityType">
-    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_dIYyIJO4EeyQ3Kv72a2BVw" name="NodePort">
-      <specification xmi:type="uml:LiteralInteger" xmi:id="_hKri4JO4EeyQ3Kv72a2BVw" name="NodePort"/>
-    </ownedLiteral>
-    <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_iEITYJO4EeyQ3Kv72a2BVw" name="LoadBalancer">
-      <specification xmi:type="uml:LiteralInteger" xmi:id="_klcZkJO4EeyQ3Kv72a2BVw" name="LoadBalancer" value="1"/>
-    </ownedLiteral>
-  </packagedElement>
   <packagedElement xmi:type="uml:Stereotype" xmi:id="_jKcPoJPCEeyLtIodG-cZNg" name="Ingress">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_k-pYMJPCEeyLtIodG-cZNg" name="base_Dependency" association="_k-njAJPCEeyLtIodG-cZNg">
       <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Dependency"/>
@@ -7478,6 +8047,36 @@
   </packagedElement>
   <packagedElement xmi:type="uml:Extension" xmi:id="_k-njAJPCEeyLtIodG-cZNg" name="E_Ingress_Dependency24" memberEnd="_k-oxIJPCEeyLtIodG-cZNg _k-pYMJPCEeyLtIodG-cZNg">
     <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_k-oxIJPCEeyLtIodG-cZNg" name="extension_Ingress" type="_jKcPoJPCEeyLtIodG-cZNg" aggregation="composite" association="_k-njAJPCEeyLtIodG-cZNg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_MnphsJY_Eey8KYCO0o_h7Q" name="DataTypes">
+    <packagedElement xmi:type="uml:DataType" xmi:id="_s063UJCVEey5pfBfWsdixw" name="PersistentData">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_xfskYJCVEey5pfBfWsdixw" name="sizeInGB">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_5TpB0JCVEey5pfBfWsdixw" name="sizeInGB" value="2"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_0s6HQJCVEey5pfBfWsdixw" name="mountPath">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_-DbKsJCVEey5pfBfWsdixw" name="mountPath" value="/var/lib/mysql"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:DataType" xmi:id="_McjgUH9nEeyXt-NBRolQsA" name="EnviromentVariables" visibility="package">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_7090QH9sEeyXt-NBRolQsA" name="name">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_--vBkH9sEeyXt-NBRolQsA" name="value">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_a1rtsJY_Eey8KYCO0o_h7Q" name="Enums">
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_Y2qeQJO4EeyQ3Kv72a2BVw" name="AccessibilityType">
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_dIYyIJO4EeyQ3Kv72a2BVw" name="NodePort">
+        <specification xmi:type="uml:LiteralInteger" xmi:id="_hKri4JO4EeyQ3Kv72a2BVw" name="NodePort"/>
+      </ownedLiteral>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_iEITYJO4EeyQ3Kv72a2BVw" name="LoadBalancer">
+        <specification xmi:type="uml:LiteralInteger" xmi:id="_klcZkJO4EeyQ3Kv72a2BVw" name="LoadBalancer" value="1"/>
+      </ownedLiteral>
+    </packagedElement>
   </packagedElement>
   <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_oWQRcH9vEeyXt-NBRolQsA">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_oWQRcX9vEeyXt-NBRolQsA" source="http://www.eclipse.org/uml2/2.0.0/UML">

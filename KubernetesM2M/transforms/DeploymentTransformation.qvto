@@ -72,8 +72,8 @@ helper UML::Node::getEnviromentVariables(in deploymentStereoType : UML::Stereoty
 	
 	
 	environmentVariables->flatten()->asSequence()->forEach(variable){		
-	    var name := variable.oclAsType(kuberProfile::EnviromentVariables).name;
-	    var value := variable.oclAsType(kuberProfile::EnviromentVariables).value;
+	    var name := variable.oclAsType(kuberProfile::DataTypes::EnviromentVariables).name;
+	    var value := variable.oclAsType(kuberProfile::DataTypes::EnviromentVariables).value;
 	    var newEnv = new EnviromentVariables();	
 	  
 	    if(value.indexOf("$dns") > 0){	    
@@ -95,8 +95,8 @@ helper UML::Node::getDataPersistent(in deploymentStereoType : UML::Stereotype) :
 	
 	var dataPersistent :=	self.getValue(deploymentStereoType,"dataPersistent");
 	if(dataPersistent <> null){
-		var size := dataPersistent.oclAsType(kuberProfile::PersistentData).sizeInGB;
-		var mountPath := dataPersistent.oclAsType(kuberProfile::PersistentData).mountPath;
+		var size := dataPersistent.oclAsType(kuberProfile::DataTypes::PersistentData).sizeInGB;
+		var mountPath := dataPersistent.oclAsType(kuberProfile::DataTypes::PersistentData).mountPath;
 		var pd := new PersistentData();
 		pd.mountPath := mountPath;
 		pd.sizeInGB := size;

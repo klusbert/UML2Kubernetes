@@ -37,7 +37,7 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: phpmyadmin
+  name: svc-phpmyadmin
   namespace: uml
 spec:
   selector:
@@ -47,6 +47,10 @@ spec:
     - name: http
       port: 80
       targetPort: 80
+
+
+
+
 
 ---
 apiVersion: apps/v1
@@ -74,14 +78,14 @@ spec:
           ports:
             - containerPort: 80
           env:
-            - name: WORDPRESS_DB_PASSWORD
-              value: password
-            - name: WORDPRESS_DB_HOST
-              value: mysql.uml.svc.cluster.local
             - name: WORDPRESS_DB_NAME
               value: wordpress
+            - name: WORDPRESS_DB_HOST
+              value: mysql.uml.svc.cluster.local
             - name: WORDPRESS_DB_USER
               value: root
+            - name: WORDPRESS_DB_PASSWORD
+              value: password
           volumeMounts:
             - name: wordpress-persistent-storage
               mountPath: /var/www/html
@@ -102,7 +106,7 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: wordpress
+  name: svc-wordpress
   namespace: uml
 spec:
   selector:
@@ -112,6 +116,10 @@ spec:
     - name: http
       port: 80
       targetPort: 80
+
+
+
+
 
 ---
 apiVersion: apps/v1
@@ -174,6 +182,10 @@ spec:
   selector:
     app: mysql
 
+
+
+
+
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -235,6 +247,10 @@ spec:
   selector:
     app: mongo
 
+
+
+
+
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -257,27 +273,34 @@ spec:
           ports:
             - containerPort: 8081
           env:
-            - name: ME_CONFIG_MONGODB_ADMINUSERNAME
-              value: root
             - name: ME_CONFIG_MONGODB_ADMINPASSWORD
               value: password
             - name: ME_CONFIG_MONGODB_URL
               value: mongodb://root:password@mongo.uml.svc.cluster.local:27017/
+            - name: ME_CONFIG_MONGODB_ADMINUSERNAME
+              value: root
 
 ---
-kind: Service
 apiVersion: v1
+kind: Service
 metadata:
   name: mongoexpress
   namespace: uml
 spec:
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 8081
+      targetPort: 8081
   selector:
     app: mongoexpress
-  type: LoadBalancer
-  ports:
-    - name: http
-      port: 80
-      targetPort: 8081
+
+
+
+
+
+
+
 
 
 
