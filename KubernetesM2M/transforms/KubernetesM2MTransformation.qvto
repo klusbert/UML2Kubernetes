@@ -37,12 +37,19 @@ mapping UML::Dependency::dependencyToIngreess() : KuberntesMetaModel::Ingress
 	var target := self.target->asSequence()->first().oclAsType(UML::Node);
 	var targetDeployment := target.resolveoneIn(UML::Node::nodesToDeployment);
 	
-	var clusterIP := new KuberntesMetaModel::Service();
+	var publicService := new KuberntesMetaModel::Service();
 	
-	clusterIP.port := targetDeployment.port;
-	clusterIP.publicAccess:= false;
+	publicService.port := targetDeployment.port;
+	publicService.publicAccess:= true;// in order to ingress to work the service must be either NodePort or Loadbalancer
+	publicService.name := targetDeployment.name;
+	publicService.accessibilityType := KuberntesMetaModel::AccessibilityType::NodePort;
 	
-	targetDeployment.service := clusterIP;
+
+	
+	result.path := "/asd";
+	
+	targetDeployment.ingress := result;
+	targetDeployment.service := publicService;
 	log("asd");
 	
 	
@@ -58,6 +65,7 @@ mapping UML::Dependency::dependencyToService() : KuberntesMetaModel::Service
 	var containerInfra := resolveoneIn(UML::NamedElement::deployment2infra);
 	var accessibilityStereoType = self.getAccessibility();
 	
+
 
 	var target := self.target->asSequence()->first().oclAsType(UML::Node);
 	var source := self.source->asSequence()->first().oclAsType(UML::Node);
@@ -75,7 +83,8 @@ mapping UML::Dependency::dependencyToService() : KuberntesMetaModel::Service
 		var p := source.isOutsider();
 		result.port := targetDeployment.port;
 		result.publicAccess := false;
-		result.name := "svc-" +targetDeployment.name;
+		result.accessibilityType :=containerInfra.accessibilityType;
+		result.name := targetDeployment.name;
 		if(source.isOutsider()){
 			result.publicAccess := true;
 			result.port := port;

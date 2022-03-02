@@ -28,16 +28,17 @@ spec:
           ports:
             - containerPort: 80
           env:
-            - name: MYSQL_ROOT_PASSWORD
-              value: password
             - name: PMA_HOST
               value: mysql.uml.svc.cluster.local
+            - name: MYSQL_ROOT_PASSWORD
+              value: password
+
 
 ---
 kind: Service
 apiVersion: v1
 metadata:
-  name: svc-phpmyadmin
+  name: phpmyadmin
   namespace: uml
 spec:
   selector:
@@ -47,7 +48,6 @@ spec:
     - name: http
       port: 80
       targetPort: 80
-
 
 
 
@@ -78,14 +78,14 @@ spec:
           ports:
             - containerPort: 80
           env:
-            - name: WORDPRESS_DB_NAME
-              value: wordpress
-            - name: WORDPRESS_DB_HOST
-              value: mysql.uml.svc.cluster.local
-            - name: WORDPRESS_DB_USER
-              value: root
             - name: WORDPRESS_DB_PASSWORD
               value: password
+            - name: WORDPRESS_DB_USER
+              value: root
+            - name: WORDPRESS_DB_HOST
+              value: mysql.uml.svc.cluster.local
+            - name: WORDPRESS_DB_NAME
+              value: wordpress
           volumeMounts:
             - name: wordpress-persistent-storage
               mountPath: /var/www/html
@@ -102,11 +102,12 @@ spec:
     requests:
       storage: 5Gi
 
+
 ---
 kind: Service
 apiVersion: v1
 metadata:
-  name: svc-wordpress
+  name: wordpress
   namespace: uml
 spec:
   selector:
@@ -116,7 +117,6 @@ spec:
     - name: http
       port: 80
       targetPort: 80
-
 
 
 
@@ -167,6 +167,7 @@ spec:
     requests:
       storage: 5Gi
 
+
 ---
 apiVersion: v1
 kind: Service
@@ -181,7 +182,6 @@ spec:
       targetPort: 3306
   selector:
     app: mysql
-
 
 
 
@@ -232,6 +232,7 @@ spec:
     requests:
       storage: 3Gi
 
+
 ---
 apiVersion: v1
 kind: Service
@@ -246,7 +247,6 @@ spec:
       targetPort: 27017
   selector:
     app: mongo
-
 
 
 
@@ -273,33 +273,49 @@ spec:
           ports:
             - containerPort: 8081
           env:
+            - name: ME_CONFIG_MONGODB_ADMINUSERNAME
+              value: root
             - name: ME_CONFIG_MONGODB_ADMINPASSWORD
               value: password
             - name: ME_CONFIG_MONGODB_URL
               value: mongodb://root:password@mongo.uml.svc.cluster.local:27017/
-            - name: ME_CONFIG_MONGODB_ADMINUSERNAME
-              value: root
+
 
 ---
-apiVersion: v1
 kind: Service
+apiVersion: v1
 metadata:
   name: mongoexpress
   namespace: uml
 spec:
-  type: ClusterIP
-  ports:
-    - protocol: TCP
-      port: 8081
-      targetPort: 8081
   selector:
     app: mongoexpress
+  type: NodePort
+  ports:
+    - name: http
+      port: 8081
+      targetPort: 8081
 
 
 
 
-
-
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mongoexpress-ingress
+  namespace: uml
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /asd
+        backend:
+          service:
+            name: mongoexpress
+            port:
+              number: 8081
+        pathType: Exact
 
 
 

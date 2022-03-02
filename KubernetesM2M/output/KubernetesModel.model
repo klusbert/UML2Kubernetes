@@ -2,14 +2,14 @@
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:kubernetes_metamodel="http://www.example.org/kubernetesModel" xsi:schemaLocation="http://www.example.org/kubernetesModel ../../kubernetes_meta_model/model/kubernetes_metamodel.ecore">
   <kubernetes_metamodel:Infrastructure namespace="UML" apiVersion="1" name="KubernetesUMLDeplyoment" deployments="/1 /4 /10 /14 /18" accessibilityType="LoadBalancer"/>
   <kubernetes_metamodel:Deployment image="phpmyadmin/phpmyadmin" port="80" replicas="1" enviromentVariables="/2 /3" name="phpMyAdmin" service="/22" namespace="UML"/>
-  <kubernetes_metamodel:EnviromentVariables name="MYSQL_ROOT_PASSWORD" value="password"/>
   <kubernetes_metamodel:EnviromentVariables name="PMA_HOST" value="mysql.uml.svc.cluster.local"/>
-  <kubernetes_metamodel:Deployment image="wordpress" port="80" replicas="1" enviromentVariables="/6 /9 /7 /8" name="wordpress" service="/23" dataPersistent="/5" namespace="UML"/>
+  <kubernetes_metamodel:EnviromentVariables name="MYSQL_ROOT_PASSWORD" value="password"/>
+  <kubernetes_metamodel:Deployment image="wordpress" port="80" replicas="1" enviromentVariables="/8 /9 /7 /6" name="wordpress" service="/23" dataPersistent="/5" namespace="UML"/>
   <kubernetes_metamodel:PersistentData mountPath="/var/www/html" sizeInGB="5"/>
   <kubernetes_metamodel:EnviromentVariables name="WORDPRESS_DB_NAME" value="wordpress"/>
-  <kubernetes_metamodel:EnviromentVariables name="WORDPRESS_DB_USER" value="root"/>
-  <kubernetes_metamodel:EnviromentVariables name="WORDPRESS_DB_PASSWORD" value="password"/>
   <kubernetes_metamodel:EnviromentVariables name="WORDPRESS_DB_HOST" value="mysql.uml.svc.cluster.local"/>
+  <kubernetes_metamodel:EnviromentVariables name="WORDPRESS_DB_PASSWORD" value="password"/>
+  <kubernetes_metamodel:EnviromentVariables name="WORDPRESS_DB_USER" value="root"/>
   <kubernetes_metamodel:Deployment image="mysql:8.0.28" port="3306" replicas="1" enviromentVariables="/12 /13" name="mysql" service="/24" dataPersistent="/11" namespace="UML"/>
   <kubernetes_metamodel:PersistentData mountPath="/var/lib/mysql" sizeInGB="5"/>
   <kubernetes_metamodel:EnviromentVariables name="MYSQL_DATABASE" value="wordpress"/>
@@ -18,14 +18,14 @@
   <kubernetes_metamodel:PersistentData mountPath="/data/db" sizeInGB="3"/>
   <kubernetes_metamodel:EnviromentVariables name="MONGO_INITDB_ROOT_USERNAME" value="root"/>
   <kubernetes_metamodel:EnviromentVariables name="MONGO_INITDB_ROOT_PASSWORD" value="password"/>
-  <kubernetes_metamodel:Deployment image="mongo-express" port="8081" replicas="1" enviromentVariables="/19 /21 /20" name="mongoExpress" service="/27" namespace="UML"/>
-  <kubernetes_metamodel:EnviromentVariables name="ME_CONFIG_MONGODB_ADMINPASSWORD" value="password"/>
-  <kubernetes_metamodel:EnviromentVariables name="ME_CONFIG_MONGODB_ADMINUSERNAME" value="root"/>
+  <kubernetes_metamodel:Deployment image="mongo-express" port="8081" replicas="1" enviromentVariables="/20 /21 /19" name="mongoExpress" service="/27" namespace="UML" ingress="/26"/>
   <kubernetes_metamodel:EnviromentVariables name="ME_CONFIG_MONGODB_URL" value="mongodb://root:password@mongo.uml.svc.cluster.local:27017/"/>
-  <kubernetes_metamodel:Service port="80" publicAccess="true" name="svc-phpMyAdmin"/>
-  <kubernetes_metamodel:Service port="80" publicAccess="true" name="svc-wordpress"/>
-  <kubernetes_metamodel:Service port="3306" name="svc-mysql"/>
-  <kubernetes_metamodel:Service port="27017" name="svc-mongo"/>
-  <kubernetes_metamodel:Ingress/>
-  <kubernetes_metamodel:Service port="8081"/>
+  <kubernetes_metamodel:EnviromentVariables name="ME_CONFIG_MONGODB_ADMINUSERNAME" value="root"/>
+  <kubernetes_metamodel:EnviromentVariables name="ME_CONFIG_MONGODB_ADMINPASSWORD" value="password"/>
+  <kubernetes_metamodel:Service port="80" publicAccess="true" name="phpMyAdmin" accessibilityType="LoadBalancer"/>
+  <kubernetes_metamodel:Service port="80" publicAccess="true" name="wordpress" accessibilityType="LoadBalancer"/>
+  <kubernetes_metamodel:Service port="3306" name="mysql" accessibilityType="LoadBalancer"/>
+  <kubernetes_metamodel:Service port="27017" name="mongo" accessibilityType="LoadBalancer"/>
+  <kubernetes_metamodel:Ingress path="/asd"/>
+  <kubernetes_metamodel:Service port="8081" publicAccess="true" name="mongoExpress"/>
 </xmi:XMI>
