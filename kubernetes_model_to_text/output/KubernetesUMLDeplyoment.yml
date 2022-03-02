@@ -293,7 +293,7 @@ spec:
   type: NodePort
   ports:
     - name: http
-      port: 8081
+      port: 32000
       targetPort: 8081
 
 
@@ -314,7 +314,7 @@ spec:
           service:
             name: mongoexpress
             port:
-              number: 8081
+              number: 32000
         pathType: Exact
 
 
