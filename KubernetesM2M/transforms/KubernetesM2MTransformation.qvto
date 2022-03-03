@@ -133,16 +133,16 @@ mapping UML::NamedElement::deployment2infra() : KuberntesMetaModel::Infrastructu
 mapping UML::Node::nodesToDeployment() : KuberntesMetaModel::Deployment 
 	when {
 		// a guard to only map nodes that has the stereotype of the Deployment type.
-		self.getDeployment() <> null or self.getMysqlStereoType() <> null or self.getMongoStereoType() <> null;
+		self.getDeployment() <> null or self.getMysqlStereoType() <> null or self.getMongoStereoType() <> null ;
 	}{
 	var containerInfra := resolveoneIn(UML::NamedElement::deployment2infra);
 	var deploymentStereotype := self.getDeployment();
 	var mysqlStereotype := self.getMysqlStereoType();
 	var mongoStereotype := self.getMongoStereoType();
+
 	
 	result.namespace := containerInfra.namespace;
-	if(deploymentStereotype <> null){
-		
+	if(deploymentStereotype <> null ){		
 		self.deploymentToDeployment(result, deploymentStereotype,containerInfra.namespace);
 	};
 	if(mysqlStereotype <> null){

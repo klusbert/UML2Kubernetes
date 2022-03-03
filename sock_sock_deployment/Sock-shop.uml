@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:KubernetesUMLProfile="http:///schemas/KubernetesUMLProfile/_SOHUMJrPEeyFoIN4a6CPFg/106" xmlns:KubernetesUMLProfile.DataTypes="http:///KubernetesUMLProfile/DataTypes.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/KubernetesUMLProfile/_SOHUMJrPEeyFoIN4a6CPFg/106 /KubernetesUMLProfile/KubernetesUMLProfile.profile.uml#_SOH7QJrPEeyFoIN4a6CPFg http:///KubernetesUMLProfile/DataTypes.ecore /KubernetesUMLProfile/KubernetesUMLProfile.profile.uml#_SOH7hJrPEeyFoIN4a6CPFg">
+  <uml:Model xmi:id="_DVheYJrGEeyFoIN4a6CPFg" name="Sock-shop">
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_DaI4oJrGEeyFoIN4a6CPFg">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:ExecutionEnvironment" xmi:id="_G2rQ8JrGEeyFoIN4a6CPFg" name="ExecutionEnvironment3">
+      <nestedClassifier xmi:type="uml:Node" xmi:id="_yrU8gJrGEeyFoIN4a6CPFg" name="front-end"/>
+      <nestedClassifier xmi:type="uml:Node" xmi:id="_x2LmwJrSEeyFoIN4a6CPFg" name="Node6"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Node" xmi:id="_OxOssJrGEeyFoIN4a6CPFg" name="OutSider"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_1O2CIJrGEeyFoIN4a6CPFg" client="_OxOssJrGEeyFoIN4a6CPFg" supplier="_yrU8gJrGEeyFoIN4a6CPFg"/>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_DZW1gJrGEeyFoIN4a6CPFg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_TwnowJrPEeyFoIN4a6CPFg" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_TwnowZrPEeyFoIN4a6CPFg" key="Version" value="0.0.107"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_TwnowprPEeyFoIN4a6CPFg" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Twnow5rPEeyFoIN4a6CPFg" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_TwnoxJrPEeyFoIN4a6CPFg" key="Date" value="2022-03-03"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_TwnoxZrPEeyFoIN4a6CPFg" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_DZXckJrGEeyFoIN4a6CPFg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="/KubernetesUMLProfile/KubernetesUMLProfile.profile.uml#_SOH7QJrPEeyFoIN4a6CPFg"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="/KubernetesUMLProfile/KubernetesUMLProfile.profile.uml#_y3Fe0H9iEeyXt-NBRolQsA"/>
+    </profileApplication>
+  </uml:Model>
+  <KubernetesUMLProfile:Kubernetes xmi:id="_Iex3MJrGEeyFoIN4a6CPFg" namespace="sock-shop" base_ExecutionEnvironment="_G2rQ8JrGEeyFoIN4a6CPFg"/>
+  <KubernetesUMLProfile:Accessibility xmi:id="_23pL8JrGEeyFoIN4a6CPFg" base_Dependency="_1O2CIJrGEeyFoIN4a6CPFg"/>
+  <KubernetesUMLProfile:AdvancedDeployment xmi:id="_U1xS8JrPEeyFoIN4a6CPFg" base_Node="_yrU8gJrGEeyFoIN4a6CPFg" image="weaveworksdemos/front-end:0.3.12" port="8079">
+    <securityContext xmi:type="KubernetesUMLProfile.DataTypes:SecurityContext" xmi:id="_ZB244JrPEeyFoIN4a6CPFg" runAsUser="10001"/>
+    <resourceSpecification xmi:type="KubernetesUMLProfile.DataTypes:ResourceSpecification" xmi:id="_sbxT4JrPEeyFoIN4a6CPFg">
+      <request xmi:type="KubernetesUMLProfile.DataTypes:Resource" xmi:id="_tjIkkJrPEeyFoIN4a6CPFg" cpuUtalization="0.1" memory="100"/>
+      <limit xmi:type="KubernetesUMLProfile.DataTypes:Resource" xmi:id="_3e5DEJrPEeyFoIN4a6CPFg" cpuUtalization="0.3" memory="1000"/>
+    </resourceSpecification>
+  </KubernetesUMLProfile:AdvancedDeployment>
+</xmi:XMI>

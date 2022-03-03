@@ -42,12 +42,27 @@ spec:
           image: [deployment.image /]
           ports:
             - containerPort: [deployment.port /]
+[comment EnviromentVars/]
 	 [if (deployment.enviromentVariables->notEmpty())]
           env:
           [for (envar: EnviromentVariables | deployment.enviromentVariables)]
             - name: [envar.name /]
               value: [envar.value /]
 		  [/for]
+	 [/if]
+[comment SecurityContext/]
+	 [if (deployment.securityContext->notEmpty())]
+          securityContext:
+            runAsNonRoot: [deployment.securityContext.runAsRoot /]
+			[if (deployment.securityContext.runAsUser > -1)]
+			runAsUser: [deployment.securityContext.runAsUser /]
+			[/if]
+            [if (deployment.securityContext.runAsGroup > -1)]
+			runAsGroup: [deployment.securityContext.runAsGroup /]
+			[/if]
+			[if (deployment.securityContext.fsGroup > -1)]
+			fsGroup: [deployment.securityContext.fsGroup/]
+			[/if]
 	 [/if]
 	 [if (deployment.dataPersistent->notEmpty())]        
           volumeMounts:

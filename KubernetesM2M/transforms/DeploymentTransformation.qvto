@@ -62,9 +62,54 @@ helper UML::Node::deploymentToDeployment(inout deployment: KuberntesMetaModel::D
 	    deployment.replicas := self.getInteger(deploymentStereoType,"replicas");
 	    
 	    deployment.dataPersistent := self.getDataPersistent(deploymentStereoType);
-	    deployment.enviromentVariables += self.getEnviromentVariables(deploymentStereoType, namespace);
+	    deployment.enviromentVariables += self.getEnviromentVariables(deploymentStereoType, namespace);	  	  	
+	  
+	  	if(deploymentStereoType.name = "AdvancedDeployment"){	  	
+	  		deployment.securityContext := self.getSecurityContext(deploymentStereoType);
+	  		deployment.resourceAllocation := self.getResourceAllocation(deploymentStereoType);
+	  	};
+	  	
+	  
+	  	
+	
+	
+	    
+	  
 }
 
+
+helper UML::Node::getSecurityContext(in deploymentStereoType : UML::Stereotype): SecurityContext{
+	var securityContext := self.getValue(deploymentStereoType,"securityContext").oclAsType(kuberProfile::DataTypes::SecurityContext);
+	
+	if(securityContext <> null){
+		var returnSecurityContext = new SecurityContext();
+	
+	
+		returnSecurityContext.runAsUser := securityContext.runAsUser;
+		returnSecurityContext.runAsRoot := securityContext.runAsRoot;
+		returnSecurityContext.runAsGroup := securityContext.runAsGroup;
+		returnSecurityContext.fsGroup := securityContext.fsGroup;
+	
+		return returnSecurityContext;
+	};
+	return null;
+
+}
+
+helper UML::Node::getResourceAllocation(in deploymentStereoType : UML::Stereotype) : ResourceAllocation {
+	var resourceSpecification := self.getValue(deploymentStereoType, "resourceSpecification").oclAsType(kuberProfile::DataTypes::ResourceSpecification);
+	var limit := resourceSpecification.limit;
+	var request := resourceSpecification.request;
+	
+	var returnResourceAlloc := new ResourceAllocation();
+	var cpuLimit := (limit.cpuUtalization * 1000).floor().toString() + "m";
+	var cpuRequest := (request.cpuUtalization * 1000).floor().toString() + "m";
+	
+	var memLimit := limit.memory.toString() + "MI";
+	var memRequest := request.memory.toString() + "MI";
+
+	return null;
+}
 helper UML::Node::getEnviromentVariables(in deploymentStereoType : UML::Stereotype, in namespace :String) : OrderedSet(EnviromentVariables){
 
 	var environmentVariables :=	self.getValue(deploymentStereoType,"environmentVariables"); //.oclAsType(KuberProfile2::EnviromentVariables);

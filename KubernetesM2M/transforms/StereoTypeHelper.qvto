@@ -18,8 +18,16 @@ helper UML::Node::getDeployment() : UML::Stereotype {
 		var stereoType = self.getAppliedStereotype("KubernetesUMLProfile::Deployment");
 		return stereoType
 	};
+	
+	if (self.isStereotypeApplied(self.getAppliedStereotype("KubernetesUMLProfile::AdvancedDeployment"))) { 
+		var stereoType = self.getAppliedStereotype("KubernetesUMLProfile::AdvancedDeployment");
+		return stereoType
+	};
+	
 	return null;	
 }
+
+
 
 helper UML::Node::getMongoStereoType(): UML::Stereotype {
 	if (self.isStereotypeApplied(self.getAppliedStereotype("KubernetesUMLProfile::MongoDB"))) { 
