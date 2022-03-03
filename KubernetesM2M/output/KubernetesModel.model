@@ -1,8 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:kubernetes_metamodel="http://www.example.org/kubernetesModel" xsi:schemaLocation="http://www.example.org/kubernetesModel ../../kubernetes_meta_model/model/kubernetes_metamodel.ecore">
-  <kubernetes_metamodel:Infrastructure namespace="sock-shop" apiVersion="1" name="Sock-shop" deployments="/1" accessibilityType="LoadBalancer"/>
-  <kubernetes_metamodel:Deployment image="weaveworksdemos/front-end:0.3.12" port="8079" replicas="1" name="front-end" service="/4" namespace="sock-shop" securityContext="/2"/>
-  <kubernetes_metamodel:SecurityContext runAsRoot="true" runAsUser="10001" runAsGroup="-1" fsGroup="-1"/>
-  <kubernetes_metamodel:ResourceAllocation/>
+  <kubernetes_metamodel:Infrastructure namespace="sock-shop" apiVersion="1" name="Sock-shop" deployments="/1 /5 /11 /15 /18 /24 /28 /32 /36 /39 /46 /49 /54" accessibilityType="LoadBalancer"/>
+  <kubernetes_metamodel:Deployment image="weaveworksdemos/front-end:0.3.12" port="8079" replicas="1" enviromentVariables="/2" name="front-end" service="/58" namespace="sock-shop" securityContext="/3"/>
+  <kubernetes_metamodel:EnviromentVariables name="SESSION_REDIS" value="&quot;true&quot;"/>
+  <kubernetes_metamodel:SecurityContext runAsRoot="true" runAsUser="10001" runAsGroup="-1" fsGroup="-1" capabilities="/4"/>
+  <kubernetes_metamodel:Capabilities>
+    <drop>all</drop>
+  </kubernetes_metamodel:Capabilities>
+  <kubernetes_metamodel:Deployment image="weaveworksdemos/carts:0.4.8" port="80" replicas="1" enviromentVariables="/7" name="carts" dataPersistent="/6" namespace="sock-shop" securityContext="/8" resourceAllocation="/10"/>
+  <kubernetes_metamodel:PersistentData mountPath="/tmp" sizeInGB="1"/>
+  <kubernetes_metamodel:EnviromentVariables name="JAVA_OPTS" value="-Xms64m -Xmx128m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom -Dspring.zipkin.enabled=false"/>
+  <kubernetes_metamodel:SecurityContext runAsRoot="true" runAsUser="10001" runAsGroup="-1" fsGroup="-1" readOnlyRootFilesystem="true" capabilities="/9"/>
+  <kubernetes_metamodel:Capabilities>
+    <drop>all</drop>
+    <add>NET_BIND_SERVICE</add>
+  </kubernetes_metamodel:Capabilities>
+  <kubernetes_metamodel:ResourceAllocation cpuLimit="300m" cpuRequest="100m" memoryLimit="500Mi" memoryRequest="200Mi"/>
+  <kubernetes_metamodel:Deployment image="weaveworksdemos/catalogue:0.3.5" port="80" replicas="1" name="catalogue" service="/62" namespace="sock-shop" securityContext="/12" resourceAllocation="/14" command="/app">
+    <args>-port=80</args>
+  </kubernetes_metamodel:Deployment>
+  <kubernetes_metamodel:SecurityContext runAsRoot="true" runAsUser="10001" runAsGroup="-1" fsGroup="-1" readOnlyRootFilesystem="true" capabilities="/13"/>
+  <kubernetes_metamodel:Capabilities>
+    <drop>all</drop>
+    <add>NET_BIND_SERVICE</add>
+  </kubernetes_metamodel:Capabilities>
+  <kubernetes_metamodel:ResourceAllocation cpuLimit="200m" cpuRequest="100m" memoryLimit="200Mi" memoryRequest="100Mi"/>
+  <kubernetes_metamodel:Deployment image=" weaveworksdemos/catalogue-db:0.3.0" port="3306" replicas="1" enviromentVariables="/16 /17" name="catalogue-db" service="/59" namespace="sock-shop"/>
+  <kubernetes_metamodel:EnviromentVariables name="MYSQL_DATABASE" value="socksdb"/>
+  <kubernetes_metamodel:EnviromentVariables name="MYSQL_ROOT_PASSWORD" value="fake_password"/>
+  <kubernetes_metamodel:Deployment image="weaveworksdemos/orders:0.4.7" port="80" replicas="1" enviromentVariables="/20" name="orders" service="/61" dataPersistent="/19" namespace="sock-shop" securityContext="/21" resourceAllocation="/23"/>
+  <kubernetes_metamodel:PersistentData mountPath="/tmp" sizeInGB="1"/>
+  <kubernetes_metamodel:EnviromentVariables name="JAVA_OPTS" value="-Xms64m -Xmx128m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom -Dspring.zipkin.enabled=false"/>
+  <kubernetes_metamodel:SecurityContext runAsRoot="true" runAsUser="10001" runAsGroup="-1" fsGroup="-1" readOnlyRootFilesystem="true" capabilities="/22"/>
+  <kubernetes_metamodel:Capabilities>
+    <drop>all</drop>
+    <add>NET_BIND_SERVICE</add>
+  </kubernetes_metamodel:Capabilities>
+  <kubernetes_metamodel:ResourceAllocation cpuLimit="500m" cpuRequest="100m" memoryLimit="500Mi" memoryRequest="300Mi"/>
+  <kubernetes_metamodel:Deployment image="mongo" port="27017" replicas="1" enviromentVariables="/26 /27" name="orders-db" service="/60" dataPersistent="/25" namespace="sock-shop"/>
+  <kubernetes_metamodel:PersistentData mountPath="/data/db" sizeInGB="3"/>
+  <kubernetes_metamodel:EnviromentVariables name="MONGO_INITDB_ROOT_USERNAME" value="root"/>
+  <kubernetes_metamodel:EnviromentVariables name="MONGO_INITDB_ROOT_PASSWORD" value="password"/>
+  <kubernetes_metamodel:Deployment image="weaveworksdemos/payment:0.4.3" port="80" replicas="1" name="payment" service="/64" namespace="sock-shop" securityContext="/29" resourceAllocation="/31"/>
+  <kubernetes_metamodel:SecurityContext runAsRoot="true" runAsUser="10001" runAsGroup="-1" fsGroup="-1" readOnlyRootFilesystem="true" capabilities="/30"/>
+  <kubernetes_metamodel:Capabilities>
+    <drop>all</drop>
+    <add>NET_BIND_SERVICE</add>
+  </kubernetes_metamodel:Capabilities>
+  <kubernetes_metamodel:ResourceAllocation cpuLimit="200m" cpuRequest="90m" memoryLimit="200Mi" memoryRequest="100Mi"/>
+  <kubernetes_metamodel:Deployment image="mongo" port="27017" replicas="1" enviromentVariables="/34 /35" name="cart-db" service="/63" dataPersistent="/33" namespace="sock-shop"/>
+  <kubernetes_metamodel:PersistentData mountPath="/data/db" sizeInGB="3"/>
+  <kubernetes_metamodel:EnviromentVariables name="MONGO_INITDB_ROOT_USERNAME" value="root"/>
+  <kubernetes_metamodel:EnviromentVariables name="MONGO_INITDB_ROOT_PASSWORD" value="password"/>
+  <kubernetes_metamodel:Deployment image="weaveworksdemos/queue-master:0.3.1" port="80" replicas="1" enviromentVariables="/37" name="queue-master" service="/67" namespace="sock-shop" resourceAllocation="/38"/>
+  <kubernetes_metamodel:EnviromentVariables name="JAVA_OPTS" value="-Xms64m -Xmx128m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom -Dspring.zipkin.enabled=false"/>
+  <kubernetes_metamodel:ResourceAllocation cpuLimit="300m" cpuRequest="100m" memoryLimit="500Mi" memoryRequest="300Mi"/>
+  <kubernetes_metamodel:Deployment image="weaveworksdemos/shipping:0.4.8" port="80" replicas="1" enviromentVariables="/42 /41" name="shipping" service="/65" dataPersistent="/40" namespace="sock-shop" securityContext="/43" resourceAllocation="/45"/>
+  <kubernetes_metamodel:PersistentData mountPath="/tmp" sizeInGB="1"/>
+  <kubernetes_metamodel:EnviromentVariables name="ZIPKIN" value="zipkin.jaeger.svc.cluster.local"/>
+  <kubernetes_metamodel:EnviromentVariables name="JAVA_OPTS" value="-Xms64m -Xmx128m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom -Dspring.zipkin.enabled=false"/>
+  <kubernetes_metamodel:SecurityContext runAsRoot="true" runAsUser="10001" runAsGroup="-1" fsGroup="-1" readOnlyRootFilesystem="true" capabilities="/44"/>
+  <kubernetes_metamodel:Capabilities>
+    <drop>all</drop>
+    <add>NET_BIND_SERVICE</add>
+  </kubernetes_metamodel:Capabilities>
+  <kubernetes_metamodel:ResourceAllocation cpuLimit="300m" cpuRequest="100m" memoryLimit="500Mi" memoryRequest="300Mi"/>
+  <kubernetes_metamodel:Deployment image="rabbitmq:3.6.8-management" port="5672" replicas="1" name="rabbitmq" service="/66" namespace="sock-shop" securityContext="/47"/>
+  <kubernetes_metamodel:SecurityContext runAsUser="-1" runAsGroup="-1" fsGroup="-1" readOnlyRootFilesystem="true" capabilities="/48"/>
+  <kubernetes_metamodel:Capabilities>
+    <drop>all</drop>
+    <add>CHOWN</add>
+    <add>SETGID</add>
+    <add>SETUID</add>
+    <add>DAC_OVERRIDE</add>
+  </kubernetes_metamodel:Capabilities>
+  <kubernetes_metamodel:Deployment image="weaveworksdemos/user:0.4.7" port="80" replicas="1" enviromentVariables="/50" name="user" service="/68" namespace="sock-shop" securityContext="/51" resourceAllocation="/53"/>
+  <kubernetes_metamodel:EnviromentVariables name="mongo" value="user-db:27017"/>
+  <kubernetes_metamodel:SecurityContext runAsRoot="true" runAsUser="10001" runAsGroup="-1" fsGroup="-1" readOnlyRootFilesystem="true" capabilities="/52"/>
+  <kubernetes_metamodel:Capabilities>
+    <drop>all</drop>
+    <add>NET_BIND_SERVICE</add>
+  </kubernetes_metamodel:Capabilities>
+  <kubernetes_metamodel:ResourceAllocation cpuLimit="300m" cpuRequest="100m" memoryLimit="200Mi" memoryRequest="100Mi"/>
+  <kubernetes_metamodel:Deployment image="weaveworksdemos/user-db:0.3.0" port="27017" replicas="1" name="user-db" dataPersistent="/55" namespace="sock-shop" securityContext="/56"/>
+  <kubernetes_metamodel:PersistentData mountPath="/tmp" sizeInGB="1"/>
+  <kubernetes_metamodel:SecurityContext runAsUser="-1" runAsGroup="-1" fsGroup="-1" readOnlyRootFilesystem="true" capabilities="/57"/>
+  <kubernetes_metamodel:Capabilities>
+    <drop>all</drop>
+    <add>CHOWN</add>
+    <add>SETGID</add>
+    <add>SETUID</add>
+  </kubernetes_metamodel:Capabilities>
   <kubernetes_metamodel:Service port="80" publicAccess="true" name="front-end" accessibilityType="LoadBalancer"/>
+  <kubernetes_metamodel:Service port="3306" name="catalogue-db" accessibilityType="LoadBalancer"/>
+  <kubernetes_metamodel:Service port="27017" name="orders-db" accessibilityType="LoadBalancer"/>
+  <kubernetes_metamodel:Service port="80" name="orders" accessibilityType="LoadBalancer"/>
+  <kubernetes_metamodel:Service port="80" name="catalogue" accessibilityType="LoadBalancer"/>
+  <kubernetes_metamodel:Service port="27017" name="cart-db" accessibilityType="LoadBalancer"/>
+  <kubernetes_metamodel:Service port="80" name="payment" accessibilityType="LoadBalancer"/>
+  <kubernetes_metamodel:Service port="80" name="shipping" accessibilityType="LoadBalancer"/>
+  <kubernetes_metamodel:Service port="5672" name="rabbitmq" accessibilityType="LoadBalancer"/>
+  <kubernetes_metamodel:Service port="80" name="queue-master" accessibilityType="LoadBalancer"/>
+  <kubernetes_metamodel:Service port="80" name="user" accessibilityType="LoadBalancer"/>
 </xmi:XMI>

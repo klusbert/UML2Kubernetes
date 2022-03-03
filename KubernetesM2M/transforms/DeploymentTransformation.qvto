@@ -67,16 +67,36 @@ helper UML::Node::deploymentToDeployment(inout deployment: KuberntesMetaModel::D
 	  	if(deploymentStereoType.name = "AdvancedDeployment"){	  	
 	  		deployment.securityContext := self.getSecurityContext(deploymentStereoType);
 	  		deployment.resourceAllocation := self.getResourceAllocation(deploymentStereoType);
-	  	};
-	  	
+	  		deployment.args := self.getArguments(deploymentStereoType);
+	  		var i := self.getCommand(deploymentStereoType);
+	  		deployment.command := i;
+	  	}; 	
 	  
-	  	
-	
-	
 	    
 	  
 }
+helper UML::Node::getCommand(in deploymentStereoType : UML::Stereotype): String{
+	var command := self.getValue(deploymentStereoType,"command");
+	
+	if(command <> null){
+		return command.oclAsType(String);
+	};
+	return null;
+}
 
+helper UML::Node::getArguments(in deploymentStereoType : UML::Stereotype): OrderedSet(String){
+
+	var returnArgs: Set(String);
+	self.getValue(deploymentStereoType,"args")->flatten()->asSequence()->forEach(variable){
+			log(variable.toString());
+			returnArgs += variable.oclAsType(String);
+	};
+	if(returnArgs->notEmpty()){
+		return returnArgs->asOrderedSet();
+	};
+	
+	return null;
+}
 
 helper UML::Node::getSecurityContext(in deploymentStereoType : UML::Stereotype): SecurityContext{
 	var securityContext := self.getValue(deploymentStereoType,"securityContext").oclAsType(kuberProfile::DataTypes::SecurityContext);
@@ -89,11 +109,25 @@ helper UML::Node::getSecurityContext(in deploymentStereoType : UML::Stereotype):
 		returnSecurityContext.runAsRoot := securityContext.runAsRoot;
 		returnSecurityContext.runAsGroup := securityContext.runAsGroup;
 		returnSecurityContext.fsGroup := securityContext.fsGroup;
+		returnSecurityContext.readOnlyRootFilesystem := securityContext.readOnlyRootFilesystem;
 	
+		returnSecurityContext.capabilities := securityContext.getCapabilities();
 		return returnSecurityContext;
 	};
 	return null;
 
+}
+helper kuberProfile::DataTypes::SecurityContext::getCapabilities() : Capabilities{
+	
+	
+	var cap = new Capabilities();
+	self->capabilities.add->forEach(add) {	
+		cap.add += add;
+	};
+	self->capabilities.drop->forEach(drop) {	
+		cap.drop += drop;
+	};
+	return cap;
 }
 
 helper UML::Node::getResourceAllocation(in deploymentStereoType : UML::Stereotype) : ResourceAllocation {
@@ -101,12 +135,20 @@ helper UML::Node::getResourceAllocation(in deploymentStereoType : UML::Stereotyp
 	var limit := resourceSpecification.limit;
 	var request := resourceSpecification.request;
 	
-	var returnResourceAlloc := new ResourceAllocation();
-	var cpuLimit := (limit.cpuUtalization * 1000).floor().toString() + "m";
-	var cpuRequest := (request.cpuUtalization * 1000).floor().toString() + "m";
+
+
+
+	if(limit.cpuUtalization > 0 and limit.memory > 0 and request.cpuUtalization > 0 and request.memory > 0){
+		
+		var returnResourceAlloc := new ResourceAllocation();
+ 		returnResourceAlloc.cpuLimit :=(limit.cpuUtalization * 1000).floor().toString() + "m";
+		returnResourceAlloc.cpuRequest :=(request.cpuUtalization * 1000).floor().toString() + "m";
 	
-	var memLimit := limit.memory.toString() + "MI";
-	var memRequest := request.memory.toString() + "MI";
+		returnResourceAlloc.memoryLimit := limit.memory.toString() + "Mi";
+		returnResourceAlloc.memoryRequest := request.memory.toString() + "Mi";
+		return returnResourceAlloc;
+	};
+
 
 	return null;
 }

@@ -40,6 +40,12 @@ spec:
       containers:
         - name: [deployment.name.toLowerCase() /]
           image: [deployment.image /]
+		  [if (deployment.command->notEmpty())]
+          command: ['["'/][deployment.command /]['"]'/]
+          [/if]
+          [if (deployment.args->notEmpty())]
+          [for (deployment.args) before ('args: [') separator (',') after (']')]['"'/][self/]['"'/][/for]
+		  [/if]
           ports:
             - containerPort: [deployment.port /]
 [comment EnviromentVars/]
@@ -55,14 +61,39 @@ spec:
           securityContext:
             runAsNonRoot: [deployment.securityContext.runAsRoot /]
 			[if (deployment.securityContext.runAsUser > -1)]
-			runAsUser: [deployment.securityContext.runAsUser /]
+            runAsUser: [deployment.securityContext.runAsUser /]
 			[/if]
             [if (deployment.securityContext.runAsGroup > -1)]
 			runAsGroup: [deployment.securityContext.runAsGroup /]
 			[/if]
 			[if (deployment.securityContext.fsGroup > -1)]
 			fsGroup: [deployment.securityContext.fsGroup/]
+			[/if]            
+            [if (deployment.securityContext.capabilities.add->notEmpty() or deployment.securityContext.capabilities.drop->notEmpty())]
+            capabilities:
+              [if (deployment.securityContext.capabilities.drop->notEmpty())]
+              drop:
+                [for (var: String | deployment.securityContext.capabilities.drop)]
+                -  [var /]             
+			    [/for]
+              [/if]
+              [if (deployment.securityContext.capabilities.add->notEmpty())]
+              add:
+                 [for (var: String | deployment.securityContext.capabilities.add)]
+                -  [var /]             
+			    [/for]
+              [/if]
 			[/if]
+            readOnlyRootFilesystem: [deployment.securityContext.readOnlyRootFilesystem /]
+	 [/if]
+	 [if (deployment.resourceAllocation->notEmpty())]
+          resources:
+            limits:
+              cpu: [deployment.resourceAllocation.cpuLimit /]
+              memory: [deployment.resourceAllocation.memoryLimit /]
+            requests:
+              cpu: [deployment.resourceAllocation.cpuRequest /]
+              memory: [deployment.resourceAllocation.memoryRequest /]
 	 [/if]
 	 [if (deployment.dataPersistent->notEmpty())]        
           volumeMounts:

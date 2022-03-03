@@ -10,6 +10,57 @@ metadata:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: front-end
+  namespace: sock-shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: front-end
+  template:
+    metadata:
+      labels:
+        app: front-end
+    spec:
+      containers:
+        - name: front-end
+          image: weaveworksdemos/front-end:0.3.12
+          ports:
+            - containerPort: 8079
+          env:
+            - name: SESSION_REDIS
+              value: "true"
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 10001
+            capabilities:
+              drop:
+                -  all             
+            readOnlyRootFilesystem: false
+
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: front-end
+  namespace: sock-shop
+spec:
+  selector:
+    app: front-end
+  type: LoadBalancer
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8079
+
+
+
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
   name: carts
   namespace: sock-shop
 spec:
@@ -34,9 +85,25 @@ spec:
           env:
             - name: JAVA_OPTS
               value: -Xms64m -Xmx128m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom -Dspring.zipkin.enabled=false
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 10001
+            capabilities:
+              drop:
+                -  all             
+              add:
+                -  NET_BIND_SERVICE             
+            readOnlyRootFilesystem: true
+          resources:
+            limits:
+              cpu: 300m
+              memory: 500Mi
+            requests:
+              cpu: 100m
+              memory: 200Mi
           volumeMounts:
             - name: carts-persistent-storage
-              mountPath: /temp
+              mountPath: /tmp
 ---
 kind: PersistentVolumeClaim
 apiVersion: v1
@@ -54,48 +121,667 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: front-end
+  name: catalogue
   namespace: sock-shop
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: front-end
+      app: catalogue
   template:
     metadata:
       labels:
-        app: front-end
+        app: catalogue
     spec:
       containers:
-        - name: front-end
-          image: weaveworksdemos/front-end:0.3.12
+        - name: catalogue
+          image: weaveworksdemos/catalogue:0.3.5
+          command: ["/app"]
+          args: ["-port=80"]
           ports:
-            - containerPort: 8079
-          env:
-            - name: SESSION_REDIS
-              value: "true"
+            - containerPort: 80
           securityContext:
             runAsNonRoot: true
-			runAsUser: 10001
+            runAsUser: 10001
+            capabilities:
+              drop:
+                -  all             
+              add:
+                -  NET_BIND_SERVICE             
+            readOnlyRootFilesystem: true
+          resources:
+            limits:
+              cpu: 200m
+              memory: 200Mi
+            requests:
+              cpu: 100m
+              memory: 100Mi
 
 
 ---
-kind: Service
 apiVersion: v1
+kind: Service
 metadata:
-  name: front-end
+  name: catalogue
   namespace: sock-shop
 spec:
-  selector:
-    app: front-end
-  type: LoadBalancer
+  type: ClusterIP
   ports:
-    - name: http
+    - protocol: TCP
       port: 80
-      targetPort: 8079
+      targetPort: 80
+  selector:
+    app: catalogue
 
 
 
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: catalogue-db
+  namespace: sock-shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: catalogue-db
+  template:
+    metadata:
+      labels:
+        app: catalogue-db
+    spec:
+      containers:
+        - name: catalogue-db
+          image:  weaveworksdemos/catalogue-db:0.3.0
+          ports:
+            - containerPort: 3306
+          env:
+            - name: MYSQL_DATABASE
+              value: socksdb
+            - name: MYSQL_ROOT_PASSWORD
+              value: fake_password
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: catalogue-db
+  namespace: sock-shop
+spec:
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 3306
+      targetPort: 3306
+  selector:
+    app: catalogue-db
+
+
+
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orders
+  namespace: sock-shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: orders
+  template:
+    metadata:
+      labels:
+        app: orders
+    spec:
+      volumes:
+       - name: orders-persistent-storage
+         persistentVolumeClaim:
+           claimName: orders-pvc
+      containers:
+        - name: orders
+          image: weaveworksdemos/orders:0.4.7
+          ports:
+            - containerPort: 80
+          env:
+            - name: JAVA_OPTS
+              value: -Xms64m -Xmx128m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom -Dspring.zipkin.enabled=false
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 10001
+            capabilities:
+              drop:
+                -  all             
+              add:
+                -  NET_BIND_SERVICE             
+            readOnlyRootFilesystem: true
+          resources:
+            limits:
+              cpu: 500m
+              memory: 500Mi
+            requests:
+              cpu: 100m
+              memory: 300Mi
+          volumeMounts:
+            - name: orders-persistent-storage
+              mountPath: /tmp
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: orders-pvc
+  namespace: sock-shop
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: orders
+  namespace: sock-shop
+spec:
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  selector:
+    app: orders
+
+
+
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orders-db
+  namespace: sock-shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: orders-db
+  template:
+    metadata:
+      labels:
+        app: orders-db
+    spec:
+      volumes:
+       - name: orders-db-persistent-storage
+         persistentVolumeClaim:
+           claimName: orders-db-pvc
+      containers:
+        - name: orders-db
+          image: mongo
+          ports:
+            - containerPort: 27017
+          env:
+            - name: MONGO_INITDB_ROOT_USERNAME
+              value: root
+            - name: MONGO_INITDB_ROOT_PASSWORD
+              value: password
+          volumeMounts:
+            - name: orders-db-persistent-storage
+              mountPath: /data/db
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: orders-db-pvc
+  namespace: sock-shop
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 3Gi
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: orders-db
+  namespace: sock-shop
+spec:
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 27017
+      targetPort: 27017
+  selector:
+    app: orders-db
+
+
+
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment
+  namespace: sock-shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: payment
+  template:
+    metadata:
+      labels:
+        app: payment
+    spec:
+      containers:
+        - name: payment
+          image: weaveworksdemos/payment:0.4.3
+          ports:
+            - containerPort: 80
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 10001
+            capabilities:
+              drop:
+                -  all             
+              add:
+                -  NET_BIND_SERVICE             
+            readOnlyRootFilesystem: true
+          resources:
+            limits:
+              cpu: 200m
+              memory: 200Mi
+            requests:
+              cpu: 90m
+              memory: 100Mi
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: payment
+  namespace: sock-shop
+spec:
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  selector:
+    app: payment
+
+
+
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cart-db
+  namespace: sock-shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cart-db
+  template:
+    metadata:
+      labels:
+        app: cart-db
+    spec:
+      volumes:
+       - name: cart-db-persistent-storage
+         persistentVolumeClaim:
+           claimName: cart-db-pvc
+      containers:
+        - name: cart-db
+          image: mongo
+          ports:
+            - containerPort: 27017
+          env:
+            - name: MONGO_INITDB_ROOT_USERNAME
+              value: root
+            - name: MONGO_INITDB_ROOT_PASSWORD
+              value: password
+          volumeMounts:
+            - name: cart-db-persistent-storage
+              mountPath: /data/db
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: cart-db-pvc
+  namespace: sock-shop
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 3Gi
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cart-db
+  namespace: sock-shop
+spec:
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 27017
+      targetPort: 27017
+  selector:
+    app: cart-db
+
+
+
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: queue-master
+  namespace: sock-shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: queue-master
+  template:
+    metadata:
+      labels:
+        app: queue-master
+    spec:
+      containers:
+        - name: queue-master
+          image: weaveworksdemos/queue-master:0.3.1
+          ports:
+            - containerPort: 80
+          env:
+            - name: JAVA_OPTS
+              value: -Xms64m -Xmx128m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom -Dspring.zipkin.enabled=false
+          resources:
+            limits:
+              cpu: 300m
+              memory: 500Mi
+            requests:
+              cpu: 100m
+              memory: 300Mi
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: queue-master
+  namespace: sock-shop
+spec:
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  selector:
+    app: queue-master
+
+
+
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shipping
+  namespace: sock-shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shipping
+  template:
+    metadata:
+      labels:
+        app: shipping
+    spec:
+      volumes:
+       - name: shipping-persistent-storage
+         persistentVolumeClaim:
+           claimName: shipping-pvc
+      containers:
+        - name: shipping
+          image: weaveworksdemos/shipping:0.4.8
+          ports:
+            - containerPort: 80
+          env:
+            - name: JAVA_OPTS
+              value: -Xms64m -Xmx128m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom -Dspring.zipkin.enabled=false
+            - name: ZIPKIN
+              value: zipkin.jaeger.svc.cluster.local
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 10001
+            capabilities:
+              drop:
+                -  all             
+              add:
+                -  NET_BIND_SERVICE             
+            readOnlyRootFilesystem: true
+          resources:
+            limits:
+              cpu: 300m
+              memory: 500Mi
+            requests:
+              cpu: 100m
+              memory: 300Mi
+          volumeMounts:
+            - name: shipping-persistent-storage
+              mountPath: /tmp
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: shipping-pvc
+  namespace: sock-shop
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: shipping
+  namespace: sock-shop
+spec:
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  selector:
+    app: shipping
+
+
+
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rabbitmq
+  namespace: sock-shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rabbitmq
+  template:
+    metadata:
+      labels:
+        app: rabbitmq
+    spec:
+      containers:
+        - name: rabbitmq
+          image: rabbitmq:3.6.8-management
+          ports:
+            - containerPort: 5672
+          securityContext:
+            runAsNonRoot: false
+            capabilities:
+              drop:
+                -  all             
+              add:
+                -  CHOWN             
+                -  SETGID             
+                -  SETUID             
+                -  DAC_OVERRIDE             
+            readOnlyRootFilesystem: true
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rabbitmq
+  namespace: sock-shop
+spec:
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 5672
+      targetPort: 5672
+  selector:
+    app: rabbitmq
+
+
+
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user
+  namespace: sock-shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user
+  template:
+    metadata:
+      labels:
+        app: user
+    spec:
+      containers:
+        - name: user
+          image: weaveworksdemos/user:0.4.7
+          ports:
+            - containerPort: 80
+          env:
+            - name: mongo
+              value: user-db:27017
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 10001
+            capabilities:
+              drop:
+                -  all             
+              add:
+                -  NET_BIND_SERVICE             
+            readOnlyRootFilesystem: true
+          resources:
+            limits:
+              cpu: 300m
+              memory: 200Mi
+            requests:
+              cpu: 100m
+              memory: 100Mi
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: user
+  namespace: sock-shop
+spec:
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  selector:
+    app: user
+
+
+
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-db
+  namespace: sock-shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user-db
+  template:
+    metadata:
+      labels:
+        app: user-db
+    spec:
+      volumes:
+       - name: user-db-persistent-storage
+         persistentVolumeClaim:
+           claimName: user-db-pvc
+      containers:
+        - name: user-db
+          image: weaveworksdemos/user-db:0.3.0
+          ports:
+            - containerPort: 27017
+          securityContext:
+            runAsNonRoot: false
+            capabilities:
+              drop:
+                -  all             
+              add:
+                -  CHOWN             
+                -  SETGID             
+                -  SETUID             
+            readOnlyRootFilesystem: true
+          volumeMounts:
+            - name: user-db-persistent-storage
+              mountPath: /tmp
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: user-db-pvc
+  namespace: sock-shop
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
 
 
 
