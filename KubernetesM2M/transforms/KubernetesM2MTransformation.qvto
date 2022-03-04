@@ -50,11 +50,7 @@ mapping UML::Dependency::dependencyToIngreess() : KuberntesMetaModel::Ingress
 	
 	targetDeployment.ingress := result;
 	targetDeployment.service := publicService;
-	log("asd");
-	
-	
-	
-	
+
 	
 }
 mapping UML::Dependency::dependencyToService() : KuberntesMetaModel::Service 

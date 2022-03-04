@@ -37,6 +37,13 @@ spec:
          persistentVolumeClaim:
            claimName: [deployment.name.toLowerCase() +'-pvc'/]
 	 [/if]
+[comment temp-volume/]
+     [if (deployment.memoryMount->notEmpty())]
+      volumes:
+       - name: temp-volume
+         emptyDir: 
+           medium: Memory
+     [/if]
       containers:
         - name: [deployment.name.toLowerCase() /]
           image: [deployment.image /]
@@ -48,6 +55,13 @@ spec:
 		  [/if]
           ports:
             - containerPort: [deployment.port /]
+[comment additonalPorts/]
+		  [if (deployment.additionalPorts->notEmpty())]
+		  [for (port: Port | deployment.additionalPorts)]
+            - containerPort: [port.number/]
+              name: [port.name/]
+		  [/for]
+          [/if]  
 [comment EnviromentVars/]
 	 [if (deployment.enviromentVariables->notEmpty())]
           env:
@@ -74,13 +88,13 @@ spec:
               [if (deployment.securityContext.capabilities.drop->notEmpty())]
               drop:
                 [for (var: String | deployment.securityContext.capabilities.drop)]
-                -  [var /]             
+                - [var /]             
 			    [/for]
               [/if]
               [if (deployment.securityContext.capabilities.add->notEmpty())]
               add:
                  [for (var: String | deployment.securityContext.capabilities.add)]
-                -  [var /]             
+                - [var /]             
 			    [/for]
               [/if]
 			[/if]
@@ -95,6 +109,13 @@ spec:
               cpu: [deployment.resourceAllocation.cpuRequest /]
               memory: [deployment.resourceAllocation.memoryRequest /]
 	 [/if]
+[comment Memory mount/]
+		  [if (deployment.memoryMount->notEmpty())]
+          volumeMounts:
+            - mountPath: [deployment.memoryMount/]
+              name: temp-volume					
+          [/if]
+[comment persistentVolume claim/]
 	 [if (deployment.dataPersistent->notEmpty())]        
           volumeMounts:
             - name: [deployment.name.toLowerCase() +'-persistent-storage'/]
@@ -137,11 +158,9 @@ kind: Service
 metadata:
   name: [deployment.service.name.toLowerCase()/]
   namespace: [anInfrastructure.namespace.toLowerCase() /]
-spec:
-  type: ClusterIP
+spec:  
   ports:
-    - protocol: TCP
-      port: [deployment.service.port /]
+    - port: [deployment.service.port /]
       targetPort: [deployment.port /]
   selector:
     app: [deployment.name.toLowerCase() /]

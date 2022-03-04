@@ -314,7 +314,6 @@ spec:
   ports:
   - port: 80
     targetPort: 8079
-    nodePort: 30001
   selector:
     name: front-end
 ---
@@ -887,4 +886,3 @@ spec:
     targetPort: 27017
   selector:
     name: user-db
- 

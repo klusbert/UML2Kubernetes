@@ -68,12 +68,41 @@ helper UML::Node::deploymentToDeployment(inout deployment: KuberntesMetaModel::D
 	  		deployment.securityContext := self.getSecurityContext(deploymentStereoType);
 	  		deployment.resourceAllocation := self.getResourceAllocation(deploymentStereoType);
 	  		deployment.args := self.getArguments(deploymentStereoType);
-	  		var i := self.getCommand(deploymentStereoType);
-	  		deployment.command := i;
+	  		deployment.command := self.getCommand(deploymentStereoType);
+	  		deployment.memoryMount := self.getMemoryMount(deploymentStereoType);
+	  		deployment.additionalPorts := self.getAdditionalPorts(deploymentStereoType);
 	  	}; 	
 	  
 	    
 	  
+}
+
+helper UML::Node::getAdditionalPorts(in deploymentStereoType: UML::Stereotype): OrderedSet(KuberntesMetaModel::Port){
+	
+	var ports: Set(KuberntesMetaModel::Port);
+	self.getValue(deploymentStereoType,"additionalPorts")->flatten()->asSequence()->forEach(port){
+		
+	
+		var p = new KuberntesMetaModel::Port();
+		p.number := port.oclAsType(kuberProfile::DataTypes::Port).port;
+		p.name := port.oclAsType(kuberProfile::DataTypes::Port).portName;
+		ports += p;
+	};
+	if(ports->notEmpty()){
+		return ports->asOrderedSet();
+	};
+	
+	return null;
+}
+helper UML::Node::getMemoryMount(in deploymentStereoType : UML::Stereotype): String {
+	var memoryMount := self.getValue(deploymentStereoType,"memoryMount").oclAsType(kuberProfile::DataTypes::MemoryMount);
+	
+	if(memoryMount <> null){
+		
+
+		return memoryMount.mountPath;
+	};
+	return null;
 }
 helper UML::Node::getCommand(in deploymentStereoType : UML::Stereotype): String{
 	var command := self.getValue(deploymentStereoType,"command");
