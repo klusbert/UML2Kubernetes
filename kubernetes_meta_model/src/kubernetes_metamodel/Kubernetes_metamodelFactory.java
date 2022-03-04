@@ -49,6 +49,33 @@ public interface Kubernetes_metamodelFactory extends EFactory {
 	EnviromentVariables createEnviromentVariables();
 
 	/**
+	 * Returns a new object of class '<em>Service</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Service</em>'.
+	 * @generated
+	 */
+	Service createService();
+
+	/**
+	 * Returns a new object of class '<em>Persistent Data</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Persistent Data</em>'.
+	 * @generated
+	 */
+	PersistentData createPersistentData();
+
+	/**
+	 * Returns a new object of class '<em>Ingress</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ingress</em>'.
+	 * @generated
+	 */
+	Ingress createIngress();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

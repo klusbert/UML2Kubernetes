@@ -80,6 +80,18 @@ public class Kubernetes_metamodelAdapterFactory extends AdapterFactoryImpl {
 				return createEnviromentVariablesAdapter();
 			}
 			@Override
+			public Adapter caseService(Service object) {
+				return createServiceAdapter();
+			}
+			@Override
+			public Adapter casePersistentData(PersistentData object) {
+				return createPersistentDataAdapter();
+			}
+			@Override
+			public Adapter caseIngress(Ingress object) {
+				return createIngressAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -138,6 +150,48 @@ public class Kubernetes_metamodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEnviromentVariablesAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link kubernetes_metamodel.Service <em>Service</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see kubernetes_metamodel.Service
+	 * @generated
+	 */
+	public Adapter createServiceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link kubernetes_metamodel.PersistentData <em>Persistent Data</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see kubernetes_metamodel.PersistentData
+	 * @generated
+	 */
+	public Adapter createPersistentDataAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link kubernetes_metamodel.Ingress <em>Ingress</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see kubernetes_metamodel.Ingress
+	 * @generated
+	 */
+	public Adapter createIngressAdapter() {
 		return null;
 	}
 

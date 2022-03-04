@@ -2,14 +2,19 @@
  */
 package kubernetes_metamodel.impl;
 
+import kubernetes_metamodel.AccessibilityType;
 import kubernetes_metamodel.Deployment;
 import kubernetes_metamodel.EnviromentVariables;
 import kubernetes_metamodel.Infrastructure;
+import kubernetes_metamodel.Ingress;
 import kubernetes_metamodel.Kubernetes_metamodelFactory;
 import kubernetes_metamodel.Kubernetes_metamodelPackage;
+import kubernetes_metamodel.PersistentData;
+import kubernetes_metamodel.Service;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -42,6 +47,34 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 	 * @generated
 	 */
 	private EClass enviromentVariablesEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass serviceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass persistentDataEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass ingressEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum accessibilityTypeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -118,7 +151,7 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getInfrastructure_NameSpace() {
+	public EAttribute getInfrastructure_Namespace() {
 		return (EAttribute)infrastructureEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -129,6 +162,33 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 	 */
 	public EAttribute getInfrastructure_ApiVersion() {
 		return (EAttribute)infrastructureEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getInfrastructure_Name() {
+		return (EAttribute)infrastructureEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInfrastructure_Deployments() {
+		return (EReference)infrastructureEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getInfrastructure_AccessibilityType() {
+		return (EAttribute)infrastructureEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -181,6 +241,60 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getDeployment_Name() {
+		return (EAttribute)deploymentEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDeployment_Service() {
+		return (EReference)deploymentEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDeployment_Identifier() {
+		return (EAttribute)deploymentEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDeployment_DataPersistent() {
+		return (EReference)deploymentEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDeployment_Namespace() {
+		return (EAttribute)deploymentEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDeployment_Ingress() {
+		return (EReference)deploymentEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getEnviromentVariables() {
 		return enviromentVariablesEClass;
 	}
@@ -201,6 +315,105 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 	 */
 	public EAttribute getEnviromentVariables_Value() {
 		return (EAttribute)enviromentVariablesEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getService() {
+		return serviceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getService_Port() {
+		return (EAttribute)serviceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getService_PublicAccess() {
+		return (EAttribute)serviceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getService_Name() {
+		return (EAttribute)serviceEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getService_AccessibilityType() {
+		return (EAttribute)serviceEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPersistentData() {
+		return persistentDataEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPersistentData_MountPath() {
+		return (EAttribute)persistentDataEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPersistentData_SizeInGB() {
+		return (EAttribute)persistentDataEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIngress() {
+		return ingressEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIngress_Path() {
+		return (EAttribute)ingressEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getAccessibilityType() {
+		return accessibilityTypeEEnum;
 	}
 
 	/**
@@ -232,18 +445,43 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 
 		// Create classes and their features
 		infrastructureEClass = createEClass(INFRASTRUCTURE);
-		createEAttribute(infrastructureEClass, INFRASTRUCTURE__NAME_SPACE);
+		createEAttribute(infrastructureEClass, INFRASTRUCTURE__NAMESPACE);
 		createEAttribute(infrastructureEClass, INFRASTRUCTURE__API_VERSION);
+		createEAttribute(infrastructureEClass, INFRASTRUCTURE__NAME);
+		createEReference(infrastructureEClass, INFRASTRUCTURE__DEPLOYMENTS);
+		createEAttribute(infrastructureEClass, INFRASTRUCTURE__ACCESSIBILITY_TYPE);
 
 		deploymentEClass = createEClass(DEPLOYMENT);
 		createEAttribute(deploymentEClass, DEPLOYMENT__IMAGE);
 		createEAttribute(deploymentEClass, DEPLOYMENT__PORT);
 		createEAttribute(deploymentEClass, DEPLOYMENT__REPLICAS);
 		createEReference(deploymentEClass, DEPLOYMENT__ENVIROMENT_VARIABLES);
+		createEAttribute(deploymentEClass, DEPLOYMENT__NAME);
+		createEReference(deploymentEClass, DEPLOYMENT__SERVICE);
+		createEAttribute(deploymentEClass, DEPLOYMENT__IDENTIFIER);
+		createEReference(deploymentEClass, DEPLOYMENT__DATA_PERSISTENT);
+		createEAttribute(deploymentEClass, DEPLOYMENT__NAMESPACE);
+		createEReference(deploymentEClass, DEPLOYMENT__INGRESS);
 
 		enviromentVariablesEClass = createEClass(ENVIROMENT_VARIABLES);
 		createEAttribute(enviromentVariablesEClass, ENVIROMENT_VARIABLES__NAME);
 		createEAttribute(enviromentVariablesEClass, ENVIROMENT_VARIABLES__VALUE);
+
+		serviceEClass = createEClass(SERVICE);
+		createEAttribute(serviceEClass, SERVICE__PORT);
+		createEAttribute(serviceEClass, SERVICE__PUBLIC_ACCESS);
+		createEAttribute(serviceEClass, SERVICE__NAME);
+		createEAttribute(serviceEClass, SERVICE__ACCESSIBILITY_TYPE);
+
+		persistentDataEClass = createEClass(PERSISTENT_DATA);
+		createEAttribute(persistentDataEClass, PERSISTENT_DATA__MOUNT_PATH);
+		createEAttribute(persistentDataEClass, PERSISTENT_DATA__SIZE_IN_GB);
+
+		ingressEClass = createEClass(INGRESS);
+		createEAttribute(ingressEClass, INGRESS__PATH);
+
+		// Create enums
+		accessibilityTypeEEnum = createEEnum(ACCESSIBILITY_TYPE);
 	}
 
 	/**
@@ -277,18 +515,46 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(infrastructureEClass, Infrastructure.class, "Infrastructure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getInfrastructure_NameSpace(), ecorePackage.getEString(), "nameSpace", null, 0, 1, Infrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInfrastructure_Namespace(), ecorePackage.getEString(), "namespace", null, 0, 1, Infrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getInfrastructure_ApiVersion(), ecorePackage.getEByte(), "apiVersion", null, 0, 1, Infrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInfrastructure_Name(), ecorePackage.getEString(), "name", "Kubernetes", 0, 1, Infrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInfrastructure_Deployments(), this.getDeployment(), null, "deployments", null, 0, -1, Infrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInfrastructure_AccessibilityType(), this.getAccessibilityType(), "accessibilityType", null, 0, 1, Infrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(deploymentEClass, Deployment.class, "Deployment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDeployment_Image(), ecorePackage.getEString(), "image", null, 0, 1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDeployment_Port(), ecorePackage.getEInt(), "port", null, 0, 1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDeployment_Replicas(), ecorePackage.getEInt(), "replicas", null, 0, 1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDeployment_EnviromentVariables(), this.getEnviromentVariables(), null, "enviromentVariables", null, 0, -1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDeployment_Name(), ecorePackage.getEString(), "name", null, 0, 1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDeployment_Service(), this.getService(), null, "service", null, 0, 1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDeployment_Identifier(), ecorePackage.getEString(), "identifier", null, 0, 1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDeployment_DataPersistent(), this.getPersistentData(), null, "dataPersistent", null, 0, 1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDeployment_Namespace(), ecorePackage.getEString(), "namespace", null, 0, 1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDeployment_Ingress(), this.getIngress(), null, "ingress", null, 0, 1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(enviromentVariablesEClass, EnviromentVariables.class, "EnviromentVariables", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEnviromentVariables_Name(), ecorePackage.getEString(), "name", null, 0, 1, EnviromentVariables.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEnviromentVariables_Value(), ecorePackage.getEString(), "value", null, 0, 1, EnviromentVariables.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(serviceEClass, Service.class, "Service", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getService_Port(), ecorePackage.getEInt(), "port", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getService_PublicAccess(), ecorePackage.getEBoolean(), "publicAccess", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getService_Name(), ecorePackage.getEString(), "name", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getService_AccessibilityType(), this.getAccessibilityType(), "accessibilityType", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(persistentDataEClass, PersistentData.class, "PersistentData", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPersistentData_MountPath(), ecorePackage.getEString(), "mountPath", null, 0, 1, PersistentData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPersistentData_SizeInGB(), ecorePackage.getEInt(), "sizeInGB", null, 0, 1, PersistentData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(ingressEClass, Ingress.class, "Ingress", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getIngress_Path(), ecorePackage.getEString(), "path", null, 0, 1, Ingress.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(accessibilityTypeEEnum, AccessibilityType.class, "AccessibilityType");
+		addEEnumLiteral(accessibilityTypeEEnum, AccessibilityType.NODE_PORT);
+		addEEnumLiteral(accessibilityTypeEEnum, AccessibilityType.LOAD_BALANCER);
+		addEEnumLiteral(accessibilityTypeEEnum, AccessibilityType.CLUSTER_IP);
 
 		// Create resource
 		createResource(eNS_URI);
