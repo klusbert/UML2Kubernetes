@@ -104,7 +104,6 @@
     </resourceSpecification>
     <memoryMount xmi:type="KubernetesUMLProfile.DataTypes:MemoryMount" xmi:id="_VHnl8JuVEeywKYGRF4MZfg"/>
   </KubernetesUMLProfile:AdvancedDeployment>
-  <KubernetesUMLProfile:MongoDB xmi:id="_EpnjsJrrEey3UtMeXcAOlA" base_Node="_CH5N0JrrEey3UtMeXcAOlA"/>
   <KubernetesUMLProfile:AdvancedDeployment xmi:id="_ws9LgJrrEey3UtMeXcAOlA" base_Node="_UWd3EJrrEey3UtMeXcAOlA" image="weaveworksdemos/payment:0.4.3">
     <securityContext xmi:type="KubernetesUMLProfile.DataTypes:SecurityContext" xmi:id="_5_-PAJrrEey3UtMeXcAOlA" runAsRoot="true" runAsUser="10001" readOnlyRootFilesystem="true">
       <capabilities xmi:type="KubernetesUMLProfile.DataTypes:Capabilities" xmi:id="_6y45sJrrEey3UtMeXcAOlA">
@@ -208,5 +207,16 @@
         <drop>all</drop>
       </capabilities>
     </securityContext>
+  </KubernetesUMLProfile:AdvancedDeployment>
+  <KubernetesUMLProfile:AdvancedDeployment xmi:id="_bfx-4Ju2EeyDro7TDiA2Vg" base_Node="_CH5N0JrrEey3UtMeXcAOlA" image="mongo">
+    <securityContext xmi:type="KubernetesUMLProfile.DataTypes:SecurityContext" xmi:id="_ecFX8Ju2EeyDro7TDiA2Vg" readOnlyRootFilesystem="true">
+      <capabilities xmi:type="KubernetesUMLProfile.DataTypes:Capabilities" xmi:id="_feKgAJu2EeyDro7TDiA2Vg">
+        <add>CHOWN</add>
+        <add>SETGID</add>
+        <add>SETUID</add>
+        <drop>all</drop>
+      </capabilities>
+    </securityContext>
+    <memoryMount xmi:type="KubernetesUMLProfile.DataTypes:MemoryMount" xmi:id="_lHijUJu2EeyDro7TDiA2Vg"/>
   </KubernetesUMLProfile:AdvancedDeployment>
 </xmi:XMI>

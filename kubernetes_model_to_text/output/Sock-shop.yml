@@ -201,10 +201,10 @@ spec:
           ports:
             - containerPort: 3306
           env:
-            - name: MYSQL_DATABASE
-              value: socksdb
             - name: MYSQL_ROOT_PASSWORD
               value: fake_password
+            - name: MYSQL_DATABASE
+              value: socksdb
 
 
 ---
@@ -305,34 +305,27 @@ spec:
         app: orders-db
     spec:
       volumes:
-       - name: orders-db-persistent-storage
-         persistentVolumeClaim:
-           claimName: orders-db-pvc
+       - name: temp-volume
+         emptyDir: 
+           medium: Memory
       containers:
         - name: orders-db
           image: mongo
           ports:
-            - containerPort: 27017
-          env:
-            - name: MONGO_INITDB_ROOT_USERNAME
-              value: root
-            - name: MONGO_INITDB_ROOT_PASSWORD
-              value: password
+            - containerPort: 80
+          securityContext:
+            runAsNonRoot: false
+            capabilities:
+              drop:
+                - all             
+              add:
+                - CHOWN             
+                - SETGID             
+                - SETUID             
+            readOnlyRootFilesystem: true
           volumeMounts:
-            - name: orders-db-persistent-storage
-              mountPath: /data/db
----
-kind: PersistentVolumeClaim
-apiVersion: v1
-metadata:
-  name: orders-db-pvc
-  namespace: sock-shop
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 3Gi
+            - mountPath: /tmp
+              name: temp-volume					
 
 
 ---
@@ -343,8 +336,8 @@ metadata:
   namespace: sock-shop
 spec:  
   ports:
-    - port: 27017
-      targetPort: 27017
+    - port: 80
+      targetPort: 80
   selector:
     app: orders-db
 
