@@ -13,6 +13,7 @@ import kubernetes_metamodel.Service;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -21,7 +22,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -107,7 +109,7 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 	protected int replicas = REPLICAS_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getEnviromentVariables() <em>Enviroment Variables</em>}' reference list.
+	 * The cached value of the '{@link #getEnviromentVariables() <em>Enviroment Variables</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getEnviromentVariables()
@@ -295,7 +297,7 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 	 */
 	public EList<EnviromentVariables> getEnviromentVariables() {
 		if (enviromentVariables == null) {
-			enviromentVariables = new EObjectResolvingEList<EnviromentVariables>(EnviromentVariables.class, this, Kubernetes_metamodelPackage.DEPLOYMENT__ENVIROMENT_VARIABLES);
+			enviromentVariables = new EObjectContainmentEList<EnviromentVariables>(EnviromentVariables.class, this, Kubernetes_metamodelPackage.DEPLOYMENT__ENVIROMENT_VARIABLES);
 		}
 		return enviromentVariables;
 	}
@@ -475,6 +477,20 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 		ingress = newIngress;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, Kubernetes_metamodelPackage.DEPLOYMENT__INGRESS, oldIngress, ingress));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case Kubernetes_metamodelPackage.DEPLOYMENT__ENVIROMENT_VARIABLES:
+				return ((InternalEList<?>)getEnviromentVariables()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

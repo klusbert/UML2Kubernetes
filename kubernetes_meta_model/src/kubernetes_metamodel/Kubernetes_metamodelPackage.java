@@ -168,7 +168,7 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	int DEPLOYMENT__REPLICAS = 2;
 
 	/**
-	 * The feature id for the '<em><b>Enviroment Variables</b></em>' reference list.
+	 * The feature id for the '<em><b>Enviroment Variables</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -561,10 +561,10 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	EAttribute getDeployment_Replicas();
 
 	/**
-	 * Returns the meta object for the reference list '{@link kubernetes_metamodel.Deployment#getEnviromentVariables <em>Enviroment Variables</em>}'.
+	 * Returns the meta object for the containment reference list '{@link kubernetes_metamodel.Deployment#getEnviromentVariables <em>Enviroment Variables</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Enviroment Variables</em>'.
+	 * @return the meta object for the containment reference list '<em>Enviroment Variables</em>'.
 	 * @see kubernetes_metamodel.Deployment#getEnviromentVariables()
 	 * @see #getDeployment()
 	 * @generated
@@ -894,7 +894,7 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 		EAttribute DEPLOYMENT__REPLICAS = eINSTANCE.getDeployment_Replicas();
 
 		/**
-		 * The meta object literal for the '<em><b>Enviroment Variables</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Enviroment Variables</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

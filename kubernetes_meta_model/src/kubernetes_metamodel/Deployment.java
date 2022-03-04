@@ -99,13 +99,13 @@ public interface Deployment extends EObject {
 	void setReplicas(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Enviroment Variables</b></em>' reference list.
+	 * Returns the value of the '<em><b>Enviroment Variables</b></em>' containment reference list.
 	 * The list contents are of type {@link kubernetes_metamodel.EnviromentVariables}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Enviroment Variables</em>' reference list.
+	 * @return the value of the '<em>Enviroment Variables</em>' containment reference list.
 	 * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getDeployment_EnviromentVariables()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<EnviromentVariables> getEnviromentVariables();
