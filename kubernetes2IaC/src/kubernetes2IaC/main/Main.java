@@ -4,18 +4,17 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-import java.nio.file.Paths;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
 import org.eclipse.uml2.uml.Model;
-import org.eclipse.uml2.uml.UMLPackage;
-import org.eclipse.uml2.uml.UMLPlugin;
+
 import org.eclipse.uml2.uml.resources.util.UMLResourcesUtil;
 
-import kubernetes_metamodel.Infrastructure;
 import kubernetes_metamodel.Kubernetes_metamodelPackage;
 
 import org.eclipse.emf.common.util.BasicDiagnostic;
@@ -23,23 +22,21 @@ import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.impl.EPackageRegistryImpl;
-import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.eclipse.core.internal.runtime.Activator;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.m2m.qvt.oml.BasicModelExtent;
 import org.eclipse.m2m.qvt.oml.ExecutionContextImpl;
 import org.eclipse.m2m.qvt.oml.ExecutionDiagnostic;
 import org.eclipse.m2m.qvt.oml.ModelExtent;
 import org.eclipse.m2m.qvt.oml.TransformationExecutor;
-import org.eclipse.m2m.qvt.oml.util.Log;
+
 import org.eclipse.core.runtime.IStatus;
-import org.eclipse.m2m.qvt.oml.util.StringBufferLog;
+
 import org.eclipse.m2m.qvt.oml.util.WriterLog;
+
+import kubernetes_model_to_text.main.Generate;
 
 public class Main {
 
@@ -70,9 +67,19 @@ public class Main {
 		System.out.println("Model name is: " + inputUMLmodel.getName() + " and label is:" + inputUMLmodel.getLabel());
 		m2m(inputUMLmodel);
 		System.out.println("M2M finished");
+		m2t(PATH_TO_RESULT_M2M, FOLDER_TO_RESULT_M2T);
+		System.out.println("M2T finished");
 
 	}
 
+	private void m2t(String modelfile, String outputFolder) throws IOException {
+		URI modelURI = URI.createFileURI(modelfile);
+
+		new Generate(modelURI, new File(outputFolder), new ArrayList<Object>()).doGenerate(null);
+
+	}
+
+	@SuppressWarnings("unused")
 	private void checkFile(String path) {
 		try {
 			File file = new File(path);
@@ -82,9 +89,11 @@ public class Main {
 			while ((r = fis.read()) != -1) {
 				System.out.print((char) r); // prints the content of the file
 			}
+			fis.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
 	}
 
 	private void m2m(Model inputModel) throws IOException {
@@ -204,15 +213,18 @@ public class Main {
 		 * getResourceSet().getResource(profileUri, true)
 		 * .getContents().get(0).eContents().get(0).eContents().get(1));
 		 */
-		
-		profileUri = URI.createURI("../KubernetesUMLProfile/KubernetesUMLProfile.profile.uml");// NOT append any fragment. We look for it explicitly. 
+
+		profileUri = URI.createURI("../KubernetesUMLProfile/KubernetesUMLProfile.profile.uml");// NOT append any
+																								// fragment. We look for
+																								// it explicitly.
 		System.out.println("Profile URI is: " + profileUri);
 
 		// get 0,0,1 . It seems that eh appeded fragment does not work so well.
 		System.out.println("Size of Contents at uri are: " + getResourceSet().getResource(profileUri, true)
 				.getContents().get(0).eContents().get(0).eContents().get(1));
 
-		// The next line would get the first element, but we need to navigate a bit manually to find the profile.
+		// The next line would get the first element, but we need to navigate a bit
+		// manually to find the profile.
 		// EPackage mm1 = (EPackage) getResourceSet().getResource(profileUri,
 		// true).getContents().get(0);
 		EPackage mm1 = (EPackage) getResourceSet().getResource(profileUri, true).getContents().get(0).eContents().get(0)
@@ -223,12 +235,9 @@ public class Main {
 		// Metamodel
 		Kubernetes_metamodelPackage.eINSTANCE.eClass();
 
-
 	}
 
 	private Model loadUMLModel(String modelpath) throws IOException {
-	
-
 
 		final URI modelURI = URI.createURI(modelpath);
 		// final URI modelURI =

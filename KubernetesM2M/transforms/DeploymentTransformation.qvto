@@ -72,10 +72,10 @@ helper UML::Node::getEnviromentVariables(in deploymentStereoType : UML::Stereoty
 	
 	
 	environmentVariables->flatten()->asSequence()->forEach(variable){	
-	 log("found environment variable ToString is:" + variable.toString() + " and repr is: " + variable.repr());
+	 //log("found environment variable ToString is:" + variable.toString() + " and repr is: " + variable.repr());
 	    var name := variable.oclAsType(kuberProfile::DataTypes::EnviromentVariables).name;
 	    var value := variable.oclAsType(kuberProfile::DataTypes::EnviromentVariables).value;
-	    log("found environment variable: name-value are:" + name.toString()+"-"+value.toString());
+	    //log("found environment variable: name-value are:" + name.toString()+"-"+value.toString());
 	    var newEnv = new EnviromentVariables();	
 	  
 	    if(value.indexOf("$dns") > 0){	    
