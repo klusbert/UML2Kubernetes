@@ -15,6 +15,7 @@ transformation umlDD2cloudInfrastructure(in input : UML, out output : KuberntesM
 
 main() {
 
+log("Begin transformation");
 //Get name of diagram
 
 (input.rootObjects())[UML::Model]->asOrderedSet()->first().map deployment2infra();

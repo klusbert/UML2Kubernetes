@@ -30,5 +30,6 @@
 	<classpathentry kind="lib" path="/Users/dipeab/eclipse/modelling-2021-09/Eclipse.app/Contents/Eclipse/plugins/lpg.runtime.java_2.0.17.v201004271640.jar"/>
 	<classpathentry kind="lib" path="/Users/dipeab/eclipse/modelling-2021-09/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.osgi.services_3.10.200.v20210723-0643.jar"/>
 	<classpathentry kind="lib" path="org.osgi.service.prefs-1.1.2.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/kubernetes_meta_model"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
