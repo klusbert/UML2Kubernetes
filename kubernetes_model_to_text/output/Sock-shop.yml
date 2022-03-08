@@ -201,10 +201,10 @@ spec:
           ports:
             - containerPort: 3306
           env:
-            - name: MYSQL_ROOT_PASSWORD
-              value: fake_password
             - name: MYSQL_DATABASE
               value: socksdb
+            - name: MYSQL_ROOT_PASSWORD
+              value: fake_password
 
 
 ---
@@ -312,7 +312,7 @@ spec:
         - name: orders-db
           image: mongo
           ports:
-            - containerPort: 80
+            - containerPort: 27017
           securityContext:
             runAsNonRoot: false
             capabilities:
@@ -336,8 +336,8 @@ metadata:
   namespace: sock-shop
 spec:  
   ports:
-    - port: 80
-      targetPort: 80
+    - port: 27017
+      targetPort: 27017
   selector:
     app: orders-db
 

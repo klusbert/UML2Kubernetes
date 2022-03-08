@@ -208,7 +208,7 @@
       </capabilities>
     </securityContext>
   </KubernetesUMLProfile:AdvancedDeployment>
-  <KubernetesUMLProfile:AdvancedDeployment xmi:id="_bfx-4Ju2EeyDro7TDiA2Vg" base_Node="_CH5N0JrrEey3UtMeXcAOlA" image="mongo">
+  <KubernetesUMLProfile:AdvancedDeployment xmi:id="_bfx-4Ju2EeyDro7TDiA2Vg" base_Node="_CH5N0JrrEey3UtMeXcAOlA" image="mongo" port="27017">
     <securityContext xmi:type="KubernetesUMLProfile.DataTypes:SecurityContext" xmi:id="_ecFX8Ju2EeyDro7TDiA2Vg" readOnlyRootFilesystem="true">
       <capabilities xmi:type="KubernetesUMLProfile.DataTypes:Capabilities" xmi:id="_feKgAJu2EeyDro7TDiA2Vg">
         <add>CHOWN</add>

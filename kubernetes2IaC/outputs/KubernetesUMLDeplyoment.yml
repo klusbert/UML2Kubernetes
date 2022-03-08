@@ -174,11 +174,9 @@ kind: Service
 metadata:
   name: mysql
   namespace: uml
-spec:
-  type: ClusterIP
+spec:  
   ports:
-    - protocol: TCP
-      port: 3306
+    - port: 3306
       targetPort: 3306
   selector:
     app: mysql
@@ -239,11 +237,9 @@ kind: Service
 metadata:
   name: mongo
   namespace: uml
-spec:
-  type: ClusterIP
+spec:  
   ports:
-    - protocol: TCP
-      port: 27017
+    - port: 27017
       targetPort: 27017
   selector:
     app: mongo
