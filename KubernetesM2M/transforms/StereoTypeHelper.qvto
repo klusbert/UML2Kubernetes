@@ -54,6 +54,8 @@ helper UML::Dependency::getAccessibility() : UML::Stereotype {
 	return null;	
 }
 
+
+
 helper UML::Dependency::getIngress(): UML::Stereotype {
 	if (self.isStereotypeApplied(self.getAppliedStereotype("KubernetesUMLProfile::Ingress"))) { 
 		var stereoType = self.getAppliedStereotype("KubernetesUMLProfile::Ingress");

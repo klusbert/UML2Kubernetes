@@ -64,12 +64,25 @@ mapping UML::Dependency::dependencyToService() : KuberntesMetaModel::Service
 	
 
 
+	var protocol := self.getValue(accessibilityStereoType, "protocol").oclAsType(EnumerationLiteral).specification.oclAsType(LiteralInteger).value;
+
 	var target := self.target->asSequence()->first().oclAsType(UML::Node);
 	var source := self.source->asSequence()->first().oclAsType(UML::Node);
 	var isSourceNode := self.source->asSequence()->first().oclIsTypeOf(UML::Node);
 	var isTargetNode := self.target->asSequence()->first().oclIsTypeOf(UML::Node);
 		// check if both source and target is of type node
-		
+
+	switch{
+		case(protocol = 0){
+			result.protocol := KuberntesMetaModel::Protocol::TCP;
+		}
+		case (protocol = 1){
+			result.protocol := KuberntesMetaModel::Protocol::UDP;
+		}
+		case (protocol = 2){
+			result.protocol := KuberntesMetaModel::Protocol::HTTP;
+		}
+	};
 	if( isSourceNode and isTargetNode){
 		 
 		

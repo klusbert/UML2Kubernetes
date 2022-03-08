@@ -40,6 +40,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="publicAccess" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="accessibilityType" eType="#//AccessibilityType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="protocol" eType="#//Protocol"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PersistentData">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mountPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -75,5 +76,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="Port">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Protocol">
+    <eLiterals name="TCP"/>
+    <eLiterals name="UDP" value="1"/>
+    <eLiterals name="HTTP" value="2"/>
   </eClassifiers>
 </ecore:EPackage>

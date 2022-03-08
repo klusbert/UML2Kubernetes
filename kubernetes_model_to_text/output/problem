@@ -1,0 +1,105 @@
+problem orders?
+
+Using the redis based session manager
+App now running in production mode on port 8079
+GET /catalogue/size?tags= 200 12.836 ms - -
+GET /tags 200 10.824 ms - -
+GET /catalogue?page=1&size=6&tags= 200 6.542 ms - -
+Request received: /cart, undefined
+Customer ID: 57a98d98e4b00679b4a830b2
+GET /customers/INrYWw4DGidLnjXwg0gs3Y7Cb_An_T4J 200 8.065 ms - -
+GET /cart 500 5.510 ms - 164
+GET /catalogue/size?tags= 200 2.738 ms - -
+GET /tags 200 2.362 ms - -
+GET /catalogue?page=1&size=6&tags= 200 2.676 ms - -
+GET /customers/INrYWw4DGidLnjXwg0gs3Y7Cb_An_T4J 200 2.663 ms - -
+Request received: /cart, undefined
+Customer ID: 57a98d98e4b00679b4a830b2
+Attempting to add to cart: {"id":"510a0d7e-8e83-4193-b483-e27e09ddc34d"}
+{"id":"510a0d7e-8e83-4193-b483-e27e09ddc34d","name":"SuperSport XL","description":"Ready for action. Engineers: be ready to smash that next bug! Be ready, with these super-action-sport-masterpieces. This particular engineer was chased away from the office with a stick.","imageUrl":["/catalogue/images/puma_1.jpeg","/catalogue/images/puma_2.jpeg"],"price":15,"count":820,"tag":["sport","black","formal"]}
+
+
+
+Using the redis based session manager
+App now running in production mode on port 8079
+Request received: /cart, undefined
+Customer ID: undefined
+GET /address 200 77.946 ms - -
+GET /card 200 83.357 ms - -
+GET /catalogue?size=3 200 80.236 ms - -
+GET /customers/O4gU-qFCLPBmkT1ImbaCq-CH3cuO7wXI 200 3.751 ms - -
+GET /cart 200 2198.075 ms - -
+Request received: /cart, undefined
+Customer ID: undefined
+GET /cart 200 292.295 ms - -
+Received login request
+{"user":{"firstName":"User","lastName":"Name","username":"user","id":"57a98d98e4b00679b4a830b2","_links":{"addresses":{"href":"http://user/customers/57a98d98e4b00679b4a830b2/addresses"},"cards":{"href":"http://user/customers/57a98d98e4b00679b4a830b2/cards"},"customer":{"href":"http://user/customers/57a98d98e4b00679b4a830b2"},"self":{"href":"http://user/customers/57a98d98e4b00679b4a830b2"}}}}
+
+57a98d98e4b00679b4a830b2
+Merging carts for customer id: 57a98d98e4b00679b4a830b2 and session id: V_vTmdZzeWJzkXOKGvA2z2Sq7EnzQ56_
+Carts merged.
+Sent cookies.
+GET /login 304 42.654 ms - -
+Request received: /cart, undefined
+Customer ID: 57a98d98e4b00679b4a830b2
+GET /address 200 3.815 ms - -
+GET /card 200 5.103 ms - -
+GET /catalogue?size=3 200 5.647 ms - -
+GET /cart 200 17.191 ms - -
+GET /customers/V_vTmdZzeWJzkXOKGvA2z2Sq7EnzQ56_ 200 2.539 ms - -
+Request received: /cart, undefined
+Customer ID: 57a98d98e4b00679b4a830b2
+GET /cart 200 5.267 ms - -
+GET /catalogue?page=1&size=6&tags= 200 4.646 ms - -
+GET /catalogue/size?tags= 200 7.232 ms - -
+GET /tags 200 8.158 ms - -
+GET /customers/V_vTmdZzeWJzkXOKGvA2z2Sq7EnzQ56_ 200 2.805 ms - -
+Request received: /cart, undefined
+Customer ID: 57a98d98e4b00679b4a830b2
+GET /cart 200 5.648 ms - -
+Attempting to add to cart: {"id":"3395a43e-2d88-40de-b95f-e00e1502085b"}
+{"id":"3395a43e-2d88-40de-b95f-e00e1502085b","name":"Colourful","description":"proident occaecat irure et excepteur labore minim nisi amet irure","imageUrl":["/catalogue/images/colourful_socks.jpg","/catalogue/images/colourful_socks.jpg"],"price":18,"count":438,"tag":["brown","blue"]}
+
+POST to carts: http://carts/carts/57a98d98e4b00679b4a830b2/items body: {"itemId":"3395a43e-2d88-40de-b95f-e00e1502085b","unitPrice":18}
+POST /cart 201 725.007 ms - -
+GET /tags 200 3.163 ms - -
+GET /catalogue/size?tags= 200 4.154 ms - -
+GET /catalogue?page=1&size=6&tags= 200 3.948 ms - -
+Request received: /cart, undefined
+Customer ID: 57a98d98e4b00679b4a830b2
+GET /customers/V_vTmdZzeWJzkXOKGvA2z2Sq7EnzQ56_ 200 5.973 ms - -
+GET /cart 200 115.932 ms - -
+GET /catalogue/3395a43e-2d88-40de-b95f-e00e1502085b 200 2.586 ms - -
+Request received: /cart, undefined
+Customer ID: 57a98d98e4b00679b4a830b2
+GET /card 200 4.459 ms - -
+GET /address 200 3.196 ms - -
+GET /catalogue?size=3 200 3.178 ms - -
+GET /cart 200 10.236 ms - -
+Request received: /cart, undefined
+Customer ID: 57a98d98e4b00679b4a830b2
+GET /customers/V_vTmdZzeWJzkXOKGvA2z2Sq7EnzQ56_ 200 2.468 ms - -
+GET /cart 200 6.354 ms - -
+GET /catalogue/3395a43e-2d88-40de-b95f-e00e1502085b 200 3.009 ms - -
+GET /catalogue/3395a43e-2d88-40de-b95f-e00e1502085b 200 2.025 ms - -
+Request received with body: {}
+Received response: "{\"firstName\":\"User\",\"lastName\":\"Name\",\"username\":\"user\",\"id\":\"57a98d98e4b00679b4a830b2\",\"_links\":{\"addresses\":{\"href\":\"http://user/customers/57a98d98e4b00679b4a830b2/addresses\"},\"cards\":{\"href\":\"http://user/customers/57a98d98e4b00679b4a830b2/cards\"},\"customer\":{\"href\":\"http://user/customers/57a98d98e4b00679b4a830b2\"},\"self\":{\"href\":\"http://user/customers/57a98d98e4b00679b4a830b2\"}}}\n"
+GET Request to: http://user/customers/57a98d98e4b00679b4a830b2/addresses
+GET Request to: http://user/customers/57a98d98e4b00679b4a830b2/cards
+Received response: "{\"_embedded\":{\"address\":[{\"street\":\"Whitelees Road\",\"number\":\"246\",\"country\":\"United Kingdom\",\"city\":\"Glasgow\",\"postcode\":\"G67 3DL\",\"id\":\"57a98d98e4b00679b4a830b0\",\"_links\":{\"address\":{\"href\":\"http://user/addresses/57a98d98e4b00679b4a830b0\"},\"self\":{\"href\":\"http://user/addresses/57a98d98e4b00679b4a830b0\"}}}]}}\n"
+Received response: "{\"_embedded\":{\"card\":[{\"longNum\":\"5544154011345918\",\"expires\":\"08/19\",\"ccv\":\"958\",\"id\":\"57a98d98e4b00679b4a830b1\",\"_links\":{\"card\":{\"href\":\"http://user/cards/57a98d98e4b00679b4a830b1\"},\"self\":{\"href\":\"http://user/cards/57a98d98e4b00679b4a830b1\"}}}]}}\n"
+[ undefined, undefined ]
+Posting Order: {"customer":"http://user/customers/57a98d98e4b00679b4a830b2","address":"http://user/addresses/57a98d98e4b00679b4a830b0","card":"http://user/cards/57a98d98e4b00679b4a830b1","items":"http://carts/carts/57a98d98e4b00679b4a830b2/items"}
+Order response: {"statusCode":201,"body":{"id":"622472b673c82500076aeac6","customerId":"57a98d98e4b00679b4a830b2","customer":{"id":null,"firstName":"User","lastName":"Name","username":"user","addresses":[],"cards":[]},"address":{"id":null,"number":"246","street":"Whitelees Road","city":"Glasgow","postcode":"G67 3DL","country":"United Kingdom"},"card":{"id":null,"longNum":"5544154011345918","expires":"08/19","ccv":"958"},"items":[{"id":"622472ae19a7af0007af41ae","itemId":"3395a43e-2d88-40de-b95f-e00e1502085b","quantity":1,"unitPrice":18}],"shipment":{"id":"e34bb10d-af3a-4a01-9124-4478812be860","name":"57a98d98e4b00679b4a830b2"},"date":"2022-03-06T08:37:10.390+0000","total":22.99},"headers":{"x-application-context":"orders:80","content-type":"application/json;charset=UTF-8","transfer-encoding":"chunked","date":"Sun, 06 Mar 2022 08:37:10 GMT","connection":"close"},"request":{"uri":{"protocol":"http:","slashes":true,"auth":null,"host":"orders","port":80,"hostname":"orders","hash":null,"search":null,"query":null,"pathname":"/orders","path":"/orders","href":"http://orders/orders"},"method":"POST","headers":{"accept":"application/json","content-type":"application/json","content-length":232}}}
+Order response: {"id":"622472b673c82500076aeac6","customerId":"57a98d98e4b00679b4a830b2","customer":{"id":null,"firstName":"User","lastName":"Name","username":"user","addresses":[],"cards":[]},"address":{"id":null,"number":"246","street":"Whitelees Road","city":"Glasgow","postcode":"G67 3DL","country":"United Kingdom"},"card":{"id":null,"longNum":"5544154011345918","expires":"08/19","ccv":"958"},"items":[{"id":"622472ae19a7af0007af41ae","itemId":"3395a43e-2d88-40de-b95f-e00e1502085b","quantity":1,"unitPrice":18}],"shipment":{"id":"e34bb10d-af3a-4a01-9124-4478812be860","name":"57a98d98e4b00679b4a830b2"},"date":"2022-03-06T08:37:10.390+0000","total":22.99}
+POST /orders 201 5636.321 ms - -
+Attempting to delete cart for user: 57a98d98e4b00679b4a830b2
+User cart deleted with status: 202
+DELETE /cart 202 7.458 ms - -
+Request received with body: {}
+GET /customers/V_vTmdZzeWJzkXOKGvA2z2Sq7EnzQ56_ 200 2.788 ms - -
+Request received: /cart, undefined
+Customer ID: 57a98d98e4b00679b4a830b2
+GET /cart 200 8.008 ms - -
+Received response: "{\n  \"_embedded\" : {\n    \"customerOrders\" : [ {\n      \"customerId\" : \"57a98d98e4b00679b4a830b2\",\n      \"customer\" : {\n        \"firstName\" : \"User\",\n        \"lastName\" : \"Name\",\n        \"username\" : \"user\",\n        \"addresses\" : [ ],\n        \"cards\" : [ ]\n      },\n      \"address\" : {\n        \"number\" : \"246\",\n        \"street\" : \"Whitelees Road\",\n        \"city\" : \"Glasgow\",\n        \"postcode\" : \"G67 3DL\",\n        \"country\" : \"United Kingdom\"\n      },\n      \"card\" : {\n        \"longNum\" : \"5544154011345918\",\n        \"expires\" : \"08/19\",\n        \"ccv\" : \"958\"\n      },\n      \"items\" : [ {\n        \"itemId\" : \"3395a43e-2d88-40de-b95f-e00e1502085b\",\n        \"quantity\" : 1,\n        \"unitPrice\" : 18.0\n      } ],\n      \"shipment\" : {\n        \"name\" : \"57a98d98e4b00679b4a830b2\"\n      },\n      \"date\" : \"2022-03-06T08:37:10.390+0000\",\n      \"total\" : 22.99,\n      \"_links\" : {\n        \"self\" : {\n          \"href\" : \"http://orders/orders/622472b673c82500076aeac6\"\n        },\n        \"order\" : {\n          \"href\" : \"http://orders/orders/622472b673c82500076aeac6\"\n        }\n      }\n    } ]\n  },\n  \"_links\" : {\n    \"self\" : {\n      \"href\" : \"http://orders/orders/search/customerId?sort=date&custId=57a98d98e4b00679b4a830b2\"\n    }\n  }\n}"
+GET /orders 201 443.596 ms - -

@@ -135,7 +135,6 @@ spec:
 	 [/if]
 	[if (deployment.service->notEmpty())]	
 
-
 [if (deployment.service.publicAccess)]
 ---
 kind: Service
@@ -147,9 +146,9 @@ spec:
   selector:
     app: [deployment.name.toLowerCase() /]
   type: [deployment.service.accessibilityType /]
-  ports:
-    - name: http
-      port: [deployment.service.port /]
+  ports:  
+    - port: [deployment.service.port /]
+      protocol: [deployment.service.protocol.toString() /]     
       targetPort: [deployment.port /]
 [else]
 ---
@@ -160,7 +159,8 @@ metadata:
   namespace: [anInfrastructure.namespace.toLowerCase() /]
 spec:  
   ports:
-    - port: [deployment.service.port /]
+    - port: [deployment.service.port /]        
+      protocol: [deployment.service.protocol.toString() /]
       targetPort: [deployment.port /]
   selector:
     app: [deployment.name.toLowerCase() /]
