@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/kubernetes_meta_model"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/kubernetes_model_to_text"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-15">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/dipeab/eclipse/modelling-2021-09/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.uml2.uml_5.5.0.v20210228-1829.jar"/>
+	<classpathentry kind="lib" path="/Users/dipeab/eclipse/modelling-2021-09/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.emf.common_2.23.0.v20210618-0700.jar"/>
+	<classpathentry kind="lib" path="/Users/dipeab/eclipse/modelling-2021-09/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.emf.ecore_2.25.0.v20210816-0937.jar"/>
+	<classpathentry kind="lib" path="/Users/dipeab/eclipse/modelling-2021-09/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.core.resources_3.15.100.v20210818-1523.jar"/>
+	<classpathentry kind="lib" path="/Users/dipeab/eclipse/modelling-2021-09/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.m2m.qvt.oml_3.10.4.v20210609-1727.jar"/>
+	<classpathentry kind="lib" path="/Users/dipeab/eclipse/modelling-2021-09/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.core.runtime_3.23.0.v20210730-2035.jar"/>
+	<classpathentry kind="lib" path="/Users/dipeab/eclipse/modelling-2021-09/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.equinox.common_3.15.0.v20210518-0604.jar"/>
+	<classpathentry kind="lib" path="/Users/dipeab/eclipse/modelling-2021-09/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.uml2.uml.resources_5.5.0.v20210228-1829.jar"/>
+	<classpathentry kind="lib" path="/Users/dipeab/eclipse/modelling-2021-09/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.uml2.common_2.5.0.v20210228-1829.jar"/>
+	<classpathentry kind="lib" path="/Users/dipeab/eclipse/modelling-2021-09/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.emf.ecore.xmi_2.16.0.v20190528-0725.jar"/>
+	<classpathentry kind="lib" path="/Users/dipeab/eclipse/modelling-2021-09/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.uml2.types_2.5.0.v20210228-1829.jar"/>
+	<classpathentry kind="lib" path="/Users/dipeab/eclipse/modelling-2021-09/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.uml2.uml.profile.standard_1.5.0.v20210228-1829.jar"/>
+	<classpathentry kind="lib" path="/Users/dipeab/eclipse/modelling-2021-09/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.emf.mapping.ecore2xml_2.11.0.v20180706-1146.jar"/>
+	<classpathentry kind="lib" path="/Users/dipeab/eclipse/modelling-2021-09/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.ocl_3.16.200.v20210907-2013.jar"/>
+	<classpathentry kind="lib" path="/Users/dipeab/eclipse/modelling-2021-09/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.m2m.qvt.oml.common_3.10.2.v20210609-1727.jar"/>
+	<classpathentry kind="lib" path="/Users/dipeab/eclipse/modelling-2021-09/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.osgi_3.17.0.v20210823-1805.jar"/>
+	<classpathentry kind="lib" path="/Users/dipeab/eclipse/modelling-2021-09/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.ocl.ecore_3.16.200.v20210907-2013.jar"/>
+	<classpathentry kind="lib" path="/Users/dipeab/eclipse/modelling-2021-09/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.m2m.qvt.oml.cst.parser_3.9.0.v20210609-1727.jar"/>
+	<classpathentry kind="lib" path="/Users/dipeab/eclipse/modelling-2021-09/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.m2m.qvt.oml.emf.util_3.10.2.v20210609-1727.jar"/>
+	<classpathentry kind="lib" path="/Users/dipeab/eclipse/modelling-2021-09/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.ocl.common_1.16.0.v20210907-2013.jar"/>
+	<classpathentry kind="lib" path="/Users/dipeab/eclipse/modelling-2021-09/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.m2m.qvt.oml.ecore.imperativeocl_3.10.2.v20210609-1727.jar"/>
+	<classpathentry kind="lib" path="/Users/dipeab/eclipse/modelling-2021-09/Eclipse.app/Contents/Eclipse/plugins/lpg.runtime.java_2.0.17.v201004271640.jar"/>
+	<classpathentry kind="lib" path="/Users/dipeab/eclipse/modelling-2021-09/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.osgi.services_3.10.200.v20210723-0643.jar"/>
+	<classpathentry kind="lib" path="org.osgi.service.prefs-1.1.2.jar"/>
+	<classpathentry kind="lib" path="/Users/dipeab/eclipse/modelling-2021-09/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.acceleo.engine_3.7.11.202102190929.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
