@@ -1,0 +1,13 @@
+[comment encoding = UTF-8 /]
+[module generatePVC('http://www.example.org/kubernetesModel')]
+
+
+[template public generatePVC(anInfrastructure : Infrastructure)]
+
+[if (anInfrastructure.deployments->notEmpty())]
+	[for (deployment: Deployment | anInfrastructure.deployments)]
+	Current index: [i/]
+	
+	[/for]
+[/if]
+[/template]

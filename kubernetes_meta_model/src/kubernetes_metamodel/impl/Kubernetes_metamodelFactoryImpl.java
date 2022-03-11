@@ -63,6 +63,10 @@ public class Kubernetes_metamodelFactoryImpl extends EFactoryImpl implements Kub
 			case Kubernetes_metamodelPackage.SERVICE: return createService();
 			case Kubernetes_metamodelPackage.PERSISTENT_DATA: return createPersistentData();
 			case Kubernetes_metamodelPackage.INGRESS: return createIngress();
+			case Kubernetes_metamodelPackage.SECURITY_CONTEXT: return createSecurityContext();
+			case Kubernetes_metamodelPackage.RESOURCE_ALLOCATION: return createResourceAllocation();
+			case Kubernetes_metamodelPackage.CAPABILITIES: return createCapabilities();
+			case Kubernetes_metamodelPackage.PORT: return createPort();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -78,6 +82,8 @@ public class Kubernetes_metamodelFactoryImpl extends EFactoryImpl implements Kub
 		switch (eDataType.getClassifierID()) {
 			case Kubernetes_metamodelPackage.ACCESSIBILITY_TYPE:
 				return createAccessibilityTypeFromString(eDataType, initialValue);
+			case Kubernetes_metamodelPackage.PROTOCOL:
+				return createProtocolFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -93,6 +99,8 @@ public class Kubernetes_metamodelFactoryImpl extends EFactoryImpl implements Kub
 		switch (eDataType.getClassifierID()) {
 			case Kubernetes_metamodelPackage.ACCESSIBILITY_TYPE:
 				return convertAccessibilityTypeToString(eDataType, instanceValue);
+			case Kubernetes_metamodelPackage.PROTOCOL:
+				return convertProtocolToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -163,6 +171,46 @@ public class Kubernetes_metamodelFactoryImpl extends EFactoryImpl implements Kub
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public SecurityContext createSecurityContext() {
+		SecurityContextImpl securityContext = new SecurityContextImpl();
+		return securityContext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ResourceAllocation createResourceAllocation() {
+		ResourceAllocationImpl resourceAllocation = new ResourceAllocationImpl();
+		return resourceAllocation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Capabilities createCapabilities() {
+		CapabilitiesImpl capabilities = new CapabilitiesImpl();
+		return capabilities;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Port createPort() {
+		PortImpl port = new PortImpl();
+		return port;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public AccessibilityType createAccessibilityTypeFromString(EDataType eDataType, String initialValue) {
 		AccessibilityType result = AccessibilityType.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -175,6 +223,26 @@ public class Kubernetes_metamodelFactoryImpl extends EFactoryImpl implements Kub
 	 * @generated
 	 */
 	public String convertAccessibilityTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Protocol createProtocolFromString(EDataType eDataType, String initialValue) {
+		Protocol result = Protocol.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertProtocolToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

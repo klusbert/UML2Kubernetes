@@ -1,23 +1,16 @@
 [comment encoding = UTF-8 /]
-[module generate('http://www.example.org/kubernetesModel')]
+[module generateDeployment('http://www.example.org/kubernetesModel')]
 
 
-[query public padZeros(arg0 : Integer) : String
-	= invoke('kubernetes_model_to_text.main.JavaExtensions',
-	  'padZeros(java.lang.Integer)', Sequence{arg0})/]
-[template public generateElement(anInfrastructure : Infrastructure)]
-[comment @main/]
-[file (anInfrastructure.name + padZeros(1) +'.yml', false, 'UTF-8')]
----
-kind: Namespace
-apiVersion: v1
-metadata:
-  name: [anInfrastructure.namespace.toLowerCase() /]
-  labels:
-    name: [anInfrastructure.namespace.toLowerCase() /]
-
+[template public generateDeployment(anInfrastructure : Infrastructure) ]
 [if (anInfrastructure.deployments->notEmpty())]
 	[for (deployment: Deployment | anInfrastructure.deployments)]
+	Current index: [i/]
+	
+	//invoke java padding funciton
+		if(i < 10) append "0"
+
+[file (i.toString() +'-deployment-' +deployment.name +'.asd', false, 'UTF-8')]
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -41,7 +34,7 @@ spec:
            claimName: [deployment.name.toLowerCase() +'-pvc'/]
 	 [/if]
 [comment temp-volume/]
-     [if (deployment.memoryMount->size()  > 0)]
+     [if (deployment.memoryMount->notEmpty())]
       volumes:
        - name: temp-volume
          emptyDir: 
@@ -118,85 +111,7 @@ spec:
             - mountPath: [deployment.memoryMount/]
               name: temp-volume					
           [/if]
-[comment persistentVolume claim/]
-	 [if (deployment.dataPersistent->notEmpty())]        
-          volumeMounts:
-            - name: [deployment.name.toLowerCase() +'-persistent-storage'/]
-              mountPath: [deployment.dataPersistent.mountPath /]
----
-kind: PersistentVolumeClaim
-apiVersion: v1
-metadata:
-  name: [deployment.name.toLowerCase() +'-pvc'/]
-  namespace: [anInfrastructure.namespace.toLowerCase() /]
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: [deployment.dataPersistent.sizeInGB  +'Gi'/]
-	 [/if]
-	[if (deployment.service->notEmpty())]	
-
-[if (deployment.service.publicAccess)]
----
-kind: Service
-apiVersion: v1
-metadata:
-  name: [deployment.service.name.toLowerCase() /]
-  namespace: [anInfrastructure.namespace.toLowerCase() /]
-spec:
-  selector:
-    app: [deployment.name.toLowerCase() /]
-  type: [deployment.service.accessibilityType /]
-  ports:  
-    - port: [deployment.service.port /]
-      protocol: [deployment.service.protocol.toString() /]     
-      targetPort: [deployment.port /]
-[else]
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: [deployment.service.name.toLowerCase()/]
-  namespace: [anInfrastructure.namespace.toLowerCase() /]
-spec:  
-  ports:
-    - port: [deployment.service.port /]        
-      protocol: [deployment.service.protocol.toString() /]
-      targetPort: [deployment.port /]
-  selector:
-    app: [deployment.name.toLowerCase() /]
-[/if]
-
-
-
-[/if]
-
-			[if (deployment.ingress->notEmpty())]
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: [deployment.name.toLowerCase() +'-ingress'/]
-  namespace: [anInfrastructure.namespace.toLowerCase() /]
-spec:
-  rules:
-  - http:
-      paths:
-      - path: [deployment.ingress.path /]
-        backend:
-          service:
-            name: [deployment.name.toLowerCase() /]
-            port:
-              number: [deployment.service.port /]
-        pathType: Exact
-			[/if]
+	[/file]
 	[/for]
-[/if]	
-
-
-
-
-[/file]
+[/if]
 [/template]

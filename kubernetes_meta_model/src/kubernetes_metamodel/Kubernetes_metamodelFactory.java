@@ -76,6 +76,42 @@ public interface Kubernetes_metamodelFactory extends EFactory {
 	Ingress createIngress();
 
 	/**
+	 * Returns a new object of class '<em>Security Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Security Context</em>'.
+	 * @generated
+	 */
+	SecurityContext createSecurityContext();
+
+	/**
+	 * Returns a new object of class '<em>Resource Allocation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Resource Allocation</em>'.
+	 * @generated
+	 */
+	ResourceAllocation createResourceAllocation();
+
+	/**
+	 * Returns a new object of class '<em>Capabilities</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Capabilities</em>'.
+	 * @generated
+	 */
+	Capabilities createCapabilities();
+
+	/**
+	 * Returns a new object of class '<em>Port</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Port</em>'.
+	 * @generated
+	 */
+	Port createPort();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -92,6 +92,22 @@ public class Kubernetes_metamodelAdapterFactory extends AdapterFactoryImpl {
 				return createIngressAdapter();
 			}
 			@Override
+			public Adapter caseSecurityContext(SecurityContext object) {
+				return createSecurityContextAdapter();
+			}
+			@Override
+			public Adapter caseResourceAllocation(ResourceAllocation object) {
+				return createResourceAllocationAdapter();
+			}
+			@Override
+			public Adapter caseCapabilities(Capabilities object) {
+				return createCapabilitiesAdapter();
+			}
+			@Override
+			public Adapter casePort(Port object) {
+				return createPortAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -192,6 +208,62 @@ public class Kubernetes_metamodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createIngressAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link kubernetes_metamodel.SecurityContext <em>Security Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see kubernetes_metamodel.SecurityContext
+	 * @generated
+	 */
+	public Adapter createSecurityContextAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link kubernetes_metamodel.ResourceAllocation <em>Resource Allocation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see kubernetes_metamodel.ResourceAllocation
+	 * @generated
+	 */
+	public Adapter createResourceAllocationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link kubernetes_metamodel.Capabilities <em>Capabilities</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see kubernetes_metamodel.Capabilities
+	 * @generated
+	 */
+	public Adapter createCapabilitiesAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link kubernetes_metamodel.Port <em>Port</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see kubernetes_metamodel.Port
+	 * @generated
+	 */
+	public Adapter createPortAdapter() {
 		return null;
 	}
 

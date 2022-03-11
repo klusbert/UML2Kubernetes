@@ -74,7 +74,6 @@ public class Main {
 
 	private void m2t(String modelfile, String outputFolder) throws IOException {
 		URI modelURI = URI.createFileURI(modelfile);
-
 		new Generate(modelURI, new File(outputFolder), new ArrayList<Object>()).doGenerate(null);
 
 	}

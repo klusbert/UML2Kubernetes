@@ -9,6 +9,9 @@ import kubernetes_metamodel.EnviromentVariables;
 import kubernetes_metamodel.Ingress;
 import kubernetes_metamodel.Kubernetes_metamodelPackage;
 import kubernetes_metamodel.PersistentData;
+import kubernetes_metamodel.Port;
+import kubernetes_metamodel.ResourceAllocation;
+import kubernetes_metamodel.SecurityContext;
 import kubernetes_metamodel.Service;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -22,7 +25,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -39,10 +44,15 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link kubernetes_metamodel.impl.DeploymentImpl#getEnviromentVariables <em>Enviroment Variables</em>}</li>
  *   <li>{@link kubernetes_metamodel.impl.DeploymentImpl#getName <em>Name</em>}</li>
  *   <li>{@link kubernetes_metamodel.impl.DeploymentImpl#getService <em>Service</em>}</li>
- *   <li>{@link kubernetes_metamodel.impl.DeploymentImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link kubernetes_metamodel.impl.DeploymentImpl#getDataPersistent <em>Data Persistent</em>}</li>
  *   <li>{@link kubernetes_metamodel.impl.DeploymentImpl#getNamespace <em>Namespace</em>}</li>
  *   <li>{@link kubernetes_metamodel.impl.DeploymentImpl#getIngress <em>Ingress</em>}</li>
+ *   <li>{@link kubernetes_metamodel.impl.DeploymentImpl#getSecurityContext <em>Security Context</em>}</li>
+ *   <li>{@link kubernetes_metamodel.impl.DeploymentImpl#getResourceAllocation <em>Resource Allocation</em>}</li>
+ *   <li>{@link kubernetes_metamodel.impl.DeploymentImpl#getCommand <em>Command</em>}</li>
+ *   <li>{@link kubernetes_metamodel.impl.DeploymentImpl#getArgs <em>Args</em>}</li>
+ *   <li>{@link kubernetes_metamodel.impl.DeploymentImpl#getMemoryMount <em>Memory Mount</em>}</li>
+ *   <li>{@link kubernetes_metamodel.impl.DeploymentImpl#getAdditionalPorts <em>Additional Ports</em>}</li>
  * </ul>
  *
  * @generated
@@ -139,7 +149,7 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getService() <em>Service</em>}' reference.
+	 * The cached value of the '{@link #getService() <em>Service</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getService()
@@ -147,26 +157,6 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 	 * @ordered
 	 */
 	protected Service service;
-
-	/**
-	 * The default value of the '{@link #getIdentifier() <em>Identifier</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIdentifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String IDENTIFIER_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIdentifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected String identifier = IDENTIFIER_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getDataPersistent() <em>Data Persistent</em>}' reference.
@@ -207,6 +197,86 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 	 * @ordered
 	 */
 	protected Ingress ingress;
+
+	/**
+	 * The cached value of the '{@link #getSecurityContext() <em>Security Context</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSecurityContext()
+	 * @generated
+	 * @ordered
+	 */
+	protected SecurityContext securityContext;
+
+	/**
+	 * The cached value of the '{@link #getResourceAllocation() <em>Resource Allocation</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResourceAllocation()
+	 * @generated
+	 * @ordered
+	 */
+	protected ResourceAllocation resourceAllocation;
+
+	/**
+	 * The default value of the '{@link #getCommand() <em>Command</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCommand()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String COMMAND_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getCommand() <em>Command</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCommand()
+	 * @generated
+	 * @ordered
+	 */
+	protected String command = COMMAND_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getArgs() <em>Args</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getArgs()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> args;
+
+	/**
+	 * The default value of the '{@link #getMemoryMount() <em>Memory Mount</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMemoryMount()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String MEMORY_MOUNT_EDEFAULT = "\"\"";
+
+	/**
+	 * The cached value of the '{@link #getMemoryMount() <em>Memory Mount</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMemoryMount()
+	 * @generated
+	 * @ordered
+	 */
+	protected String memoryMount = MEMORY_MOUNT_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getAdditionalPorts() <em>Additional Ports</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAdditionalPorts()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Port> additionalPorts;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -329,14 +399,6 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 	 * @generated
 	 */
 	public Service getService() {
-		if (service != null && service.eIsProxy()) {
-			InternalEObject oldService = (InternalEObject)service;
-			service = (Service)eResolveProxy(oldService);
-			if (service != oldService) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, Kubernetes_metamodelPackage.DEPLOYMENT__SERVICE, oldService, service));
-			}
-		}
 		return service;
 	}
 
@@ -345,8 +407,14 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Service basicGetService() {
-		return service;
+	public NotificationChain basicSetService(Service newService, NotificationChain msgs) {
+		Service oldService = service;
+		service = newService;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, Kubernetes_metamodelPackage.DEPLOYMENT__SERVICE, oldService, newService);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -355,31 +423,17 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 	 * @generated
 	 */
 	public void setService(Service newService) {
-		Service oldService = service;
-		service = newService;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Kubernetes_metamodelPackage.DEPLOYMENT__SERVICE, oldService, service));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getIdentifier() {
-		return identifier;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setIdentifier(String newIdentifier) {
-		String oldIdentifier = identifier;
-		identifier = newIdentifier;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Kubernetes_metamodelPackage.DEPLOYMENT__IDENTIFIER, oldIdentifier, identifier));
+		if (newService != service) {
+			NotificationChain msgs = null;
+			if (service != null)
+				msgs = ((InternalEObject)service).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Kubernetes_metamodelPackage.DEPLOYMENT__SERVICE, null, msgs);
+			if (newService != null)
+				msgs = ((InternalEObject)newService).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Kubernetes_metamodelPackage.DEPLOYMENT__SERVICE, null, msgs);
+			msgs = basicSetService(newService, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, Kubernetes_metamodelPackage.DEPLOYMENT__SERVICE, newService, newService));
 	}
 
 	/**
@@ -484,11 +538,155 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public SecurityContext getSecurityContext() {
+		if (securityContext != null && securityContext.eIsProxy()) {
+			InternalEObject oldSecurityContext = (InternalEObject)securityContext;
+			securityContext = (SecurityContext)eResolveProxy(oldSecurityContext);
+			if (securityContext != oldSecurityContext) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, Kubernetes_metamodelPackage.DEPLOYMENT__SECURITY_CONTEXT, oldSecurityContext, securityContext));
+			}
+		}
+		return securityContext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SecurityContext basicGetSecurityContext() {
+		return securityContext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSecurityContext(SecurityContext newSecurityContext) {
+		SecurityContext oldSecurityContext = securityContext;
+		securityContext = newSecurityContext;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, Kubernetes_metamodelPackage.DEPLOYMENT__SECURITY_CONTEXT, oldSecurityContext, securityContext));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ResourceAllocation getResourceAllocation() {
+		if (resourceAllocation != null && resourceAllocation.eIsProxy()) {
+			InternalEObject oldResourceAllocation = (InternalEObject)resourceAllocation;
+			resourceAllocation = (ResourceAllocation)eResolveProxy(oldResourceAllocation);
+			if (resourceAllocation != oldResourceAllocation) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, Kubernetes_metamodelPackage.DEPLOYMENT__RESOURCE_ALLOCATION, oldResourceAllocation, resourceAllocation));
+			}
+		}
+		return resourceAllocation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ResourceAllocation basicGetResourceAllocation() {
+		return resourceAllocation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setResourceAllocation(ResourceAllocation newResourceAllocation) {
+		ResourceAllocation oldResourceAllocation = resourceAllocation;
+		resourceAllocation = newResourceAllocation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, Kubernetes_metamodelPackage.DEPLOYMENT__RESOURCE_ALLOCATION, oldResourceAllocation, resourceAllocation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getCommand() {
+		return command;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCommand(String newCommand) {
+		String oldCommand = command;
+		command = newCommand;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, Kubernetes_metamodelPackage.DEPLOYMENT__COMMAND, oldCommand, command));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<String> getArgs() {
+		if (args == null) {
+			args = new EDataTypeUniqueEList<String>(String.class, this, Kubernetes_metamodelPackage.DEPLOYMENT__ARGS);
+		}
+		return args;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getMemoryMount() {
+		return memoryMount;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMemoryMount(String newMemoryMount) {
+		String oldMemoryMount = memoryMount;
+		memoryMount = newMemoryMount;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, Kubernetes_metamodelPackage.DEPLOYMENT__MEMORY_MOUNT, oldMemoryMount, memoryMount));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Port> getAdditionalPorts() {
+		if (additionalPorts == null) {
+			additionalPorts = new EObjectResolvingEList<Port>(Port.class, this, Kubernetes_metamodelPackage.DEPLOYMENT__ADDITIONAL_PORTS);
+		}
+		return additionalPorts;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case Kubernetes_metamodelPackage.DEPLOYMENT__ENVIROMENT_VARIABLES:
 				return ((InternalEList<?>)getEnviromentVariables()).basicRemove(otherEnd, msgs);
+			case Kubernetes_metamodelPackage.DEPLOYMENT__SERVICE:
+				return basicSetService(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -512,10 +710,7 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 			case Kubernetes_metamodelPackage.DEPLOYMENT__NAME:
 				return getName();
 			case Kubernetes_metamodelPackage.DEPLOYMENT__SERVICE:
-				if (resolve) return getService();
-				return basicGetService();
-			case Kubernetes_metamodelPackage.DEPLOYMENT__IDENTIFIER:
-				return getIdentifier();
+				return getService();
 			case Kubernetes_metamodelPackage.DEPLOYMENT__DATA_PERSISTENT:
 				if (resolve) return getDataPersistent();
 				return basicGetDataPersistent();
@@ -524,6 +719,20 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 			case Kubernetes_metamodelPackage.DEPLOYMENT__INGRESS:
 				if (resolve) return getIngress();
 				return basicGetIngress();
+			case Kubernetes_metamodelPackage.DEPLOYMENT__SECURITY_CONTEXT:
+				if (resolve) return getSecurityContext();
+				return basicGetSecurityContext();
+			case Kubernetes_metamodelPackage.DEPLOYMENT__RESOURCE_ALLOCATION:
+				if (resolve) return getResourceAllocation();
+				return basicGetResourceAllocation();
+			case Kubernetes_metamodelPackage.DEPLOYMENT__COMMAND:
+				return getCommand();
+			case Kubernetes_metamodelPackage.DEPLOYMENT__ARGS:
+				return getArgs();
+			case Kubernetes_metamodelPackage.DEPLOYMENT__MEMORY_MOUNT:
+				return getMemoryMount();
+			case Kubernetes_metamodelPackage.DEPLOYMENT__ADDITIONAL_PORTS:
+				return getAdditionalPorts();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -556,9 +765,6 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 			case Kubernetes_metamodelPackage.DEPLOYMENT__SERVICE:
 				setService((Service)newValue);
 				return;
-			case Kubernetes_metamodelPackage.DEPLOYMENT__IDENTIFIER:
-				setIdentifier((String)newValue);
-				return;
 			case Kubernetes_metamodelPackage.DEPLOYMENT__DATA_PERSISTENT:
 				setDataPersistent((PersistentData)newValue);
 				return;
@@ -567,6 +773,26 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 				return;
 			case Kubernetes_metamodelPackage.DEPLOYMENT__INGRESS:
 				setIngress((Ingress)newValue);
+				return;
+			case Kubernetes_metamodelPackage.DEPLOYMENT__SECURITY_CONTEXT:
+				setSecurityContext((SecurityContext)newValue);
+				return;
+			case Kubernetes_metamodelPackage.DEPLOYMENT__RESOURCE_ALLOCATION:
+				setResourceAllocation((ResourceAllocation)newValue);
+				return;
+			case Kubernetes_metamodelPackage.DEPLOYMENT__COMMAND:
+				setCommand((String)newValue);
+				return;
+			case Kubernetes_metamodelPackage.DEPLOYMENT__ARGS:
+				getArgs().clear();
+				getArgs().addAll((Collection<? extends String>)newValue);
+				return;
+			case Kubernetes_metamodelPackage.DEPLOYMENT__MEMORY_MOUNT:
+				setMemoryMount((String)newValue);
+				return;
+			case Kubernetes_metamodelPackage.DEPLOYMENT__ADDITIONAL_PORTS:
+				getAdditionalPorts().clear();
+				getAdditionalPorts().addAll((Collection<? extends Port>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -598,9 +824,6 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 			case Kubernetes_metamodelPackage.DEPLOYMENT__SERVICE:
 				setService((Service)null);
 				return;
-			case Kubernetes_metamodelPackage.DEPLOYMENT__IDENTIFIER:
-				setIdentifier(IDENTIFIER_EDEFAULT);
-				return;
 			case Kubernetes_metamodelPackage.DEPLOYMENT__DATA_PERSISTENT:
 				setDataPersistent((PersistentData)null);
 				return;
@@ -609,6 +832,24 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 				return;
 			case Kubernetes_metamodelPackage.DEPLOYMENT__INGRESS:
 				setIngress((Ingress)null);
+				return;
+			case Kubernetes_metamodelPackage.DEPLOYMENT__SECURITY_CONTEXT:
+				setSecurityContext((SecurityContext)null);
+				return;
+			case Kubernetes_metamodelPackage.DEPLOYMENT__RESOURCE_ALLOCATION:
+				setResourceAllocation((ResourceAllocation)null);
+				return;
+			case Kubernetes_metamodelPackage.DEPLOYMENT__COMMAND:
+				setCommand(COMMAND_EDEFAULT);
+				return;
+			case Kubernetes_metamodelPackage.DEPLOYMENT__ARGS:
+				getArgs().clear();
+				return;
+			case Kubernetes_metamodelPackage.DEPLOYMENT__MEMORY_MOUNT:
+				setMemoryMount(MEMORY_MOUNT_EDEFAULT);
+				return;
+			case Kubernetes_metamodelPackage.DEPLOYMENT__ADDITIONAL_PORTS:
+				getAdditionalPorts().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -634,14 +875,24 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case Kubernetes_metamodelPackage.DEPLOYMENT__SERVICE:
 				return service != null;
-			case Kubernetes_metamodelPackage.DEPLOYMENT__IDENTIFIER:
-				return IDENTIFIER_EDEFAULT == null ? identifier != null : !IDENTIFIER_EDEFAULT.equals(identifier);
 			case Kubernetes_metamodelPackage.DEPLOYMENT__DATA_PERSISTENT:
 				return dataPersistent != null;
 			case Kubernetes_metamodelPackage.DEPLOYMENT__NAMESPACE:
 				return NAMESPACE_EDEFAULT == null ? namespace != null : !NAMESPACE_EDEFAULT.equals(namespace);
 			case Kubernetes_metamodelPackage.DEPLOYMENT__INGRESS:
 				return ingress != null;
+			case Kubernetes_metamodelPackage.DEPLOYMENT__SECURITY_CONTEXT:
+				return securityContext != null;
+			case Kubernetes_metamodelPackage.DEPLOYMENT__RESOURCE_ALLOCATION:
+				return resourceAllocation != null;
+			case Kubernetes_metamodelPackage.DEPLOYMENT__COMMAND:
+				return COMMAND_EDEFAULT == null ? command != null : !COMMAND_EDEFAULT.equals(command);
+			case Kubernetes_metamodelPackage.DEPLOYMENT__ARGS:
+				return args != null && !args.isEmpty();
+			case Kubernetes_metamodelPackage.DEPLOYMENT__MEMORY_MOUNT:
+				return MEMORY_MOUNT_EDEFAULT == null ? memoryMount != null : !MEMORY_MOUNT_EDEFAULT.equals(memoryMount);
+			case Kubernetes_metamodelPackage.DEPLOYMENT__ADDITIONAL_PORTS:
+				return additionalPorts != null && !additionalPorts.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -664,10 +915,14 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 		result.append(replicas);
 		result.append(", name: ");
 		result.append(name);
-		result.append(", identifier: ");
-		result.append(identifier);
 		result.append(", namespace: ");
 		result.append(namespace);
+		result.append(", command: ");
+		result.append(command);
+		result.append(", args: ");
+		result.append(args);
+		result.append(", memoryMount: ");
+		result.append(memoryMount);
 		result.append(')');
 		return result.toString();
 	}

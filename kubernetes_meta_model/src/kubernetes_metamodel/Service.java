@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link kubernetes_metamodel.Service#isPublicAccess <em>Public Access</em>}</li>
  *   <li>{@link kubernetes_metamodel.Service#getName <em>Name</em>}</li>
  *   <li>{@link kubernetes_metamodel.Service#getAccessibilityType <em>Accessibility Type</em>}</li>
+ *   <li>{@link kubernetes_metamodel.Service#getProtocol <em>Protocol</em>}</li>
  * </ul>
  *
  * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getService()
@@ -114,5 +115,30 @@ public interface Service extends EObject {
 	 * @generated
 	 */
 	void setAccessibilityType(AccessibilityType value);
+
+	/**
+	 * Returns the value of the '<em><b>Protocol</b></em>' attribute.
+	 * The literals are from the enumeration {@link kubernetes_metamodel.Protocol}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Protocol</em>' attribute.
+	 * @see kubernetes_metamodel.Protocol
+	 * @see #setProtocol(Protocol)
+	 * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getService_Protocol()
+	 * @model
+	 * @generated
+	 */
+	Protocol getProtocol();
+
+	/**
+	 * Sets the value of the '{@link kubernetes_metamodel.Service#getProtocol <em>Protocol</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Protocol</em>' attribute.
+	 * @see kubernetes_metamodel.Protocol
+	 * @see #getProtocol()
+	 * @generated
+	 */
+	void setProtocol(Protocol value);
 
 } // Service

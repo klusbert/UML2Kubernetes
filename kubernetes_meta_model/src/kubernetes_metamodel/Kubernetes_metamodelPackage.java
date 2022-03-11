@@ -186,7 +186,7 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	int DEPLOYMENT__NAME = 4;
 
 	/**
-	 * The feature id for the '<em><b>Service</b></em>' reference.
+	 * The feature id for the '<em><b>Service</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -195,22 +195,13 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	int DEPLOYMENT__SERVICE = 5;
 
 	/**
-	 * The feature id for the '<em><b>Identifier</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEPLOYMENT__IDENTIFIER = 6;
-
-	/**
 	 * The feature id for the '<em><b>Data Persistent</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEPLOYMENT__DATA_PERSISTENT = 7;
+	int DEPLOYMENT__DATA_PERSISTENT = 6;
 
 	/**
 	 * The feature id for the '<em><b>Namespace</b></em>' attribute.
@@ -219,7 +210,7 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DEPLOYMENT__NAMESPACE = 8;
+	int DEPLOYMENT__NAMESPACE = 7;
 
 	/**
 	 * The feature id for the '<em><b>Ingress</b></em>' reference.
@@ -228,7 +219,61 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DEPLOYMENT__INGRESS = 9;
+	int DEPLOYMENT__INGRESS = 8;
+
+	/**
+	 * The feature id for the '<em><b>Security Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPLOYMENT__SECURITY_CONTEXT = 9;
+
+	/**
+	 * The feature id for the '<em><b>Resource Allocation</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPLOYMENT__RESOURCE_ALLOCATION = 10;
+
+	/**
+	 * The feature id for the '<em><b>Command</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPLOYMENT__COMMAND = 11;
+
+	/**
+	 * The feature id for the '<em><b>Args</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPLOYMENT__ARGS = 12;
+
+	/**
+	 * The feature id for the '<em><b>Memory Mount</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPLOYMENT__MEMORY_MOUNT = 13;
+
+	/**
+	 * The feature id for the '<em><b>Additional Ports</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPLOYMENT__ADDITIONAL_PORTS = 14;
 
 	/**
 	 * The number of structural features of the '<em>Deployment</em>' class.
@@ -237,7 +282,7 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DEPLOYMENT_FEATURE_COUNT = 10;
+	int DEPLOYMENT_FEATURE_COUNT = 15;
 
 	/**
 	 * The number of operations of the '<em>Deployment</em>' class.
@@ -341,13 +386,22 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	int SERVICE__ACCESSIBILITY_TYPE = 3;
 
 	/**
+	 * The feature id for the '<em><b>Protocol</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE__PROTOCOL = 4;
+
+	/**
 	 * The number of structural features of the '<em>Service</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE_FEATURE_COUNT = 4;
+	int SERVICE_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Service</em>' class.
@@ -442,6 +496,244 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	int INGRESS_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link kubernetes_metamodel.impl.SecurityContextImpl <em>Security Context</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see kubernetes_metamodel.impl.SecurityContextImpl
+	 * @see kubernetes_metamodel.impl.Kubernetes_metamodelPackageImpl#getSecurityContext()
+	 * @generated
+	 */
+	int SECURITY_CONTEXT = 6;
+
+	/**
+	 * The feature id for the '<em><b>Run As Root</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_CONTEXT__RUN_AS_ROOT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Run As User</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_CONTEXT__RUN_AS_USER = 1;
+
+	/**
+	 * The feature id for the '<em><b>Run As Group</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_CONTEXT__RUN_AS_GROUP = 2;
+
+	/**
+	 * The feature id for the '<em><b>Fs Group</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_CONTEXT__FS_GROUP = 3;
+
+	/**
+	 * The feature id for the '<em><b>Read Only Root Filesystem</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_CONTEXT__READ_ONLY_ROOT_FILESYSTEM = 4;
+
+	/**
+	 * The feature id for the '<em><b>Capabilities</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_CONTEXT__CAPABILITIES = 5;
+
+	/**
+	 * The number of structural features of the '<em>Security Context</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_CONTEXT_FEATURE_COUNT = 6;
+
+	/**
+	 * The number of operations of the '<em>Security Context</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_CONTEXT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link kubernetes_metamodel.impl.ResourceAllocationImpl <em>Resource Allocation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see kubernetes_metamodel.impl.ResourceAllocationImpl
+	 * @see kubernetes_metamodel.impl.Kubernetes_metamodelPackageImpl#getResourceAllocation()
+	 * @generated
+	 */
+	int RESOURCE_ALLOCATION = 7;
+
+	/**
+	 * The feature id for the '<em><b>Cpu Limit</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_ALLOCATION__CPU_LIMIT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Cpu Request</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_ALLOCATION__CPU_REQUEST = 1;
+
+	/**
+	 * The feature id for the '<em><b>Memory Limit</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_ALLOCATION__MEMORY_LIMIT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Memory Request</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_ALLOCATION__MEMORY_REQUEST = 3;
+
+	/**
+	 * The number of structural features of the '<em>Resource Allocation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_ALLOCATION_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of operations of the '<em>Resource Allocation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_ALLOCATION_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link kubernetes_metamodel.impl.CapabilitiesImpl <em>Capabilities</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see kubernetes_metamodel.impl.CapabilitiesImpl
+	 * @see kubernetes_metamodel.impl.Kubernetes_metamodelPackageImpl#getCapabilities()
+	 * @generated
+	 */
+	int CAPABILITIES = 8;
+
+	/**
+	 * The feature id for the '<em><b>Drop</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPABILITIES__DROP = 0;
+
+	/**
+	 * The feature id for the '<em><b>Add</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPABILITIES__ADD = 1;
+
+	/**
+	 * The number of structural features of the '<em>Capabilities</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPABILITIES_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Capabilities</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPABILITIES_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link kubernetes_metamodel.impl.PortImpl <em>Port</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see kubernetes_metamodel.impl.PortImpl
+	 * @see kubernetes_metamodel.impl.Kubernetes_metamodelPackageImpl#getPort()
+	 * @generated
+	 */
+	int PORT = 9;
+
+	/**
+	 * The feature id for the '<em><b>Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PORT__NUMBER = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PORT__NAME = 1;
+
+	/**
+	 * The number of structural features of the '<em>Port</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PORT_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Port</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PORT_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link kubernetes_metamodel.AccessibilityType <em>Accessibility Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -449,7 +741,18 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	 * @see kubernetes_metamodel.impl.Kubernetes_metamodelPackageImpl#getAccessibilityType()
 	 * @generated
 	 */
-	int ACCESSIBILITY_TYPE = 6;
+	int ACCESSIBILITY_TYPE = 10;
+
+
+	/**
+	 * The meta object id for the '{@link kubernetes_metamodel.Protocol <em>Protocol</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see kubernetes_metamodel.Protocol
+	 * @see kubernetes_metamodel.impl.Kubernetes_metamodelPackageImpl#getProtocol()
+	 * @generated
+	 */
+	int PROTOCOL = 11;
 
 
 	/**
@@ -583,26 +886,15 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	EAttribute getDeployment_Name();
 
 	/**
-	 * Returns the meta object for the reference '{@link kubernetes_metamodel.Deployment#getService <em>Service</em>}'.
+	 * Returns the meta object for the containment reference '{@link kubernetes_metamodel.Deployment#getService <em>Service</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Service</em>'.
+	 * @return the meta object for the containment reference '<em>Service</em>'.
 	 * @see kubernetes_metamodel.Deployment#getService()
 	 * @see #getDeployment()
 	 * @generated
 	 */
 	EReference getDeployment_Service();
-
-	/**
-	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.Deployment#getIdentifier <em>Identifier</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Identifier</em>'.
-	 * @see kubernetes_metamodel.Deployment#getIdentifier()
-	 * @see #getDeployment()
-	 * @generated
-	 */
-	EAttribute getDeployment_Identifier();
 
 	/**
 	 * Returns the meta object for the reference '{@link kubernetes_metamodel.Deployment#getDataPersistent <em>Data Persistent</em>}'.
@@ -636,6 +928,72 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDeployment_Ingress();
+
+	/**
+	 * Returns the meta object for the reference '{@link kubernetes_metamodel.Deployment#getSecurityContext <em>Security Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Security Context</em>'.
+	 * @see kubernetes_metamodel.Deployment#getSecurityContext()
+	 * @see #getDeployment()
+	 * @generated
+	 */
+	EReference getDeployment_SecurityContext();
+
+	/**
+	 * Returns the meta object for the reference '{@link kubernetes_metamodel.Deployment#getResourceAllocation <em>Resource Allocation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Resource Allocation</em>'.
+	 * @see kubernetes_metamodel.Deployment#getResourceAllocation()
+	 * @see #getDeployment()
+	 * @generated
+	 */
+	EReference getDeployment_ResourceAllocation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.Deployment#getCommand <em>Command</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Command</em>'.
+	 * @see kubernetes_metamodel.Deployment#getCommand()
+	 * @see #getDeployment()
+	 * @generated
+	 */
+	EAttribute getDeployment_Command();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link kubernetes_metamodel.Deployment#getArgs <em>Args</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Args</em>'.
+	 * @see kubernetes_metamodel.Deployment#getArgs()
+	 * @see #getDeployment()
+	 * @generated
+	 */
+	EAttribute getDeployment_Args();
+
+	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.Deployment#getMemoryMount <em>Memory Mount</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Memory Mount</em>'.
+	 * @see kubernetes_metamodel.Deployment#getMemoryMount()
+	 * @see #getDeployment()
+	 * @generated
+	 */
+	EAttribute getDeployment_MemoryMount();
+
+	/**
+	 * Returns the meta object for the reference list '{@link kubernetes_metamodel.Deployment#getAdditionalPorts <em>Additional Ports</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Additional Ports</em>'.
+	 * @see kubernetes_metamodel.Deployment#getAdditionalPorts()
+	 * @see #getDeployment()
+	 * @generated
+	 */
+	EReference getDeployment_AdditionalPorts();
 
 	/**
 	 * Returns the meta object for class '{@link kubernetes_metamodel.EnviromentVariables <em>Enviroment Variables</em>}'.
@@ -724,6 +1082,17 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	EAttribute getService_AccessibilityType();
 
 	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.Service#getProtocol <em>Protocol</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Protocol</em>'.
+	 * @see kubernetes_metamodel.Service#getProtocol()
+	 * @see #getService()
+	 * @generated
+	 */
+	EAttribute getService_Protocol();
+
+	/**
 	 * Returns the meta object for class '{@link kubernetes_metamodel.PersistentData <em>Persistent Data</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -777,6 +1146,200 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	EAttribute getIngress_Path();
 
 	/**
+	 * Returns the meta object for class '{@link kubernetes_metamodel.SecurityContext <em>Security Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Security Context</em>'.
+	 * @see kubernetes_metamodel.SecurityContext
+	 * @generated
+	 */
+	EClass getSecurityContext();
+
+	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.SecurityContext#isRunAsRoot <em>Run As Root</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Run As Root</em>'.
+	 * @see kubernetes_metamodel.SecurityContext#isRunAsRoot()
+	 * @see #getSecurityContext()
+	 * @generated
+	 */
+	EAttribute getSecurityContext_RunAsRoot();
+
+	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.SecurityContext#getRunAsUser <em>Run As User</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Run As User</em>'.
+	 * @see kubernetes_metamodel.SecurityContext#getRunAsUser()
+	 * @see #getSecurityContext()
+	 * @generated
+	 */
+	EAttribute getSecurityContext_RunAsUser();
+
+	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.SecurityContext#getRunAsGroup <em>Run As Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Run As Group</em>'.
+	 * @see kubernetes_metamodel.SecurityContext#getRunAsGroup()
+	 * @see #getSecurityContext()
+	 * @generated
+	 */
+	EAttribute getSecurityContext_RunAsGroup();
+
+	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.SecurityContext#getFsGroup <em>Fs Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Fs Group</em>'.
+	 * @see kubernetes_metamodel.SecurityContext#getFsGroup()
+	 * @see #getSecurityContext()
+	 * @generated
+	 */
+	EAttribute getSecurityContext_FsGroup();
+
+	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.SecurityContext#isReadOnlyRootFilesystem <em>Read Only Root Filesystem</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Read Only Root Filesystem</em>'.
+	 * @see kubernetes_metamodel.SecurityContext#isReadOnlyRootFilesystem()
+	 * @see #getSecurityContext()
+	 * @generated
+	 */
+	EAttribute getSecurityContext_ReadOnlyRootFilesystem();
+
+	/**
+	 * Returns the meta object for the reference '{@link kubernetes_metamodel.SecurityContext#getCapabilities <em>Capabilities</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Capabilities</em>'.
+	 * @see kubernetes_metamodel.SecurityContext#getCapabilities()
+	 * @see #getSecurityContext()
+	 * @generated
+	 */
+	EReference getSecurityContext_Capabilities();
+
+	/**
+	 * Returns the meta object for class '{@link kubernetes_metamodel.ResourceAllocation <em>Resource Allocation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Resource Allocation</em>'.
+	 * @see kubernetes_metamodel.ResourceAllocation
+	 * @generated
+	 */
+	EClass getResourceAllocation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.ResourceAllocation#getCpuLimit <em>Cpu Limit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Cpu Limit</em>'.
+	 * @see kubernetes_metamodel.ResourceAllocation#getCpuLimit()
+	 * @see #getResourceAllocation()
+	 * @generated
+	 */
+	EAttribute getResourceAllocation_CpuLimit();
+
+	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.ResourceAllocation#getCpuRequest <em>Cpu Request</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Cpu Request</em>'.
+	 * @see kubernetes_metamodel.ResourceAllocation#getCpuRequest()
+	 * @see #getResourceAllocation()
+	 * @generated
+	 */
+	EAttribute getResourceAllocation_CpuRequest();
+
+	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.ResourceAllocation#getMemoryLimit <em>Memory Limit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Memory Limit</em>'.
+	 * @see kubernetes_metamodel.ResourceAllocation#getMemoryLimit()
+	 * @see #getResourceAllocation()
+	 * @generated
+	 */
+	EAttribute getResourceAllocation_MemoryLimit();
+
+	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.ResourceAllocation#getMemoryRequest <em>Memory Request</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Memory Request</em>'.
+	 * @see kubernetes_metamodel.ResourceAllocation#getMemoryRequest()
+	 * @see #getResourceAllocation()
+	 * @generated
+	 */
+	EAttribute getResourceAllocation_MemoryRequest();
+
+	/**
+	 * Returns the meta object for class '{@link kubernetes_metamodel.Capabilities <em>Capabilities</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Capabilities</em>'.
+	 * @see kubernetes_metamodel.Capabilities
+	 * @generated
+	 */
+	EClass getCapabilities();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link kubernetes_metamodel.Capabilities#getDrop <em>Drop</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Drop</em>'.
+	 * @see kubernetes_metamodel.Capabilities#getDrop()
+	 * @see #getCapabilities()
+	 * @generated
+	 */
+	EAttribute getCapabilities_Drop();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link kubernetes_metamodel.Capabilities#getAdd <em>Add</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Add</em>'.
+	 * @see kubernetes_metamodel.Capabilities#getAdd()
+	 * @see #getCapabilities()
+	 * @generated
+	 */
+	EAttribute getCapabilities_Add();
+
+	/**
+	 * Returns the meta object for class '{@link kubernetes_metamodel.Port <em>Port</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Port</em>'.
+	 * @see kubernetes_metamodel.Port
+	 * @generated
+	 */
+	EClass getPort();
+
+	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.Port#getNumber <em>Number</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Number</em>'.
+	 * @see kubernetes_metamodel.Port#getNumber()
+	 * @see #getPort()
+	 * @generated
+	 */
+	EAttribute getPort_Number();
+
+	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.Port#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see kubernetes_metamodel.Port#getName()
+	 * @see #getPort()
+	 * @generated
+	 */
+	EAttribute getPort_Name();
+
+	/**
 	 * Returns the meta object for enum '{@link kubernetes_metamodel.AccessibilityType <em>Accessibility Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -785,6 +1348,16 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getAccessibilityType();
+
+	/**
+	 * Returns the meta object for enum '{@link kubernetes_metamodel.Protocol <em>Protocol</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Protocol</em>'.
+	 * @see kubernetes_metamodel.Protocol
+	 * @generated
+	 */
+	EEnum getProtocol();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -910,20 +1483,12 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 		EAttribute DEPLOYMENT__NAME = eINSTANCE.getDeployment_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Service</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Service</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference DEPLOYMENT__SERVICE = eINSTANCE.getDeployment_Service();
-
-		/**
-		 * The meta object literal for the '<em><b>Identifier</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DEPLOYMENT__IDENTIFIER = eINSTANCE.getDeployment_Identifier();
 
 		/**
 		 * The meta object literal for the '<em><b>Data Persistent</b></em>' reference feature.
@@ -948,6 +1513,54 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DEPLOYMENT__INGRESS = eINSTANCE.getDeployment_Ingress();
+
+		/**
+		 * The meta object literal for the '<em><b>Security Context</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DEPLOYMENT__SECURITY_CONTEXT = eINSTANCE.getDeployment_SecurityContext();
+
+		/**
+		 * The meta object literal for the '<em><b>Resource Allocation</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DEPLOYMENT__RESOURCE_ALLOCATION = eINSTANCE.getDeployment_ResourceAllocation();
+
+		/**
+		 * The meta object literal for the '<em><b>Command</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DEPLOYMENT__COMMAND = eINSTANCE.getDeployment_Command();
+
+		/**
+		 * The meta object literal for the '<em><b>Args</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DEPLOYMENT__ARGS = eINSTANCE.getDeployment_Args();
+
+		/**
+		 * The meta object literal for the '<em><b>Memory Mount</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DEPLOYMENT__MEMORY_MOUNT = eINSTANCE.getDeployment_MemoryMount();
+
+		/**
+		 * The meta object literal for the '<em><b>Additional Ports</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DEPLOYMENT__ADDITIONAL_PORTS = eINSTANCE.getDeployment_AdditionalPorts();
 
 		/**
 		 * The meta object literal for the '{@link kubernetes_metamodel.impl.EnviromentVariablesImpl <em>Enviroment Variables</em>}' class.
@@ -1018,6 +1631,14 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 		EAttribute SERVICE__ACCESSIBILITY_TYPE = eINSTANCE.getService_AccessibilityType();
 
 		/**
+		 * The meta object literal for the '<em><b>Protocol</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SERVICE__PROTOCOL = eINSTANCE.getService_Protocol();
+
+		/**
 		 * The meta object literal for the '{@link kubernetes_metamodel.impl.PersistentDataImpl <em>Persistent Data</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1062,6 +1683,158 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 		EAttribute INGRESS__PATH = eINSTANCE.getIngress_Path();
 
 		/**
+		 * The meta object literal for the '{@link kubernetes_metamodel.impl.SecurityContextImpl <em>Security Context</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see kubernetes_metamodel.impl.SecurityContextImpl
+		 * @see kubernetes_metamodel.impl.Kubernetes_metamodelPackageImpl#getSecurityContext()
+		 * @generated
+		 */
+		EClass SECURITY_CONTEXT = eINSTANCE.getSecurityContext();
+
+		/**
+		 * The meta object literal for the '<em><b>Run As Root</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SECURITY_CONTEXT__RUN_AS_ROOT = eINSTANCE.getSecurityContext_RunAsRoot();
+
+		/**
+		 * The meta object literal for the '<em><b>Run As User</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SECURITY_CONTEXT__RUN_AS_USER = eINSTANCE.getSecurityContext_RunAsUser();
+
+		/**
+		 * The meta object literal for the '<em><b>Run As Group</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SECURITY_CONTEXT__RUN_AS_GROUP = eINSTANCE.getSecurityContext_RunAsGroup();
+
+		/**
+		 * The meta object literal for the '<em><b>Fs Group</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SECURITY_CONTEXT__FS_GROUP = eINSTANCE.getSecurityContext_FsGroup();
+
+		/**
+		 * The meta object literal for the '<em><b>Read Only Root Filesystem</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SECURITY_CONTEXT__READ_ONLY_ROOT_FILESYSTEM = eINSTANCE.getSecurityContext_ReadOnlyRootFilesystem();
+
+		/**
+		 * The meta object literal for the '<em><b>Capabilities</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SECURITY_CONTEXT__CAPABILITIES = eINSTANCE.getSecurityContext_Capabilities();
+
+		/**
+		 * The meta object literal for the '{@link kubernetes_metamodel.impl.ResourceAllocationImpl <em>Resource Allocation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see kubernetes_metamodel.impl.ResourceAllocationImpl
+		 * @see kubernetes_metamodel.impl.Kubernetes_metamodelPackageImpl#getResourceAllocation()
+		 * @generated
+		 */
+		EClass RESOURCE_ALLOCATION = eINSTANCE.getResourceAllocation();
+
+		/**
+		 * The meta object literal for the '<em><b>Cpu Limit</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESOURCE_ALLOCATION__CPU_LIMIT = eINSTANCE.getResourceAllocation_CpuLimit();
+
+		/**
+		 * The meta object literal for the '<em><b>Cpu Request</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESOURCE_ALLOCATION__CPU_REQUEST = eINSTANCE.getResourceAllocation_CpuRequest();
+
+		/**
+		 * The meta object literal for the '<em><b>Memory Limit</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESOURCE_ALLOCATION__MEMORY_LIMIT = eINSTANCE.getResourceAllocation_MemoryLimit();
+
+		/**
+		 * The meta object literal for the '<em><b>Memory Request</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESOURCE_ALLOCATION__MEMORY_REQUEST = eINSTANCE.getResourceAllocation_MemoryRequest();
+
+		/**
+		 * The meta object literal for the '{@link kubernetes_metamodel.impl.CapabilitiesImpl <em>Capabilities</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see kubernetes_metamodel.impl.CapabilitiesImpl
+		 * @see kubernetes_metamodel.impl.Kubernetes_metamodelPackageImpl#getCapabilities()
+		 * @generated
+		 */
+		EClass CAPABILITIES = eINSTANCE.getCapabilities();
+
+		/**
+		 * The meta object literal for the '<em><b>Drop</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CAPABILITIES__DROP = eINSTANCE.getCapabilities_Drop();
+
+		/**
+		 * The meta object literal for the '<em><b>Add</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CAPABILITIES__ADD = eINSTANCE.getCapabilities_Add();
+
+		/**
+		 * The meta object literal for the '{@link kubernetes_metamodel.impl.PortImpl <em>Port</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see kubernetes_metamodel.impl.PortImpl
+		 * @see kubernetes_metamodel.impl.Kubernetes_metamodelPackageImpl#getPort()
+		 * @generated
+		 */
+		EClass PORT = eINSTANCE.getPort();
+
+		/**
+		 * The meta object literal for the '<em><b>Number</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PORT__NUMBER = eINSTANCE.getPort_Number();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PORT__NAME = eINSTANCE.getPort_Name();
+
+		/**
 		 * The meta object literal for the '{@link kubernetes_metamodel.AccessibilityType <em>Accessibility Type</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1070,6 +1843,16 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum ACCESSIBILITY_TYPE = eINSTANCE.getAccessibilityType();
+
+		/**
+		 * The meta object literal for the '{@link kubernetes_metamodel.Protocol <em>Protocol</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see kubernetes_metamodel.Protocol
+		 * @see kubernetes_metamodel.impl.Kubernetes_metamodelPackageImpl#getProtocol()
+		 * @generated
+		 */
+		EEnum PROTOCOL = eINSTANCE.getProtocol();
 
 	}
 

@@ -4,6 +4,7 @@ package kubernetes_metamodel.impl;
 
 import kubernetes_metamodel.AccessibilityType;
 import kubernetes_metamodel.Kubernetes_metamodelPackage;
+import kubernetes_metamodel.Protocol;
 import kubernetes_metamodel.Service;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -25,6 +26,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link kubernetes_metamodel.impl.ServiceImpl#isPublicAccess <em>Public Access</em>}</li>
  *   <li>{@link kubernetes_metamodel.impl.ServiceImpl#getName <em>Name</em>}</li>
  *   <li>{@link kubernetes_metamodel.impl.ServiceImpl#getAccessibilityType <em>Accessibility Type</em>}</li>
+ *   <li>{@link kubernetes_metamodel.impl.ServiceImpl#getProtocol <em>Protocol</em>}</li>
  * </ul>
  *
  * @generated
@@ -109,6 +111,26 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
 	 * @ordered
 	 */
 	protected AccessibilityType accessibilityType = ACCESSIBILITY_TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getProtocol() <em>Protocol</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProtocol()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Protocol PROTOCOL_EDEFAULT = Protocol.TCP;
+
+	/**
+	 * The cached value of the '{@link #getProtocol() <em>Protocol</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProtocol()
+	 * @generated
+	 * @ordered
+	 */
+	protected Protocol protocol = PROTOCOL_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -218,6 +240,27 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Protocol getProtocol() {
+		return protocol;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setProtocol(Protocol newProtocol) {
+		Protocol oldProtocol = protocol;
+		protocol = newProtocol == null ? PROTOCOL_EDEFAULT : newProtocol;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, Kubernetes_metamodelPackage.SERVICE__PROTOCOL, oldProtocol, protocol));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -229,6 +272,8 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
 				return getName();
 			case Kubernetes_metamodelPackage.SERVICE__ACCESSIBILITY_TYPE:
 				return getAccessibilityType();
+			case Kubernetes_metamodelPackage.SERVICE__PROTOCOL:
+				return getProtocol();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -252,6 +297,9 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
 				return;
 			case Kubernetes_metamodelPackage.SERVICE__ACCESSIBILITY_TYPE:
 				setAccessibilityType((AccessibilityType)newValue);
+				return;
+			case Kubernetes_metamodelPackage.SERVICE__PROTOCOL:
+				setProtocol((Protocol)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -277,6 +325,9 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
 			case Kubernetes_metamodelPackage.SERVICE__ACCESSIBILITY_TYPE:
 				setAccessibilityType(ACCESSIBILITY_TYPE_EDEFAULT);
 				return;
+			case Kubernetes_metamodelPackage.SERVICE__PROTOCOL:
+				setProtocol(PROTOCOL_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -297,6 +348,8 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case Kubernetes_metamodelPackage.SERVICE__ACCESSIBILITY_TYPE:
 				return accessibilityType != ACCESSIBILITY_TYPE_EDEFAULT;
+			case Kubernetes_metamodelPackage.SERVICE__PROTOCOL:
+				return protocol != PROTOCOL_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -319,6 +372,8 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
 		result.append(name);
 		result.append(", accessibilityType: ");
 		result.append(accessibilityType);
+		result.append(", protocol: ");
+		result.append(protocol);
 		result.append(')');
 		return result.toString();
 	}

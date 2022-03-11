@@ -21,10 +21,15 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link kubernetes_metamodel.Deployment#getEnviromentVariables <em>Enviroment Variables</em>}</li>
  *   <li>{@link kubernetes_metamodel.Deployment#getName <em>Name</em>}</li>
  *   <li>{@link kubernetes_metamodel.Deployment#getService <em>Service</em>}</li>
- *   <li>{@link kubernetes_metamodel.Deployment#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link kubernetes_metamodel.Deployment#getDataPersistent <em>Data Persistent</em>}</li>
  *   <li>{@link kubernetes_metamodel.Deployment#getNamespace <em>Namespace</em>}</li>
  *   <li>{@link kubernetes_metamodel.Deployment#getIngress <em>Ingress</em>}</li>
+ *   <li>{@link kubernetes_metamodel.Deployment#getSecurityContext <em>Security Context</em>}</li>
+ *   <li>{@link kubernetes_metamodel.Deployment#getResourceAllocation <em>Resource Allocation</em>}</li>
+ *   <li>{@link kubernetes_metamodel.Deployment#getCommand <em>Command</em>}</li>
+ *   <li>{@link kubernetes_metamodel.Deployment#getArgs <em>Args</em>}</li>
+ *   <li>{@link kubernetes_metamodel.Deployment#getMemoryMount <em>Memory Mount</em>}</li>
+ *   <li>{@link kubernetes_metamodel.Deployment#getAdditionalPorts <em>Additional Ports</em>}</li>
  * </ul>
  *
  * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getDeployment()
@@ -133,48 +138,26 @@ public interface Deployment extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Service</b></em>' reference.
+	 * Returns the value of the '<em><b>Service</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Service</em>' reference.
+	 * @return the value of the '<em>Service</em>' containment reference.
 	 * @see #setService(Service)
 	 * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getDeployment_Service()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	Service getService();
 
 	/**
-	 * Sets the value of the '{@link kubernetes_metamodel.Deployment#getService <em>Service</em>}' reference.
+	 * Sets the value of the '{@link kubernetes_metamodel.Deployment#getService <em>Service</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Service</em>' reference.
+	 * @param value the new value of the '<em>Service</em>' containment reference.
 	 * @see #getService()
 	 * @generated
 	 */
 	void setService(Service value);
-
-	/**
-	 * Returns the value of the '<em><b>Identifier</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Identifier</em>' attribute.
-	 * @see #setIdentifier(String)
-	 * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getDeployment_Identifier()
-	 * @model
-	 * @generated
-	 */
-	String getIdentifier();
-
-	/**
-	 * Sets the value of the '{@link kubernetes_metamodel.Deployment#getIdentifier <em>Identifier</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Identifier</em>' attribute.
-	 * @see #getIdentifier()
-	 * @generated
-	 */
-	void setIdentifier(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Data Persistent</b></em>' reference.
@@ -241,5 +224,118 @@ public interface Deployment extends EObject {
 	 * @generated
 	 */
 	void setIngress(Ingress value);
+
+	/**
+	 * Returns the value of the '<em><b>Security Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Security Context</em>' reference.
+	 * @see #setSecurityContext(SecurityContext)
+	 * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getDeployment_SecurityContext()
+	 * @model
+	 * @generated
+	 */
+	SecurityContext getSecurityContext();
+
+	/**
+	 * Sets the value of the '{@link kubernetes_metamodel.Deployment#getSecurityContext <em>Security Context</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Security Context</em>' reference.
+	 * @see #getSecurityContext()
+	 * @generated
+	 */
+	void setSecurityContext(SecurityContext value);
+
+	/**
+	 * Returns the value of the '<em><b>Resource Allocation</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Resource Allocation</em>' reference.
+	 * @see #setResourceAllocation(ResourceAllocation)
+	 * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getDeployment_ResourceAllocation()
+	 * @model
+	 * @generated
+	 */
+	ResourceAllocation getResourceAllocation();
+
+	/**
+	 * Sets the value of the '{@link kubernetes_metamodel.Deployment#getResourceAllocation <em>Resource Allocation</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Resource Allocation</em>' reference.
+	 * @see #getResourceAllocation()
+	 * @generated
+	 */
+	void setResourceAllocation(ResourceAllocation value);
+
+	/**
+	 * Returns the value of the '<em><b>Command</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Command</em>' attribute.
+	 * @see #setCommand(String)
+	 * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getDeployment_Command()
+	 * @model
+	 * @generated
+	 */
+	String getCommand();
+
+	/**
+	 * Sets the value of the '{@link kubernetes_metamodel.Deployment#getCommand <em>Command</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Command</em>' attribute.
+	 * @see #getCommand()
+	 * @generated
+	 */
+	void setCommand(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Args</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Args</em>' attribute list.
+	 * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getDeployment_Args()
+	 * @model
+	 * @generated
+	 */
+	EList<String> getArgs();
+
+	/**
+	 * Returns the value of the '<em><b>Memory Mount</b></em>' attribute.
+	 * The default value is <code>"\"\""</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Memory Mount</em>' attribute.
+	 * @see #setMemoryMount(String)
+	 * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getDeployment_MemoryMount()
+	 * @model default="\"\""
+	 * @generated
+	 */
+	String getMemoryMount();
+
+	/**
+	 * Sets the value of the '{@link kubernetes_metamodel.Deployment#getMemoryMount <em>Memory Mount</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Memory Mount</em>' attribute.
+	 * @see #getMemoryMount()
+	 * @generated
+	 */
+	void setMemoryMount(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Additional Ports</b></em>' reference list.
+	 * The list contents are of type {@link kubernetes_metamodel.Port}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Additional Ports</em>' reference list.
+	 * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getDeployment_AdditionalPorts()
+	 * @model
+	 * @generated
+	 */
+	EList<Port> getAdditionalPorts();
 
 } // Deployment
