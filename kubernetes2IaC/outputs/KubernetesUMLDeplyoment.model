@@ -7,9 +7,9 @@
     <service port="80" publicAccess="true" name="phpMyAdmin" accessibilityType="LoadBalancer"/>
   </kubernetes_metamodel:Deployment>
   <kubernetes_metamodel:Deployment image="wordpress" port="80" replicas="1" name="wordpress" dataPersistent="/3" namespace="UML">
-    <enviromentVariables name="WORDPRESS_DB_USER" value="root"/>
     <enviromentVariables name="WORDPRESS_DB_PASSWORD" value="password"/>
     <enviromentVariables name="WORDPRESS_DB_NAME" value="wordpress"/>
+    <enviromentVariables name="WORDPRESS_DB_USER" value="root"/>
     <enviromentVariables name="WORDPRESS_DB_HOST" value="mysql.uml.svc.cluster.local"/>
     <service port="80" publicAccess="true" name="wordpress" accessibilityType="LoadBalancer"/>
   </kubernetes_metamodel:Deployment>

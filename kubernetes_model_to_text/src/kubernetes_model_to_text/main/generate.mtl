@@ -41,7 +41,7 @@ spec:
            claimName: [deployment.name.toLowerCase() +'-pvc'/]
 	 [/if]
 [comment temp-volume/]
-     [if (deployment.memoryMount->size()  > 0)]
+     [if (deployment.memoryMount.size() > 0)]
       volumes:
        - name: temp-volume
          emptyDir: 
@@ -113,7 +113,7 @@ spec:
               memory: [deployment.resourceAllocation.memoryRequest /]
 	 [/if]
 [comment Memory mount/]
-		  [if (deployment.memoryMount->notEmpty())]
+		  [if (deployment.memoryMount.size() > 0)]
           volumeMounts:
             - mountPath: [deployment.memoryMount/]
               name: temp-volume					

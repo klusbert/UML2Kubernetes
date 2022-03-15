@@ -305,13 +305,13 @@ public interface Deployment extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Memory Mount</b></em>' attribute.
-	 * The default value is <code>"\"\""</code>.
+	 * The default value is <code>""</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Memory Mount</em>' attribute.
 	 * @see #setMemoryMount(String)
 	 * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getDeployment_MemoryMount()
-	 * @model default="\"\""
+	 * @model default=""
 	 * @generated
 	 */
 	String getMemoryMount();

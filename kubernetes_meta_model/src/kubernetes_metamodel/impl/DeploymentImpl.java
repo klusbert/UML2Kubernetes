@@ -256,7 +256,7 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String MEMORY_MOUNT_EDEFAULT = "\"\"";
+	protected static final String MEMORY_MOUNT_EDEFAULT = "";
 
 	/**
 	 * The cached value of the '{@link #getMemoryMount() <em>Memory Mount</em>}' attribute.
