@@ -7,4 +7,14 @@ public class JavaExtensions {
 	public String padZeros(Integer i){
         return  String.format("%02d", i);
     }
+	public String formatStrings(String input){
+        try {
+            // try if it fails if it does not, we have to format it so kubernetes can read it as a string.
+            Integer.parseInt(input);
+            return "\"" +input + "\"";
+
+        } catch (NumberFormatException e) {
+            return input; // good it not parsable return it as it is
+        }
+    }
 }

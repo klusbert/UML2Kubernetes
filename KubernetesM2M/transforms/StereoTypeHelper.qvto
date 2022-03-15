@@ -2,14 +2,32 @@ library StereoTypeHelper;
 modeltype UML uses 'http://www.eclipse.org/uml2/5.0.0/UML';
 
 
-
+helper UML::Element::getAppliedStereoType( stereoTypeName :String) : UML::Stereotype{
+	if(self.isStereotypeApplied(self.getAppliedStereotype(stereoTypeName))){
+		return self.getAppliedStereotype(stereoTypeName);
+	};	
+	return null;
+}
 helper UML::Node::getClusterInformation() : UML::Stereotype {
-	if (self.isStereotypeApplied(self.getAppliedStereotype("KubernetesUMLProfile::Kubernetes"))) { 
-		var stereoType = self.getAppliedStereotype("KubernetesUMLProfile::Kubernetes");
-		return stereoType
-	};
-	return null;	
+	return self.getAppliedStereoType("KubernetesUMLProfile::Kubernetes"); 	
+}
+
+helper UML::Artifact::getConfigMap() : UML::Stereotype {
+	return self.getAppliedStereoType("KubernetesUMLProfile::ConfigMap"); 	
+}
+helper UML::Node::getMongoStereoType(): UML::Stereotype {	
+	return self.getAppliedStereoType("KubernetesUMLProfile::MongoDB"); 	
 	
+}
+helper UML::Node::getMysqlStereoType() : UML::Stereotype {
+	return self.getAppliedStereoType("KubernetesUMLProfile::MysqlDB"); 	
+}
+
+helper UML::Dependency::getAccessibility() : UML::Stereotype {
+	return self.getAppliedStereoType("KubernetesUMLProfile::Accessibility"); 	
+}
+helper UML::Dependency::getIngress(): UML::Stereotype {
+	return self.getAppliedStereoType("KubernetesUMLProfile::Ingress"); 	
 }
 
 helper UML::Node::getDeployment() : UML::Stereotype {
@@ -23,43 +41,6 @@ helper UML::Node::getDeployment() : UML::Stereotype {
 		var stereoType = self.getAppliedStereotype("KubernetesUMLProfile::AdvancedDeployment");
 		return stereoType
 	};
-	
-	return null;	
-}
 
-
-
-helper UML::Node::getMongoStereoType(): UML::Stereotype {
-	if (self.isStereotypeApplied(self.getAppliedStereotype("KubernetesUMLProfile::MongoDB"))) { 
-		var stereoType = self.getAppliedStereotype("KubernetesUMLProfile::MongoDB");
-		return stereoType
-	};
-	return null;	
-	
-}
-helper UML::Node::getMysqlStereoType() : UML::Stereotype {
-
-	if (self.isStereotypeApplied(self.getAppliedStereotype("KubernetesUMLProfile::MysqlDB"))) { 
-		var stereoType = self.getAppliedStereotype("KubernetesUMLProfile::MysqlDB");
-		return stereoType
-	};
-	return null;	
-}
-
-helper UML::Dependency::getAccessibility() : UML::Stereotype {
-	if (self.isStereotypeApplied(self.getAppliedStereotype("KubernetesUMLProfile::Accessibility"))) { 
-		var stereoType = self.getAppliedStereotype("KubernetesUMLProfile::Accessibility");
-		return stereoType
-	};
-	return null;	
-}
-
-
-
-helper UML::Dependency::getIngress(): UML::Stereotype {
-	if (self.isStereotypeApplied(self.getAppliedStereotype("KubernetesUMLProfile::Ingress"))) { 
-		var stereoType = self.getAppliedStereotype("KubernetesUMLProfile::Ingress");
-		return stereoType
-	};
 	return null;	
 }

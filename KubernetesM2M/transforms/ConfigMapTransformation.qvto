@@ -1,0 +1,16 @@
+import PrimativeDataTypesHelper;
+
+library ConfigMapTransoformation;
+
+modeltype UML uses 'http://www.eclipse.org/uml2/5.0.0/UML';
+modeltype KuberntesMetaModel uses 'http://www.example.org/kubernetesModel';
+modeltype kuberProfile uses 'http://kubernetesProfile';
+
+
+
+helper UML::Artifact::artifactToConfigMap(inout deployment: KuberntesMetaModel::ConfigMap, in configMapStereotype : UML::Stereotype) : ConfigMap {
+	
+	
+	
+	return null;
+}

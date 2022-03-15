@@ -10,6 +10,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="deployments" upperBound="-1"
         eType="#//Deployment"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="accessibilityType" eType="#//AccessibilityType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configMaps" upperBound="-1"
+        eType="#//ConfigMap"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Deployment">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="image" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -82,5 +84,13 @@
     <eLiterals name="TCP"/>
     <eLiterals name="UDP" value="1"/>
     <eLiterals name="HTTP" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MysqlDump">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConfigMap">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="data" upperBound="-1" eType="#//EnviromentVariables"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

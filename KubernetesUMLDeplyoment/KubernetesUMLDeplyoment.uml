@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:KubernetesUMLProfile="http:///schemas/KubernetesUMLProfile/_-CdIoJ-vEey3W6UkuVHSYQ/120" xmlns:KubernetesUMLProfile.DataTypes="http:///KubernetesUMLProfile/DataTypes.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/KubernetesUMLProfile/_-CdIoJ-vEey3W6UkuVHSYQ/120 ../KubernetesUMLProfile/KubernetesUMLProfile.profile.uml#_-Cfk4J-vEey3W6UkuVHSYQ http:///KubernetesUMLProfile/DataTypes.ecore ../KubernetesUMLProfile/KubernetesUMLProfile.profile.uml#_-CflKJ-vEey3W6UkuVHSYQ">
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:KubernetesUMLProfile="http:///schemas/KubernetesUMLProfile/_sUMMMKRGEeySO5GnGG28Tw/123" xmlns:KubernetesUMLProfile.DataTypes="http:///KubernetesUMLProfile/DataTypes.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/KubernetesUMLProfile/_sUMMMKRGEeySO5GnGG28Tw/123 ../KubernetesUMLProfile/KubernetesUMLProfile.profile.uml#_sUMMMaRGEeySO5GnGG28Tw http:///KubernetesUMLProfile/DataTypes.ecore ../KubernetesUMLProfile/KubernetesUMLProfile.profile.uml#_sUMMhaRGEeySO5GnGG28Tw">
   <uml:Model xmi:id="__cY9AH9jEeyXt-NBRolQsA" name="KubernetesUMLDeplyoment" visibility="private">
     <packageImport xmi:type="uml:PackageImport" xmi:id="__cviUH9jEeyXt-NBRolQsA">
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
@@ -10,6 +10,7 @@
       <nestedClassifier xmi:type="uml:Node" xmi:id="_7fKhUJPOEey2Ou4iQ3wOyw" name="mysql"/>
       <nestedClassifier xmi:type="uml:Node" xmi:id="_R_8t8JSQEeykRpNdXmxuDg" name="mongo"/>
       <nestedClassifier xmi:type="uml:Node" xmi:id="_ZN3GIJSQEeykRpNdXmxuDg" name="mongoExpress"/>
+      <nestedClassifier xmi:type="uml:Artifact" xmi:id="_OxMIsKRDEeySO5GnGG28Tw" name="config-map" fileName=""/>
     </packagedElement>
     <packagedElement xmi:type="uml:Node" xmi:id="_TSIpoI8hEeyInqig3yfUpA" name="OutSider"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_T7l2UI8hEeyInqig3yfUpA" client="_TSIpoI8hEeyInqig3yfUpA" supplier="_8a_zIH9kEeyXt-NBRolQsA"/>
@@ -18,16 +19,17 @@
     <packagedElement xmi:type="uml:Dependency" xmi:id="_9I3joJSKEeykRpNdXmxuDg" client="_8a_zIH9kEeyXt-NBRolQsA" supplier="_7fKhUJPOEey2Ou4iQ3wOyw"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_C52moJSSEeykRpNdXmxuDg" client="_ZN3GIJSQEeykRpNdXmxuDg" supplier="_R_8t8JSQEeykRpNdXmxuDg"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_xyhO0JoOEeymdqnPIdiJ5w" client="_TSIpoI8hEeyInqig3yfUpA" supplier="_ZN3GIJSQEeykRpNdXmxuDg"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_BcHukKRPEeykMKFwp4F-ng" client="_7fKhUJPOEey2Ou4iQ3wOyw" supplier="_OxMIsKRDEeySO5GnGG28Tw"/>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_ogP78H9kEeyXt-NBRolQsA">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_JTnT0J-wEey3W6UkuVHSYQ" source="PapyrusVersion">
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_JTnT0Z-wEey3W6UkuVHSYQ" key="Version" value="0.0.121"/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_JTnT0p-wEey3W6UkuVHSYQ" key="Comment" value=""/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_JTnT05-wEey3W6UkuVHSYQ" key="Copyright" value=""/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_JTnT1J-wEey3W6UkuVHSYQ" key="Date" value="2022-03-09"/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_JTnT1Z-wEey3W6UkuVHSYQ" key="Author" value=""/>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_wz1AQKRGEeySO5GnGG28Tw" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_wz1AQaRGEeySO5GnGG28Tw" key="Version" value="0.0.124"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_wz1AQqRGEeySO5GnGG28Tw" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_wz1AQ6RGEeySO5GnGG28Tw" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_wz1ARKRGEeySO5GnGG28Tw" key="Date" value="2022-03-15"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_wz1ARaRGEeySO5GnGG28Tw" key="Author" value=""/>
       </eAnnotations>
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ogQjAH9kEeyXt-NBRolQsA" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="../KubernetesUMLProfile/KubernetesUMLProfile.profile.uml#_-Cfk4J-vEey3W6UkuVHSYQ"/>
+        <references xmi:type="ecore:EPackage" href="../KubernetesUMLProfile/KubernetesUMLProfile.profile.uml#_sUMMMaRGEeySO5GnGG28Tw"/>
       </eAnnotations>
       <appliedProfile xmi:type="uml:Profile" href="../KubernetesUMLProfile/KubernetesUMLProfile.profile.uml#_y3Fe0H9iEeyXt-NBRolQsA"/>
     </profileApplication>
@@ -53,7 +55,14 @@
     <environmentVariables xmi:type="KubernetesUMLProfile.DataTypes:EnviromentVariables" xmi:id="_iA5CAJSQEeykRpNdXmxuDg" name="ME_CONFIG_MONGODB_ADMINUSERNAME" value="root"/>
     <environmentVariables xmi:type="KubernetesUMLProfile.DataTypes:EnviromentVariables" xmi:id="_jV5tIJSQEeykRpNdXmxuDg" name="ME_CONFIG_MONGODB_ADMINPASSWORD" value="password"/>
     <environmentVariables xmi:type="KubernetesUMLProfile.DataTypes:EnviromentVariables" xmi:id="_oNhjYJSQEeykRpNdXmxuDg" name="ME_CONFIG_MONGODB_URL" value="mongodb://root:password@mongo.$dns:27017/"/>
+    <environmentVariables xmi:type="KubernetesUMLProfile.DataTypes:EnviromentVariables" xmi:id="_ucvlYKRMEeykMKFwp4F-ng" name="test" value="123"/>
   </KubernetesUMLProfile:Deployment>
   <KubernetesUMLProfile:Accessibility xmi:id="_FS2eUJSSEeykRpNdXmxuDg" base_Dependency="_C52moJSSEeykRpNdXmxuDg"/>
   <KubernetesUMLProfile:Accessibility xmi:id="__9mBoJ-ZEey3W6UkuVHSYQ" base_Dependency="_xyhO0JoOEeymdqnPIdiJ5w"/>
+  <KubernetesUMLProfile:ConfigMap xmi:id="_1Dv9UKRGEeySO5GnGG28Tw" base_Artifact="_OxMIsKRDEeySO5GnGG28Tw">
+    <data xmi:type="KubernetesUMLProfile.DataTypes:EnviromentVariables" xmi:id="_4jqZwKRGEeySO5GnGG28Tw" name="MYSQL_ROOT_PASSWORD" value="password"/>
+    <data xmi:type="KubernetesUMLProfile.DataTypes:EnviromentVariables" xmi:id="_52M_sKRGEeySO5GnGG28Tw" name="PMA_HOST" value="mysql.uml.svc.cluster.local"/>
+    <data xmi:type="KubernetesUMLProfile.DataTypes:EnviromentVariables" xmi:id="_dNJwEKRQEeykMKFwp4F-ng" name="WORDPRESS_DB_NAME" value="wordpress"/>
+    <data xmi:type="KubernetesUMLProfile.DataTypes:EnviromentVariables" xmi:id="_in6IkKRQEeykMKFwp4F-ng" name="WORDPRESS_DB_USER" value="root"/>
+  </KubernetesUMLProfile:ConfigMap>
 </xmi:XMI>

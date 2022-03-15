@@ -5,6 +5,12 @@
 [query public padZeros(arg0 : Integer) : String
 	= invoke('kubernetes_model_to_text.main.JavaExtensions',
 	  'padZeros(java.lang.Integer)', Sequence{arg0})/]
+
+[query public formatStrings(arg0 : String) : String
+	= invoke('kubernetes_model_to_text.main.JavaExtensions',
+	  'formatStrings(java.lang.String)', Sequence{arg0})/]
+
+
 [template public generateElement(anInfrastructure : Infrastructure)]
 [comment @main/]
 [file (anInfrastructure.name + padZeros(1) +'.yml', false, 'UTF-8')]
@@ -15,6 +21,26 @@ metadata:
   name: [anInfrastructure.namespace.toLowerCase() /]
   labels:
     name: [anInfrastructure.namespace.toLowerCase() /]
+
+
+[if (anInfrastructure.configMaps->notEmpty())]
+	[for (configMap: ConfigMap | anInfrastructure.configMaps)]
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: [configMap.name.toLowerCase()/]
+  namespace: [anInfrastructure.namespace.toLowerCase() /]
+[if (configMap.data->notEmpty())]
+data:
+[for (envar: EnviromentVariables | configMap.data)]
+  [envar.name /]: [formatStrings(envar.value)/]
+[/for]
+[/if]
+
+
+	[/for]
+[/if]
 
 [if (anInfrastructure.deployments->notEmpty())]
 	[for (deployment: Deployment | anInfrastructure.deployments)]
@@ -70,7 +96,7 @@ spec:
           env:
           [for (envar: EnviromentVariables | deployment.enviromentVariables)]
             - name: [envar.name /]
-              value: [envar.value /]
+              value: [formatStrings(envar.value) /]
 		  [/for]
 	 [/if]
 [comment SecurityContext/]

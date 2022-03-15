@@ -1,6 +1,7 @@
 import PrimativeDataTypesHelper;
 import StereoTypeHelper;
 import DeploymentTransformation;
+import ConfigMapTransformation;
 
 modeltype UML uses 'http://www.eclipse.org/uml2/5.0.0/UML';
 modeltype KuberntesMetaModel uses 'http://www.example.org/kubernetesModel';
@@ -23,10 +24,35 @@ log("Begin transformation");
 input.nodes() -> map nodesToDeployment();
 input.dependensies() -> map dependencyToService();
 input.dependensies() -> map dependencyToIngreess();
+input.artifacts() -> map artifactToDump();
 
 
 }
 
+
+mapping UML::Artifact::artifactToDump() : KuberntesMetaModel::ConfigMap 
+	when {
+		//safeguard
+		self.getConfigMap() <> null;
+	}{
+	var containerInfra := resolveoneIn(UML::NamedElement::deployment2infra);
+	
+	var configMap := self.getConfigMap();
+	var data := self.getValue(configMap, "data");
+	
+	data->flatten()->asSequence()->forEach(variable){	
+		var name := variable.oclAsType(kuberProfile::DataTypes::EnviromentVariables).name;
+	    var value := variable.oclAsType(kuberProfile::DataTypes::EnviromentVariables).value;
+	    var newEnv = new EnviromentVariables();	
+	    newEnv.name := name;
+	    newEnv.value := value;
+	    result.data += newEnv;
+	};
+	result.name := self.name;
+
+	containerInfra.configMaps += result;
+
+}	
 
 mapping UML::Dependency::dependencyToIngreess() : KuberntesMetaModel::Ingress
 	when {
@@ -195,6 +221,10 @@ helper UML::nodes() : Set(UML::Node) {
 	var nodes := self.objectsOfType(UML::Node)->asOrderedSet();
 	// This execution path is useful when running the transformation at development time
 	return nodes;
+}
+
+helper UML::artifacts() : Set(UML::Artifact){
+	return self.objectsOfType(UML::Artifact);
 }
 
 
