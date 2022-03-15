@@ -2,10 +2,11 @@ package kubernetes_model_to_text.main;
 
 public class JavaExtensions {
 
-	
+	public static Integer counter = 0;
 
 	public String padZeros(Integer i){
-        return  String.format("%02d", i);
+
+        return  String.format("%02d", i + counter);
     }
 	public String formatStrings(String input){
         try {

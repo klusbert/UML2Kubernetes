@@ -1,16 +1,14 @@
 [comment encoding = UTF-8 /]
 [module generateDeployment('http://www.example.org/kubernetesModel')]
 
+[import kubernetes_model_to_text::requests::generateJavaExtensions/]
+
 
 [template public generateDeployment(anInfrastructure : Infrastructure) ]
 [if (anInfrastructure.deployments->notEmpty())]
 	[for (deployment: Deployment | anInfrastructure.deployments)]
-	Current index: [i/]
-	
-	//invoke java padding funciton
-		if(i < 10) append "0"
 
-[file (i.toString() +'-deployment-' +deployment.name +'.asd', false, 'UTF-8')]
+		[file (padZeros(deployment.id) +'-deployment-' + deployment.name +'.yml', false, 'UTF-8')]
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -34,7 +32,7 @@ spec:
            claimName: [deployment.name.toLowerCase() +'-pvc'/]
 	 [/if]
 [comment temp-volume/]
-     [if (deployment.memoryMount->notEmpty())]
+     [if (deployment.memoryMount.size() > 0)]
       volumes:
        - name: temp-volume
          emptyDir: 
@@ -63,7 +61,7 @@ spec:
           env:
           [for (envar: EnviromentVariables | deployment.enviromentVariables)]
             - name: [envar.name /]
-              value: [envar.value /]
+              value: [formatStrings(envar.value) /]
 		  [/for]
 	 [/if]
 [comment SecurityContext/]
@@ -106,12 +104,19 @@ spec:
               memory: [deployment.resourceAllocation.memoryRequest /]
 	 [/if]
 [comment Memory mount/]
-		  [if (deployment.memoryMount->notEmpty())]
+		  [if (deployment.memoryMount.oclIsUndefined() = false)]
           volumeMounts:
             - mountPath: [deployment.memoryMount/]
-              name: temp-volume					
+              name: temp-volume	
+			  [deployment.memoryMount.oclIsUndefined()/]				
           [/if]
-	[/file]
+[comment persistentVolume claim/]
+	 [if (deployment.dataPersistent->notEmpty())]        
+          volumeMounts:
+            - name: [deployment.name.toLowerCase() +'-persistent-storage'/]
+              mountPath: [deployment.dataPersistent.mountPath /]
+	 [/if]
+		[/file]
 	[/for]
 [/if]
 [/template]

@@ -1,19 +1,17 @@
+
 [comment encoding = UTF-8 /]
 [module generate('http://www.example.org/kubernetesModel')]
 
+[import kubernetes_model_to_text::main::generateDeployment/]
+[import kubernetes_model_to_text::requests::generateJavaExtensions/]
 
-[query public padZeros(arg0 : Integer) : String
-	= invoke('kubernetes_model_to_text.main.JavaExtensions',
-	  'padZeros(java.lang.Integer)', Sequence{arg0})/]
-
-[query public formatStrings(arg0 : String) : String
-	= invoke('kubernetes_model_to_text.main.JavaExtensions',
-	  'formatStrings(java.lang.String)', Sequence{arg0})/]
 
 
 [template public generateElement(anInfrastructure : Infrastructure)]
+
+[generateDeployment(anInfrastructure)/]
 [comment @main/]
-[file (anInfrastructure.name + padZeros(1) +'.yml', false, 'UTF-8')]
+[file ('00-' +anInfrastructure.name  +'.yml', false, 'UTF-8')]
 ---
 kind: Namespace
 apiVersion: v1

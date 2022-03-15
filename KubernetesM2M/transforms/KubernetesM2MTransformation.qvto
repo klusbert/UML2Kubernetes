@@ -189,6 +189,8 @@ mapping UML::Node::nodesToDeployment() : KuberntesMetaModel::Deployment
 	};
 	result.name := self.name;
 	
+	containerInfra.objectsCount := containerInfra.objectsCount +1;
+	result.id := containerInfra.objectsCount;
 	containerInfra.deployments += result;
 	
 }
