@@ -21,16 +21,47 @@ log("Begin transformation");
 
 (input.rootObjects())[UML::Model]->asOrderedSet()->first().map deployment2infra();
 
+input.artifacts() -> map artifactToConfigMap();
 input.nodes() -> map nodesToDeployment();
+
+input.dependensies() -> map dependencyToConfigMapDependency();
 input.dependensies() -> map dependencyToService();
 input.dependensies() -> map dependencyToIngreess();
-input.artifacts() -> map artifactToDump();
+
 
 
 }
 
 
-mapping UML::Artifact::artifactToDump() : KuberntesMetaModel::ConfigMap 
+mapping UML::Dependency::dependencyToConfigMapDependency() : KuberntesMetaModel::ConfigMapDependency
+	when{
+		self.getConfigMapDependency() <> null;
+	}{
+	var configMapDependency := self.getConfigMapDependency();
+	var vars :=	self.getValue(configMapDependency,"dependencies");
+	
+	var source := self.source->asSequence()->first().oclAsType(UML::Node);
+	var target := self.target->asSequence()->first().oclAsType(UML::Artifact);	
+	
+	var sourceDeployment := source.resolveoneIn(UML::Node::nodesToDeployment);
+	var targetConfigMap := target.resolveoneIn(UML::Artifact::artifactToConfigMap);
+	
+	vars->flatten()->asSequence()->forEach(variable){	
+	 //log("found environment variable ToString is:" + variable.toString() + " and repr is: " + variable.repr());
+	    var name := variable.oclAsType(kuberProfile::DataTypes::PullEnviromentVariablesFromConfig).name;
+	    var key := variable.oclAsType(kuberProfile::DataTypes::PullEnviromentVariablesFromConfig).keyName;
+	    //log("found environment variable: name-value are:" + name.toString()+"-"+value.toString());
+	    var newEnv = new ConfigMapDependency();	
+	
+		newEnv.envName := name;
+	    newEnv.keyName := key;
+	  	newEnv.configMapName := targetConfigMap.name;
+	    sourceDeployment.configMapDependencies += newEnv;
+		      
+	};	
+	
+}
+mapping UML::Artifact::artifactToConfigMap() : KuberntesMetaModel::ConfigMap 
 	when {
 		//safeguard
 		self.getConfigMap() <> null;
@@ -49,7 +80,8 @@ mapping UML::Artifact::artifactToDump() : KuberntesMetaModel::ConfigMap
 	    result.data += newEnv;
 	};
 	result.name := self.name;
-
+	containerInfra.objectsCount := containerInfra.objectsCount +1;
+	result.id := containerInfra.objectsCount;	
 	containerInfra.configMaps += result;
 
 }	

@@ -57,11 +57,21 @@ spec:
 		  [/for]
           [/if]  
 [comment EnviromentVars/]
-	 [if (deployment.enviromentVariables->notEmpty())]
+	 [if (deployment.enviromentVariables->notEmpty() or deployment.configMapDependencies->notEmpty() )]
           env:
           [for (envar: EnviromentVariables | deployment.enviromentVariables)]
             - name: [envar.name /]
               value: [formatStrings(envar.value) /]
+		  [/for]
+	 [/if]
+[comment ConfigMapDependency/]
+	 [if (deployment.configMapDependencies->notEmpty())]
+		[for (confDep: ConfigMapDependency | deployment.configMapDependencies)]
+            - name: [confDep.envName /]
+              valueFrom:
+                configMapKeyRef:
+                  name: [confDep.configMapName/]
+                  key: [confDep.keyName/]
 		  [/for]
 	 [/if]
 [comment SecurityContext/]
@@ -104,7 +114,7 @@ spec:
               memory: [deployment.resourceAllocation.memoryRequest /]
 	 [/if]
 [comment Memory mount/]
-		  [if (deployment.memoryMount.oclIsUndefined() = false)]
+		  [if (deployment.memoryMount.size() > 0)]
           volumeMounts:
             - mountPath: [deployment.memoryMount/]
               name: temp-volume	
@@ -115,7 +125,71 @@ spec:
           volumeMounts:
             - name: [deployment.name.toLowerCase() +'-persistent-storage'/]
               mountPath: [deployment.dataPersistent.mountPath /]
+
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: [deployment.name.toLowerCase() +'-pvc'/]
+  namespace: [anInfrastructure.namespace.toLowerCase() /]
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: [deployment.dataPersistent.sizeInGB  +'Gi'/]
 	 [/if]
+	[if (deployment.service->notEmpty())]	
+[if (deployment.service.publicAccess)]
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: [deployment.service.name.toLowerCase() /]
+  namespace: [anInfrastructure.namespace.toLowerCase() /]
+spec:
+  selector:
+    app: [deployment.name.toLowerCase() /]
+  type: [deployment.service.accessibilityType /]
+  ports:  
+    - port: [deployment.service.port /]
+      protocol: [deployment.service.protocol.toString() /]     
+      targetPort: [deployment.port /]
+[else]
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: [deployment.service.name.toLowerCase()/]
+  namespace: [anInfrastructure.namespace.toLowerCase() /]
+spec:  
+  ports:
+    - port: [deployment.service.port /]        
+      protocol: [deployment.service.protocol.toString() /]
+      targetPort: [deployment.port /]
+  selector:
+    app: [deployment.name.toLowerCase() /]
+[/if]
+[/if]
+[if (deployment.ingress->notEmpty())]
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: [deployment.name.toLowerCase() +'-ingress'/]
+  namespace: [anInfrastructure.namespace.toLowerCase() /]
+spec:
+  rules:
+  - http:
+      paths:
+      - path: [deployment.ingress.path /]
+        backend:
+          service:
+            name: [deployment.name.toLowerCase() /]
+            port:
+              number: [deployment.service.port /]
+        pathType: Exact
+			[/if]	
 		[/file]
 	[/for]
 [/if]

@@ -7,19 +7,6 @@ metadata:
     name: uml
 
 
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: config-map
-  namespace: uml
-data:
-  WORDPRESS_DB_USER: root
-  MYSQL_ROOT_PASSWORD: password
-  WORDPRESS_DB_NAME: wordpress
-  PMA_HOST: mysql.uml.svc.cluster.local
-
-
 
 ---
 apiVersion: apps/v1
@@ -92,14 +79,14 @@ spec:
           ports:
             - containerPort: 80
           env:
-            - name: WORDPRESS_DB_USER
-              value: root
             - name: WORDPRESS_DB_PASSWORD
               value: password
-            - name: WORDPRESS_DB_HOST
-              value: mysql.uml.svc.cluster.local
             - name: WORDPRESS_DB_NAME
               value: wordpress
+            - name: WORDPRESS_DB_USER
+              value: root
+            - name: WORDPRESS_DB_HOST
+              value: mysql.uml.svc.cluster.local
           volumeMounts:
             - name: wordpress-persistent-storage
               mountPath: /var/www/html
@@ -282,14 +269,12 @@ spec:
           ports:
             - containerPort: 8081
           env:
-            - name: ME_CONFIG_MONGODB_ADMINPASSWORD
-              value: password
             - name: ME_CONFIG_MONGODB_ADMINUSERNAME
               value: root
-            - name: test
-              value: "123"
             - name: ME_CONFIG_MONGODB_URL
               value: mongodb://root:password@mongo.uml.svc.cluster.local:27017/
+            - name: ME_CONFIG_MONGODB_ADMINPASSWORD
+              value: password
 
 ---
 kind: Service

@@ -1,0 +1,7 @@
+[comment encoding = UTF-8 /]
+[module generateConfigMaps('http://www.example.org/kubernetesModel')]
+
+
+[template public generateConfigMaps(anInfrastructure : Infrastructure)]
+
+[/template]

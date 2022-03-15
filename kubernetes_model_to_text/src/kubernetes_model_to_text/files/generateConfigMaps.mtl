@@ -1,10 +1,22 @@
 [comment encoding = UTF-8 /]
 [module generateConfigMaps('http://www.example.org/kubernetesModel')]
+[import kubernetes_model_to_text::requests::generateJavaExtensions/]
 
 
 [template public generateConfigMaps(anInfrastructure : Infrastructure)]
 
-[file (anInfrastructure.name, false, 'UTF-8')]
-
+[for (configMap: ConfigMap | anInfrastructure.configMaps)]
+[file (padZeros(configMap.id) +'-' +configMap.name +'.yml', false, 'UTF-8')]
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: [configMap.name.toLowerCase()/]
+  namespace: [anInfrastructure.namespace.toLowerCase()/]
+data:
+ [for (envar: EnviromentVariables | configMap.data)]
+  [envar.name/]: [formatStrings(envar.value)/]
+ [/for]
 [/file]
+[/for]
+
 [/template]

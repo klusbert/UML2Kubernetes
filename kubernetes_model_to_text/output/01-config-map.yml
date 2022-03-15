@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-map
+  namespace: uml
+data:
+  PMA_HOST: mysql.uml.svc.cluster.local
+  WORDPRESS_DB_NAME: wordpress
+  WORDPRESS_DB_USER: root
+  MYSQL_ROOT_PASSWORD: password

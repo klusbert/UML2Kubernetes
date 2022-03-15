@@ -2,7 +2,9 @@
 [comment encoding = UTF-8 /]
 [module generate('http://www.example.org/kubernetesModel')]
 
-[import kubernetes_model_to_text::main::generateDeployment/]
+[import kubernetes_model_to_text::files::generateDeployment/]
+[import kubernetes_model_to_text::files::generateConfigMaps/]
+
 [import kubernetes_model_to_text::requests::generateJavaExtensions/]
 
 
@@ -10,8 +12,9 @@
 [template public generateElement(anInfrastructure : Infrastructure)]
 
 [generateDeployment(anInfrastructure)/]
+[generateConfigMaps(anInfrastructure)/]
 [comment @main/]
-[file ('00-' +anInfrastructure.name  +'.yml', false, 'UTF-8')]
+[file ('00-namepsace.yml', false, 'UTF-8')]
 ---
 kind: Namespace
 apiVersion: v1
@@ -19,208 +22,5 @@ metadata:
   name: [anInfrastructure.namespace.toLowerCase() /]
   labels:
     name: [anInfrastructure.namespace.toLowerCase() /]
-
-
-[if (anInfrastructure.configMaps->notEmpty())]
-	[for (configMap: ConfigMap | anInfrastructure.configMaps)]
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: [configMap.name.toLowerCase()/]
-  namespace: [anInfrastructure.namespace.toLowerCase() /]
-[if (configMap.data->notEmpty())]
-data:
-[for (envar: EnviromentVariables | configMap.data)]
-  [envar.name /]: [formatStrings(envar.value)/]
-[/for]
-[/if]
-
-
-	[/for]
-[/if]
-
-[if (anInfrastructure.deployments->notEmpty())]
-	[for (deployment: Deployment | anInfrastructure.deployments)]
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: [deployment.name.toLowerCase() /]
-  namespace: [anInfrastructure.namespace.toLowerCase() /]
-spec:
-  replicas: [deployment.replicas /]
-  selector:
-    matchLabels:
-      app: [deployment.name.toLowerCase() /]
-  template:
-    metadata:
-      labels:
-        app: [deployment.name.toLowerCase() /]
-    spec:
-	 [if (deployment.dataPersistent->notEmpty())]
-      volumes:
-       - name: [deployment.name.toLowerCase() +'-persistent-storage'/]
-         persistentVolumeClaim:
-           claimName: [deployment.name.toLowerCase() +'-pvc'/]
-	 [/if]
-[comment temp-volume/]
-     [if (deployment.memoryMount.size() > 0)]
-      volumes:
-       - name: temp-volume
-         emptyDir: 
-           medium: Memory
-     [/if]
-      containers:
-        - name: [deployment.name.toLowerCase() /]
-          image: [deployment.image /]
-		  [if (deployment.command->notEmpty())]
-          command: ['["'/][deployment.command /]['"]'/]
-          [/if]
-          [if (deployment.args->notEmpty())]
-          [for (deployment.args) before ('args: [') separator (',') after (']')]['"'/][self/]['"'/][/for]
-		  [/if]
-          ports:
-            - containerPort: [deployment.port /]
-[comment additonalPorts/]
-		  [if (deployment.additionalPorts->notEmpty())]
-		  [for (port: Port | deployment.additionalPorts)]
-            - containerPort: [port.number/]
-              name: [port.name/]
-		  [/for]
-          [/if]  
-[comment EnviromentVars/]
-	 [if (deployment.enviromentVariables->notEmpty())]
-          env:
-          [for (envar: EnviromentVariables | deployment.enviromentVariables)]
-            - name: [envar.name /]
-              value: [formatStrings(envar.value) /]
-		  [/for]
-	 [/if]
-[comment SecurityContext/]
-	 [if (deployment.securityContext->notEmpty())]
-          securityContext:
-            runAsNonRoot: [deployment.securityContext.runAsRoot /]
-			[if (deployment.securityContext.runAsUser > -1)]
-            runAsUser: [deployment.securityContext.runAsUser /]
-			[/if]
-            [if (deployment.securityContext.runAsGroup > -1)]
-			runAsGroup: [deployment.securityContext.runAsGroup /]
-			[/if]
-			[if (deployment.securityContext.fsGroup > -1)]
-			fsGroup: [deployment.securityContext.fsGroup/]
-			[/if]            
-            [if (deployment.securityContext.capabilities.add->notEmpty() or deployment.securityContext.capabilities.drop->notEmpty())]
-            capabilities:
-              [if (deployment.securityContext.capabilities.drop->notEmpty())]
-              drop:
-                [for (var: String | deployment.securityContext.capabilities.drop)]
-                - [var /]             
-			    [/for]
-              [/if]
-              [if (deployment.securityContext.capabilities.add->notEmpty())]
-              add:
-                 [for (var: String | deployment.securityContext.capabilities.add)]
-                - [var /]             
-			    [/for]
-              [/if]
-			[/if]
-            readOnlyRootFilesystem: [deployment.securityContext.readOnlyRootFilesystem /]
-	 [/if]
-	 [if (deployment.resourceAllocation->notEmpty())]
-          resources:
-            limits:
-              cpu: [deployment.resourceAllocation.cpuLimit /]
-              memory: [deployment.resourceAllocation.memoryLimit /]
-            requests:
-              cpu: [deployment.resourceAllocation.cpuRequest /]
-              memory: [deployment.resourceAllocation.memoryRequest /]
-	 [/if]
-[comment Memory mount/]
-		  [if (deployment.memoryMount.size() > 0)]
-          volumeMounts:
-            - mountPath: [deployment.memoryMount/]
-              name: temp-volume					
-          [/if]
-[comment persistentVolume claim/]
-	 [if (deployment.dataPersistent->notEmpty())]        
-          volumeMounts:
-            - name: [deployment.name.toLowerCase() +'-persistent-storage'/]
-              mountPath: [deployment.dataPersistent.mountPath /]
----
-kind: PersistentVolumeClaim
-apiVersion: v1
-metadata:
-  name: [deployment.name.toLowerCase() +'-pvc'/]
-  namespace: [anInfrastructure.namespace.toLowerCase() /]
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: [deployment.dataPersistent.sizeInGB  +'Gi'/]
-	 [/if]
-	[if (deployment.service->notEmpty())]	
-
-[if (deployment.service.publicAccess)]
----
-kind: Service
-apiVersion: v1
-metadata:
-  name: [deployment.service.name.toLowerCase() /]
-  namespace: [anInfrastructure.namespace.toLowerCase() /]
-spec:
-  selector:
-    app: [deployment.name.toLowerCase() /]
-  type: [deployment.service.accessibilityType /]
-  ports:  
-    - port: [deployment.service.port /]
-      protocol: [deployment.service.protocol.toString() /]     
-      targetPort: [deployment.port /]
-[else]
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: [deployment.service.name.toLowerCase()/]
-  namespace: [anInfrastructure.namespace.toLowerCase() /]
-spec:  
-  ports:
-    - port: [deployment.service.port /]        
-      protocol: [deployment.service.protocol.toString() /]
-      targetPort: [deployment.port /]
-  selector:
-    app: [deployment.name.toLowerCase() /]
-[/if]
-
-
-
-[/if]
-
-			[if (deployment.ingress->notEmpty())]
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: [deployment.name.toLowerCase() +'-ingress'/]
-  namespace: [anInfrastructure.namespace.toLowerCase() /]
-spec:
-  rules:
-  - http:
-      paths:
-      - path: [deployment.ingress.path /]
-        backend:
-          service:
-            name: [deployment.name.toLowerCase() /]
-            port:
-              number: [deployment.service.port /]
-        pathType: Exact
-			[/if]
-	[/for]
-[/if]	
-
-
-
-
 [/file]
 [/template]
