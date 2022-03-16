@@ -2,6 +2,7 @@ import PrimativeDataTypesHelper;
 import StereoTypeHelper;
 import DeploymentTransformation;
 import ConfigMapTransformation;
+ 
 
 modeltype UML uses 'http://www.eclipse.org/uml2/5.0.0/UML';
 modeltype KuberntesMetaModel uses 'http://www.example.org/kubernetesModel';
@@ -74,7 +75,8 @@ mapping UML::Artifact::artifactToConfigMap() : KuberntesMetaModel::ConfigMap
 	data->flatten()->asSequence()->forEach(variable){	
 		var name := variable.oclAsType(kuberProfile::DataTypes::EnviromentVariables).name;
 	    var value := variable.oclAsType(kuberProfile::DataTypes::EnviromentVariables).value;
-	    var newEnv = new EnviromentVariables();	
+	    var newEnv = new EnviromentVariables();		    
+
 	    newEnv.name := name;
 	    newEnv.value := value;
 	    result.data += newEnv;
@@ -260,11 +262,6 @@ helper UML::nodes() : Set(UML::Node) {
 helper UML::artifacts() : Set(UML::Artifact){
 	return self.objectsOfType(UML::Artifact);
 }
-
-
-
-
-
 
 
 

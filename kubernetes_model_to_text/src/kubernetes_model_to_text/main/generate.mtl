@@ -13,6 +13,8 @@
 
 [generateDeployment(anInfrastructure)/]
 [generateConfigMaps(anInfrastructure)/]
+
+[replaceVariables(anInfrastructure)/]
 [comment @main/]
 [file ('00-namepsace.yml', false, 'UTF-8')]
 ---

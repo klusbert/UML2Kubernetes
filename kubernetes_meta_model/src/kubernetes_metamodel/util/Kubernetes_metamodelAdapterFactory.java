@@ -108,6 +108,18 @@ public class Kubernetes_metamodelAdapterFactory extends AdapterFactoryImpl {
 				return createPortAdapter();
 			}
 			@Override
+			public Adapter caseMysqlDump(MysqlDump object) {
+				return createMysqlDumpAdapter();
+			}
+			@Override
+			public Adapter caseConfigMap(ConfigMap object) {
+				return createConfigMapAdapter();
+			}
+			@Override
+			public Adapter caseConfigMapDependency(ConfigMapDependency object) {
+				return createConfigMapDependencyAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -264,6 +276,48 @@ public class Kubernetes_metamodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPortAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link kubernetes_metamodel.MysqlDump <em>Mysql Dump</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see kubernetes_metamodel.MysqlDump
+	 * @generated
+	 */
+	public Adapter createMysqlDumpAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link kubernetes_metamodel.ConfigMap <em>Config Map</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see kubernetes_metamodel.ConfigMap
+	 * @generated
+	 */
+	public Adapter createConfigMapAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link kubernetes_metamodel.ConfigMapDependency <em>Config Map Dependency</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see kubernetes_metamodel.ConfigMapDependency
+	 * @generated
+	 */
+	public Adapter createConfigMapDependencyAdapter() {
 		return null;
 	}
 

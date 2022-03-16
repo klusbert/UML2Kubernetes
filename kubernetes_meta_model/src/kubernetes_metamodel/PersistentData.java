@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link kubernetes_metamodel.PersistentData#getMountPath <em>Mount Path</em>}</li>
  *   <li>{@link kubernetes_metamodel.PersistentData#getSizeInGB <em>Size In GB</em>}</li>
+ *   <li>{@link kubernetes_metamodel.PersistentData#getId <em>Id</em>}</li>
  * </ul>
  *
  * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getPersistentData()
@@ -65,5 +66,27 @@ public interface PersistentData extends EObject {
 	 * @generated
 	 */
 	void setSizeInGB(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Id</em>' attribute.
+	 * @see #setId(int)
+	 * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getPersistentData_Id()
+	 * @model
+	 * @generated
+	 */
+	int getId();
+
+	/**
+	 * Sets the value of the '{@link kubernetes_metamodel.PersistentData#getId <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Id</em>' attribute.
+	 * @see #getId()
+	 * @generated
+	 */
+	void setId(int value);
 
 } // PersistentData

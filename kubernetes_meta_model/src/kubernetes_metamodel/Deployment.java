@@ -30,6 +30,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link kubernetes_metamodel.Deployment#getArgs <em>Args</em>}</li>
  *   <li>{@link kubernetes_metamodel.Deployment#getMemoryMount <em>Memory Mount</em>}</li>
  *   <li>{@link kubernetes_metamodel.Deployment#getAdditionalPorts <em>Additional Ports</em>}</li>
+ *   <li>{@link kubernetes_metamodel.Deployment#getId <em>Id</em>}</li>
+ *   <li>{@link kubernetes_metamodel.Deployment#getConfigMapDependencies <em>Config Map Dependencies</em>}</li>
  * </ul>
  *
  * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getDeployment()
@@ -337,5 +339,39 @@ public interface Deployment extends EObject {
 	 * @generated
 	 */
 	EList<Port> getAdditionalPorts();
+
+	/**
+	 * Returns the value of the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Id</em>' attribute.
+	 * @see #setId(int)
+	 * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getDeployment_Id()
+	 * @model
+	 * @generated
+	 */
+	int getId();
+
+	/**
+	 * Sets the value of the '{@link kubernetes_metamodel.Deployment#getId <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Id</em>' attribute.
+	 * @see #getId()
+	 * @generated
+	 */
+	void setId(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Config Map Dependencies</b></em>' containment reference list.
+	 * The list contents are of type {@link kubernetes_metamodel.ConfigMapDependency}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Config Map Dependencies</em>' containment reference list.
+	 * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getDeployment_ConfigMapDependencies()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ConfigMapDependency> getConfigMapDependencies();
 
 } // Deployment

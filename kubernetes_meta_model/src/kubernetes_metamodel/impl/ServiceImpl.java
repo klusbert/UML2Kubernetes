@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link kubernetes_metamodel.impl.ServiceImpl#getName <em>Name</em>}</li>
  *   <li>{@link kubernetes_metamodel.impl.ServiceImpl#getAccessibilityType <em>Accessibility Type</em>}</li>
  *   <li>{@link kubernetes_metamodel.impl.ServiceImpl#getProtocol <em>Protocol</em>}</li>
+ *   <li>{@link kubernetes_metamodel.impl.ServiceImpl#getId <em>Id</em>}</li>
  * </ul>
  *
  * @generated
@@ -131,6 +132,26 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
 	 * @ordered
 	 */
 	protected Protocol protocol = PROTOCOL_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int ID_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected int id = ID_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -261,6 +282,27 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int getId() {
+		return id;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setId(int newId) {
+		int oldId = id;
+		id = newId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, Kubernetes_metamodelPackage.SERVICE__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -274,6 +316,8 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
 				return getAccessibilityType();
 			case Kubernetes_metamodelPackage.SERVICE__PROTOCOL:
 				return getProtocol();
+			case Kubernetes_metamodelPackage.SERVICE__ID:
+				return getId();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -300,6 +344,9 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
 				return;
 			case Kubernetes_metamodelPackage.SERVICE__PROTOCOL:
 				setProtocol((Protocol)newValue);
+				return;
+			case Kubernetes_metamodelPackage.SERVICE__ID:
+				setId((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -328,6 +375,9 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
 			case Kubernetes_metamodelPackage.SERVICE__PROTOCOL:
 				setProtocol(PROTOCOL_EDEFAULT);
 				return;
+			case Kubernetes_metamodelPackage.SERVICE__ID:
+				setId(ID_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -350,6 +400,8 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
 				return accessibilityType != ACCESSIBILITY_TYPE_EDEFAULT;
 			case Kubernetes_metamodelPackage.SERVICE__PROTOCOL:
 				return protocol != PROTOCOL_EDEFAULT;
+			case Kubernetes_metamodelPackage.SERVICE__ID:
+				return id != ID_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -374,6 +426,8 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
 		result.append(accessibilityType);
 		result.append(", protocol: ");
 		result.append(protocol);
+		result.append(", id: ");
+		result.append(id);
 		result.append(')');
 		return result.toString();
 	}

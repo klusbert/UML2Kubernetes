@@ -117,8 +117,7 @@ spec:
 		  [if (deployment.memoryMount.size() > 0)]
           volumeMounts:
             - mountPath: [deployment.memoryMount/]
-              name: temp-volume	
-			  [deployment.memoryMount.oclIsUndefined()/]				
+              name: temp-volume				  			
           [/if]
 [comment persistentVolume claim/]
 	 [if (deployment.dataPersistent->notEmpty())]        

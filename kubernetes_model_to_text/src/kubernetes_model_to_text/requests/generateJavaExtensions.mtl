@@ -9,3 +9,7 @@
 [query public formatStrings(arg0 : String) : String
 	= invoke('kubernetes_model_to_text.main.JavaExtensions',
 	  'formatStrings(java.lang.String)', Sequence{arg0})/]
+
+[query public replaceVariables(arg0 : Infrastructure) : String
+	= invoke('kubernetes_model_to_text.main.JavaExtensions',
+	  'replaceVariables(java.lang.Object)', Sequence{arg0})/]

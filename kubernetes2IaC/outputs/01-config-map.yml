@@ -6,6 +6,6 @@ metadata:
 data:
   MYSQL_ROOT_PASSWORD: password
   WORDPRESS_DB_USER: root
+  randomPassword: $randomPW
   PMA_HOST: mysql.uml.svc.cluster.local
   WORDPRESS_DB_NAME: wordpress
-  randomPassword: 

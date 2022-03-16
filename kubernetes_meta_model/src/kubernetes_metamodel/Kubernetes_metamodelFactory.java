@@ -112,6 +112,33 @@ public interface Kubernetes_metamodelFactory extends EFactory {
 	Port createPort();
 
 	/**
+	 * Returns a new object of class '<em>Mysql Dump</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Mysql Dump</em>'.
+	 * @generated
+	 */
+	MysqlDump createMysqlDump();
+
+	/**
+	 * Returns a new object of class '<em>Config Map</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Config Map</em>'.
+	 * @generated
+	 */
+	ConfigMap createConfigMap();
+
+	/**
+	 * Returns a new object of class '<em>Config Map Dependency</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Config Map Dependency</em>'.
+	 * @generated
+	 */
+	ConfigMapDependency createConfigMapDependency();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

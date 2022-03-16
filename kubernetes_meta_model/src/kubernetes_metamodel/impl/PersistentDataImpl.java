@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link kubernetes_metamodel.impl.PersistentDataImpl#getMountPath <em>Mount Path</em>}</li>
  *   <li>{@link kubernetes_metamodel.impl.PersistentDataImpl#getSizeInGB <em>Size In GB</em>}</li>
+ *   <li>{@link kubernetes_metamodel.impl.PersistentDataImpl#getId <em>Id</em>}</li>
  * </ul>
  *
  * @generated
@@ -66,6 +67,26 @@ public class PersistentDataImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected int sizeInGB = SIZE_IN_GB_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int ID_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected int id = ID_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -133,6 +154,27 @@ public class PersistentDataImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int getId() {
+		return id;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setId(int newId) {
+		int oldId = id;
+		id = newId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, Kubernetes_metamodelPackage.PERSISTENT_DATA__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -140,6 +182,8 @@ public class PersistentDataImpl extends MinimalEObjectImpl.Container implements 
 				return getMountPath();
 			case Kubernetes_metamodelPackage.PERSISTENT_DATA__SIZE_IN_GB:
 				return getSizeInGB();
+			case Kubernetes_metamodelPackage.PERSISTENT_DATA__ID:
+				return getId();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -157,6 +201,9 @@ public class PersistentDataImpl extends MinimalEObjectImpl.Container implements 
 				return;
 			case Kubernetes_metamodelPackage.PERSISTENT_DATA__SIZE_IN_GB:
 				setSizeInGB((Integer)newValue);
+				return;
+			case Kubernetes_metamodelPackage.PERSISTENT_DATA__ID:
+				setId((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -176,6 +223,9 @@ public class PersistentDataImpl extends MinimalEObjectImpl.Container implements 
 			case Kubernetes_metamodelPackage.PERSISTENT_DATA__SIZE_IN_GB:
 				setSizeInGB(SIZE_IN_GB_EDEFAULT);
 				return;
+			case Kubernetes_metamodelPackage.PERSISTENT_DATA__ID:
+				setId(ID_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -192,6 +242,8 @@ public class PersistentDataImpl extends MinimalEObjectImpl.Container implements 
 				return MOUNT_PATH_EDEFAULT == null ? mountPath != null : !MOUNT_PATH_EDEFAULT.equals(mountPath);
 			case Kubernetes_metamodelPackage.PERSISTENT_DATA__SIZE_IN_GB:
 				return sizeInGB != SIZE_IN_GB_EDEFAULT;
+			case Kubernetes_metamodelPackage.PERSISTENT_DATA__ID:
+				return id != ID_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -210,6 +262,8 @@ public class PersistentDataImpl extends MinimalEObjectImpl.Container implements 
 		result.append(mountPath);
 		result.append(", sizeInGB: ");
 		result.append(sizeInGB);
+		result.append(", id: ");
+		result.append(id);
 		result.append(')');
 		return result.toString();
 	}

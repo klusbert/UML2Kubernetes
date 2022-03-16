@@ -4,12 +4,15 @@ package kubernetes_metamodel.impl;
 
 import kubernetes_metamodel.AccessibilityType;
 import kubernetes_metamodel.Capabilities;
+import kubernetes_metamodel.ConfigMap;
+import kubernetes_metamodel.ConfigMapDependency;
 import kubernetes_metamodel.Deployment;
 import kubernetes_metamodel.EnviromentVariables;
 import kubernetes_metamodel.Infrastructure;
 import kubernetes_metamodel.Ingress;
 import kubernetes_metamodel.Kubernetes_metamodelFactory;
 import kubernetes_metamodel.Kubernetes_metamodelPackage;
+import kubernetes_metamodel.MysqlDump;
 import kubernetes_metamodel.PersistentData;
 import kubernetes_metamodel.Port;
 import kubernetes_metamodel.Protocol;
@@ -101,6 +104,27 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 	 * @generated
 	 */
 	private EClass portEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass mysqlDumpEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass configMapEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass configMapDependencyEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -229,6 +253,33 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 	 */
 	public EAttribute getInfrastructure_AccessibilityType() {
 		return (EAttribute)infrastructureEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInfrastructure_ConfigMaps() {
+		return (EReference)infrastructureEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getInfrastructure_ObjectsCount() {
+		return (EAttribute)infrastructureEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getInfrastructure_RandomPassword() {
+		return (EAttribute)infrastructureEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -380,6 +431,24 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getDeployment_Id() {
+		return (EAttribute)deploymentEClass.getEStructuralFeatures().get(15);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDeployment_ConfigMapDependencies() {
+		return (EReference)deploymentEClass.getEStructuralFeatures().get(16);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getEnviromentVariables() {
 		return enviromentVariablesEClass;
 	}
@@ -461,6 +530,15 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getService_Id() {
+		return (EAttribute)serviceEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPersistentData() {
 		return persistentDataEClass;
 	}
@@ -481,6 +559,15 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 	 */
 	public EAttribute getPersistentData_SizeInGB() {
 		return (EAttribute)persistentDataEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPersistentData_Id() {
+		return (EAttribute)persistentDataEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -668,6 +755,105 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getMysqlDump() {
+		return mysqlDumpEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMysqlDump_Content() {
+		return (EAttribute)mysqlDumpEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMysqlDump_Name() {
+		return (EAttribute)mysqlDumpEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getConfigMap() {
+		return configMapEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConfigMap_Data() {
+		return (EReference)configMapEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConfigMap_Name() {
+		return (EAttribute)configMapEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConfigMap_Id() {
+		return (EAttribute)configMapEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getConfigMapDependency() {
+		return configMapDependencyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConfigMapDependency_EnvName() {
+		return (EAttribute)configMapDependencyEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConfigMapDependency_KeyName() {
+		return (EAttribute)configMapDependencyEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConfigMapDependency_ConfigMapName() {
+		return (EAttribute)configMapDependencyEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getAccessibilityType() {
 		return accessibilityTypeEEnum;
 	}
@@ -715,6 +901,9 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 		createEAttribute(infrastructureEClass, INFRASTRUCTURE__NAME);
 		createEReference(infrastructureEClass, INFRASTRUCTURE__DEPLOYMENTS);
 		createEAttribute(infrastructureEClass, INFRASTRUCTURE__ACCESSIBILITY_TYPE);
+		createEReference(infrastructureEClass, INFRASTRUCTURE__CONFIG_MAPS);
+		createEAttribute(infrastructureEClass, INFRASTRUCTURE__OBJECTS_COUNT);
+		createEAttribute(infrastructureEClass, INFRASTRUCTURE__RANDOM_PASSWORD);
 
 		deploymentEClass = createEClass(DEPLOYMENT);
 		createEAttribute(deploymentEClass, DEPLOYMENT__IMAGE);
@@ -732,6 +921,8 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 		createEAttribute(deploymentEClass, DEPLOYMENT__ARGS);
 		createEAttribute(deploymentEClass, DEPLOYMENT__MEMORY_MOUNT);
 		createEReference(deploymentEClass, DEPLOYMENT__ADDITIONAL_PORTS);
+		createEAttribute(deploymentEClass, DEPLOYMENT__ID);
+		createEReference(deploymentEClass, DEPLOYMENT__CONFIG_MAP_DEPENDENCIES);
 
 		enviromentVariablesEClass = createEClass(ENVIROMENT_VARIABLES);
 		createEAttribute(enviromentVariablesEClass, ENVIROMENT_VARIABLES__NAME);
@@ -743,10 +934,12 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 		createEAttribute(serviceEClass, SERVICE__NAME);
 		createEAttribute(serviceEClass, SERVICE__ACCESSIBILITY_TYPE);
 		createEAttribute(serviceEClass, SERVICE__PROTOCOL);
+		createEAttribute(serviceEClass, SERVICE__ID);
 
 		persistentDataEClass = createEClass(PERSISTENT_DATA);
 		createEAttribute(persistentDataEClass, PERSISTENT_DATA__MOUNT_PATH);
 		createEAttribute(persistentDataEClass, PERSISTENT_DATA__SIZE_IN_GB);
+		createEAttribute(persistentDataEClass, PERSISTENT_DATA__ID);
 
 		ingressEClass = createEClass(INGRESS);
 		createEAttribute(ingressEClass, INGRESS__PATH);
@@ -772,6 +965,20 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 		portEClass = createEClass(PORT);
 		createEAttribute(portEClass, PORT__NUMBER);
 		createEAttribute(portEClass, PORT__NAME);
+
+		mysqlDumpEClass = createEClass(MYSQL_DUMP);
+		createEAttribute(mysqlDumpEClass, MYSQL_DUMP__CONTENT);
+		createEAttribute(mysqlDumpEClass, MYSQL_DUMP__NAME);
+
+		configMapEClass = createEClass(CONFIG_MAP);
+		createEReference(configMapEClass, CONFIG_MAP__DATA);
+		createEAttribute(configMapEClass, CONFIG_MAP__NAME);
+		createEAttribute(configMapEClass, CONFIG_MAP__ID);
+
+		configMapDependencyEClass = createEClass(CONFIG_MAP_DEPENDENCY);
+		createEAttribute(configMapDependencyEClass, CONFIG_MAP_DEPENDENCY__ENV_NAME);
+		createEAttribute(configMapDependencyEClass, CONFIG_MAP_DEPENDENCY__KEY_NAME);
+		createEAttribute(configMapDependencyEClass, CONFIG_MAP_DEPENDENCY__CONFIG_MAP_NAME);
 
 		// Create enums
 		accessibilityTypeEEnum = createEEnum(ACCESSIBILITY_TYPE);
@@ -814,6 +1021,9 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 		initEAttribute(getInfrastructure_Name(), ecorePackage.getEString(), "name", "Kubernetes", 0, 1, Infrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getInfrastructure_Deployments(), this.getDeployment(), null, "deployments", null, 0, -1, Infrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getInfrastructure_AccessibilityType(), this.getAccessibilityType(), "accessibilityType", null, 0, 1, Infrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInfrastructure_ConfigMaps(), this.getConfigMap(), null, "configMaps", null, 0, -1, Infrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInfrastructure_ObjectsCount(), ecorePackage.getEInt(), "objectsCount", "0", 0, 1, Infrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInfrastructure_RandomPassword(), ecorePackage.getEString(), "randomPassword", null, 0, 1, Infrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(deploymentEClass, Deployment.class, "Deployment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDeployment_Image(), ecorePackage.getEString(), "image", null, 0, 1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -831,6 +1041,8 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 		initEAttribute(getDeployment_Args(), ecorePackage.getEString(), "args", null, 0, -1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDeployment_MemoryMount(), ecorePackage.getEString(), "memoryMount", "", 0, 1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDeployment_AdditionalPorts(), this.getPort(), null, "additionalPorts", null, 0, -1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDeployment_Id(), ecorePackage.getEInt(), "id", null, 0, 1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDeployment_ConfigMapDependencies(), this.getConfigMapDependency(), null, "configMapDependencies", null, 0, -1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(enviromentVariablesEClass, EnviromentVariables.class, "EnviromentVariables", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEnviromentVariables_Name(), ecorePackage.getEString(), "name", null, 0, 1, EnviromentVariables.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -842,10 +1054,12 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 		initEAttribute(getService_Name(), ecorePackage.getEString(), "name", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getService_AccessibilityType(), this.getAccessibilityType(), "accessibilityType", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getService_Protocol(), this.getProtocol(), "protocol", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getService_Id(), ecorePackage.getEInt(), "id", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(persistentDataEClass, PersistentData.class, "PersistentData", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPersistentData_MountPath(), ecorePackage.getEString(), "mountPath", null, 0, 1, PersistentData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPersistentData_SizeInGB(), ecorePackage.getEInt(), "sizeInGB", null, 0, 1, PersistentData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPersistentData_Id(), ecorePackage.getEInt(), "id", null, 0, 1, PersistentData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(ingressEClass, Ingress.class, "Ingress", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIngress_Path(), ecorePackage.getEString(), "path", null, 0, 1, Ingress.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -871,6 +1085,20 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 		initEClass(portEClass, Port.class, "Port", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPort_Number(), ecorePackage.getEInt(), "number", null, 0, 1, Port.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPort_Name(), ecorePackage.getEString(), "name", null, 0, 1, Port.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(mysqlDumpEClass, MysqlDump.class, "MysqlDump", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMysqlDump_Content(), ecorePackage.getEString(), "content", null, 0, 1, MysqlDump.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMysqlDump_Name(), ecorePackage.getEString(), "name", null, 0, 1, MysqlDump.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(configMapEClass, ConfigMap.class, "ConfigMap", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getConfigMap_Data(), this.getEnviromentVariables(), null, "data", null, 0, -1, ConfigMap.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConfigMap_Name(), ecorePackage.getEString(), "name", null, 0, 1, ConfigMap.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConfigMap_Id(), ecorePackage.getEInt(), "id", null, 0, 1, ConfigMap.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(configMapDependencyEClass, ConfigMapDependency.class, "ConfigMapDependency", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getConfigMapDependency_EnvName(), ecorePackage.getEString(), "envName", null, 0, 1, ConfigMapDependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConfigMapDependency_KeyName(), ecorePackage.getEString(), "keyName", null, 0, 1, ConfigMapDependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConfigMapDependency_ConfigMapName(), ecorePackage.getEString(), "configMapName", null, 0, 1, ConfigMapDependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(accessibilityTypeEEnum, AccessibilityType.class, "AccessibilityType");

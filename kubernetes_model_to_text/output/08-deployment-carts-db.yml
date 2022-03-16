@@ -1,0 +1,51 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: carts-db
+  namespace: sock-shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: carts-db
+  template:
+    metadata:
+      labels:
+        app: carts-db
+    spec:
+      volumes:
+       - name: temp-volume
+         emptyDir: 
+           medium: Memory
+      containers:
+        - name: carts-db
+          image: mongo
+          ports:
+            - containerPort: 27017
+          securityContext:
+            runAsNonRoot: false
+            capabilities:
+              drop:
+                - all             
+              add:
+                - CHOWN             
+                - SETGID             
+                - SETUID             
+            readOnlyRootFilesystem: true
+          volumeMounts:
+            - mountPath: /tmp
+              name: temp-volume				  			
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: carts-db
+  namespace: sock-shop
+spec:  
+  ports:
+    - port: 27017        
+      protocol: TCP
+      targetPort: 27017
+  selector:
+    app: carts-db

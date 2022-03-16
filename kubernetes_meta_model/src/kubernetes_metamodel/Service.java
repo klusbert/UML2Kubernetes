@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link kubernetes_metamodel.Service#getName <em>Name</em>}</li>
  *   <li>{@link kubernetes_metamodel.Service#getAccessibilityType <em>Accessibility Type</em>}</li>
  *   <li>{@link kubernetes_metamodel.Service#getProtocol <em>Protocol</em>}</li>
+ *   <li>{@link kubernetes_metamodel.Service#getId <em>Id</em>}</li>
  * </ul>
  *
  * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getService()
@@ -140,5 +141,27 @@ public interface Service extends EObject {
 	 * @generated
 	 */
 	void setProtocol(Protocol value);
+
+	/**
+	 * Returns the value of the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Id</em>' attribute.
+	 * @see #setId(int)
+	 * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getService_Id()
+	 * @model
+	 * @generated
+	 */
+	int getId();
+
+	/**
+	 * Sets the value of the '{@link kubernetes_metamodel.Service#getId <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Id</em>' attribute.
+	 * @see #getId()
+	 * @generated
+	 */
+	void setId(int value);
 
 } // Service

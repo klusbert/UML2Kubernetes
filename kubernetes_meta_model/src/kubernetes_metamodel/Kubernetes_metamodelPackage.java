@@ -113,13 +113,40 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	int INFRASTRUCTURE__ACCESSIBILITY_TYPE = 4;
 
 	/**
+	 * The feature id for the '<em><b>Config Maps</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFRASTRUCTURE__CONFIG_MAPS = 5;
+
+	/**
+	 * The feature id for the '<em><b>Objects Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFRASTRUCTURE__OBJECTS_COUNT = 6;
+
+	/**
+	 * The feature id for the '<em><b>Random Password</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFRASTRUCTURE__RANDOM_PASSWORD = 7;
+
+	/**
 	 * The number of structural features of the '<em>Infrastructure</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INFRASTRUCTURE_FEATURE_COUNT = 5;
+	int INFRASTRUCTURE_FEATURE_COUNT = 8;
 
 	/**
 	 * The number of operations of the '<em>Infrastructure</em>' class.
@@ -276,13 +303,31 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	int DEPLOYMENT__ADDITIONAL_PORTS = 14;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPLOYMENT__ID = 15;
+
+	/**
+	 * The feature id for the '<em><b>Config Map Dependencies</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPLOYMENT__CONFIG_MAP_DEPENDENCIES = 16;
+
+	/**
 	 * The number of structural features of the '<em>Deployment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEPLOYMENT_FEATURE_COUNT = 15;
+	int DEPLOYMENT_FEATURE_COUNT = 17;
 
 	/**
 	 * The number of operations of the '<em>Deployment</em>' class.
@@ -395,13 +440,22 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	int SERVICE__PROTOCOL = 4;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE__ID = 5;
+
+	/**
 	 * The number of structural features of the '<em>Service</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE_FEATURE_COUNT = 5;
+	int SERVICE_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Service</em>' class.
@@ -441,13 +495,22 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	int PERSISTENT_DATA__SIZE_IN_GB = 1;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSISTENT_DATA__ID = 2;
+
+	/**
 	 * The number of structural features of the '<em>Persistent Data</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PERSISTENT_DATA_FEATURE_COUNT = 2;
+	int PERSISTENT_DATA_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Persistent Data</em>' class.
@@ -734,6 +797,162 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	int PORT_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link kubernetes_metamodel.impl.MysqlDumpImpl <em>Mysql Dump</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see kubernetes_metamodel.impl.MysqlDumpImpl
+	 * @see kubernetes_metamodel.impl.Kubernetes_metamodelPackageImpl#getMysqlDump()
+	 * @generated
+	 */
+	int MYSQL_DUMP = 10;
+
+	/**
+	 * The feature id for the '<em><b>Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MYSQL_DUMP__CONTENT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MYSQL_DUMP__NAME = 1;
+
+	/**
+	 * The number of structural features of the '<em>Mysql Dump</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MYSQL_DUMP_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Mysql Dump</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MYSQL_DUMP_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link kubernetes_metamodel.impl.ConfigMapImpl <em>Config Map</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see kubernetes_metamodel.impl.ConfigMapImpl
+	 * @see kubernetes_metamodel.impl.Kubernetes_metamodelPackageImpl#getConfigMap()
+	 * @generated
+	 */
+	int CONFIG_MAP = 11;
+
+	/**
+	 * The feature id for the '<em><b>Data</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIG_MAP__DATA = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIG_MAP__NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIG_MAP__ID = 2;
+
+	/**
+	 * The number of structural features of the '<em>Config Map</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIG_MAP_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Config Map</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIG_MAP_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link kubernetes_metamodel.impl.ConfigMapDependencyImpl <em>Config Map Dependency</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see kubernetes_metamodel.impl.ConfigMapDependencyImpl
+	 * @see kubernetes_metamodel.impl.Kubernetes_metamodelPackageImpl#getConfigMapDependency()
+	 * @generated
+	 */
+	int CONFIG_MAP_DEPENDENCY = 12;
+
+	/**
+	 * The feature id for the '<em><b>Env Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIG_MAP_DEPENDENCY__ENV_NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Key Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIG_MAP_DEPENDENCY__KEY_NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Config Map Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIG_MAP_DEPENDENCY__CONFIG_MAP_NAME = 2;
+
+	/**
+	 * The number of structural features of the '<em>Config Map Dependency</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIG_MAP_DEPENDENCY_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Config Map Dependency</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIG_MAP_DEPENDENCY_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link kubernetes_metamodel.AccessibilityType <em>Accessibility Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -741,7 +960,7 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	 * @see kubernetes_metamodel.impl.Kubernetes_metamodelPackageImpl#getAccessibilityType()
 	 * @generated
 	 */
-	int ACCESSIBILITY_TYPE = 10;
+	int ACCESSIBILITY_TYPE = 13;
 
 
 	/**
@@ -752,7 +971,7 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	 * @see kubernetes_metamodel.impl.Kubernetes_metamodelPackageImpl#getProtocol()
 	 * @generated
 	 */
-	int PROTOCOL = 11;
+	int PROTOCOL = 14;
 
 
 	/**
@@ -819,6 +1038,39 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getInfrastructure_AccessibilityType();
+
+	/**
+	 * Returns the meta object for the reference list '{@link kubernetes_metamodel.Infrastructure#getConfigMaps <em>Config Maps</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Config Maps</em>'.
+	 * @see kubernetes_metamodel.Infrastructure#getConfigMaps()
+	 * @see #getInfrastructure()
+	 * @generated
+	 */
+	EReference getInfrastructure_ConfigMaps();
+
+	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.Infrastructure#getObjectsCount <em>Objects Count</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Objects Count</em>'.
+	 * @see kubernetes_metamodel.Infrastructure#getObjectsCount()
+	 * @see #getInfrastructure()
+	 * @generated
+	 */
+	EAttribute getInfrastructure_ObjectsCount();
+
+	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.Infrastructure#getRandomPassword <em>Random Password</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Random Password</em>'.
+	 * @see kubernetes_metamodel.Infrastructure#getRandomPassword()
+	 * @see #getInfrastructure()
+	 * @generated
+	 */
+	EAttribute getInfrastructure_RandomPassword();
 
 	/**
 	 * Returns the meta object for class '{@link kubernetes_metamodel.Deployment <em>Deployment</em>}'.
@@ -996,6 +1248,28 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	EReference getDeployment_AdditionalPorts();
 
 	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.Deployment#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see kubernetes_metamodel.Deployment#getId()
+	 * @see #getDeployment()
+	 * @generated
+	 */
+	EAttribute getDeployment_Id();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link kubernetes_metamodel.Deployment#getConfigMapDependencies <em>Config Map Dependencies</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Config Map Dependencies</em>'.
+	 * @see kubernetes_metamodel.Deployment#getConfigMapDependencies()
+	 * @see #getDeployment()
+	 * @generated
+	 */
+	EReference getDeployment_ConfigMapDependencies();
+
+	/**
 	 * Returns the meta object for class '{@link kubernetes_metamodel.EnviromentVariables <em>Enviroment Variables</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1093,6 +1367,17 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	EAttribute getService_Protocol();
 
 	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.Service#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see kubernetes_metamodel.Service#getId()
+	 * @see #getService()
+	 * @generated
+	 */
+	EAttribute getService_Id();
+
+	/**
 	 * Returns the meta object for class '{@link kubernetes_metamodel.PersistentData <em>Persistent Data</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1123,6 +1408,17 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getPersistentData_SizeInGB();
+
+	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.PersistentData#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see kubernetes_metamodel.PersistentData#getId()
+	 * @see #getPersistentData()
+	 * @generated
+	 */
+	EAttribute getPersistentData_Id();
 
 	/**
 	 * Returns the meta object for class '{@link kubernetes_metamodel.Ingress <em>Ingress</em>}'.
@@ -1340,6 +1636,124 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	EAttribute getPort_Name();
 
 	/**
+	 * Returns the meta object for class '{@link kubernetes_metamodel.MysqlDump <em>Mysql Dump</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Mysql Dump</em>'.
+	 * @see kubernetes_metamodel.MysqlDump
+	 * @generated
+	 */
+	EClass getMysqlDump();
+
+	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.MysqlDump#getContent <em>Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Content</em>'.
+	 * @see kubernetes_metamodel.MysqlDump#getContent()
+	 * @see #getMysqlDump()
+	 * @generated
+	 */
+	EAttribute getMysqlDump_Content();
+
+	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.MysqlDump#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see kubernetes_metamodel.MysqlDump#getName()
+	 * @see #getMysqlDump()
+	 * @generated
+	 */
+	EAttribute getMysqlDump_Name();
+
+	/**
+	 * Returns the meta object for class '{@link kubernetes_metamodel.ConfigMap <em>Config Map</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Config Map</em>'.
+	 * @see kubernetes_metamodel.ConfigMap
+	 * @generated
+	 */
+	EClass getConfigMap();
+
+	/**
+	 * Returns the meta object for the reference list '{@link kubernetes_metamodel.ConfigMap#getData <em>Data</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Data</em>'.
+	 * @see kubernetes_metamodel.ConfigMap#getData()
+	 * @see #getConfigMap()
+	 * @generated
+	 */
+	EReference getConfigMap_Data();
+
+	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.ConfigMap#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see kubernetes_metamodel.ConfigMap#getName()
+	 * @see #getConfigMap()
+	 * @generated
+	 */
+	EAttribute getConfigMap_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.ConfigMap#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see kubernetes_metamodel.ConfigMap#getId()
+	 * @see #getConfigMap()
+	 * @generated
+	 */
+	EAttribute getConfigMap_Id();
+
+	/**
+	 * Returns the meta object for class '{@link kubernetes_metamodel.ConfigMapDependency <em>Config Map Dependency</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Config Map Dependency</em>'.
+	 * @see kubernetes_metamodel.ConfigMapDependency
+	 * @generated
+	 */
+	EClass getConfigMapDependency();
+
+	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.ConfigMapDependency#getEnvName <em>Env Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Env Name</em>'.
+	 * @see kubernetes_metamodel.ConfigMapDependency#getEnvName()
+	 * @see #getConfigMapDependency()
+	 * @generated
+	 */
+	EAttribute getConfigMapDependency_EnvName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.ConfigMapDependency#getKeyName <em>Key Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key Name</em>'.
+	 * @see kubernetes_metamodel.ConfigMapDependency#getKeyName()
+	 * @see #getConfigMapDependency()
+	 * @generated
+	 */
+	EAttribute getConfigMapDependency_KeyName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.ConfigMapDependency#getConfigMapName <em>Config Map Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Config Map Name</em>'.
+	 * @see kubernetes_metamodel.ConfigMapDependency#getConfigMapName()
+	 * @see #getConfigMapDependency()
+	 * @generated
+	 */
+	EAttribute getConfigMapDependency_ConfigMapName();
+
+	/**
 	 * Returns the meta object for enum '{@link kubernetes_metamodel.AccessibilityType <em>Accessibility Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1431,6 +1845,30 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute INFRASTRUCTURE__ACCESSIBILITY_TYPE = eINSTANCE.getInfrastructure_AccessibilityType();
+
+		/**
+		 * The meta object literal for the '<em><b>Config Maps</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INFRASTRUCTURE__CONFIG_MAPS = eINSTANCE.getInfrastructure_ConfigMaps();
+
+		/**
+		 * The meta object literal for the '<em><b>Objects Count</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INFRASTRUCTURE__OBJECTS_COUNT = eINSTANCE.getInfrastructure_ObjectsCount();
+
+		/**
+		 * The meta object literal for the '<em><b>Random Password</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INFRASTRUCTURE__RANDOM_PASSWORD = eINSTANCE.getInfrastructure_RandomPassword();
 
 		/**
 		 * The meta object literal for the '{@link kubernetes_metamodel.impl.DeploymentImpl <em>Deployment</em>}' class.
@@ -1563,6 +2001,22 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 		EReference DEPLOYMENT__ADDITIONAL_PORTS = eINSTANCE.getDeployment_AdditionalPorts();
 
 		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DEPLOYMENT__ID = eINSTANCE.getDeployment_Id();
+
+		/**
+		 * The meta object literal for the '<em><b>Config Map Dependencies</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DEPLOYMENT__CONFIG_MAP_DEPENDENCIES = eINSTANCE.getDeployment_ConfigMapDependencies();
+
+		/**
 		 * The meta object literal for the '{@link kubernetes_metamodel.impl.EnviromentVariablesImpl <em>Enviroment Variables</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1639,6 +2093,14 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 		EAttribute SERVICE__PROTOCOL = eINSTANCE.getService_Protocol();
 
 		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SERVICE__ID = eINSTANCE.getService_Id();
+
+		/**
 		 * The meta object literal for the '{@link kubernetes_metamodel.impl.PersistentDataImpl <em>Persistent Data</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1663,6 +2125,14 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PERSISTENT_DATA__SIZE_IN_GB = eINSTANCE.getPersistentData_SizeInGB();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PERSISTENT_DATA__ID = eINSTANCE.getPersistentData_Id();
 
 		/**
 		 * The meta object literal for the '{@link kubernetes_metamodel.impl.IngressImpl <em>Ingress</em>}' class.
@@ -1833,6 +2303,100 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PORT__NAME = eINSTANCE.getPort_Name();
+
+		/**
+		 * The meta object literal for the '{@link kubernetes_metamodel.impl.MysqlDumpImpl <em>Mysql Dump</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see kubernetes_metamodel.impl.MysqlDumpImpl
+		 * @see kubernetes_metamodel.impl.Kubernetes_metamodelPackageImpl#getMysqlDump()
+		 * @generated
+		 */
+		EClass MYSQL_DUMP = eINSTANCE.getMysqlDump();
+
+		/**
+		 * The meta object literal for the '<em><b>Content</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MYSQL_DUMP__CONTENT = eINSTANCE.getMysqlDump_Content();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MYSQL_DUMP__NAME = eINSTANCE.getMysqlDump_Name();
+
+		/**
+		 * The meta object literal for the '{@link kubernetes_metamodel.impl.ConfigMapImpl <em>Config Map</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see kubernetes_metamodel.impl.ConfigMapImpl
+		 * @see kubernetes_metamodel.impl.Kubernetes_metamodelPackageImpl#getConfigMap()
+		 * @generated
+		 */
+		EClass CONFIG_MAP = eINSTANCE.getConfigMap();
+
+		/**
+		 * The meta object literal for the '<em><b>Data</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONFIG_MAP__DATA = eINSTANCE.getConfigMap_Data();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONFIG_MAP__NAME = eINSTANCE.getConfigMap_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONFIG_MAP__ID = eINSTANCE.getConfigMap_Id();
+
+		/**
+		 * The meta object literal for the '{@link kubernetes_metamodel.impl.ConfigMapDependencyImpl <em>Config Map Dependency</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see kubernetes_metamodel.impl.ConfigMapDependencyImpl
+		 * @see kubernetes_metamodel.impl.Kubernetes_metamodelPackageImpl#getConfigMapDependency()
+		 * @generated
+		 */
+		EClass CONFIG_MAP_DEPENDENCY = eINSTANCE.getConfigMapDependency();
+
+		/**
+		 * The meta object literal for the '<em><b>Env Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONFIG_MAP_DEPENDENCY__ENV_NAME = eINSTANCE.getConfigMapDependency_EnvName();
+
+		/**
+		 * The meta object literal for the '<em><b>Key Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONFIG_MAP_DEPENDENCY__KEY_NAME = eINSTANCE.getConfigMapDependency_KeyName();
+
+		/**
+		 * The meta object literal for the '<em><b>Config Map Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONFIG_MAP_DEPENDENCY__CONFIG_MAP_NAME = eINSTANCE.getConfigMapDependency_ConfigMapName();
 
 		/**
 		 * The meta object literal for the '{@link kubernetes_metamodel.AccessibilityType <em>Accessibility Type</em>}' enum.

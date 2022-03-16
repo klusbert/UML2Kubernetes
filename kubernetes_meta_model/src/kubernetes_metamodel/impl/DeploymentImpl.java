@@ -4,6 +4,7 @@ package kubernetes_metamodel.impl;
 
 import java.util.Collection;
 
+import kubernetes_metamodel.ConfigMapDependency;
 import kubernetes_metamodel.Deployment;
 import kubernetes_metamodel.EnviromentVariables;
 import kubernetes_metamodel.Ingress;
@@ -53,6 +54,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link kubernetes_metamodel.impl.DeploymentImpl#getArgs <em>Args</em>}</li>
  *   <li>{@link kubernetes_metamodel.impl.DeploymentImpl#getMemoryMount <em>Memory Mount</em>}</li>
  *   <li>{@link kubernetes_metamodel.impl.DeploymentImpl#getAdditionalPorts <em>Additional Ports</em>}</li>
+ *   <li>{@link kubernetes_metamodel.impl.DeploymentImpl#getId <em>Id</em>}</li>
+ *   <li>{@link kubernetes_metamodel.impl.DeploymentImpl#getConfigMapDependencies <em>Config Map Dependencies</em>}</li>
  * </ul>
  *
  * @generated
@@ -277,6 +280,36 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 	 * @ordered
 	 */
 	protected EList<Port> additionalPorts;
+
+	/**
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int ID_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected int id = ID_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getConfigMapDependencies() <em>Config Map Dependencies</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConfigMapDependencies()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ConfigMapDependency> configMapDependencies;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -680,6 +713,39 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int getId() {
+		return id;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setId(int newId) {
+		int oldId = id;
+		id = newId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, Kubernetes_metamodelPackage.DEPLOYMENT__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ConfigMapDependency> getConfigMapDependencies() {
+		if (configMapDependencies == null) {
+			configMapDependencies = new EObjectContainmentEList<ConfigMapDependency>(ConfigMapDependency.class, this, Kubernetes_metamodelPackage.DEPLOYMENT__CONFIG_MAP_DEPENDENCIES);
+		}
+		return configMapDependencies;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -687,6 +753,8 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 				return ((InternalEList<?>)getEnviromentVariables()).basicRemove(otherEnd, msgs);
 			case Kubernetes_metamodelPackage.DEPLOYMENT__SERVICE:
 				return basicSetService(null, msgs);
+			case Kubernetes_metamodelPackage.DEPLOYMENT__CONFIG_MAP_DEPENDENCIES:
+				return ((InternalEList<?>)getConfigMapDependencies()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -733,6 +801,10 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 				return getMemoryMount();
 			case Kubernetes_metamodelPackage.DEPLOYMENT__ADDITIONAL_PORTS:
 				return getAdditionalPorts();
+			case Kubernetes_metamodelPackage.DEPLOYMENT__ID:
+				return getId();
+			case Kubernetes_metamodelPackage.DEPLOYMENT__CONFIG_MAP_DEPENDENCIES:
+				return getConfigMapDependencies();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -794,6 +866,13 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 				getAdditionalPorts().clear();
 				getAdditionalPorts().addAll((Collection<? extends Port>)newValue);
 				return;
+			case Kubernetes_metamodelPackage.DEPLOYMENT__ID:
+				setId((Integer)newValue);
+				return;
+			case Kubernetes_metamodelPackage.DEPLOYMENT__CONFIG_MAP_DEPENDENCIES:
+				getConfigMapDependencies().clear();
+				getConfigMapDependencies().addAll((Collection<? extends ConfigMapDependency>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -851,6 +930,12 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 			case Kubernetes_metamodelPackage.DEPLOYMENT__ADDITIONAL_PORTS:
 				getAdditionalPorts().clear();
 				return;
+			case Kubernetes_metamodelPackage.DEPLOYMENT__ID:
+				setId(ID_EDEFAULT);
+				return;
+			case Kubernetes_metamodelPackage.DEPLOYMENT__CONFIG_MAP_DEPENDENCIES:
+				getConfigMapDependencies().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -893,6 +978,10 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 				return MEMORY_MOUNT_EDEFAULT == null ? memoryMount != null : !MEMORY_MOUNT_EDEFAULT.equals(memoryMount);
 			case Kubernetes_metamodelPackage.DEPLOYMENT__ADDITIONAL_PORTS:
 				return additionalPorts != null && !additionalPorts.isEmpty();
+			case Kubernetes_metamodelPackage.DEPLOYMENT__ID:
+				return id != ID_EDEFAULT;
+			case Kubernetes_metamodelPackage.DEPLOYMENT__CONFIG_MAP_DEPENDENCIES:
+				return configMapDependencies != null && !configMapDependencies.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -923,6 +1012,8 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 		result.append(args);
 		result.append(", memoryMount: ");
 		result.append(memoryMount);
+		result.append(", id: ");
+		result.append(id);
 		result.append(')');
 		return result.toString();
 	}

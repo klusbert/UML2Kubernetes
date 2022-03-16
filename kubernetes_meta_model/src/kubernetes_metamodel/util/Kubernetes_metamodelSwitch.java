@@ -126,6 +126,24 @@ public class Kubernetes_metamodelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case Kubernetes_metamodelPackage.MYSQL_DUMP: {
+				MysqlDump mysqlDump = (MysqlDump)theEObject;
+				T result = caseMysqlDump(mysqlDump);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case Kubernetes_metamodelPackage.CONFIG_MAP: {
+				ConfigMap configMap = (ConfigMap)theEObject;
+				T result = caseConfigMap(configMap);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case Kubernetes_metamodelPackage.CONFIG_MAP_DEPENDENCY: {
+				ConfigMapDependency configMapDependency = (ConfigMapDependency)theEObject;
+				T result = caseConfigMapDependency(configMapDependency);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -277,6 +295,51 @@ public class Kubernetes_metamodelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T casePort(Port object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Mysql Dump</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Mysql Dump</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMysqlDump(MysqlDump object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Config Map</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Config Map</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConfigMap(ConfigMap object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Config Map Dependency</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Config Map Dependency</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConfigMapDependency(ConfigMapDependency object) {
 		return null;
 	}
 

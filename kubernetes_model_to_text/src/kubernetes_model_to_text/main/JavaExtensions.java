@@ -1,3 +1,4 @@
+
 package kubernetes_model_to_text.main;
 
 public class JavaExtensions {
@@ -18,4 +19,10 @@ public class JavaExtensions {
             return input; // good it not parsable return it as it is
         }
     }
+	public String replaceVariables(Object input) {
+		
+	
+		return "";
+		
+	}
 }

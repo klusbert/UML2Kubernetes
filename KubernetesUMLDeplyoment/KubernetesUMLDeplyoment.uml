@@ -63,6 +63,7 @@
     <data xmi:type="KubernetesUMLProfile.DataTypes:EnviromentVariables" xmi:id="_52M_sKRGEeySO5GnGG28Tw" name="PMA_HOST" value="mysql.uml.svc.cluster.local"/>
     <data xmi:type="KubernetesUMLProfile.DataTypes:EnviromentVariables" xmi:id="_dNJwEKRQEeykMKFwp4F-ng" name="WORDPRESS_DB_NAME" value="wordpress"/>
     <data xmi:type="KubernetesUMLProfile.DataTypes:EnviromentVariables" xmi:id="_in6IkKRQEeykMKFwp4F-ng" name="WORDPRESS_DB_USER" value="root"/>
+    <data xmi:type="KubernetesUMLProfile.DataTypes:EnviromentVariables" xmi:id="_qOCgUKT8EeyvStHyE6txhQ" name="randomPassword" value="$randomPW"/>
   </KubernetesUMLProfile:ConfigMap>
   <KubernetesUMLProfile:ConfigMapDependency xmi:id="_n6iCUKRcEey_H4qySQWDSg" base_Dependency="_l3a7EKRcEey_H4qySQWDSg">
     <dependencies xmi:type="KubernetesUMLProfile.DataTypes:PullEnviromentVariablesFromConfig" xmi:id="_a5u-IKRfEey_H4qySQWDSg" name="PMA_HOST" keyName="PMA_HOST"/>

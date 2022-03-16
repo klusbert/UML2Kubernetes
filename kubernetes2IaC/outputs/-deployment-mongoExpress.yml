@@ -26,7 +26,17 @@ spec:
               value: mongodb://root:password@mongo.uml.svc.cluster.local:27017/
             - name: ME_CONFIG_MONGODB_ADMINPASSWORD
               value: password
-          volumeMounts:
-            - mountPath: 
-              name: temp-volume	
-			  false				
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: mongoexpress
+  namespace: uml
+spec:
+  selector:
+    app: mongoexpress
+  type: LoadBalancer
+  ports:  
+    - port: 80
+      protocol: TCP     
+      targetPort: 8081

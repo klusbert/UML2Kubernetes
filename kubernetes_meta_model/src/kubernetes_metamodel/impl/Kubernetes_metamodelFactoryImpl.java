@@ -67,6 +67,9 @@ public class Kubernetes_metamodelFactoryImpl extends EFactoryImpl implements Kub
 			case Kubernetes_metamodelPackage.RESOURCE_ALLOCATION: return createResourceAllocation();
 			case Kubernetes_metamodelPackage.CAPABILITIES: return createCapabilities();
 			case Kubernetes_metamodelPackage.PORT: return createPort();
+			case Kubernetes_metamodelPackage.MYSQL_DUMP: return createMysqlDump();
+			case Kubernetes_metamodelPackage.CONFIG_MAP: return createConfigMap();
+			case Kubernetes_metamodelPackage.CONFIG_MAP_DEPENDENCY: return createConfigMapDependency();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -204,6 +207,36 @@ public class Kubernetes_metamodelFactoryImpl extends EFactoryImpl implements Kub
 	public Port createPort() {
 		PortImpl port = new PortImpl();
 		return port;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MysqlDump createMysqlDump() {
+		MysqlDumpImpl mysqlDump = new MysqlDumpImpl();
+		return mysqlDump;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ConfigMap createConfigMap() {
+		ConfigMapImpl configMap = new ConfigMapImpl();
+		return configMap;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ConfigMapDependency createConfigMapDependency() {
+		ConfigMapDependencyImpl configMapDependency = new ConfigMapDependencyImpl();
+		return configMapDependency;
 	}
 
 	/**

@@ -20,6 +20,9 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link kubernetes_metamodel.Infrastructure#getName <em>Name</em>}</li>
  *   <li>{@link kubernetes_metamodel.Infrastructure#getDeployments <em>Deployments</em>}</li>
  *   <li>{@link kubernetes_metamodel.Infrastructure#getAccessibilityType <em>Accessibility Type</em>}</li>
+ *   <li>{@link kubernetes_metamodel.Infrastructure#getConfigMaps <em>Config Maps</em>}</li>
+ *   <li>{@link kubernetes_metamodel.Infrastructure#getObjectsCount <em>Objects Count</em>}</li>
+ *   <li>{@link kubernetes_metamodel.Infrastructure#getRandomPassword <em>Random Password</em>}</li>
  * </ul>
  *
  * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getInfrastructure()
@@ -130,5 +133,63 @@ public interface Infrastructure extends EObject {
 	 * @generated
 	 */
 	void setAccessibilityType(AccessibilityType value);
+
+	/**
+	 * Returns the value of the '<em><b>Config Maps</b></em>' reference list.
+	 * The list contents are of type {@link kubernetes_metamodel.ConfigMap}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Config Maps</em>' reference list.
+	 * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getInfrastructure_ConfigMaps()
+	 * @model
+	 * @generated
+	 */
+	EList<ConfigMap> getConfigMaps();
+
+	/**
+	 * Returns the value of the '<em><b>Objects Count</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Objects Count</em>' attribute.
+	 * @see #setObjectsCount(int)
+	 * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getInfrastructure_ObjectsCount()
+	 * @model default="0"
+	 * @generated
+	 */
+	int getObjectsCount();
+
+	/**
+	 * Sets the value of the '{@link kubernetes_metamodel.Infrastructure#getObjectsCount <em>Objects Count</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Objects Count</em>' attribute.
+	 * @see #getObjectsCount()
+	 * @generated
+	 */
+	void setObjectsCount(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Random Password</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Random Password</em>' attribute.
+	 * @see #setRandomPassword(String)
+	 * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getInfrastructure_RandomPassword()
+	 * @model
+	 * @generated
+	 */
+	String getRandomPassword();
+	String hej();
+
+	/**
+	 * Sets the value of the '{@link kubernetes_metamodel.Infrastructure#getRandomPassword <em>Random Password</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Random Password</em>' attribute.
+	 * @see #getRandomPassword()
+	 * @generated
+	 */
+	void setRandomPassword(String value);
 
 } // Infrastructure
