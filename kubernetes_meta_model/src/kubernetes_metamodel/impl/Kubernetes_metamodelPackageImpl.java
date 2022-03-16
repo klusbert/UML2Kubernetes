@@ -17,6 +17,7 @@ import kubernetes_metamodel.PersistentData;
 import kubernetes_metamodel.Port;
 import kubernetes_metamodel.Protocol;
 import kubernetes_metamodel.ResourceAllocation;
+import kubernetes_metamodel.Secrets;
 import kubernetes_metamodel.SecurityContext;
 import kubernetes_metamodel.Service;
 
@@ -125,6 +126,13 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 	 * @generated
 	 */
 	private EClass configMapDependencyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass secretsEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -278,8 +286,8 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getInfrastructure_RandomPassword() {
-		return (EAttribute)infrastructureEClass.getEStructuralFeatures().get(7);
+	public EReference getInfrastructure_Secrets() {
+		return (EReference)infrastructureEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -854,6 +862,42 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getSecrets() {
+		return secretsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSecrets_Data() {
+		return (EReference)secretsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSecrets_Name() {
+		return (EAttribute)secretsEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSecrets_Id() {
+		return (EAttribute)secretsEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getAccessibilityType() {
 		return accessibilityTypeEEnum;
 	}
@@ -903,7 +947,7 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 		createEAttribute(infrastructureEClass, INFRASTRUCTURE__ACCESSIBILITY_TYPE);
 		createEReference(infrastructureEClass, INFRASTRUCTURE__CONFIG_MAPS);
 		createEAttribute(infrastructureEClass, INFRASTRUCTURE__OBJECTS_COUNT);
-		createEAttribute(infrastructureEClass, INFRASTRUCTURE__RANDOM_PASSWORD);
+		createEReference(infrastructureEClass, INFRASTRUCTURE__SECRETS);
 
 		deploymentEClass = createEClass(DEPLOYMENT);
 		createEAttribute(deploymentEClass, DEPLOYMENT__IMAGE);
@@ -980,6 +1024,11 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 		createEAttribute(configMapDependencyEClass, CONFIG_MAP_DEPENDENCY__KEY_NAME);
 		createEAttribute(configMapDependencyEClass, CONFIG_MAP_DEPENDENCY__CONFIG_MAP_NAME);
 
+		secretsEClass = createEClass(SECRETS);
+		createEReference(secretsEClass, SECRETS__DATA);
+		createEAttribute(secretsEClass, SECRETS__NAME);
+		createEAttribute(secretsEClass, SECRETS__ID);
+
 		// Create enums
 		accessibilityTypeEEnum = createEEnum(ACCESSIBILITY_TYPE);
 		protocolEEnum = createEEnum(PROTOCOL);
@@ -1023,7 +1072,7 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 		initEAttribute(getInfrastructure_AccessibilityType(), this.getAccessibilityType(), "accessibilityType", null, 0, 1, Infrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getInfrastructure_ConfigMaps(), this.getConfigMap(), null, "configMaps", null, 0, -1, Infrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getInfrastructure_ObjectsCount(), ecorePackage.getEInt(), "objectsCount", "0", 0, 1, Infrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getInfrastructure_RandomPassword(), ecorePackage.getEString(), "randomPassword", null, 0, 1, Infrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInfrastructure_Secrets(), this.getSecrets(), null, "secrets", null, 0, -1, Infrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(deploymentEClass, Deployment.class, "Deployment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDeployment_Image(), ecorePackage.getEString(), "image", null, 0, 1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1099,6 +1148,11 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 		initEAttribute(getConfigMapDependency_EnvName(), ecorePackage.getEString(), "envName", null, 0, 1, ConfigMapDependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConfigMapDependency_KeyName(), ecorePackage.getEString(), "keyName", null, 0, 1, ConfigMapDependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConfigMapDependency_ConfigMapName(), ecorePackage.getEString(), "configMapName", null, 0, 1, ConfigMapDependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(secretsEClass, Secrets.class, "Secrets", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSecrets_Data(), this.getEnviromentVariables(), null, "data", null, 0, -1, Secrets.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSecrets_Name(), ecorePackage.getEString(), "name", null, 0, 1, Secrets.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSecrets_Id(), ecorePackage.getEInt(), "id", null, 0, 1, Secrets.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(accessibilityTypeEEnum, AccessibilityType.class, "AccessibilityType");

@@ -139,6 +139,15 @@ public interface Kubernetes_metamodelFactory extends EFactory {
 	ConfigMapDependency createConfigMapDependency();
 
 	/**
+	 * Returns a new object of class '<em>Secrets</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Secrets</em>'.
+	 * @generated
+	 */
+	Secrets createSecrets();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

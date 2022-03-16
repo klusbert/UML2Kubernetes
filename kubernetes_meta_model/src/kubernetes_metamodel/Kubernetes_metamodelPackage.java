@@ -131,13 +131,13 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	int INFRASTRUCTURE__OBJECTS_COUNT = 6;
 
 	/**
-	 * The feature id for the '<em><b>Random Password</b></em>' attribute.
+	 * The feature id for the '<em><b>Secrets</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INFRASTRUCTURE__RANDOM_PASSWORD = 7;
+	int INFRASTRUCTURE__SECRETS = 7;
 
 	/**
 	 * The number of structural features of the '<em>Infrastructure</em>' class.
@@ -953,6 +953,61 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	int CONFIG_MAP_DEPENDENCY_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link kubernetes_metamodel.impl.SecretsImpl <em>Secrets</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see kubernetes_metamodel.impl.SecretsImpl
+	 * @see kubernetes_metamodel.impl.Kubernetes_metamodelPackageImpl#getSecrets()
+	 * @generated
+	 */
+	int SECRETS = 13;
+
+	/**
+	 * The feature id for the '<em><b>Data</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECRETS__DATA = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECRETS__NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECRETS__ID = 2;
+
+	/**
+	 * The number of structural features of the '<em>Secrets</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECRETS_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Secrets</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECRETS_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link kubernetes_metamodel.AccessibilityType <em>Accessibility Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -960,7 +1015,7 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	 * @see kubernetes_metamodel.impl.Kubernetes_metamodelPackageImpl#getAccessibilityType()
 	 * @generated
 	 */
-	int ACCESSIBILITY_TYPE = 13;
+	int ACCESSIBILITY_TYPE = 14;
 
 
 	/**
@@ -971,7 +1026,7 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	 * @see kubernetes_metamodel.impl.Kubernetes_metamodelPackageImpl#getProtocol()
 	 * @generated
 	 */
-	int PROTOCOL = 14;
+	int PROTOCOL = 15;
 
 
 	/**
@@ -1062,15 +1117,15 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	EAttribute getInfrastructure_ObjectsCount();
 
 	/**
-	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.Infrastructure#getRandomPassword <em>Random Password</em>}'.
+	 * Returns the meta object for the containment reference list '{@link kubernetes_metamodel.Infrastructure#getSecrets <em>Secrets</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Random Password</em>'.
-	 * @see kubernetes_metamodel.Infrastructure#getRandomPassword()
+	 * @return the meta object for the containment reference list '<em>Secrets</em>'.
+	 * @see kubernetes_metamodel.Infrastructure#getSecrets()
 	 * @see #getInfrastructure()
 	 * @generated
 	 */
-	EAttribute getInfrastructure_RandomPassword();
+	EReference getInfrastructure_Secrets();
 
 	/**
 	 * Returns the meta object for class '{@link kubernetes_metamodel.Deployment <em>Deployment</em>}'.
@@ -1754,6 +1809,49 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	EAttribute getConfigMapDependency_ConfigMapName();
 
 	/**
+	 * Returns the meta object for class '{@link kubernetes_metamodel.Secrets <em>Secrets</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Secrets</em>'.
+	 * @see kubernetes_metamodel.Secrets
+	 * @generated
+	 */
+	EClass getSecrets();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link kubernetes_metamodel.Secrets#getData <em>Data</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Data</em>'.
+	 * @see kubernetes_metamodel.Secrets#getData()
+	 * @see #getSecrets()
+	 * @generated
+	 */
+	EReference getSecrets_Data();
+
+	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.Secrets#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see kubernetes_metamodel.Secrets#getName()
+	 * @see #getSecrets()
+	 * @generated
+	 */
+	EAttribute getSecrets_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.Secrets#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see kubernetes_metamodel.Secrets#getId()
+	 * @see #getSecrets()
+	 * @generated
+	 */
+	EAttribute getSecrets_Id();
+
+	/**
 	 * Returns the meta object for enum '{@link kubernetes_metamodel.AccessibilityType <em>Accessibility Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1863,12 +1961,12 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 		EAttribute INFRASTRUCTURE__OBJECTS_COUNT = eINSTANCE.getInfrastructure_ObjectsCount();
 
 		/**
-		 * The meta object literal for the '<em><b>Random Password</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Secrets</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute INFRASTRUCTURE__RANDOM_PASSWORD = eINSTANCE.getInfrastructure_RandomPassword();
+		EReference INFRASTRUCTURE__SECRETS = eINSTANCE.getInfrastructure_Secrets();
 
 		/**
 		 * The meta object literal for the '{@link kubernetes_metamodel.impl.DeploymentImpl <em>Deployment</em>}' class.
@@ -2397,6 +2495,40 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CONFIG_MAP_DEPENDENCY__CONFIG_MAP_NAME = eINSTANCE.getConfigMapDependency_ConfigMapName();
+
+		/**
+		 * The meta object literal for the '{@link kubernetes_metamodel.impl.SecretsImpl <em>Secrets</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see kubernetes_metamodel.impl.SecretsImpl
+		 * @see kubernetes_metamodel.impl.Kubernetes_metamodelPackageImpl#getSecrets()
+		 * @generated
+		 */
+		EClass SECRETS = eINSTANCE.getSecrets();
+
+		/**
+		 * The meta object literal for the '<em><b>Data</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SECRETS__DATA = eINSTANCE.getSecrets_Data();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SECRETS__NAME = eINSTANCE.getSecrets_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SECRETS__ID = eINSTANCE.getSecrets_Id();
 
 		/**
 		 * The meta object literal for the '{@link kubernetes_metamodel.AccessibilityType <em>Accessibility Type</em>}' enum.

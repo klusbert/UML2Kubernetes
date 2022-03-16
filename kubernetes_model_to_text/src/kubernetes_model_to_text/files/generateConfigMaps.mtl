@@ -14,7 +14,7 @@ metadata:
   namespace: [anInfrastructure.namespace.toLowerCase()/]
 data:
  [for (envar: EnviromentVariables | configMap.data)]
-  [envar.name/]: [formatStrings(envar.value)/]
+  [envar.name/]: [replaceVariables(envar.value)/]
  [/for]
 [/file]
 [/for]

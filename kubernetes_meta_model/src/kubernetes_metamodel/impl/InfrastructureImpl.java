@@ -10,16 +10,21 @@ import kubernetes_metamodel.Deployment;
 import kubernetes_metamodel.Infrastructure;
 import kubernetes_metamodel.Kubernetes_metamodelPackage;
 
+import kubernetes_metamodel.Secrets;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,7 +41,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link kubernetes_metamodel.impl.InfrastructureImpl#getAccessibilityType <em>Accessibility Type</em>}</li>
  *   <li>{@link kubernetes_metamodel.impl.InfrastructureImpl#getConfigMaps <em>Config Maps</em>}</li>
  *   <li>{@link kubernetes_metamodel.impl.InfrastructureImpl#getObjectsCount <em>Objects Count</em>}</li>
- *   <li>{@link kubernetes_metamodel.impl.InfrastructureImpl#getRandomPassword <em>Random Password</em>}</li>
+ *   <li>{@link kubernetes_metamodel.impl.InfrastructureImpl#getSecrets <em>Secrets</em>}</li>
  * </ul>
  *
  * @generated
@@ -163,24 +168,14 @@ public class InfrastructureImpl extends MinimalEObjectImpl.Container implements 
 	protected int objectsCount = OBJECTS_COUNT_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getRandomPassword() <em>Random Password</em>}' attribute.
+	 * The cached value of the '{@link #getSecrets() <em>Secrets</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRandomPassword()
+	 * @see #getSecrets()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String RANDOM_PASSWORD_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getRandomPassword() <em>Random Password</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRandomPassword()
-	 * @generated
-	 * @ordered
-	 */
-	protected String randomPassword = RANDOM_PASSWORD_EDEFAULT;
+	protected EList<Secrets> secrets;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -333,6 +328,32 @@ public class InfrastructureImpl extends MinimalEObjectImpl.Container implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Secrets> getSecrets() {
+		if (secrets == null) {
+			secrets = new EObjectContainmentEList<Secrets>(Secrets.class, this, Kubernetes_metamodelPackage.INFRASTRUCTURE__SECRETS);
+		}
+		return secrets;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case Kubernetes_metamodelPackage.INFRASTRUCTURE__SECRETS:
+				return ((InternalEList<?>)getSecrets()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public String getRandomPassword() {
@@ -365,18 +386,6 @@ public class InfrastructureImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRandomPassword(String newRandomPassword) {
-		String oldRandomPassword = randomPassword;
-		randomPassword = newRandomPassword;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Kubernetes_metamodelPackage.INFRASTRUCTURE__RANDOM_PASSWORD, oldRandomPassword, randomPassword));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -394,8 +403,8 @@ public class InfrastructureImpl extends MinimalEObjectImpl.Container implements 
 				return getConfigMaps();
 			case Kubernetes_metamodelPackage.INFRASTRUCTURE__OBJECTS_COUNT:
 				return getObjectsCount();
-			case Kubernetes_metamodelPackage.INFRASTRUCTURE__RANDOM_PASSWORD:
-				return getRandomPassword();
+			case Kubernetes_metamodelPackage.INFRASTRUCTURE__SECRETS:
+				return getSecrets();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -432,8 +441,9 @@ public class InfrastructureImpl extends MinimalEObjectImpl.Container implements 
 			case Kubernetes_metamodelPackage.INFRASTRUCTURE__OBJECTS_COUNT:
 				setObjectsCount((Integer)newValue);
 				return;
-			case Kubernetes_metamodelPackage.INFRASTRUCTURE__RANDOM_PASSWORD:
-				setRandomPassword((String)newValue);
+			case Kubernetes_metamodelPackage.INFRASTRUCTURE__SECRETS:
+				getSecrets().clear();
+				getSecrets().addAll((Collection<? extends Secrets>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -468,8 +478,8 @@ public class InfrastructureImpl extends MinimalEObjectImpl.Container implements 
 			case Kubernetes_metamodelPackage.INFRASTRUCTURE__OBJECTS_COUNT:
 				setObjectsCount(OBJECTS_COUNT_EDEFAULT);
 				return;
-			case Kubernetes_metamodelPackage.INFRASTRUCTURE__RANDOM_PASSWORD:
-				setRandomPassword(RANDOM_PASSWORD_EDEFAULT);
+			case Kubernetes_metamodelPackage.INFRASTRUCTURE__SECRETS:
+				getSecrets().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -497,8 +507,8 @@ public class InfrastructureImpl extends MinimalEObjectImpl.Container implements 
 				return configMaps != null && !configMaps.isEmpty();
 			case Kubernetes_metamodelPackage.INFRASTRUCTURE__OBJECTS_COUNT:
 				return objectsCount != OBJECTS_COUNT_EDEFAULT;
-			case Kubernetes_metamodelPackage.INFRASTRUCTURE__RANDOM_PASSWORD:
-				return RANDOM_PASSWORD_EDEFAULT == null ? randomPassword != null : !RANDOM_PASSWORD_EDEFAULT.equals(randomPassword);
+			case Kubernetes_metamodelPackage.INFRASTRUCTURE__SECRETS:
+				return secrets != null && !secrets.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -523,8 +533,6 @@ public class InfrastructureImpl extends MinimalEObjectImpl.Container implements 
 		result.append(accessibilityType);
 		result.append(", objectsCount: ");
 		result.append(objectsCount);
-		result.append(", randomPassword: ");
-		result.append(randomPassword);
 		result.append(')');
 		return result.toString();
 	}

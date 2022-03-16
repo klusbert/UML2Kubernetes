@@ -26,8 +26,6 @@ spec:
               value: mongodb://root:password@mongo.uml.svc.cluster.local:27017/
             - name: ME_CONFIG_MONGODB_ADMINUSERNAME
               value: root
-            - name: test
-              value: "123"
 ---
 kind: Service
 apiVersion: v1

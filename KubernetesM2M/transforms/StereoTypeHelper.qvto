@@ -16,8 +16,16 @@ helper UML::Artifact::getConfigMap() : UML::Stereotype {
 	return self.getAppliedStereoType("KubernetesUMLProfile::ConfigMap"); 	
 }
 
+helper UML::Artifact::getSecret() : UML::Stereotype {
+	return self.getAppliedStereoType("KubernetesUMLProfile::Secrets"); 	
+}
+
 helper UML::Dependency::getConfigMapDependency() : UML::Stereotype {
 	return self.getAppliedStereoType("KubernetesUMLProfile::ConfigMapDependency"); 	
+}
+
+helper UML::Dependency::getSecretDependency() : UML::Stereotype {
+	return self.getAppliedStereoType("KubernetesUMLProfile::SecretDependency"); 	
 }
 helper UML::Node::getMongoStereoType(): UML::Stereotype {	
 	return self.getAppliedStereoType("KubernetesUMLProfile::MongoDB"); 	

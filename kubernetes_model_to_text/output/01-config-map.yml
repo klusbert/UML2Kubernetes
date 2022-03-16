@@ -4,8 +4,8 @@ metadata:
   name: config-map
   namespace: uml
 data:
-  MYSQL_ROOT_PASSWORD: password
   WORDPRESS_DB_USER: root
   PMA_HOST: mysql.uml.svc.cluster.local
+  randomPassword: "xLbO1BefV5!LLSIE7dd0"
+  MYSQL_ROOT_PASSWORD: password
   WORDPRESS_DB_NAME: wordpress
-  randomPassword: 

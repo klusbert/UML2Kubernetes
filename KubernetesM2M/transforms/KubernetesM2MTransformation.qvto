@@ -23,9 +23,11 @@ log("Begin transformation");
 (input.rootObjects())[UML::Model]->asOrderedSet()->first().map deployment2infra();
 
 input.artifacts() -> map artifactToConfigMap();
+
 input.nodes() -> map nodesToDeployment();
 
 input.dependensies() -> map dependencyToConfigMapDependency();
+
 input.dependensies() -> map dependencyToService();
 input.dependensies() -> map dependencyToIngreess();
 
@@ -36,10 +38,19 @@ input.dependensies() -> map dependencyToIngreess();
 
 mapping UML::Dependency::dependencyToConfigMapDependency() : KuberntesMetaModel::ConfigMapDependency
 	when{
-		self.getConfigMapDependency() <> null;
+		self.getConfigMapDependency() <> null or self.getSecretDependency() <> null;
 	}{
 	var configMapDependency := self.getConfigMapDependency();
-	var vars :=	self.getValue(configMapDependency,"dependencies");
+	var secretDependency := self.getSecretDependency();
+	var vars = self.getValue(configMapDependency,"dependencies");
+	var isSecret := false;
+	
+
+		//overide
+	if(secretDependency <> null){
+		vars :=self.getValue(secretDependency,"dependencies");
+		isSecret := true;
+	};
 	
 	var source := self.source->asSequence()->first().oclAsType(UML::Node);
 	var target := self.target->asSequence()->first().oclAsType(UML::Artifact);	
@@ -47,17 +58,19 @@ mapping UML::Dependency::dependencyToConfigMapDependency() : KuberntesMetaModel:
 	var sourceDeployment := source.resolveoneIn(UML::Node::nodesToDeployment);
 	var targetConfigMap := target.resolveoneIn(UML::Artifact::artifactToConfigMap);
 	
+
 	vars->flatten()->asSequence()->forEach(variable){	
 	 //log("found environment variable ToString is:" + variable.toString() + " and repr is: " + variable.repr());
-	    var name := variable.oclAsType(kuberProfile::DataTypes::PullEnviromentVariablesFromConfig).name;
-	    var key := variable.oclAsType(kuberProfile::DataTypes::PullEnviromentVariablesFromConfig).keyName;
+	    var name := variable.oclAsType(kuberProfile::DataTypes::PullEnviromentVariables).name;
+	    var key := variable.oclAsType(kuberProfile::DataTypes::PullEnviromentVariables).keyName;
 	    //log("found environment variable: name-value are:" + name.toString()+"-"+value.toString());
-	    var newEnv = new ConfigMapDependency();	
+	    
 	
-		newEnv.envName := name;
-	    newEnv.keyName := key;
-	  	newEnv.configMapName := targetConfigMap.name;
-	    sourceDeployment.configMapDependencies += newEnv;
+		result.envName := name;
+	    result.keyName := key;
+	  	result.configMapName := targetConfigMap.name;
+	 	result.isSecret := isSecret;
+	    sourceDeployment.configMapDependencies += result;
 		      
 	};	
 	
@@ -65,12 +78,18 @@ mapping UML::Dependency::dependencyToConfigMapDependency() : KuberntesMetaModel:
 mapping UML::Artifact::artifactToConfigMap() : KuberntesMetaModel::ConfigMap 
 	when {
 		//safeguard
-		self.getConfigMap() <> null;
+		self.getConfigMap() <> null or self.getSecret() <> null;
 	}{
 	var containerInfra := resolveoneIn(UML::NamedElement::deployment2infra);
 	
 	var configMap := self.getConfigMap();
+	var secret := self.getSecret();
+	var isSecret := secret <> null;
 	var data := self.getValue(configMap, "data");
+	
+	if(isSecret){
+		data := self.getValue(secret,"data");
+	};
 	
 	data->flatten()->asSequence()->forEach(variable){	
 		var name := variable.oclAsType(kuberProfile::DataTypes::EnviromentVariables).name;
@@ -79,14 +98,21 @@ mapping UML::Artifact::artifactToConfigMap() : KuberntesMetaModel::ConfigMap
 
 	    newEnv.name := name;
 	    newEnv.value := value;
+	    
 	    result.data += newEnv;
 	};
+	result.isSecret := isSecret;
 	result.name := self.name;
 	containerInfra.objectsCount := containerInfra.objectsCount +1;
 	result.id := containerInfra.objectsCount;	
+	
+
 	containerInfra.configMaps += result;
 
 }	
+/*
+
+*/
 
 mapping UML::Dependency::dependencyToIngreess() : KuberntesMetaModel::Ingress
 	when {
