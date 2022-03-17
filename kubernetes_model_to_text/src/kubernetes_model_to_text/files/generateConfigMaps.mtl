@@ -7,6 +7,20 @@
 
 [for (configMap: ConfigMap | anInfrastructure.configMaps)]
 [file (padZeros(configMap.id) +'-' +configMap.name +'.yml', false, 'UTF-8')]
+
+
+[if (configMap.isSecret)]
+apiVersion: v1
+kind: Secret
+metadata:
+  name: [configMap.name.toLowerCase()/]
+  namespace: [anInfrastructure.namespace.toLowerCase()/]
+data:
+ [for (envar: EnviromentVariables | configMap.data)]
+  [envar.name/]: [replaceVariables(envar.value)/]
+ [/for]
+[else]
+
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -16,6 +30,9 @@ data:
  [for (envar: EnviromentVariables | configMap.data)]
   [envar.name/]: [replaceVariables(envar.value)/]
  [/for]
+[/if]
+[comment if filePaht exist return a list of envira/]
+
 [/file]
 [/for]
 

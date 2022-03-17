@@ -22,7 +22,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link kubernetes_metamodel.Infrastructure#getAccessibilityType <em>Accessibility Type</em>}</li>
  *   <li>{@link kubernetes_metamodel.Infrastructure#getConfigMaps <em>Config Maps</em>}</li>
  *   <li>{@link kubernetes_metamodel.Infrastructure#getObjectsCount <em>Objects Count</em>}</li>
- *   <li>{@link kubernetes_metamodel.Infrastructure#getSecrets <em>Secrets</em>}</li>
  * </ul>
  *
  * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getInfrastructure()
@@ -179,17 +178,5 @@ public interface Infrastructure extends EObject {
 	 * @model
 	 * @generated
 	 */
-
-	/**
-	 * Returns the value of the '<em><b>Secrets</b></em>' containment reference list.
-	 * The list contents are of type {@link kubernetes_metamodel.Secrets}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Secrets</em>' containment reference list.
-	 * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getInfrastructure_Secrets()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Secrets> getSecrets();
 
 } // Infrastructure

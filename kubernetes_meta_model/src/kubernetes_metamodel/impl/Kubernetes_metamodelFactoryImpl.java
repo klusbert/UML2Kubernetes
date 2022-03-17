@@ -70,7 +70,7 @@ public class Kubernetes_metamodelFactoryImpl extends EFactoryImpl implements Kub
 			case Kubernetes_metamodelPackage.MYSQL_DUMP: return createMysqlDump();
 			case Kubernetes_metamodelPackage.CONFIG_MAP: return createConfigMap();
 			case Kubernetes_metamodelPackage.CONFIG_MAP_DEPENDENCY: return createConfigMapDependency();
-			case Kubernetes_metamodelPackage.SECRETS: return createSecrets();
+			case Kubernetes_metamodelPackage.DEPENDENCY: return createDependency();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -245,9 +245,9 @@ public class Kubernetes_metamodelFactoryImpl extends EFactoryImpl implements Kub
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Secrets createSecrets() {
-		SecretsImpl secrets = new SecretsImpl();
-		return secrets;
+	public Dependency createDependency() {
+		DependencyImpl dependency = new DependencyImpl();
+		return dependency;
 	}
 
 	/**

@@ -131,22 +131,13 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	int INFRASTRUCTURE__OBJECTS_COUNT = 6;
 
 	/**
-	 * The feature id for the '<em><b>Secrets</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INFRASTRUCTURE__SECRETS = 7;
-
-	/**
 	 * The number of structural features of the '<em>Infrastructure</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INFRASTRUCTURE_FEATURE_COUNT = 8;
+	int INFRASTRUCTURE_FEATURE_COUNT = 7;
 
 	/**
 	 * The number of operations of the '<em>Infrastructure</em>' class.
@@ -312,7 +303,7 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	int DEPLOYMENT__ID = 15;
 
 	/**
-	 * The feature id for the '<em><b>Config Map Dependencies</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Config Map Dependencies</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -880,13 +871,31 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	int CONFIG_MAP__ID = 2;
 
 	/**
+	 * The feature id for the '<em><b>Is Secret</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIG_MAP__IS_SECRET = 3;
+
+	/**
+	 * The feature id for the '<em><b>File Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIG_MAP__FILE_NAME = 4;
+
+	/**
 	 * The number of structural features of the '<em>Config Map</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIG_MAP_FEATURE_COUNT = 3;
+	int CONFIG_MAP_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Config Map</em>' class.
@@ -908,31 +917,31 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	int CONFIG_MAP_DEPENDENCY = 12;
 
 	/**
-	 * The feature id for the '<em><b>Env Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONFIG_MAP_DEPENDENCY__ENV_NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>Key Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONFIG_MAP_DEPENDENCY__KEY_NAME = 1;
-
-	/**
 	 * The feature id for the '<em><b>Config Map Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIG_MAP_DEPENDENCY__CONFIG_MAP_NAME = 2;
+	int CONFIG_MAP_DEPENDENCY__CONFIG_MAP_NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Is Secret</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIG_MAP_DEPENDENCY__IS_SECRET = 1;
+
+	/**
+	 * The feature id for the '<em><b>Dependency</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIG_MAP_DEPENDENCY__DEPENDENCY = 2;
 
 	/**
 	 * The number of structural features of the '<em>Config Map Dependency</em>' class.
@@ -953,59 +962,50 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	int CONFIG_MAP_DEPENDENCY_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link kubernetes_metamodel.impl.SecretsImpl <em>Secrets</em>}' class.
+	 * The meta object id for the '{@link kubernetes_metamodel.impl.DependencyImpl <em>Dependency</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see kubernetes_metamodel.impl.SecretsImpl
-	 * @see kubernetes_metamodel.impl.Kubernetes_metamodelPackageImpl#getSecrets()
+	 * @see kubernetes_metamodel.impl.DependencyImpl
+	 * @see kubernetes_metamodel.impl.Kubernetes_metamodelPackageImpl#getDependency()
 	 * @generated
 	 */
-	int SECRETS = 13;
+	int DEPENDENCY = 13;
 
 	/**
-	 * The feature id for the '<em><b>Data</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Env Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SECRETS__DATA = 0;
+	int DEPENDENCY__ENV_NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Key Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SECRETS__NAME = 1;
+	int DEPENDENCY__KEY_NAME = 1;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The number of structural features of the '<em>Dependency</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SECRETS__ID = 2;
+	int DEPENDENCY_FEATURE_COUNT = 2;
 
 	/**
-	 * The number of structural features of the '<em>Secrets</em>' class.
+	 * The number of operations of the '<em>Dependency</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SECRETS_FEATURE_COUNT = 3;
-
-	/**
-	 * The number of operations of the '<em>Secrets</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SECRETS_OPERATION_COUNT = 0;
+	int DEPENDENCY_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link kubernetes_metamodel.AccessibilityType <em>Accessibility Type</em>}' enum.
@@ -1115,17 +1115,6 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getInfrastructure_ObjectsCount();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link kubernetes_metamodel.Infrastructure#getSecrets <em>Secrets</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Secrets</em>'.
-	 * @see kubernetes_metamodel.Infrastructure#getSecrets()
-	 * @see #getInfrastructure()
-	 * @generated
-	 */
-	EReference getInfrastructure_Secrets();
 
 	/**
 	 * Returns the meta object for class '{@link kubernetes_metamodel.Deployment <em>Deployment</em>}'.
@@ -1314,10 +1303,10 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	EAttribute getDeployment_Id();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link kubernetes_metamodel.Deployment#getConfigMapDependencies <em>Config Map Dependencies</em>}'.
+	 * Returns the meta object for the reference list '{@link kubernetes_metamodel.Deployment#getConfigMapDependencies <em>Config Map Dependencies</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Config Map Dependencies</em>'.
+	 * @return the meta object for the reference list '<em>Config Map Dependencies</em>'.
 	 * @see kubernetes_metamodel.Deployment#getConfigMapDependencies()
 	 * @see #getDeployment()
 	 * @generated
@@ -1766,6 +1755,28 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	EAttribute getConfigMap_Id();
 
 	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.ConfigMap#getIsSecret <em>Is Secret</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Secret</em>'.
+	 * @see kubernetes_metamodel.ConfigMap#getIsSecret()
+	 * @see #getConfigMap()
+	 * @generated
+	 */
+	EAttribute getConfigMap_IsSecret();
+
+	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.ConfigMap#getFileName <em>File Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>File Name</em>'.
+	 * @see kubernetes_metamodel.ConfigMap#getFileName()
+	 * @see #getConfigMap()
+	 * @generated
+	 */
+	EAttribute getConfigMap_FileName();
+
+	/**
 	 * Returns the meta object for class '{@link kubernetes_metamodel.ConfigMapDependency <em>Config Map Dependency</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1774,28 +1785,6 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getConfigMapDependency();
-
-	/**
-	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.ConfigMapDependency#getEnvName <em>Env Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Env Name</em>'.
-	 * @see kubernetes_metamodel.ConfigMapDependency#getEnvName()
-	 * @see #getConfigMapDependency()
-	 * @generated
-	 */
-	EAttribute getConfigMapDependency_EnvName();
-
-	/**
-	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.ConfigMapDependency#getKeyName <em>Key Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Key Name</em>'.
-	 * @see kubernetes_metamodel.ConfigMapDependency#getKeyName()
-	 * @see #getConfigMapDependency()
-	 * @generated
-	 */
-	EAttribute getConfigMapDependency_KeyName();
 
 	/**
 	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.ConfigMapDependency#getConfigMapName <em>Config Map Name</em>}'.
@@ -1809,47 +1798,58 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	EAttribute getConfigMapDependency_ConfigMapName();
 
 	/**
-	 * Returns the meta object for class '{@link kubernetes_metamodel.Secrets <em>Secrets</em>}'.
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.ConfigMapDependency#isIsSecret <em>Is Secret</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Secrets</em>'.
-	 * @see kubernetes_metamodel.Secrets
+	 * @return the meta object for the attribute '<em>Is Secret</em>'.
+	 * @see kubernetes_metamodel.ConfigMapDependency#isIsSecret()
+	 * @see #getConfigMapDependency()
 	 * @generated
 	 */
-	EClass getSecrets();
+	EAttribute getConfigMapDependency_IsSecret();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link kubernetes_metamodel.Secrets#getData <em>Data</em>}'.
+	 * Returns the meta object for the reference list '{@link kubernetes_metamodel.ConfigMapDependency#getDependency <em>Dependency</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Data</em>'.
-	 * @see kubernetes_metamodel.Secrets#getData()
-	 * @see #getSecrets()
+	 * @return the meta object for the reference list '<em>Dependency</em>'.
+	 * @see kubernetes_metamodel.ConfigMapDependency#getDependency()
+	 * @see #getConfigMapDependency()
 	 * @generated
 	 */
-	EReference getSecrets_Data();
+	EReference getConfigMapDependency_Dependency();
 
 	/**
-	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.Secrets#getName <em>Name</em>}'.
+	 * Returns the meta object for class '{@link kubernetes_metamodel.Dependency <em>Dependency</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see kubernetes_metamodel.Secrets#getName()
-	 * @see #getSecrets()
+	 * @return the meta object for class '<em>Dependency</em>'.
+	 * @see kubernetes_metamodel.Dependency
 	 * @generated
 	 */
-	EAttribute getSecrets_Name();
+	EClass getDependency();
 
 	/**
-	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.Secrets#getId <em>Id</em>}'.
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.Dependency#getEnvName <em>Env Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see kubernetes_metamodel.Secrets#getId()
-	 * @see #getSecrets()
+	 * @return the meta object for the attribute '<em>Env Name</em>'.
+	 * @see kubernetes_metamodel.Dependency#getEnvName()
+	 * @see #getDependency()
 	 * @generated
 	 */
-	EAttribute getSecrets_Id();
+	EAttribute getDependency_EnvName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.Dependency#getKeyName <em>Key Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key Name</em>'.
+	 * @see kubernetes_metamodel.Dependency#getKeyName()
+	 * @see #getDependency()
+	 * @generated
+	 */
+	EAttribute getDependency_KeyName();
 
 	/**
 	 * Returns the meta object for enum '{@link kubernetes_metamodel.AccessibilityType <em>Accessibility Type</em>}'.
@@ -1959,14 +1959,6 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute INFRASTRUCTURE__OBJECTS_COUNT = eINSTANCE.getInfrastructure_ObjectsCount();
-
-		/**
-		 * The meta object literal for the '<em><b>Secrets</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference INFRASTRUCTURE__SECRETS = eINSTANCE.getInfrastructure_Secrets();
 
 		/**
 		 * The meta object literal for the '{@link kubernetes_metamodel.impl.DeploymentImpl <em>Deployment</em>}' class.
@@ -2107,7 +2099,7 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 		EAttribute DEPLOYMENT__ID = eINSTANCE.getDeployment_Id();
 
 		/**
-		 * The meta object literal for the '<em><b>Config Map Dependencies</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Config Map Dependencies</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2463,6 +2455,22 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 		EAttribute CONFIG_MAP__ID = eINSTANCE.getConfigMap_Id();
 
 		/**
+		 * The meta object literal for the '<em><b>Is Secret</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONFIG_MAP__IS_SECRET = eINSTANCE.getConfigMap_IsSecret();
+
+		/**
+		 * The meta object literal for the '<em><b>File Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONFIG_MAP__FILE_NAME = eINSTANCE.getConfigMap_FileName();
+
+		/**
 		 * The meta object literal for the '{@link kubernetes_metamodel.impl.ConfigMapDependencyImpl <em>Config Map Dependency</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2473,22 +2481,6 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 		EClass CONFIG_MAP_DEPENDENCY = eINSTANCE.getConfigMapDependency();
 
 		/**
-		 * The meta object literal for the '<em><b>Env Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONFIG_MAP_DEPENDENCY__ENV_NAME = eINSTANCE.getConfigMapDependency_EnvName();
-
-		/**
-		 * The meta object literal for the '<em><b>Key Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONFIG_MAP_DEPENDENCY__KEY_NAME = eINSTANCE.getConfigMapDependency_KeyName();
-
-		/**
 		 * The meta object literal for the '<em><b>Config Map Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2497,38 +2489,46 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 		EAttribute CONFIG_MAP_DEPENDENCY__CONFIG_MAP_NAME = eINSTANCE.getConfigMapDependency_ConfigMapName();
 
 		/**
-		 * The meta object literal for the '{@link kubernetes_metamodel.impl.SecretsImpl <em>Secrets</em>}' class.
+		 * The meta object literal for the '<em><b>Is Secret</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see kubernetes_metamodel.impl.SecretsImpl
-		 * @see kubernetes_metamodel.impl.Kubernetes_metamodelPackageImpl#getSecrets()
 		 * @generated
 		 */
-		EClass SECRETS = eINSTANCE.getSecrets();
+		EAttribute CONFIG_MAP_DEPENDENCY__IS_SECRET = eINSTANCE.getConfigMapDependency_IsSecret();
 
 		/**
-		 * The meta object literal for the '<em><b>Data</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Dependency</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SECRETS__DATA = eINSTANCE.getSecrets_Data();
+		EReference CONFIG_MAP_DEPENDENCY__DEPENDENCY = eINSTANCE.getConfigMapDependency_Dependency();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * The meta object literal for the '{@link kubernetes_metamodel.impl.DependencyImpl <em>Dependency</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see kubernetes_metamodel.impl.DependencyImpl
+		 * @see kubernetes_metamodel.impl.Kubernetes_metamodelPackageImpl#getDependency()
 		 * @generated
 		 */
-		EAttribute SECRETS__NAME = eINSTANCE.getSecrets_Name();
+		EClass DEPENDENCY = eINSTANCE.getDependency();
 
 		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Env Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SECRETS__ID = eINSTANCE.getSecrets_Id();
+		EAttribute DEPENDENCY__ENV_NAME = eINSTANCE.getDependency_EnvName();
+
+		/**
+		 * The meta object literal for the '<em><b>Key Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DEPENDENCY__KEY_NAME = eINSTANCE.getDependency_KeyName();
 
 		/**
 		 * The meta object literal for the '{@link kubernetes_metamodel.AccessibilityType <em>Accessibility Type</em>}' enum.

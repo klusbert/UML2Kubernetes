@@ -363,13 +363,13 @@ public interface Deployment extends EObject {
 	void setId(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Config Map Dependencies</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Config Map Dependencies</b></em>' reference list.
 	 * The list contents are of type {@link kubernetes_metamodel.ConfigMapDependency}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Config Map Dependencies</em>' containment reference list.
+	 * @return the value of the '<em>Config Map Dependencies</em>' reference list.
 	 * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getDeployment_ConfigMapDependencies()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
 	EList<ConfigMapDependency> getConfigMapDependencies();

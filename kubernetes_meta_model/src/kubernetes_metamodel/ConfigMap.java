@@ -18,6 +18,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link kubernetes_metamodel.ConfigMap#getData <em>Data</em>}</li>
  *   <li>{@link kubernetes_metamodel.ConfigMap#getName <em>Name</em>}</li>
  *   <li>{@link kubernetes_metamodel.ConfigMap#getId <em>Id</em>}</li>
+ *   <li>{@link kubernetes_metamodel.ConfigMap#getIsSecret <em>Is Secret</em>}</li>
+ *   <li>{@link kubernetes_metamodel.ConfigMap#getFileName <em>File Name</em>}</li>
  * </ul>
  *
  * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getConfigMap()
@@ -80,5 +82,50 @@ public interface ConfigMap extends EObject {
 	 * @generated
 	 */
 	void setId(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Is Secret</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is Secret</em>' attribute.
+	 * @see #setIsSecret(Boolean)
+	 * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getConfigMap_IsSecret()
+	 * @model
+	 * @generated
+	 */
+	Boolean getIsSecret();
+
+	/**
+	 * Sets the value of the '{@link kubernetes_metamodel.ConfigMap#getIsSecret <em>Is Secret</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is Secret</em>' attribute.
+	 * @see #getIsSecret()
+	 * @generated
+	 */
+	void setIsSecret(Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>File Name</b></em>' attribute.
+	 * The default value is <code>"\"\""</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>File Name</em>' attribute.
+	 * @see #setFileName(String)
+	 * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getConfigMap_FileName()
+	 * @model default="\"\""
+	 * @generated
+	 */
+	String getFileName();
+
+	/**
+	 * Sets the value of the '{@link kubernetes_metamodel.ConfigMap#getFileName <em>File Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>File Name</em>' attribute.
+	 * @see #getFileName()
+	 * @generated
+	 */
+	void setFileName(String value);
 
 } // ConfigMap

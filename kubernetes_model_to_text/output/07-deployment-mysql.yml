@@ -20,14 +20,18 @@ spec:
            claimName: mysql-pvc
       containers:
         - name: mysql
-          image: mysql:8.0.28
+          image: mysql
           ports:
             - containerPort: 3306
           env:
             - name: MYSQL_DATABASE
               value: wordpress
+
             - name: MYSQL_ROOT_PASSWORD
-              value: password
+              valueFrom:
+                configMapKeyRef:
+                  name: config-map
+                  key: randomPassword
           volumeMounts:
             - name: mysql-persistent-storage
               mountPath: /var/lib/mysql
@@ -43,7 +47,7 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 5Gi
+      storage: 2Gi
 ---
 apiVersion: v1
 kind: Service

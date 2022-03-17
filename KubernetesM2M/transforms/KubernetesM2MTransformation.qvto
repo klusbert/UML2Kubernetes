@@ -58,6 +58,7 @@ mapping UML::Dependency::dependencyToConfigMapDependency() : KuberntesMetaModel:
 	var sourceDeployment := source.resolveoneIn(UML::Node::nodesToDeployment);
 	var targetConfigMap := target.resolveoneIn(UML::Artifact::artifactToConfigMap);
 	
+	
 
 	vars->flatten()->asSequence()->forEach(variable){	
 	 //log("found environment variable ToString is:" + variable.toString() + " and repr is: " + variable.repr());
@@ -65,14 +66,21 @@ mapping UML::Dependency::dependencyToConfigMapDependency() : KuberntesMetaModel:
 	    var key := variable.oclAsType(kuberProfile::DataTypes::PullEnviromentVariables).keyName;
 	    //log("found environment variable: name-value are:" + name.toString()+"-"+value.toString());
 	    
+	    var configDependency := new KuberntesMetaModel::Dependency();
 	
-		result.envName := name;
-	    result.keyName := key;
-	  	result.configMapName := targetConfigMap.name;
-	 	result.isSecret := isSecret;
-	    sourceDeployment.configMapDependencies += result;
+		configDependency.envName := name;
+	    configDependency.keyName := key;  	
+	 	
+	 	result.dependency += configDependency;
+	 	
+	  
 		      
 	};	
+	
+	result.isSecret := isSecret;
+	result.configMapName := targetConfigMap.name;
+	sourceDeployment.configMapDependencies += result;
+
 	
 }
 mapping UML::Artifact::artifactToConfigMap() : KuberntesMetaModel::ConfigMap 
@@ -80,6 +88,9 @@ mapping UML::Artifact::artifactToConfigMap() : KuberntesMetaModel::ConfigMap
 		//safeguard
 		self.getConfigMap() <> null or self.getSecret() <> null;
 	}{
+	
+	// try to do it here.
+	log(self.fileName);
 	var containerInfra := resolveoneIn(UML::NamedElement::deployment2infra);
 	
 	var configMap := self.getConfigMap();

@@ -2,15 +2,19 @@
  */
 package kubernetes_metamodel.impl;
 
+import java.util.Collection;
 import kubernetes_metamodel.ConfigMapDependency;
+import kubernetes_metamodel.Dependency;
 import kubernetes_metamodel.Kubernetes_metamodelPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,54 +24,14 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link kubernetes_metamodel.impl.ConfigMapDependencyImpl#getEnvName <em>Env Name</em>}</li>
- *   <li>{@link kubernetes_metamodel.impl.ConfigMapDependencyImpl#getKeyName <em>Key Name</em>}</li>
  *   <li>{@link kubernetes_metamodel.impl.ConfigMapDependencyImpl#getConfigMapName <em>Config Map Name</em>}</li>
+ *   <li>{@link kubernetes_metamodel.impl.ConfigMapDependencyImpl#isIsSecret <em>Is Secret</em>}</li>
+ *   <li>{@link kubernetes_metamodel.impl.ConfigMapDependencyImpl#getDependency <em>Dependency</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ConfigMapDependencyImpl extends MinimalEObjectImpl.Container implements ConfigMapDependency {
-	/**
-	 * The default value of the '{@link #getEnvName() <em>Env Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEnvName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String ENV_NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getEnvName() <em>Env Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEnvName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String envName = ENV_NAME_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getKeyName() <em>Key Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getKeyName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String KEY_NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getKeyName() <em>Key Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getKeyName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String keyName = KEY_NAME_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #getConfigMapName() <em>Config Map Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -89,6 +53,36 @@ public class ConfigMapDependencyImpl extends MinimalEObjectImpl.Container implem
 	protected String configMapName = CONFIG_MAP_NAME_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #isIsSecret() <em>Is Secret</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsSecret()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean IS_SECRET_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isIsSecret() <em>Is Secret</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsSecret()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean isSecret = IS_SECRET_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getDependency() <em>Dependency</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDependency()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Dependency> dependency;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -105,48 +99,6 @@ public class ConfigMapDependencyImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	protected EClass eStaticClass() {
 		return Kubernetes_metamodelPackage.Literals.CONFIG_MAP_DEPENDENCY;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getEnvName() {
-		return envName;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setEnvName(String newEnvName) {
-		String oldEnvName = envName;
-		envName = newEnvName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Kubernetes_metamodelPackage.CONFIG_MAP_DEPENDENCY__ENV_NAME, oldEnvName, envName));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getKeyName() {
-		return keyName;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setKeyName(String newKeyName) {
-		String oldKeyName = keyName;
-		keyName = newKeyName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Kubernetes_metamodelPackage.CONFIG_MAP_DEPENDENCY__KEY_NAME, oldKeyName, keyName));
 	}
 
 	/**
@@ -175,15 +127,48 @@ public class ConfigMapDependencyImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isIsSecret() {
+		return isSecret;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIsSecret(boolean newIsSecret) {
+		boolean oldIsSecret = isSecret;
+		isSecret = newIsSecret;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, Kubernetes_metamodelPackage.CONFIG_MAP_DEPENDENCY__IS_SECRET, oldIsSecret, isSecret));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Dependency> getDependency() {
+		if (dependency == null) {
+			dependency = new EObjectResolvingEList<Dependency>(Dependency.class, this, Kubernetes_metamodelPackage.CONFIG_MAP_DEPENDENCY__DEPENDENCY);
+		}
+		return dependency;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case Kubernetes_metamodelPackage.CONFIG_MAP_DEPENDENCY__ENV_NAME:
-				return getEnvName();
-			case Kubernetes_metamodelPackage.CONFIG_MAP_DEPENDENCY__KEY_NAME:
-				return getKeyName();
 			case Kubernetes_metamodelPackage.CONFIG_MAP_DEPENDENCY__CONFIG_MAP_NAME:
 				return getConfigMapName();
+			case Kubernetes_metamodelPackage.CONFIG_MAP_DEPENDENCY__IS_SECRET:
+				return isIsSecret();
+			case Kubernetes_metamodelPackage.CONFIG_MAP_DEPENDENCY__DEPENDENCY:
+				return getDependency();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -193,17 +178,19 @@ public class ConfigMapDependencyImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case Kubernetes_metamodelPackage.CONFIG_MAP_DEPENDENCY__ENV_NAME:
-				setEnvName((String)newValue);
-				return;
-			case Kubernetes_metamodelPackage.CONFIG_MAP_DEPENDENCY__KEY_NAME:
-				setKeyName((String)newValue);
-				return;
 			case Kubernetes_metamodelPackage.CONFIG_MAP_DEPENDENCY__CONFIG_MAP_NAME:
 				setConfigMapName((String)newValue);
+				return;
+			case Kubernetes_metamodelPackage.CONFIG_MAP_DEPENDENCY__IS_SECRET:
+				setIsSecret((Boolean)newValue);
+				return;
+			case Kubernetes_metamodelPackage.CONFIG_MAP_DEPENDENCY__DEPENDENCY:
+				getDependency().clear();
+				getDependency().addAll((Collection<? extends Dependency>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -217,14 +204,14 @@ public class ConfigMapDependencyImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case Kubernetes_metamodelPackage.CONFIG_MAP_DEPENDENCY__ENV_NAME:
-				setEnvName(ENV_NAME_EDEFAULT);
-				return;
-			case Kubernetes_metamodelPackage.CONFIG_MAP_DEPENDENCY__KEY_NAME:
-				setKeyName(KEY_NAME_EDEFAULT);
-				return;
 			case Kubernetes_metamodelPackage.CONFIG_MAP_DEPENDENCY__CONFIG_MAP_NAME:
 				setConfigMapName(CONFIG_MAP_NAME_EDEFAULT);
+				return;
+			case Kubernetes_metamodelPackage.CONFIG_MAP_DEPENDENCY__IS_SECRET:
+				setIsSecret(IS_SECRET_EDEFAULT);
+				return;
+			case Kubernetes_metamodelPackage.CONFIG_MAP_DEPENDENCY__DEPENDENCY:
+				getDependency().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -238,12 +225,12 @@ public class ConfigMapDependencyImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case Kubernetes_metamodelPackage.CONFIG_MAP_DEPENDENCY__ENV_NAME:
-				return ENV_NAME_EDEFAULT == null ? envName != null : !ENV_NAME_EDEFAULT.equals(envName);
-			case Kubernetes_metamodelPackage.CONFIG_MAP_DEPENDENCY__KEY_NAME:
-				return KEY_NAME_EDEFAULT == null ? keyName != null : !KEY_NAME_EDEFAULT.equals(keyName);
 			case Kubernetes_metamodelPackage.CONFIG_MAP_DEPENDENCY__CONFIG_MAP_NAME:
 				return CONFIG_MAP_NAME_EDEFAULT == null ? configMapName != null : !CONFIG_MAP_NAME_EDEFAULT.equals(configMapName);
+			case Kubernetes_metamodelPackage.CONFIG_MAP_DEPENDENCY__IS_SECRET:
+				return isSecret != IS_SECRET_EDEFAULT;
+			case Kubernetes_metamodelPackage.CONFIG_MAP_DEPENDENCY__DEPENDENCY:
+				return dependency != null && !dependency.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -258,12 +245,10 @@ public class ConfigMapDependencyImpl extends MinimalEObjectImpl.Container implem
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (envName: ");
-		result.append(envName);
-		result.append(", keyName: ");
-		result.append(keyName);
-		result.append(", configMapName: ");
+		result.append(" (configMapName: ");
 		result.append(configMapName);
+		result.append(", isSecret: ");
+		result.append(isSecret);
 		result.append(')');
 		return result.toString();
 	}

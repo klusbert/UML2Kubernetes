@@ -1,8 +1,21 @@
-
 package kubernetes_model_to_text.main;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map.Entry;
+import java.util.Properties;
+import java.util.Set;
+import kubernetes_metamodel.EnviromentVariables;
+
+import kubernetes_metamodel.Kubernetes_metamodelFactory;
+
 
 public class JavaExtensions {
 
+	
+	
 	public static Integer counter = 0;
 
 	public String padZeros(Integer i){
@@ -22,6 +35,37 @@ public class JavaExtensions {
             return value; // good it not parsable return it as it is
         }
     }
+	class Variables{
+		String name;
+		String value;
+	}
+	
+	public List<EnviromentVariables> getEnVarsFromDisk(String fileName) throws IOException{
+		Kubernetes_metamodelFactory obj = Kubernetes_metamodelFactory.eINSTANCE;
+		
+
+		List<EnviromentVariables> returnList =new ArrayList<>();
+	    InputStream input = new FileInputStream(fileName);
+
+        Properties prop = new Properties();
+        prop.load(input);
+
+        Set<Entry<Object,Object>> set = prop.entrySet() ;
+        
+        for(Entry<Object,Object> entry:set) {          	
+        	EnviromentVariables env =obj.createEnviromentVariables();
+        	env.setName(entry.getKey().toString());
+        	env.setValue(entry.getValue().toString());
+        	
+        	returnList.add(env);
+         }
+        
+        
+        return returnList;
+	}
+	
+
+
 	/**
 	 * This method checks for variables and replace them with correct.
 	 * @return 
@@ -41,7 +85,7 @@ public class JavaExtensions {
 	   */
 	  private String randomPassword(int passwordLength){
 
-	        String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!\"#$";
+	        String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 	        
 	        java.util.Random random = new  java.util.Random();
 

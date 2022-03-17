@@ -2,6 +2,7 @@
  */
 package kubernetes_metamodel;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -13,9 +14,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link kubernetes_metamodel.ConfigMapDependency#getEnvName <em>Env Name</em>}</li>
- *   <li>{@link kubernetes_metamodel.ConfigMapDependency#getKeyName <em>Key Name</em>}</li>
  *   <li>{@link kubernetes_metamodel.ConfigMapDependency#getConfigMapName <em>Config Map Name</em>}</li>
+ *   <li>{@link kubernetes_metamodel.ConfigMapDependency#isIsSecret <em>Is Secret</em>}</li>
+ *   <li>{@link kubernetes_metamodel.ConfigMapDependency#getDependency <em>Dependency</em>}</li>
  * </ul>
  *
  * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getConfigMapDependency()
@@ -23,50 +24,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface ConfigMapDependency extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Env Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Env Name</em>' attribute.
-	 * @see #setEnvName(String)
-	 * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getConfigMapDependency_EnvName()
-	 * @model
-	 * @generated
-	 */
-	String getEnvName();
-
-	/**
-	 * Sets the value of the '{@link kubernetes_metamodel.ConfigMapDependency#getEnvName <em>Env Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Env Name</em>' attribute.
-	 * @see #getEnvName()
-	 * @generated
-	 */
-	void setEnvName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Key Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Key Name</em>' attribute.
-	 * @see #setKeyName(String)
-	 * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getConfigMapDependency_KeyName()
-	 * @model
-	 * @generated
-	 */
-	String getKeyName();
-
-	/**
-	 * Sets the value of the '{@link kubernetes_metamodel.ConfigMapDependency#getKeyName <em>Key Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Key Name</em>' attribute.
-	 * @see #getKeyName()
-	 * @generated
-	 */
-	void setKeyName(String value);
-
 	/**
 	 * Returns the value of the '<em><b>Config Map Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -88,5 +45,40 @@ public interface ConfigMapDependency extends EObject {
 	 * @generated
 	 */
 	void setConfigMapName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Is Secret</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is Secret</em>' attribute.
+	 * @see #setIsSecret(boolean)
+	 * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getConfigMapDependency_IsSecret()
+	 * @model default="false"
+	 * @generated
+	 */
+	boolean isIsSecret();
+
+	/**
+	 * Sets the value of the '{@link kubernetes_metamodel.ConfigMapDependency#isIsSecret <em>Is Secret</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is Secret</em>' attribute.
+	 * @see #isIsSecret()
+	 * @generated
+	 */
+	void setIsSecret(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Dependency</b></em>' reference list.
+	 * The list contents are of type {@link kubernetes_metamodel.Dependency}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Dependency</em>' reference list.
+	 * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getConfigMapDependency_Dependency()
+	 * @model
+	 * @generated
+	 */
+	EList<Dependency> getDependency();
 
 } // ConfigMapDependency

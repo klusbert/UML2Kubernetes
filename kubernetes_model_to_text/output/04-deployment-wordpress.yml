@@ -24,12 +24,16 @@ spec:
           ports:
             - containerPort: 80
           env:
-            - name: WORDPRESS_DB_HOST
-              value: mysql.uml.svc.cluster.local
             - name: WORDPRESS_DB_NAME
               value: wordpress
             - name: WORDPRESS_DB_USER
               value: root
+
+            - name: WORDPRESS_DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: config-map
+                  key: PMA_HOST
             - name: WORDPRESS_DB_PASSWORD
               valueFrom:
                 configMapKeyRef:

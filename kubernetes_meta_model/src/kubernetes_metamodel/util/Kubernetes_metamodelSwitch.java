@@ -144,9 +144,9 @@ public class Kubernetes_metamodelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case Kubernetes_metamodelPackage.SECRETS: {
-				Secrets secrets = (Secrets)theEObject;
-				T result = caseSecrets(secrets);
+			case Kubernetes_metamodelPackage.DEPENDENCY: {
+				Dependency dependency = (Dependency)theEObject;
+				T result = caseDependency(dependency);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -350,17 +350,17 @@ public class Kubernetes_metamodelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Secrets</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Dependency</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Secrets</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Dependency</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSecrets(Secrets object) {
+	public T caseDependency(Dependency object) {
 		return null;
 	}
 

@@ -66,12 +66,20 @@ spec:
 	 [/if]
 [comment ConfigMapDependency/]
 	 [if (deployment.configMapDependencies->notEmpty())]
+
+[comment LOOP HEERE/]
 		[for (confDep: ConfigMapDependency | deployment.configMapDependencies)]
-            - name: [confDep.envName /]
+			[for (dep : Dependency | confDep.dependency)]			
+            - name: [dep.envName /]
               valueFrom:
+			  [if (confDep.isSecret)]
+                secretKeyRef:
+				[else]	
                 configMapKeyRef:
+			  [/if]           
                   name: [confDep.configMapName/]
-                  key: [confDep.keyName/]
+                  key: [dep.keyName/]
+			[/for]
 		  [/for]
 	 [/if]
 [comment SecurityContext/]

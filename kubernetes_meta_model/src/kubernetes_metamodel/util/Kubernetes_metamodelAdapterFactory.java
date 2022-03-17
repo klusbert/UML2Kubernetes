@@ -120,8 +120,8 @@ public class Kubernetes_metamodelAdapterFactory extends AdapterFactoryImpl {
 				return createConfigMapDependencyAdapter();
 			}
 			@Override
-			public Adapter caseSecrets(Secrets object) {
-				return createSecretsAdapter();
+			public Adapter caseDependency(Dependency object) {
+				return createDependencyAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -326,16 +326,16 @@ public class Kubernetes_metamodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link kubernetes_metamodel.Secrets <em>Secrets</em>}'.
+	 * Creates a new adapter for an object of class '{@link kubernetes_metamodel.Dependency <em>Dependency</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see kubernetes_metamodel.Secrets
+	 * @see kubernetes_metamodel.Dependency
 	 * @generated
 	 */
-	public Adapter createSecretsAdapter() {
+	public Adapter createDependencyAdapter() {
 		return null;
 	}
 

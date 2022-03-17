@@ -6,6 +6,7 @@ import kubernetes_metamodel.AccessibilityType;
 import kubernetes_metamodel.Capabilities;
 import kubernetes_metamodel.ConfigMap;
 import kubernetes_metamodel.ConfigMapDependency;
+import kubernetes_metamodel.Dependency;
 import kubernetes_metamodel.Deployment;
 import kubernetes_metamodel.EnviromentVariables;
 import kubernetes_metamodel.Infrastructure;
@@ -17,7 +18,6 @@ import kubernetes_metamodel.PersistentData;
 import kubernetes_metamodel.Port;
 import kubernetes_metamodel.Protocol;
 import kubernetes_metamodel.ResourceAllocation;
-import kubernetes_metamodel.Secrets;
 import kubernetes_metamodel.SecurityContext;
 import kubernetes_metamodel.Service;
 
@@ -132,7 +132,7 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass secretsEClass = null;
+	private EClass dependencyEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -279,15 +279,6 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 	 */
 	public EAttribute getInfrastructure_ObjectsCount() {
 		return (EAttribute)infrastructureEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getInfrastructure_Secrets() {
-		return (EReference)infrastructureEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -826,6 +817,24 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getConfigMap_IsSecret() {
+		return (EAttribute)configMapEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConfigMap_FileName() {
+		return (EAttribute)configMapEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getConfigMapDependency() {
 		return configMapDependencyEClass;
 	}
@@ -835,7 +844,7 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConfigMapDependency_EnvName() {
+	public EAttribute getConfigMapDependency_ConfigMapName() {
 		return (EAttribute)configMapDependencyEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -844,7 +853,7 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConfigMapDependency_KeyName() {
+	public EAttribute getConfigMapDependency_IsSecret() {
 		return (EAttribute)configMapDependencyEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -853,8 +862,8 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConfigMapDependency_ConfigMapName() {
-		return (EAttribute)configMapDependencyEClass.getEStructuralFeatures().get(2);
+	public EReference getConfigMapDependency_Dependency() {
+		return (EReference)configMapDependencyEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -862,8 +871,8 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSecrets() {
-		return secretsEClass;
+	public EClass getDependency() {
+		return dependencyEClass;
 	}
 
 	/**
@@ -871,8 +880,8 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSecrets_Data() {
-		return (EReference)secretsEClass.getEStructuralFeatures().get(0);
+	public EAttribute getDependency_EnvName() {
+		return (EAttribute)dependencyEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -880,17 +889,8 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSecrets_Name() {
-		return (EAttribute)secretsEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSecrets_Id() {
-		return (EAttribute)secretsEClass.getEStructuralFeatures().get(2);
+	public EAttribute getDependency_KeyName() {
+		return (EAttribute)dependencyEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -947,7 +947,6 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 		createEAttribute(infrastructureEClass, INFRASTRUCTURE__ACCESSIBILITY_TYPE);
 		createEReference(infrastructureEClass, INFRASTRUCTURE__CONFIG_MAPS);
 		createEAttribute(infrastructureEClass, INFRASTRUCTURE__OBJECTS_COUNT);
-		createEReference(infrastructureEClass, INFRASTRUCTURE__SECRETS);
 
 		deploymentEClass = createEClass(DEPLOYMENT);
 		createEAttribute(deploymentEClass, DEPLOYMENT__IMAGE);
@@ -1018,16 +1017,17 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 		createEReference(configMapEClass, CONFIG_MAP__DATA);
 		createEAttribute(configMapEClass, CONFIG_MAP__NAME);
 		createEAttribute(configMapEClass, CONFIG_MAP__ID);
+		createEAttribute(configMapEClass, CONFIG_MAP__IS_SECRET);
+		createEAttribute(configMapEClass, CONFIG_MAP__FILE_NAME);
 
 		configMapDependencyEClass = createEClass(CONFIG_MAP_DEPENDENCY);
-		createEAttribute(configMapDependencyEClass, CONFIG_MAP_DEPENDENCY__ENV_NAME);
-		createEAttribute(configMapDependencyEClass, CONFIG_MAP_DEPENDENCY__KEY_NAME);
 		createEAttribute(configMapDependencyEClass, CONFIG_MAP_DEPENDENCY__CONFIG_MAP_NAME);
+		createEAttribute(configMapDependencyEClass, CONFIG_MAP_DEPENDENCY__IS_SECRET);
+		createEReference(configMapDependencyEClass, CONFIG_MAP_DEPENDENCY__DEPENDENCY);
 
-		secretsEClass = createEClass(SECRETS);
-		createEReference(secretsEClass, SECRETS__DATA);
-		createEAttribute(secretsEClass, SECRETS__NAME);
-		createEAttribute(secretsEClass, SECRETS__ID);
+		dependencyEClass = createEClass(DEPENDENCY);
+		createEAttribute(dependencyEClass, DEPENDENCY__ENV_NAME);
+		createEAttribute(dependencyEClass, DEPENDENCY__KEY_NAME);
 
 		// Create enums
 		accessibilityTypeEEnum = createEEnum(ACCESSIBILITY_TYPE);
@@ -1072,7 +1072,6 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 		initEAttribute(getInfrastructure_AccessibilityType(), this.getAccessibilityType(), "accessibilityType", null, 0, 1, Infrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getInfrastructure_ConfigMaps(), this.getConfigMap(), null, "configMaps", null, 0, -1, Infrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getInfrastructure_ObjectsCount(), ecorePackage.getEInt(), "objectsCount", "0", 0, 1, Infrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getInfrastructure_Secrets(), this.getSecrets(), null, "secrets", null, 0, -1, Infrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(deploymentEClass, Deployment.class, "Deployment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDeployment_Image(), ecorePackage.getEString(), "image", null, 0, 1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1091,7 +1090,7 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 		initEAttribute(getDeployment_MemoryMount(), ecorePackage.getEString(), "memoryMount", "", 0, 1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDeployment_AdditionalPorts(), this.getPort(), null, "additionalPorts", null, 0, -1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDeployment_Id(), ecorePackage.getEInt(), "id", null, 0, 1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDeployment_ConfigMapDependencies(), this.getConfigMapDependency(), null, "configMapDependencies", null, 0, -1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDeployment_ConfigMapDependencies(), this.getConfigMapDependency(), null, "configMapDependencies", null, 0, -1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(enviromentVariablesEClass, EnviromentVariables.class, "EnviromentVariables", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEnviromentVariables_Name(), ecorePackage.getEString(), "name", null, 0, 1, EnviromentVariables.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1143,16 +1142,17 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 		initEReference(getConfigMap_Data(), this.getEnviromentVariables(), null, "data", null, 0, -1, ConfigMap.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConfigMap_Name(), ecorePackage.getEString(), "name", null, 0, 1, ConfigMap.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConfigMap_Id(), ecorePackage.getEInt(), "id", null, 0, 1, ConfigMap.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConfigMap_IsSecret(), ecorePackage.getEBooleanObject(), "isSecret", null, 0, 1, ConfigMap.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConfigMap_FileName(), ecorePackage.getEString(), "fileName", "\"\"", 0, 1, ConfigMap.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(configMapDependencyEClass, ConfigMapDependency.class, "ConfigMapDependency", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getConfigMapDependency_EnvName(), ecorePackage.getEString(), "envName", null, 0, 1, ConfigMapDependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getConfigMapDependency_KeyName(), ecorePackage.getEString(), "keyName", null, 0, 1, ConfigMapDependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConfigMapDependency_ConfigMapName(), ecorePackage.getEString(), "configMapName", null, 0, 1, ConfigMapDependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConfigMapDependency_IsSecret(), ecorePackage.getEBoolean(), "isSecret", "false", 0, 1, ConfigMapDependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConfigMapDependency_Dependency(), this.getDependency(), null, "dependency", null, 0, -1, ConfigMapDependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(secretsEClass, Secrets.class, "Secrets", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSecrets_Data(), this.getEnviromentVariables(), null, "data", null, 0, -1, Secrets.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSecrets_Name(), ecorePackage.getEString(), "name", null, 0, 1, Secrets.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSecrets_Id(), ecorePackage.getEInt(), "id", null, 0, 1, Secrets.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(dependencyEClass, Dependency.class, "Dependency", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDependency_EnvName(), ecorePackage.getEString(), "envName", null, 0, 1, Dependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDependency_KeyName(), ecorePackage.getEString(), "keyName", null, 0, 1, Dependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(accessibilityTypeEEnum, AccessibilityType.class, "AccessibilityType");

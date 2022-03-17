@@ -30,6 +30,8 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link kubernetes_metamodel.impl.ConfigMapImpl#getData <em>Data</em>}</li>
  *   <li>{@link kubernetes_metamodel.impl.ConfigMapImpl#getName <em>Name</em>}</li>
  *   <li>{@link kubernetes_metamodel.impl.ConfigMapImpl#getId <em>Id</em>}</li>
+ *   <li>{@link kubernetes_metamodel.impl.ConfigMapImpl#getIsSecret <em>Is Secret</em>}</li>
+ *   <li>{@link kubernetes_metamodel.impl.ConfigMapImpl#getFileName <em>File Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -84,6 +86,46 @@ public class ConfigMapImpl extends MinimalEObjectImpl.Container implements Confi
 	 * @ordered
 	 */
 	protected int id = ID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getIsSecret() <em>Is Secret</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIsSecret()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Boolean IS_SECRET_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getIsSecret() <em>Is Secret</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIsSecret()
+	 * @generated
+	 * @ordered
+	 */
+	protected Boolean isSecret = IS_SECRET_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getFileName() <em>File Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFileName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String FILE_NAME_EDEFAULT = "\"\"";
+
+	/**
+	 * The cached value of the '{@link #getFileName() <em>File Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFileName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String fileName = FILE_NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -163,6 +205,48 @@ public class ConfigMapImpl extends MinimalEObjectImpl.Container implements Confi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Boolean getIsSecret() {
+		return isSecret;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIsSecret(Boolean newIsSecret) {
+		Boolean oldIsSecret = isSecret;
+		isSecret = newIsSecret;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, Kubernetes_metamodelPackage.CONFIG_MAP__IS_SECRET, oldIsSecret, isSecret));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getFileName() {
+		return fileName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFileName(String newFileName) {
+		String oldFileName = fileName;
+		fileName = newFileName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, Kubernetes_metamodelPackage.CONFIG_MAP__FILE_NAME, oldFileName, fileName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -172,6 +256,10 @@ public class ConfigMapImpl extends MinimalEObjectImpl.Container implements Confi
 				return getName();
 			case Kubernetes_metamodelPackage.CONFIG_MAP__ID:
 				return getId();
+			case Kubernetes_metamodelPackage.CONFIG_MAP__IS_SECRET:
+				return getIsSecret();
+			case Kubernetes_metamodelPackage.CONFIG_MAP__FILE_NAME:
+				return getFileName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -195,6 +283,12 @@ public class ConfigMapImpl extends MinimalEObjectImpl.Container implements Confi
 			case Kubernetes_metamodelPackage.CONFIG_MAP__ID:
 				setId((Integer)newValue);
 				return;
+			case Kubernetes_metamodelPackage.CONFIG_MAP__IS_SECRET:
+				setIsSecret((Boolean)newValue);
+				return;
+			case Kubernetes_metamodelPackage.CONFIG_MAP__FILE_NAME:
+				setFileName((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -216,6 +310,12 @@ public class ConfigMapImpl extends MinimalEObjectImpl.Container implements Confi
 			case Kubernetes_metamodelPackage.CONFIG_MAP__ID:
 				setId(ID_EDEFAULT);
 				return;
+			case Kubernetes_metamodelPackage.CONFIG_MAP__IS_SECRET:
+				setIsSecret(IS_SECRET_EDEFAULT);
+				return;
+			case Kubernetes_metamodelPackage.CONFIG_MAP__FILE_NAME:
+				setFileName(FILE_NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -234,6 +334,10 @@ public class ConfigMapImpl extends MinimalEObjectImpl.Container implements Confi
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case Kubernetes_metamodelPackage.CONFIG_MAP__ID:
 				return id != ID_EDEFAULT;
+			case Kubernetes_metamodelPackage.CONFIG_MAP__IS_SECRET:
+				return IS_SECRET_EDEFAULT == null ? isSecret != null : !IS_SECRET_EDEFAULT.equals(isSecret);
+			case Kubernetes_metamodelPackage.CONFIG_MAP__FILE_NAME:
+				return FILE_NAME_EDEFAULT == null ? fileName != null : !FILE_NAME_EDEFAULT.equals(fileName);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -252,6 +356,10 @@ public class ConfigMapImpl extends MinimalEObjectImpl.Container implements Confi
 		result.append(name);
 		result.append(", id: ");
 		result.append(id);
+		result.append(", isSecret: ");
+		result.append(isSecret);
+		result.append(", fileName: ");
+		result.append(fileName);
 		result.append(')');
 		return result.toString();
 	}

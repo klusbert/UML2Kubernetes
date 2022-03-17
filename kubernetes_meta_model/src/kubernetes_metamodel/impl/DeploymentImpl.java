@@ -302,7 +302,7 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 	protected int id = ID_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getConfigMapDependencies() <em>Config Map Dependencies</em>}' containment reference list.
+	 * The cached value of the '{@link #getConfigMapDependencies() <em>Config Map Dependencies</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getConfigMapDependencies()
@@ -736,7 +736,7 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 	 */
 	public EList<ConfigMapDependency> getConfigMapDependencies() {
 		if (configMapDependencies == null) {
-			configMapDependencies = new EObjectContainmentEList<ConfigMapDependency>(ConfigMapDependency.class, this, Kubernetes_metamodelPackage.DEPLOYMENT__CONFIG_MAP_DEPENDENCIES);
+			configMapDependencies = new EObjectResolvingEList<ConfigMapDependency>(ConfigMapDependency.class, this, Kubernetes_metamodelPackage.DEPLOYMENT__CONFIG_MAP_DEPENDENCIES);
 		}
 		return configMapDependencies;
 	}
@@ -753,8 +753,6 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 				return ((InternalEList<?>)getEnviromentVariables()).basicRemove(otherEnd, msgs);
 			case Kubernetes_metamodelPackage.DEPLOYMENT__SERVICE:
 				return basicSetService(null, msgs);
-			case Kubernetes_metamodelPackage.DEPLOYMENT__CONFIG_MAP_DEPENDENCIES:
-				return ((InternalEList<?>)getConfigMapDependencies()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}

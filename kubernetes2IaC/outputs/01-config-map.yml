@@ -1,11 +1,15 @@
+
+
+
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: config-map
   namespace: uml
 data:
-  randomPassword: "rN6DlcN$CgytNG$#GLbe"
+  PMA_HOST: mysql.uml.svc.cluster.local
   MYSQL_ROOT_PASSWORD: password
+  randomPassword: "zeEMBAPLmtOj42CgCXpE"
   WORDPRESS_DB_NAME: wordpress
   WORDPRESS_DB_USER: root
-  PMA_HOST: mysql.uml.svc.cluster.local
+

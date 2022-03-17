@@ -20,16 +20,17 @@ spec:
           ports:
             - containerPort: 80
           env:
+
             - name: MYSQL_ROOT_PASSWORD
               valueFrom:
                 configMapKeyRef:
                   name: config-map
-                  key: MYSQL_ROOT_PASSWORD
-            - name: PMA_HOST
+                  key: randomPassword
+            - name: MY_SQL_ROOT_PASSWOR
               valueFrom:
-                configMapKeyRef:
-                  name: config-map
-                  key: PMA_HOST
+                secretKeyRef:
+                  name: mysql-password
+                  key: password
 ---
 kind: Service
 apiVersion: v1
