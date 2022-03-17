@@ -107,6 +107,11 @@ mapping UML::Artifact::artifactToConfigMap() : KuberntesMetaModel::ConfigMap
 	    var value := variable.oclAsType(kuberProfile::DataTypes::EnviromentVariables).value;
 	    var newEnv = new EnviromentVariables();		    
 
+		 if(value.indexOf("$dns") > 0){	    
+	
+	       value := value.replace("$dns",containerInfra.namespace.toLower() +".svc.cluster.local");	    
+		   log(value);
+	    };
 	    newEnv.name := name;
 	    newEnv.value := value;
 	    

@@ -23,7 +23,8 @@
     <packagedElement xmi:type="uml:Dependency" xmi:id="_lvDbcKUbEeyLEbzeSRaKiA" client="_NFM8QJCgEey5pfBfWsdixw" supplier="_OxMIsKRDEeySO5GnGG28Tw"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_z_ZJAKUlEeya8JRebvDoqg" client="_1HAHwKUZEeyLEbzeSRaKiA" supplier="_OxMIsKRDEeySO5GnGG28Tw"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_9xlb0KUlEeya8JRebvDoqg" client="_8a_zIH9kEeyXt-NBRolQsA" supplier="_OxMIsKRDEeySO5GnGG28Tw"/>
-    <packagedElement xmi:type="uml:Dependency" xmi:id="_OJldoKUpEeya8JRebvDoqg" client="_8a_zIH9kEeyXt-NBRolQsA" supplier="_nokJgKUVEeyzk76f4D3PIA"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_NX_HsKXQEeyqXcBsl6kgzw" client="_1HAHwKUZEeyLEbzeSRaKiA" supplier="_nokJgKUVEeyzk76f4D3PIA"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_VONdEKXQEeyqXcBsl6kgzw" client="_NFM8QJCgEey5pfBfWsdixw" supplier="_nokJgKUVEeyzk76f4D3PIA"/>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_ogP78H9kEeyXt-NBRolQsA">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__B6XEKUsEeya8JRebvDoqg" source="PapyrusVersion">
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="__B6XEaUsEeya8JRebvDoqg" key="Version" value="0.0.144"/>
@@ -42,8 +43,6 @@
   <KubernetesUMLProfile:Accessibility xmi:id="_Mp5C8I8kEeyInqig3yfUpA" base_Dependency="_T7l2UI8hEeyInqig3yfUpA"/>
   <KubernetesUMLProfile:Deployment xmi:id="_K6AFcJCfEey5pfBfWsdixw" base_Node="_8a_zIH9kEeyXt-NBRolQsA" image="phpmyadmin/phpmyadmin"/>
   <KubernetesUMLProfile:Deployment xmi:id="_OZpmsJCgEey5pfBfWsdixw" base_Node="_NFM8QJCgEey5pfBfWsdixw" image="wordpress">
-    <environmentVariables xmi:type="KubernetesUMLProfile.DataTypes:EnviromentVariables" xmi:id="_WhoacJCgEey5pfBfWsdixw" name="WORDPRESS_DB_USER" value="root"/>
-    <environmentVariables xmi:type="KubernetesUMLProfile.DataTypes:EnviromentVariables" xmi:id="_Xy2xwJCgEey5pfBfWsdixw" name="WORDPRESS_DB_NAME" value="wordpress"/>
     <dataPersistent xmi:type="KubernetesUMLProfile.DataTypes:PersistentData" xmi:id="_gRP6YJCgEey5pfBfWsdixw" sizeInGB="5" mountPath="/var/www/html"/>
   </KubernetesUMLProfile:Deployment>
   <KubernetesUMLProfile:Accessibility xmi:id="_k54SYJCgEey5pfBfWsdixw" base_Dependency="_js_ogJCgEey5pfBfWsdixw">
@@ -58,33 +57,33 @@
   <KubernetesUMLProfile:Accessibility xmi:id="_FS2eUJSSEeykRpNdXmxuDg" base_Dependency="_C52moJSSEeykRpNdXmxuDg"/>
   <KubernetesUMLProfile:Accessibility xmi:id="__9mBoJ-ZEey3W6UkuVHSYQ" base_Dependency="_xyhO0JoOEeymdqnPIdiJ5w"/>
   <KubernetesUMLProfile:ConfigMap xmi:id="_1Dv9UKRGEeySO5GnGG28Tw" base_Artifact="_OxMIsKRDEeySO5GnGG28Tw">
-    <data xmi:type="KubernetesUMLProfile.DataTypes:EnviromentVariables" xmi:id="_4jqZwKRGEeySO5GnGG28Tw" name="MYSQL_ROOT_PASSWORD" value="password"/>
-    <data xmi:type="KubernetesUMLProfile.DataTypes:EnviromentVariables" xmi:id="_52M_sKRGEeySO5GnGG28Tw" name="PMA_HOST" value="mysql.uml.svc.cluster.local"/>
+    <data xmi:type="KubernetesUMLProfile.DataTypes:EnviromentVariables" xmi:id="_52M_sKRGEeySO5GnGG28Tw" name="PMA_HOST" value="mysql.$dns"/>
     <data xmi:type="KubernetesUMLProfile.DataTypes:EnviromentVariables" xmi:id="_dNJwEKRQEeykMKFwp4F-ng" name="WORDPRESS_DB_NAME" value="wordpress"/>
     <data xmi:type="KubernetesUMLProfile.DataTypes:EnviromentVariables" xmi:id="_in6IkKRQEeykMKFwp4F-ng" name="WORDPRESS_DB_USER" value="root"/>
-    <data xmi:type="KubernetesUMLProfile.DataTypes:EnviromentVariables" xmi:id="_qOCgUKT8EeyvStHyE6txhQ" name="randomPassword" value="$randomPW"/>
   </KubernetesUMLProfile:ConfigMap>
   <KubernetesUMLProfile:Secrets xmi:id="_rg_zoKUVEeyzk76f4D3PIA" base_Artifact="_nokJgKUVEeyzk76f4D3PIA">
     <data xmi:type="KubernetesUMLProfile.DataTypes:EnviromentVariables" xmi:id="_1vaIYKUVEeyzk76f4D3PIA" name="password" value="$randomPW"/>
-    <data xmi:type="KubernetesUMLProfile.DataTypes:EnviromentVariables" xmi:id="_VWxiQKUXEeyzk76f4D3PIA" name="db_user" value="root"/>
   </KubernetesUMLProfile:Secrets>
   <KubernetesUMLProfile:Deployment xmi:id="_6-F28KUZEeyLEbzeSRaKiA" base_Node="_1HAHwKUZEeyLEbzeSRaKiA" image="mysql" port="3306">
-    <environmentVariables xmi:type="KubernetesUMLProfile.DataTypes:EnviromentVariables" xmi:id="_D3A_cKUaEeyLEbzeSRaKiA" name="MYSQL_DATABASE" value="wordpress"/>
     <dataPersistent xmi:type="KubernetesUMLProfile.DataTypes:PersistentData" xmi:id="_HYjzkKUaEeyLEbzeSRaKiA"/>
   </KubernetesUMLProfile:Deployment>
   <KubernetesUMLProfile:Accessibility xmi:id="_L8_oEKUaEeyLEbzeSRaKiA" base_Dependency="_J-QDcKUaEeyLEbzeSRaKiA"/>
   <KubernetesUMLProfile:Accessibility xmi:id="_Nei6YKUaEeyLEbzeSRaKiA" base_Dependency="_MdbboKUaEeyLEbzeSRaKiA"/>
   <KubernetesUMLProfile:ConfigMapDependency xmi:id="_nc75kKUbEeyLEbzeSRaKiA" base_Dependency="_lvDbcKUbEeyLEbzeSRaKiA">
     <dependencies xmi:type="KubernetesUMLProfile.DataTypes:PullEnviromentVariables" xmi:id="_p3eCUKUbEeyLEbzeSRaKiA" name="WORDPRESS_DB_HOST" keyName="PMA_HOST"/>
-    <dependencies xmi:type="KubernetesUMLProfile.DataTypes:PullEnviromentVariables" xmi:id="_aTWMIKUmEeya8JRebvDoqg" name="WORDPRESS_DB_PASSWORD" keyName="randomPassword"/>
+    <dependencies xmi:type="KubernetesUMLProfile.DataTypes:PullEnviromentVariables" xmi:id="_aTWMIKUmEeya8JRebvDoqg" name="WORDPRESS_DB_NAME" keyName="WORDPRESS_DB_NAME"/>
+    <dependencies xmi:type="KubernetesUMLProfile.DataTypes:PullEnviromentVariables" xmi:id="_EpP18KXQEeyqXcBsl6kgzw" name="WORDPRESS_DB_USER" keyName="WORDPRESS_DB_USER"/>
   </KubernetesUMLProfile:ConfigMapDependency>
   <KubernetesUMLProfile:ConfigMapDependency xmi:id="_153RoKUlEeya8JRebvDoqg" base_Dependency="_z_ZJAKUlEeya8JRebvDoqg">
-    <dependencies xmi:type="KubernetesUMLProfile.DataTypes:PullEnviromentVariables" xmi:id="_5Au78KUlEeya8JRebvDoqg" name="MYSQL_ROOT_PASSWORD" keyName="randomPassword"/>
+    <dependencies xmi:type="KubernetesUMLProfile.DataTypes:PullEnviromentVariables" xmi:id="_5Au78KUlEeya8JRebvDoqg" name="MYSQL_DATABASE" keyName="WORDPRESS_DB_NAME"/>
   </KubernetesUMLProfile:ConfigMapDependency>
   <KubernetesUMLProfile:ConfigMapDependency xmi:id="_-e2KcKUlEeya8JRebvDoqg" base_Dependency="_9xlb0KUlEeya8JRebvDoqg">
-    <dependencies xmi:type="KubernetesUMLProfile.DataTypes:PullEnviromentVariables" xmi:id="_CDhLEKUmEeya8JRebvDoqg" name="MYSQL_ROOT_PASSWORD" keyName="randomPassword"/>
+    <dependencies xmi:type="KubernetesUMLProfile.DataTypes:PullEnviromentVariables" xmi:id="_CDhLEKUmEeya8JRebvDoqg" name="PMA_HOST" keyName="PMA_HOST"/>
   </KubernetesUMLProfile:ConfigMapDependency>
-  <KubernetesUMLProfile:SecretDependency xmi:id="_PpMPMKUpEeya8JRebvDoqg" base_Dependency="_OJldoKUpEeya8JRebvDoqg">
-    <dependencies xmi:type="KubernetesUMLProfile.DataTypes:PullEnviromentVariables" xmi:id="_TL5g8KUpEeya8JRebvDoqg" name="MY_SQL_ROOT_PASSWOR" keyName="password"/>
+  <KubernetesUMLProfile:SecretDependency xmi:id="_RYUJkKXQEeyqXcBsl6kgzw" base_Dependency="_NX_HsKXQEeyqXcBsl6kgzw">
+    <dependencies xmi:type="KubernetesUMLProfile.DataTypes:PullEnviromentVariables" xmi:id="_UIRvwKXQEeyqXcBsl6kgzw" name="MYSQL_ROOT_PASSWORD" keyName="password"/>
+  </KubernetesUMLProfile:SecretDependency>
+  <KubernetesUMLProfile:SecretDependency xmi:id="_WGkocKXQEeyqXcBsl6kgzw" base_Dependency="_VONdEKXQEeyqXcBsl6kgzw">
+    <dependencies xmi:type="KubernetesUMLProfile.DataTypes:PullEnviromentVariables" xmi:id="_YaKbsKXQEeyqXcBsl6kgzw" name="WORDPRESS_DB_PASSWORD" keyName="password"/>
   </KubernetesUMLProfile:SecretDependency>
 </xmi:XMI>

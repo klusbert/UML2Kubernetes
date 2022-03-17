@@ -15,7 +15,7 @@ kind: Secret
 metadata:
   name: [configMap.name.toLowerCase()/]
   namespace: [anInfrastructure.namespace.toLowerCase()/]
-data:
+stringData:
  [for (envar: EnviromentVariables | configMap.data)]
   [envar.name/]: [replaceVariables(envar.value)/]
  [/for]

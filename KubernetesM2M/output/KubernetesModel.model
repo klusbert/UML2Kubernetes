@@ -1,49 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:kubernetes_metamodel="http://www.example.org/kubernetesModel" xsi:schemaLocation="http://www.example.org/kubernetesModel ../../kubernetes_meta_model/model/kubernetes_metamodel.ecore">
-  <kubernetes_metamodel:Infrastructure namespace="UML" apiVersion="1" name="KubernetesUMLDeplyoment" deployments="/10 /11 /13 /15 /16" accessibilityType="LoadBalancer" configMaps="/1 /7" objectsCount="7"/>
-  <kubernetes_metamodel:ConfigMap data="/2 /3 /4 /5 /6" name="config-map" id="1" isSecret="false"/>
-  <kubernetes_metamodel:EnviromentVariables name="WORDPRESS_DB_NAME" value="wordpress"/>
-  <kubernetes_metamodel:EnviromentVariables name="MYSQL_ROOT_PASSWORD" value="password"/>
-  <kubernetes_metamodel:EnviromentVariables name="randomPassword" value="$randomPW"/>
+  <kubernetes_metamodel:Infrastructure namespace="UML" apiVersion="1" name="KubernetesUMLDeplyoment" deployments="/7 /8 /10 /12 /13" accessibilityType="LoadBalancer" configMaps="/1 /5" objectsCount="7"/>
+  <kubernetes_metamodel:ConfigMap data="/2 /3 /4" name="config-map" id="1" isSecret="false"/>
   <kubernetes_metamodel:EnviromentVariables name="PMA_HOST" value="mysql.uml.svc.cluster.local"/>
   <kubernetes_metamodel:EnviromentVariables name="WORDPRESS_DB_USER" value="root"/>
-  <kubernetes_metamodel:ConfigMap data="/8 /9" name="mysql-password" id="2" isSecret="true"/>
+  <kubernetes_metamodel:EnviromentVariables name="WORDPRESS_DB_NAME" value="wordpress"/>
+  <kubernetes_metamodel:ConfigMap data="/6" name="mysql-password" id="2" isSecret="true"/>
   <kubernetes_metamodel:EnviromentVariables name="password" value="$randomPW"/>
-  <kubernetes_metamodel:EnviromentVariables name="db_user" value="root"/>
-  <kubernetes_metamodel:Deployment image="phpmyadmin/phpmyadmin" port="80" replicas="1" name="phpMyAdmin" namespace="UML" id="3" configMapDependencies="/23 /25">
+  <kubernetes_metamodel:Deployment image="phpmyadmin/phpmyadmin" port="80" replicas="1" name="phpMyAdmin" namespace="UML" id="3" configMapDependencies="/21">
     <service port="80" publicAccess="true" name="phpMyAdmin" accessibilityType="LoadBalancer"/>
   </kubernetes_metamodel:Deployment>
-  <kubernetes_metamodel:Deployment image="wordpress" port="80" replicas="1" name="wordpress" dataPersistent="/12" namespace="UML" id="4" configMapDependencies="/18">
-    <enviromentVariables name="WORDPRESS_DB_NAME" value="wordpress"/>
-    <enviromentVariables name="WORDPRESS_DB_USER" value="root"/>
+  <kubernetes_metamodel:Deployment image="wordpress" port="80" replicas="1" name="wordpress" dataPersistent="/9" namespace="UML" id="4" configMapDependencies="/15 /25">
     <service port="80" publicAccess="true" name="wordpress" accessibilityType="LoadBalancer"/>
   </kubernetes_metamodel:Deployment>
   <kubernetes_metamodel:PersistentData mountPath="/var/www/html" sizeInGB="5"/>
-  <kubernetes_metamodel:Deployment image="mongo" port="27017" replicas="1" name="mongo" dataPersistent="/14" namespace="UML" id="5">
+  <kubernetes_metamodel:Deployment image="mongo" port="27017" replicas="1" name="mongo" dataPersistent="/11" namespace="UML" id="5">
     <enviromentVariables name="MONGO_INITDB_ROOT_USERNAME" value="root"/>
     <enviromentVariables name="MONGO_INITDB_ROOT_PASSWORD" value="password"/>
     <service port="27017" name="mongo" accessibilityType="LoadBalancer"/>
   </kubernetes_metamodel:Deployment>
   <kubernetes_metamodel:PersistentData mountPath="/data/db" sizeInGB="3"/>
   <kubernetes_metamodel:Deployment image="mongo-express" port="8081" replicas="1" name="mongoExpress" namespace="UML" id="6">
+    <enviromentVariables name="ME_CONFIG_MONGODB_ADMINPASSWORD" value="password"/>
     <enviromentVariables name="ME_CONFIG_MONGODB_ADMINUSERNAME" value="root"/>
     <enviromentVariables name="ME_CONFIG_MONGODB_URL" value="mongodb://root:password@mongo.uml.svc.cluster.local:27017/"/>
-    <enviromentVariables name="ME_CONFIG_MONGODB_ADMINPASSWORD" value="password"/>
     <service port="80" publicAccess="true" name="mongoExpress" accessibilityType="LoadBalancer"/>
   </kubernetes_metamodel:Deployment>
-  <kubernetes_metamodel:Deployment image="mysql" port="3306" replicas="1" name="mysql" dataPersistent="/17" namespace="UML" id="7" configMapDependencies="/21">
-    <enviromentVariables name="MYSQL_DATABASE" value="wordpress"/>
+  <kubernetes_metamodel:Deployment image="mysql" port="3306" replicas="1" name="mysql" dataPersistent="/14" namespace="UML" id="7" configMapDependencies="/19 /23">
     <service port="3306" name="mysql" accessibilityType="LoadBalancer"/>
   </kubernetes_metamodel:Deployment>
   <kubernetes_metamodel:PersistentData mountPath="/var/lib/mysql" sizeInGB="2"/>
-  <kubernetes_metamodel:ConfigMapDependency configMapName="config-map" dependency="/19 /20"/>
+  <kubernetes_metamodel:ConfigMapDependency configMapName="config-map" dependency="/16 /17 /18"/>
+  <kubernetes_metamodel:Dependency envName="WORDPRESS_DB_NAME" keyName="WORDPRESS_DB_NAME"/>
   <kubernetes_metamodel:Dependency envName="WORDPRESS_DB_HOST" keyName="PMA_HOST"/>
-  <kubernetes_metamodel:Dependency envName="WORDPRESS_DB_PASSWORD" keyName="randomPassword"/>
+  <kubernetes_metamodel:Dependency envName="WORDPRESS_DB_USER" keyName="WORDPRESS_DB_USER"/>
+  <kubernetes_metamodel:ConfigMapDependency configMapName="config-map" dependency="/20"/>
+  <kubernetes_metamodel:Dependency envName="MYSQL_DATABASE" keyName="WORDPRESS_DB_NAME"/>
   <kubernetes_metamodel:ConfigMapDependency configMapName="config-map" dependency="/22"/>
-  <kubernetes_metamodel:Dependency envName="MYSQL_ROOT_PASSWORD" keyName="randomPassword"/>
-  <kubernetes_metamodel:ConfigMapDependency configMapName="config-map" dependency="/24"/>
-  <kubernetes_metamodel:Dependency envName="MYSQL_ROOT_PASSWORD" keyName="randomPassword"/>
+  <kubernetes_metamodel:Dependency envName="PMA_HOST" keyName="PMA_HOST"/>
+  <kubernetes_metamodel:ConfigMapDependency configMapName="mysql-password" isSecret="true" dependency="/24"/>
+  <kubernetes_metamodel:Dependency envName="MYSQL_ROOT_PASSWORD" keyName="password"/>
   <kubernetes_metamodel:ConfigMapDependency configMapName="mysql-password" isSecret="true" dependency="/26"/>
-  <kubernetes_metamodel:Dependency envName="MY_SQL_ROOT_PASSWOR" keyName="password"/>
+  <kubernetes_metamodel:Dependency envName="WORDPRESS_DB_PASSWORD" keyName="password"/>
   <kubernetes_metamodel:Service port="3306" name="mysql" accessibilityType="LoadBalancer"/>
 </xmi:XMI>

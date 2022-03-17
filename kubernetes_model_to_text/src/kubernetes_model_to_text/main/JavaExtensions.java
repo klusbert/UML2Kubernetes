@@ -98,6 +98,6 @@ public class JavaExtensions {
 	        }
 
 	        // random password should always have quotes.
-	        return "\"" +sb.toString() + "\"";
+	        return sb.toString();
 	    } 
 }
