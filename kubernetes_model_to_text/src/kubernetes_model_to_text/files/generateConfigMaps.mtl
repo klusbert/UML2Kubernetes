@@ -7,9 +7,8 @@
 
 [for (configMap: ConfigMap | anInfrastructure.configMaps)]
 [file (padZeros(configMap.id) +'-' +configMap.name +'.yml', false, 'UTF-8')]
-
-
 [if (configMap.isSecret)]
+---
 apiVersion: v1
 kind: Secret
 metadata:
@@ -19,8 +18,13 @@ stringData:
  [for (envar: EnviromentVariables | configMap.data)]
   [envar.name/]: [replaceVariables(envar.value)/]
  [/for]
+[if (configMap.fileName.replaceAll('"', '').size() > 0)]
+	[for (envar: EnviromentVariables | getEnVarsFromDisk(configMap.fileName))]
+		[envar.name/]
+	[/for]
+[/if]
 [else]
-
+---
 apiVersion: v1
 kind: ConfigMap
 metadata:

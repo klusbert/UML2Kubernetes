@@ -66,9 +66,7 @@ spec:
 	 [/if]
 [comment ConfigMapDependency/]
 	 [if (deployment.configMapDependencies->notEmpty())]
-
-[comment LOOP HEERE/]
-		[for (confDep: ConfigMapDependency | deployment.configMapDependencies)]
+    	[for (confDep: ConfigMapDependency | deployment.configMapDependencies)]
 			[for (dep : Dependency | confDep.dependency)]			
             - name: [dep.envName /]
               valueFrom:

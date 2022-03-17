@@ -107,13 +107,13 @@ public interface ConfigMap extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>File Name</b></em>' attribute.
-	 * The default value is <code>"\"\""</code>.
+	 * The default value is <code>""</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>File Name</em>' attribute.
 	 * @see #setFileName(String)
 	 * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getConfigMap_FileName()
-	 * @model default="\"\""
+	 * @model default=""
 	 * @generated
 	 */
 	String getFileName();

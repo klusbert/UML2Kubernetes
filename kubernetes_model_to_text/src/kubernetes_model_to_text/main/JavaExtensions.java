@@ -1,8 +1,11 @@
 package kubernetes_model_to_text.main;
+
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map.Entry;
 import java.util.Properties;
@@ -10,94 +13,99 @@ import java.util.Set;
 import kubernetes_metamodel.EnviromentVariables;
 
 import kubernetes_metamodel.Kubernetes_metamodelFactory;
-
+import kubernetes_metamodel.impl.EnviromentVariablesImpl;
 
 public class JavaExtensions {
 
-	
-	
 	public static Integer counter = 0;
 
-	public String padZeros(Integer i){
+	public String padZeros(Integer i) {
 
-        return  String.format("%02d", i + counter);
-    }
-	public String formatVariables(String input){
-		
+		return String.format("%02d", i + counter);
+	}
+
+	public String formatVariables(String input) {
+
 		String value = replaceVariables(input);
-		
-        try {
-            // try if it fails if it does not, we have to format it so kubernetes can read it as a string.
-            Integer.parseInt(input);
-            return "\""+ value + "\"";
 
-        } catch (NumberFormatException e) {
-            return value; // good it not parsable return it as it is
-        }
-    }
-	class Variables{
-		String name;
-		String value;
+		try {
+			// try if it fails if it does not, we have to format it so kubernetes can read
+			// it as a string.
+			Integer.parseInt(input);
+			return "\"" + value + "\"";
+
+		} catch (NumberFormatException e) {
+			return value; // good it not parsable return it as it is
+		}
 	}
-	
-	public List<EnviromentVariables> getEnVarsFromDisk(String fileName) throws IOException{
+
+
+
+	public List<EnviromentVariables> getEnVarsFromDisk(String fileName) {
 		Kubernetes_metamodelFactory obj = Kubernetes_metamodelFactory.eINSTANCE;
+		List<EnviromentVariables> returnList = new ArrayList<EnviromentVariables>();
 		
+		
+		try {
+			InputStream input = new FileInputStream(fileName);
+			Properties prop = new Properties();
+			prop.load(input);
+			Set<Entry<Object, Object>> set = prop.entrySet();
 
-		List<EnviromentVariables> returnList =new ArrayList<>();
-	    InputStream input = new FileInputStream(fileName);
+			
+			for (Entry<Object, Object> entry : set) {
+				EnviromentVariables env = obj.createEnviromentVariables();				
+			
+				env.setName(entry.getKey().toString());
+				env.setValue(entry.getValue().toString());
 
-        Properties prop = new Properties();
-        prop.load(input);
+				returnList.add(env);
 
-        Set<Entry<Object,Object>> set = prop.entrySet() ;
-        
-        for(Entry<Object,Object> entry:set) {          	
-        	EnviromentVariables env =obj.createEnviromentVariables();
-        	env.setName(entry.getKey().toString());
-        	env.setValue(entry.getValue().toString());
-        	
-        	returnList.add(env);
-         }
-        
-        
-        return returnList;
+			}
+			return returnList;
+
+		} catch (FileNotFoundException e) {
+			System.out.println(fileName + "does not exists.");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return returnList;
+
 	}
-	
-
 
 	/**
 	 * This method checks for variables and replace them with correct.
-	 * @return 
+	 * 
+	 * @return
 	 */
-	  public String replaceVariables(String input){
-		  java.util.Random random = new  java.util.Random();
-		  
-		  
-		  if(input.contains("$randomPW")){
-	       	return input.replace("$randomPW",randomPassword(20));
-	      }
-	        return input;
-	   }
-	  /**
-	   * Generates a random password with 20 characters.
-	   * @return
-	   */
-	  private String randomPassword(int passwordLength){
+	public String replaceVariables(String input) {
+		java.util.Random random = new java.util.Random();
 
-	        String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-	        
-	        java.util.Random random = new  java.util.Random();
+		if (input.contains("$randomPW")) {
+			return input.replace("$randomPW", randomPassword(20));
+		}
+		return input;
+	}
 
-	        StringBuilder sb = new StringBuilder();
+	/**
+	 * Generates a random password with 20 characters.
+	 * 
+	 * @return
+	 */
+	private String randomPassword(int passwordLength) {
 
-	        for (int i = 0; i < passwordLength; i++)
-	        {
-	            int randomIndex = random.nextInt(chars.length());
-	            sb.append(chars.charAt(randomIndex));
-	        }
+		String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
-	        // random password should always have quotes.
-	        return sb.toString();
-	    } 
+		java.util.Random random = new java.util.Random();
+
+		StringBuilder sb = new StringBuilder();
+
+		for (int i = 0; i < passwordLength; i++) {
+			int randomIndex = random.nextInt(chars.length());
+			sb.append(chars.charAt(randomIndex));
+		}
+
+		// random password should always have quotes.
+		return sb.toString();
+	}
 }

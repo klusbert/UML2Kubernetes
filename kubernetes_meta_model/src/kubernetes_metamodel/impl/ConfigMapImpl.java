@@ -115,7 +115,7 @@ public class ConfigMapImpl extends MinimalEObjectImpl.Container implements Confi
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String FILE_NAME_EDEFAULT = "\"\"";
+	protected static final String FILE_NAME_EDEFAULT = "";
 
 	/**
 	 * The cached value of the '{@link #getFileName() <em>File Name</em>}' attribute.

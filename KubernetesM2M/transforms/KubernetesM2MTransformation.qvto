@@ -97,6 +97,9 @@ mapping UML::Artifact::artifactToConfigMap() : KuberntesMetaModel::ConfigMap
 	var secret := self.getSecret();
 	var isSecret := secret <> null;
 	var data := self.getValue(configMap, "data");
+	if(self.fileName.length() > 0){
+		result.fileName := self.fileName;
+	};
 	
 	if(isSecret){
 		data := self.getValue(secret,"data");

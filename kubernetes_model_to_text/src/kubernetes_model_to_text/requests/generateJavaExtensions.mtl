@@ -1,7 +1,6 @@
 [comment encoding = UTF-8 /]
 [module generateJavaExtensions('http://www.example.org/kubernetesModel')]
 
-
 [query public padZeros(arg0 : Integer) : String
 	= invoke('kubernetes_model_to_text.main.JavaExtensions',
 	  'padZeros(java.lang.Integer)', Sequence{arg0})/]
@@ -14,6 +13,8 @@
 	= invoke('kubernetes_model_to_text.main.JavaExtensions',
 	  'replaceVariables(java.lang.String)', Sequence{arg0})/]
 
-[query public getEnVarsFromDisk(arg0 : String) : Set(EnviromentVariables)
-	= invoke('kubernetes_model_to_text.main.JavaExtensions',
-	  'getEnVarsFromDisk(java.lang.String)', Sequence{arg0})/]
+
+
+[query public getEnVarsFromDisk(arg0 : String) : Set(EnviromentVariables) 
+= invoke('kubernetes_model_to_text.main.JavaExtensions', 
+	'getEnVarsFromDisk(java.lang.String)', Sequence{arg0})/]
