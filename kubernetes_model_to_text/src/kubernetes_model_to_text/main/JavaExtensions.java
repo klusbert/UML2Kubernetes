@@ -5,8 +5,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Properties;
 import java.util.Set;
@@ -14,6 +16,7 @@ import kubernetes_metamodel.EnviromentVariables;
 
 import kubernetes_metamodel.Kubernetes_metamodelFactory;
 import kubernetes_metamodel.impl.EnviromentVariablesImpl;
+
 
 public class JavaExtensions {
 
@@ -41,10 +44,10 @@ public class JavaExtensions {
 
 
 
-	public List<EnviromentVariables> getEnVarsFromDisk(String fileName) {
+	public Set<String> getEnVarsFromDisk(String fileName) {
 		Kubernetes_metamodelFactory obj = Kubernetes_metamodelFactory.eINSTANCE;
 		List<EnviromentVariables> returnList = new ArrayList<EnviromentVariables>();
-		
+		Set<String> hash_Set = new HashSet<String>();
 		
 		try {
 			InputStream input = new FileInputStream(fileName);
@@ -52,24 +55,27 @@ public class JavaExtensions {
 			prop.load(input);
 			Set<Entry<Object, Object>> set = prop.entrySet();
 
+		
 			
 			for (Entry<Object, Object> entry : set) {
 				EnviromentVariables env = obj.createEnviromentVariables();				
-			
+				
 				env.setName(entry.getKey().toString());
 				env.setValue(entry.getValue().toString());
 
 				returnList.add(env);
+				
+				hash_Set.add(entry.getKey() +": " + entry.getValue());
 
 			}
-			return returnList;
+			return hash_Set;
 
 		} catch (FileNotFoundException e) {
 			System.out.println(fileName + "does not exists.");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return returnList;
+		return null;
 
 	}
 

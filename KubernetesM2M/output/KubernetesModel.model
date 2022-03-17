@@ -22,9 +22,9 @@
   </kubernetes_metamodel:Deployment>
   <kubernetes_metamodel:PersistentData mountPath="/data/db" sizeInGB="3"/>
   <kubernetes_metamodel:Deployment image="mongo-express" port="8081" replicas="1" name="mongoExpress" namespace="UML" id="7">
+    <enviromentVariables name="ME_CONFIG_MONGODB_URL" value="mongodb://root:password@mongo.uml.svc.cluster.local:27017/"/>
     <enviromentVariables name="ME_CONFIG_MONGODB_ADMINUSERNAME" value="root"/>
     <enviromentVariables name="ME_CONFIG_MONGODB_ADMINPASSWORD" value="password"/>
-    <enviromentVariables name="ME_CONFIG_MONGODB_URL" value="mongodb://root:password@mongo.uml.svc.cluster.local:27017/"/>
     <service port="80" publicAccess="true" name="mongoExpress" accessibilityType="LoadBalancer"/>
   </kubernetes_metamodel:Deployment>
   <kubernetes_metamodel:Deployment image="mysql" port="3306" replicas="1" name="mysql" dataPersistent="/15" namespace="UML" id="8" configMapDependencies="/20 /24">
@@ -32,8 +32,8 @@
   </kubernetes_metamodel:Deployment>
   <kubernetes_metamodel:PersistentData mountPath="/var/lib/mysql" sizeInGB="2"/>
   <kubernetes_metamodel:ConfigMapDependency configMapName="config-map" dependency="/17 /18 /19"/>
-  <kubernetes_metamodel:Dependency envName="WORDPRESS_DB_USER" keyName="WORDPRESS_DB_USER"/>
   <kubernetes_metamodel:Dependency envName="WORDPRESS_DB_NAME" keyName="WORDPRESS_DB_NAME"/>
+  <kubernetes_metamodel:Dependency envName="WORDPRESS_DB_USER" keyName="WORDPRESS_DB_USER"/>
   <kubernetes_metamodel:Dependency envName="WORDPRESS_DB_HOST" keyName="PMA_HOST"/>
   <kubernetes_metamodel:ConfigMapDependency configMapName="config-map" dependency="/21"/>
   <kubernetes_metamodel:Dependency envName="MYSQL_DATABASE" keyName="WORDPRESS_DB_NAME"/>
