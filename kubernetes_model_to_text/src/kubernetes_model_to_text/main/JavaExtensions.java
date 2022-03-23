@@ -1,9 +1,15 @@
 package kubernetes_model_to_text.main;
 
+import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -11,25 +17,23 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Properties;
+import java.util.Random;
 import java.util.Set;
 import kubernetes_metamodel.EnviromentVariables;
 
 import kubernetes_metamodel.Kubernetes_metamodelFactory;
 import kubernetes_metamodel.impl.EnviromentVariablesImpl;
 
-
 public class JavaExtensions {
-
-	public static Integer counter = 0;
 
 	public String padZeros(Integer i) {
 
-		return String.format("%02d", i + counter);
+		return String.format("%02d", i);
 	}
 
-	public String formatVariables(String input) {
+	public String formatVariables(String input, String nameSpace) {
 
-		String value = replaceVariables(input);
+		String value = replaceVariables(input, nameSpace);
 
 		try {
 			// try if it fails if it does not, we have to format it so kubernetes can read
@@ -42,30 +46,26 @@ public class JavaExtensions {
 		}
 	}
 
-
-
 	public Set<String> getEnVarsFromDisk(String fileName) {
 		Kubernetes_metamodelFactory obj = Kubernetes_metamodelFactory.eINSTANCE;
 		List<EnviromentVariables> returnList = new ArrayList<EnviromentVariables>();
 		Set<String> hash_Set = new HashSet<String>();
-		
+
 		try {
 			InputStream input = new FileInputStream(fileName);
 			Properties prop = new Properties();
 			prop.load(input);
 			Set<Entry<Object, Object>> set = prop.entrySet();
 
-		
-			
 			for (Entry<Object, Object> entry : set) {
-				EnviromentVariables env = obj.createEnviromentVariables();				
-				
+				EnviromentVariables env = obj.createEnviromentVariables();
+
 				env.setName(entry.getKey().toString());
 				env.setValue(entry.getValue().toString());
 
 				returnList.add(env);
-				
-				hash_Set.add(entry.getKey() +": " + entry.getValue());
+
+				hash_Set.add(entry.getKey() + ": " + entry.getValue());
 
 			}
 			return hash_Set;
@@ -79,17 +79,43 @@ public class JavaExtensions {
 
 	}
 
+	public List<String> readDumpFile(String fileName) {
+
+		File file = new File(fileName);
+		List<String> lines = new ArrayList<>();
+		FileReader fr = null; // reads the file
+		try {
+			fr = new FileReader(file);
+
+			BufferedReader br = new BufferedReader(fr); // creates a buffering character input stream
+			StringBuffer sb = new StringBuffer(); // constructs a string buffer with no characters
+			String line;
+			while ((line = br.readLine()) != null) {
+				lines.add(line);
+			}
+
+			fr.close(); // closes the stream and release the resources
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return lines;
+	}
+
 	/**
 	 * This method checks for variables and replace them with correct.
 	 * 
 	 * @return
 	 */
-	public String replaceVariables(String input) {
-		java.util.Random random = new java.util.Random();
+	public String replaceVariables(String input, String nameSpace) {
 
-		if (input.contains("$randomPW")) {
+		if (input.toLowerCase().contains("$randompw")) {
 			return input.replace("$randomPW", randomPassword(20));
+		} else if (input.contains("$dns")) {
+			return input.replace("$dns", nameSpace.toLowerCase() + ".svc.cluster.local");
 		}
+
 		return input;
 	}
 

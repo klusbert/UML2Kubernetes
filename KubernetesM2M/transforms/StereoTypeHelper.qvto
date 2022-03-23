@@ -19,6 +19,10 @@ helper UML::Artifact::getConfigMap() : UML::Stereotype {
 helper UML::Artifact::getSecret() : UML::Stereotype {
 	return self.getAppliedStereoType("KubernetesUMLProfile::Secrets"); 	
 }
+helper UML::Artifact::getMysqlDump() : UML::Stereotype {
+	return self.getAppliedStereoType("KubernetesUMLProfile::MySqlDump"); 	
+}
+
 
 helper UML::Dependency::getConfigMapDependency() : UML::Stereotype {
 	return self.getAppliedStereoType("KubernetesUMLProfile::ConfigMapDependency"); 	

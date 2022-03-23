@@ -86,42 +86,27 @@ mapping UML::Dependency::dependencyToConfigMapDependency() : KuberntesMetaModel:
 mapping UML::Artifact::artifactToConfigMap() : KuberntesMetaModel::ConfigMap 
 	when {
 		//safeguard
-		self.getConfigMap() <> null or self.getSecret() <> null;
+		self.getConfigMap() <> null or self.getSecret() <> null or self.getMysqlDump() <> null;
 	}{
-	
-	// try to do it here.
-	log(self.fileName);
-	var containerInfra := resolveoneIn(UML::NamedElement::deployment2infra);
 	
 	var configMap := self.getConfigMap();
 	var secret := self.getSecret();
-	var isSecret := secret <> null;
-	var data := self.getValue(configMap, "data");
-	if(self.fileName.length() > 0){
-		result.fileName := self.fileName;
+	var mysqlDump := self.getMysqlDump();
+	var containerInfra := resolveoneIn(UML::NamedElement::deployment2infra);
+	
+	if(configMap <> null){
+		self.artifactToConfigMap(result,configMap);
+	};
+	if( secret <> null){
+		self.artifactToConfigMap(result,secret);
+		result.isSecret := true;
+	};
+	if( mysqlDump<> null){
+		self.artifactToMySqlDump(result, mysqlDump);
+		result.isDump := true; // dumps are ussally long pipe the text
 	};
 	
-	if(isSecret){
-		data := self.getValue(secret,"data");
-	};
-	
-	data->flatten()->asSequence()->forEach(variable){	
-		var name := variable.oclAsType(kuberProfile::DataTypes::EnviromentVariables).name;
-	    var value := variable.oclAsType(kuberProfile::DataTypes::EnviromentVariables).value;
-	    var newEnv = new EnviromentVariables();		    
 
-		 if(value.indexOf("$dns") > 0){	    
-	
-	       value := value.replace("$dns",containerInfra.namespace.toLower() +".svc.cluster.local");	    
-		   log(value);
-	    };
-	    newEnv.name := name;
-	    newEnv.value := value;
-	    
-	    result.data += newEnv;
-	};
-	result.isSecret := isSecret;
-	result.name := self.name;
 	containerInfra.objectsCount := containerInfra.objectsCount +1;
 	result.id := containerInfra.objectsCount;	
 	
@@ -258,15 +243,15 @@ mapping UML::Node::nodesToDeployment() : KuberntesMetaModel::Deployment
 	
 	result.namespace := containerInfra.namespace;
 	if(deploymentStereotype <> null ){		
-		self.deploymentToDeployment(result, deploymentStereotype,containerInfra.namespace);
+		self.deploymentToDeployment(result, deploymentStereotype,containerInfra);
 	};
 	if(mysqlStereotype <> null){
-		self.mysqlToDeployment(result, mysqlStereotype);		
+		self.mysqlToDeployment(result, mysqlStereotype,containerInfra);		
 	};
 	if(mongoStereotype<> null){
 		self.mongoToDeployment(result, mongoStereotype);
 	};
-	result.name := self.name;
+	
 	
 	containerInfra.objectsCount := containerInfra.objectsCount +1;
 	result.id := containerInfra.objectsCount;

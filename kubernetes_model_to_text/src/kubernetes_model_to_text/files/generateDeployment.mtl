@@ -25,11 +25,18 @@ spec:
       labels:
         app: [deployment.name.toLowerCase() /]
     spec:
-	 [if (deployment.dataPersistent->notEmpty())]
+[comment volumes/]
+	 [if (deployment.volumes->notEmpty())]
       volumes:
-       - name: [deployment.name.toLowerCase() +'-persistent-storage'/]
-         persistentVolumeClaim:
-           claimName: [deployment.name.toLowerCase() +'-pvc'/]
+		 [for (volume: Volume | deployment.volumes)]
+       - name: [volume.name/]
+         [volume.type/]:
+		 [if (volume.type.toString() = 'configMap')]
+           name: [volume.configMapName/]
+			[else]
+           claimName: [volume.claimName/]
+		 [/if]        
+		 [/for]
 	 [/if]
 [comment temp-volume/]
      [if (deployment.memoryMount.size() > 0)]
@@ -61,7 +68,7 @@ spec:
           env:
           [for (envar: EnviromentVariables | deployment.enviromentVariables)]
             - name: [envar.name /]
-              value: [formatVariables(envar.value) /]
+              value: [formatVariables(envar.value,anInfrastructure.namespace) /]
 		  [/for]
 	 [/if]
 [comment ConfigMapDependency/]
@@ -126,23 +133,12 @@ spec:
               name: temp-volume				  			
           [/if]
 [comment persistentVolume claim/]
-	 [if (deployment.dataPersistent->notEmpty())]        
+	 [if (deployment.volumeMounts->notEmpty())]
           volumeMounts:
-            - name: [deployment.name.toLowerCase() +'-persistent-storage'/]
-              mountPath: [deployment.dataPersistent.mountPath /]
-
----
-kind: PersistentVolumeClaim
-apiVersion: v1
-metadata:
-  name: [deployment.name.toLowerCase() +'-pvc'/]
-  namespace: [anInfrastructure.namespace.toLowerCase() /]
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: [deployment.dataPersistent.sizeInGB  +'Gi'/]
+          [for (vm: VolumeMount | deployment.volumeMounts)]
+            - name: [vm.name/]
+              mountPath: [vm.mountPath/]
+		  [/for]
 	 [/if]
 	[if (deployment.service->notEmpty())]	
 [if (deployment.service.publicAccess)]

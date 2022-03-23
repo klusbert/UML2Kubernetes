@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link kubernetes_metamodel.ConfigMap#getId <em>Id</em>}</li>
  *   <li>{@link kubernetes_metamodel.ConfigMap#getIsSecret <em>Is Secret</em>}</li>
  *   <li>{@link kubernetes_metamodel.ConfigMap#getFileName <em>File Name</em>}</li>
+ *   <li>{@link kubernetes_metamodel.ConfigMap#isPipeText <em>Pipe Text</em>}</li>
  * </ul>
  *
  * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getConfigMap()
@@ -127,5 +128,27 @@ public interface ConfigMap extends EObject {
 	 * @generated
 	 */
 	void setFileName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Pipe Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Pipe Text</em>' attribute.
+	 * @see #setPipeText(boolean)
+	 * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getConfigMap_PipeText()
+	 * @model
+	 * @generated
+	 */
+	boolean isPipeText();
+
+	/**
+	 * Sets the value of the '{@link kubernetes_metamodel.ConfigMap#isPipeText <em>Pipe Text</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Pipe Text</em>' attribute.
+	 * @see #isPipeText()
+	 * @generated
+	 */
+	void setPipeText(boolean value);
 
 } // ConfigMap

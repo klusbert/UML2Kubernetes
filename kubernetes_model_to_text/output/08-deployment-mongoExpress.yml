@@ -22,10 +22,10 @@ spec:
           env:
             - name: ME_CONFIG_MONGODB_URL
               value: mongodb://root:password@mongo.uml.svc.cluster.local:27017/
-            - name: ME_CONFIG_MONGODB_ADMINUSERNAME
-              value: root
             - name: ME_CONFIG_MONGODB_ADMINPASSWORD
               value: password
+            - name: ME_CONFIG_MONGODB_ADMINUSERNAME
+              value: root
 ---
 kind: Service
 apiVersion: v1

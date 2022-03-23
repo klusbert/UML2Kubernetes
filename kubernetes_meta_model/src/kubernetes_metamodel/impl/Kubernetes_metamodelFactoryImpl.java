@@ -71,6 +71,9 @@ public class Kubernetes_metamodelFactoryImpl extends EFactoryImpl implements Kub
 			case Kubernetes_metamodelPackage.CONFIG_MAP: return createConfigMap();
 			case Kubernetes_metamodelPackage.CONFIG_MAP_DEPENDENCY: return createConfigMapDependency();
 			case Kubernetes_metamodelPackage.DEPENDENCY: return createDependency();
+			case Kubernetes_metamodelPackage.VOLUME: return createVolume();
+			case Kubernetes_metamodelPackage.VOLUME_MOUNT: return createVolumeMount();
+			case Kubernetes_metamodelPackage.PERSISTENT_VOLUME_CLAIM: return createPersistentVolumeClaim();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -88,6 +91,8 @@ public class Kubernetes_metamodelFactoryImpl extends EFactoryImpl implements Kub
 				return createAccessibilityTypeFromString(eDataType, initialValue);
 			case Kubernetes_metamodelPackage.PROTOCOL:
 				return createProtocolFromString(eDataType, initialValue);
+			case Kubernetes_metamodelPackage.VOLUME_TYPE:
+				return createVolumeTypeFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -105,6 +110,8 @@ public class Kubernetes_metamodelFactoryImpl extends EFactoryImpl implements Kub
 				return convertAccessibilityTypeToString(eDataType, instanceValue);
 			case Kubernetes_metamodelPackage.PROTOCOL:
 				return convertProtocolToString(eDataType, instanceValue);
+			case Kubernetes_metamodelPackage.VOLUME_TYPE:
+				return convertVolumeTypeToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -255,6 +262,36 @@ public class Kubernetes_metamodelFactoryImpl extends EFactoryImpl implements Kub
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Volume createVolume() {
+		VolumeImpl volume = new VolumeImpl();
+		return volume;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public VolumeMount createVolumeMount() {
+		VolumeMountImpl volumeMount = new VolumeMountImpl();
+		return volumeMount;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PersistentVolumeClaim createPersistentVolumeClaim() {
+		PersistentVolumeClaimImpl persistentVolumeClaim = new PersistentVolumeClaimImpl();
+		return persistentVolumeClaim;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public AccessibilityType createAccessibilityTypeFromString(EDataType eDataType, String initialValue) {
 		AccessibilityType result = AccessibilityType.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -287,6 +324,26 @@ public class Kubernetes_metamodelFactoryImpl extends EFactoryImpl implements Kub
 	 * @generated
 	 */
 	public String convertProtocolToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public VolumeType createVolumeTypeFromString(EDataType eDataType, String initialValue) {
+		VolumeType result = VolumeType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertVolumeTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

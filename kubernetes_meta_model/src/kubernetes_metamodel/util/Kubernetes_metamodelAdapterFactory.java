@@ -124,6 +124,18 @@ public class Kubernetes_metamodelAdapterFactory extends AdapterFactoryImpl {
 				return createDependencyAdapter();
 			}
 			@Override
+			public Adapter caseVolume(Volume object) {
+				return createVolumeAdapter();
+			}
+			@Override
+			public Adapter caseVolumeMount(VolumeMount object) {
+				return createVolumeMountAdapter();
+			}
+			@Override
+			public Adapter casePersistentVolumeClaim(PersistentVolumeClaim object) {
+				return createPersistentVolumeClaimAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -336,6 +348,48 @@ public class Kubernetes_metamodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDependencyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link kubernetes_metamodel.Volume <em>Volume</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see kubernetes_metamodel.Volume
+	 * @generated
+	 */
+	public Adapter createVolumeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link kubernetes_metamodel.VolumeMount <em>Volume Mount</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see kubernetes_metamodel.VolumeMount
+	 * @generated
+	 */
+	public Adapter createVolumeMountAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link kubernetes_metamodel.PersistentVolumeClaim <em>Persistent Volume Claim</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see kubernetes_metamodel.PersistentVolumeClaim
+	 * @generated
+	 */
+	public Adapter createPersistentVolumeClaimAdapter() {
 		return null;
 	}
 

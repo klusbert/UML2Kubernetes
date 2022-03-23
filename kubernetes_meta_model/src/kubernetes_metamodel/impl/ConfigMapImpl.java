@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link kubernetes_metamodel.impl.ConfigMapImpl#getId <em>Id</em>}</li>
  *   <li>{@link kubernetes_metamodel.impl.ConfigMapImpl#getIsSecret <em>Is Secret</em>}</li>
  *   <li>{@link kubernetes_metamodel.impl.ConfigMapImpl#getFileName <em>File Name</em>}</li>
+ *   <li>{@link kubernetes_metamodel.impl.ConfigMapImpl#isPipeText <em>Pipe Text</em>}</li>
  * </ul>
  *
  * @generated
@@ -126,6 +127,26 @@ public class ConfigMapImpl extends MinimalEObjectImpl.Container implements Confi
 	 * @ordered
 	 */
 	protected String fileName = FILE_NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isPipeText() <em>Pipe Text</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPipeText()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean PIPE_TEXT_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isPipeText() <em>Pipe Text</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPipeText()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean pipeText = PIPE_TEXT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -247,6 +268,27 @@ public class ConfigMapImpl extends MinimalEObjectImpl.Container implements Confi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isPipeText() {
+		return pipeText;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPipeText(boolean newPipeText) {
+		boolean oldPipeText = pipeText;
+		pipeText = newPipeText;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, Kubernetes_metamodelPackage.CONFIG_MAP__PIPE_TEXT, oldPipeText, pipeText));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -260,6 +302,8 @@ public class ConfigMapImpl extends MinimalEObjectImpl.Container implements Confi
 				return getIsSecret();
 			case Kubernetes_metamodelPackage.CONFIG_MAP__FILE_NAME:
 				return getFileName();
+			case Kubernetes_metamodelPackage.CONFIG_MAP__PIPE_TEXT:
+				return isPipeText();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -289,6 +333,9 @@ public class ConfigMapImpl extends MinimalEObjectImpl.Container implements Confi
 			case Kubernetes_metamodelPackage.CONFIG_MAP__FILE_NAME:
 				setFileName((String)newValue);
 				return;
+			case Kubernetes_metamodelPackage.CONFIG_MAP__PIPE_TEXT:
+				setPipeText((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -316,6 +363,9 @@ public class ConfigMapImpl extends MinimalEObjectImpl.Container implements Confi
 			case Kubernetes_metamodelPackage.CONFIG_MAP__FILE_NAME:
 				setFileName(FILE_NAME_EDEFAULT);
 				return;
+			case Kubernetes_metamodelPackage.CONFIG_MAP__PIPE_TEXT:
+				setPipeText(PIPE_TEXT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -338,6 +388,8 @@ public class ConfigMapImpl extends MinimalEObjectImpl.Container implements Confi
 				return IS_SECRET_EDEFAULT == null ? isSecret != null : !IS_SECRET_EDEFAULT.equals(isSecret);
 			case Kubernetes_metamodelPackage.CONFIG_MAP__FILE_NAME:
 				return FILE_NAME_EDEFAULT == null ? fileName != null : !FILE_NAME_EDEFAULT.equals(fileName);
+			case Kubernetes_metamodelPackage.CONFIG_MAP__PIPE_TEXT:
+				return pipeText != PIPE_TEXT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -360,6 +412,8 @@ public class ConfigMapImpl extends MinimalEObjectImpl.Container implements Confi
 		result.append(isSecret);
 		result.append(", fileName: ");
 		result.append(fileName);
+		result.append(", pipeText: ");
+		result.append(pipeText);
 		result.append(')');
 		return result.toString();
 	}
