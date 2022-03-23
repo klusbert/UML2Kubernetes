@@ -8,9 +8,32 @@ modeltype kuberProfile uses 'http://kubernetesProfile';
 
 
 
-helper UML::Artifact::artifactToConfigMap(inout deployment: KuberntesMetaModel::ConfigMap, in configMapStereotype : UML::Stereotype) : ConfigMap {
+helper UML::Artifact::artifactToConfigMap(inout configMap: KuberntesMetaModel::ConfigMap, in configMapStereotype : UML::Stereotype) : ConfigMap {
 	
+	var data := self.getValue(configMapStereotype, "data");
+	if(self.fileName.length() > 0){
+		configMap.fileName := self.fileName;
+	};
+	var isSecret := configMapStereotype.oclIsTypeOf(KubernetesUMLProfile::Secrets);
+	data->flatten()->asSequence()->forEach(variable){	
+		var name := variable.oclAsType(kuberProfile::DataTypes::EnviromentVariables).name;
+	    var value := variable.oclAsType(kuberProfile::DataTypes::EnviromentVariables).value;
+	    var newEnv = new EnviromentVariables();		    
+
+	    newEnv.name := name;
+	    newEnv.value := value;
+	    
+	    configMap.data += newEnv;
+	};
+	configMap.name := self.name;
 	
-	
-	return null;
+	return configMap;
+}
+
+helper UML::Artifact::artifactToMySqlDump(inout configMap: KuberntesMetaModel::ConfigMap, in mysqlStereoType : UML::Stereotype) : ConfigMap {
+	if(self.fileName.length() > 0){
+		configMap.fileName := self.fileName;
+	};
+	configMap.name := self.name;
+	return configMap;
 }

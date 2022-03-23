@@ -16,6 +16,10 @@
       <genEnumLiterals ecoreEnumLiteral="kubernetes_metamodel.ecore#//Protocol/UDP"/>
       <genEnumLiterals ecoreEnumLiteral="kubernetes_metamodel.ecore#//Protocol/HTTP"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="kubernetes_metamodel.ecore#//VolumeType">
+      <genEnumLiterals ecoreEnumLiteral="kubernetes_metamodel.ecore#//VolumeType/persistentVolumeClaim"/>
+      <genEnumLiterals ecoreEnumLiteral="kubernetes_metamodel.ecore#//VolumeType/configMap"/>
+    </genEnums>
     <genClasses ecoreClass="kubernetes_metamodel.ecore#//Infrastructure">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//Infrastructure/namespace"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//Infrastructure/apiVersion"/>
@@ -43,6 +47,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference kubernetes_metamodel.ecore#//Deployment/additionalPorts"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//Deployment/id"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kubernetes_metamodel.ecore#//Deployment/configMapDependencies"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kubernetes_metamodel.ecore#//Deployment/volumes"/>
     </genClasses>
     <genClasses ecoreClass="kubernetes_metamodel.ecore#//EnviromentVariables">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//EnviromentVariables/name"/>
@@ -96,6 +101,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//ConfigMap/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//ConfigMap/isSecret"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//ConfigMap/fileName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//ConfigMap/pipeText"/>
     </genClasses>
     <genClasses ecoreClass="kubernetes_metamodel.ecore#//ConfigMapDependency">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//ConfigMapDependency/configMapName"/>
@@ -105,6 +111,12 @@
     <genClasses ecoreClass="kubernetes_metamodel.ecore#//Dependency">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//Dependency/envName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//Dependency/keyName"/>
+    </genClasses>
+    <genClasses ecoreClass="kubernetes_metamodel.ecore#//Volumes">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//Volumes/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//Volumes/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//Volumes/claimName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//Volumes/configMapName"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -16,7 +16,7 @@ metadata:
   namespace: [anInfrastructure.namespace.toLowerCase()/]
 stringData:
  [for (envar: EnviromentVariables | configMap.data)]
-  [envar.name/]: [replaceVariables(envar.value)/]
+  [envar.name/]: [replaceVariables(envar.value, anInfrastructure.namespace)/]
  [/for]
 [if (configMap.fileName.replaceAll('"', '').size() > 0)]	
 	[for (o: String | getEnVarsFromDisk(configMap.fileName))]
@@ -32,7 +32,7 @@ metadata:
   namespace: [anInfrastructure.namespace.toLowerCase()/]
 data:
  [for (envar: EnviromentVariables | configMap.data)]
-  [envar.name/]: [replaceVariables(envar.value)/]
+  [envar.name/]: [replaceVariables(envar.value,anInfrastructure.namespace)/]
  [/for]
 [/if]
 [comment if filePaht exist return a list of envira/]

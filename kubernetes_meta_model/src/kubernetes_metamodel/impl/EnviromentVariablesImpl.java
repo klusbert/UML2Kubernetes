@@ -72,7 +72,7 @@ public class EnviromentVariablesImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EnviromentVariablesImpl() {
+	protected EnviromentVariablesImpl() {
 		super();
 	}
 

@@ -5,13 +5,13 @@
 	= invoke('kubernetes_model_to_text.main.JavaExtensions',
 	  'padZeros(java.lang.Integer)', Sequence{arg0})/]
 
-[query public formatVariables(arg0 : String) : String
+[query public formatVariables(arg0 : String, arg1 : String) : String
 	= invoke('kubernetes_model_to_text.main.JavaExtensions',
-	  'formatVariables(java.lang.String)', Sequence{arg0})/]
+	  'formatVariables(java.lang.String, java.lang.String)', Sequence{arg0,arg1})/]
 
-[query public replaceVariables(arg0 : String) : String
+[query public replaceVariables(arg0 : String, arg1 : String) : String
 	= invoke('kubernetes_model_to_text.main.JavaExtensions',
-	  'replaceVariables(java.lang.String)', Sequence{arg0})/]
+	  'replaceVariables(java.lang.String, java.lang.String)', Sequence{arg0,arg1})/]
 
 
 

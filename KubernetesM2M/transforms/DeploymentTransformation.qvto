@@ -57,13 +57,13 @@ helper UML::Node::mongoToDeployment(inout deployment : KuberntesMetaModel::Deplo
 }
 
 
-helper UML::Node::deploymentToDeployment(inout deployment: KuberntesMetaModel::Deployment, in deploymentStereoType : UML::Stereotype, in namespace : String){
+helper UML::Node::deploymentToDeployment(inout deployment: KuberntesMetaModel::Deployment, in deploymentStereoType : UML::Stereotype){
 	    deployment.image := self.getString(deploymentStereoType,"image");
 	    deployment.port := self.getInteger(deploymentStereoType,"port");
 	    deployment.replicas := self.getInteger(deploymentStereoType,"replicas");
 	    
 	    deployment.dataPersistent := self.getDataPersistent(deploymentStereoType);
-	    deployment.enviromentVariables += self.getEnviromentVariables(deploymentStereoType, namespace);	  	  	
+	    deployment.enviromentVariables += self.getEnviromentVariables(deploymentStereoType);	  	  	
 	  
 	  	if(deploymentStereoType.name = "AdvancedDeployment"){	  	
 	  		deployment.securityContext := self.getSecurityContext(deploymentStereoType);
@@ -182,7 +182,7 @@ helper UML::Node::getResourceAllocation(in deploymentStereoType : UML::Stereotyp
 
 	return null;
 }
-helper UML::Node::getEnviromentVariables(in deploymentStereoType : UML::Stereotype, in namespace :String) : OrderedSet(EnviromentVariables){
+helper UML::Node::getEnviromentVariables(in deploymentStereoType : UML::Stereotype) : OrderedSet(EnviromentVariables){
 
 	var environmentVariables :=	self.getValue(deploymentStereoType,"environmentVariables"); //.oclAsType(KuberProfile2::EnviromentVariables);
 	var nodeEnviromentVars: Set(EnviromentVariables);
@@ -193,14 +193,8 @@ helper UML::Node::getEnviromentVariables(in deploymentStereoType : UML::Stereoty
 	    var name := variable.oclAsType(kuberProfile::DataTypes::EnviromentVariables).name;
 	    var value := variable.oclAsType(kuberProfile::DataTypes::EnviromentVariables).value;
 	    //log("found environment variable: name-value are:" + name.toString()+"-"+value.toString());
-	    var newEnv = new EnviromentVariables();	
-	  
-	    if(value.indexOf("$dns") > 0){	    
-	
-	       value := value.replace("$dns",namespace.toLower() +".svc.cluster.local");	    
-		   log(value);
-	    };
-	
+	    var newEnv = new EnviromentVariables();		  
+	  	
 		newEnv.name := name;
 	    newEnv.value := value;
 				

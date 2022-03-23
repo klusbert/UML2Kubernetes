@@ -61,7 +61,7 @@ spec:
           env:
           [for (envar: EnviromentVariables | deployment.enviromentVariables)]
             - name: [envar.name /]
-              value: [formatVariables(envar.value) /]
+              value: [formatVariables(envar.value,anInfrastructure.namespace) /]
 		  [/for]
 	 [/if]
 [comment ConfigMapDependency/]

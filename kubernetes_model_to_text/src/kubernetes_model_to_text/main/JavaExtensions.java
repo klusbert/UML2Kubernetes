@@ -11,12 +11,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Properties;
+import java.util.Random;
 import java.util.Set;
 import kubernetes_metamodel.EnviromentVariables;
 
 import kubernetes_metamodel.Kubernetes_metamodelFactory;
 import kubernetes_metamodel.impl.EnviromentVariablesImpl;
-
 
 public class JavaExtensions {
 
@@ -27,9 +27,9 @@ public class JavaExtensions {
 		return String.format("%02d", i + counter);
 	}
 
-	public String formatVariables(String input) {
+	public String formatVariables(String input, String nameSpace) {
 
-		String value = replaceVariables(input);
+		String value = replaceVariables(input, nameSpace);
 
 		try {
 			// try if it fails if it does not, we have to format it so kubernetes can read
@@ -42,30 +42,26 @@ public class JavaExtensions {
 		}
 	}
 
-
-
 	public Set<String> getEnVarsFromDisk(String fileName) {
 		Kubernetes_metamodelFactory obj = Kubernetes_metamodelFactory.eINSTANCE;
 		List<EnviromentVariables> returnList = new ArrayList<EnviromentVariables>();
 		Set<String> hash_Set = new HashSet<String>();
-		
+
 		try {
 			InputStream input = new FileInputStream(fileName);
 			Properties prop = new Properties();
 			prop.load(input);
 			Set<Entry<Object, Object>> set = prop.entrySet();
 
-		
-			
 			for (Entry<Object, Object> entry : set) {
-				EnviromentVariables env = obj.createEnviromentVariables();				
-				
+				EnviromentVariables env = obj.createEnviromentVariables();
+
 				env.setName(entry.getKey().toString());
 				env.setValue(entry.getValue().toString());
 
 				returnList.add(env);
-				
-				hash_Set.add(entry.getKey() +": " + entry.getValue());
+
+				hash_Set.add(entry.getKey() + ": " + entry.getValue());
 
 			}
 			return hash_Set;
@@ -84,12 +80,15 @@ public class JavaExtensions {
 	 * 
 	 * @return
 	 */
-	public String replaceVariables(String input) {
-		java.util.Random random = new java.util.Random();
-
-		if (input.contains("$randomPW")) {
+	public String replaceVariables(String input, String nameSpace) {
+			
+		if(input.toLowerCase().contains("$randompw")) {			
 			return input.replace("$randomPW", randomPassword(20));
+		} else if(input.contains("$dns")){
+			return input.replace("$dns", nameSpace.toLowerCase() +".svc.cluster.local");
 		}
+
+	
 		return input;
 	}
 
