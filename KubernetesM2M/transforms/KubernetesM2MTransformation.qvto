@@ -246,7 +246,7 @@ mapping UML::Node::nodesToDeployment() : KuberntesMetaModel::Deployment
 		self.deploymentToDeployment(result, deploymentStereotype,containerInfra);
 	};
 	if(mysqlStereotype <> null){
-		self.mysqlToDeployment(result, mysqlStereotype);		
+		self.mysqlToDeployment(result, mysqlStereotype,containerInfra);		
 	};
 	if(mongoStereotype<> null){
 		self.mongoToDeployment(result, mongoStereotype);

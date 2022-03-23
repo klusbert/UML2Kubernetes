@@ -1,9 +1,15 @@
 package kubernetes_model_to_text.main;
 
+import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -19,7 +25,6 @@ import kubernetes_metamodel.Kubernetes_metamodelFactory;
 import kubernetes_metamodel.impl.EnviromentVariablesImpl;
 
 public class JavaExtensions {
-
 
 	public String padZeros(Integer i) {
 
@@ -73,10 +78,29 @@ public class JavaExtensions {
 		return null;
 
 	}
-	public String readDumpFile(String fileName) {
-		
-		
-		return "asd";
+
+	public List<String> readDumpFile(String fileName) {
+
+		File file = new File(fileName);
+		List<String> lines = new ArrayList<>();
+		FileReader fr = null; // reads the file
+		try {
+			fr = new FileReader(file);
+
+			BufferedReader br = new BufferedReader(fr); // creates a buffering character input stream
+			StringBuffer sb = new StringBuffer(); // constructs a string buffer with no characters
+			String line;
+			while ((line = br.readLine()) != null) {
+				lines.add(line);
+			}
+
+			fr.close(); // closes the stream and release the resources
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return lines;
 	}
 
 	/**
@@ -85,14 +109,13 @@ public class JavaExtensions {
 	 * @return
 	 */
 	public String replaceVariables(String input, String nameSpace) {
-			
-		if(input.toLowerCase().contains("$randompw")) {			
+
+		if (input.toLowerCase().contains("$randompw")) {
 			return input.replace("$randomPW", randomPassword(20));
-		} else if(input.contains("$dns")){
-			return input.replace("$dns", nameSpace.toLowerCase() +".svc.cluster.local");
+		} else if (input.contains("$dns")) {
+			return input.replace("$dns", nameSpace.toLowerCase() + ".svc.cluster.local");
 		}
 
-	
 		return input;
 	}
 

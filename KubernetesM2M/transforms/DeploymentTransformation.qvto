@@ -11,49 +11,117 @@ modeltype kuberProfile uses 'http://kubernetesProfile';
 * Return a deployment that has standard attributes for mysql.
 **/
 
-helper UML::Node::mysqlToDeployment(inout deployment : KuberntesMetaModel::Deployment, in mysqlStereoType :UML::Stereotype )  {
+helper UML::Node::mysqlToDeployment(inout deployment : KuberntesMetaModel::Deployment, in mysqlStereoType :UML::Stereotype,inout infra : KuberntesMetaModel::Infrastructure )  {
+		deployment.name := self.name;
 		deployment.port := 3306;
 		deployment.replicas := 1;	
 		deployment.image := "mysql:"+self.getString(mysqlStereoType,"version");
-		var pvc := new PersistentData();
-		pvc.mountPath := "/var/lib/mysql";
-		pvc.sizeInGB := self.getInteger(mysqlStereoType,"storageSizeInGB");		
-		deployment.dataPersistent := pvc;
-		
-		var databaseNameEnv := new EnviromentVariables();
-		var rootPassword := new EnviromentVariables();
-		
-		databaseNameEnv.name :="MYSQL_DATABASE";
-		databaseNameEnv.value := self.getString(mysqlStereoType, "databaseName");		
-		
-		rootPassword.name :="MYSQL_ROOT_PASSWORD";
-		rootPassword.value := self.getString(mysqlStereoType, "rootPassword");		
+		var rootPassword := self.getValue(mysqlStereoType,"rootPassword").oclAsType(kuberProfile::DataTypes::RootPassword);
+		var dataBaseName := self.getValue(mysqlStereoType,"dataBase").oclAsType(kuberProfile::DataTypes::MySqlDatabase);
+		var mySqlDumpFile := self.getValue(mysqlStereoType,"mysqlDumpFile").oclAsType(kuberProfile::DataTypes::MySQLDumpfile);
 		
 		
-		deployment.enviromentVariables += databaseNameEnv;
-		deployment.enviromentVariables += rootPassword;
+		var pvc := new PersistentVolumeClaim();
+		var pvcName :=self.name + "-pvc";
+		pvc.size := self.getInteger(mysqlStereoType,"storageSizeInGB");	
+		pvc.name := pvcName;
+	 		
+		var volume := new Volume();
+		var volumeName := self.name + "-persistent-storage";
+		volume.name := volumeName;
+		volume.type := KuberntesMetaModel::VolumeType::persistentVolumeClaim;
+		volume.claimName := pvcName;
+	 		
+		var volumeMount := new VolumeMount();
+		volumeMount.name := volumeName;
+		volumeMount.mountPath := "/var/lib/mysql";	 		
+		deployment.volumes += volume;
+		deployment.volumeMounts += volumeMount;
+	 		
+	 	
+	 	if(rootPassword <> null){
+	 		var pw := new EnviromentVariables();
+	 		pw.name := "MYSQL_ROOT_PASSWORD";
+	 		pw.value := rootPassword.passsword;
+	 		deployment.enviromentVariables += pw;
+	 	};	
+	 	if(dataBaseName <> null){
+	 		var db := new EnviromentVariables();
+	 		db.name := "MYSQL_DATABASE";
+	 		db.value := dataBaseName.name;
+	 		deployment.enviromentVariables += db;
+	 	};	
+	 	if(mySqlDumpFile <> null){
+	 		log("anders");
+	 		var configMap := new ConfigMap();
+	 		var configMapName := self.name + "-sql-dump";
+	 		configMap.name := configMapName;
+	 		configMap.isDump := true;
+	 		configMap.fileName := mySqlDumpFile.filePath;
+	 		
+	 		
+	 		infra.objectsCount := infra.objectsCount +1;
+	 		configMap.id := infra.objectsCount;
+	 		infra.configMaps += configMap;
+	 		
+	 		var cVolume := new Volume();
+	 		var cVolumeName := "usermanagement-dbcreation-script";
+	 		cVolume.name :="usermanagement-dbcreation-script";
+	 		cVolume.type := KuberntesMetaModel::VolumeType::configMap;
+	 		cVolume.configMapName := configMapName;
+	 		
+	 		var cVolumeMount := new VolumeMount();
+	 		cVolumeMount.mountPath := "/docker-entrypoint-initdb.d";
+	 		cVolumeMount.name := cVolumeName;
+	 		deployment.volumeMounts += cVolumeMount;
+	 		deployment.volumes += cVolume;
+	 		
+	 	};
+		infra.objectsCount := infra.objectsCount +1;
+		pvc.id := infra.objectsCount;
+		infra.persistentVolumeClaims += pvc;	
+		
+		
+
 		
 }
 helper UML::Node::mongoToDeployment(inout deployment : KuberntesMetaModel::Deployment, in mongoStereotype :UML::Stereotype )  {
+	deployment.name := self.name;
 	deployment.port := 27017;
 	deployment.replicas := 1;
 	deployment.image := "mongo";
-	var pvc := new PersistentData();
-	pvc.mountPath := "/data/db";
-	pvc.sizeInGB := self.getInteger(mongoStereotype,"storageSizeInGB");		
-	deployment.dataPersistent := pvc;
+	var rootPassword := self.getValue(mongoStereotype,"rootPassword").oclAsType(kuberProfile::DataTypes::RootPassword);
+
+		
+	var pvc := new PersistentVolumeClaim();
+	var pvcName :=self.name + "-pvc";
+	pvc.size := self.getInteger(mongoStereotype,"storageSizeInGB");	
+	pvc.name := pvcName;
+	 		
+	var volume := new Volume();
+	var volumeName := self.name + "-persistent-storage";
+	volume.name := volumeName;
+	volume.type := KuberntesMetaModel::VolumeType::persistentVolumeClaim;
+	volume.claimName := pvcName;
+	 		
+	var volumeMount := new VolumeMount();
+	volumeMount.name := volumeName;
+	volumeMount.mountPath := "/data/db";	 		
+	deployment.volumes += volume;
+	deployment.volumeMounts += volumeMount;
+	 		
+	 	
+	 if(rootPassword <> null){
+	 	var pw := new EnviromentVariables();
+	 	var root := new EnviromentVariables();
+	 	root.name := "MONGO_INITDB_ROOT_USERNAME";
+	 	root.value := "root";
+	 	pw.name := "MONGO_INITDB_ROOT_PASSWORD";
+	 	pw.value := rootPassword.passsword;
+	 	deployment.enviromentVariables += pw;
+	 };	
+
 	
-	var rootUser := new EnviromentVariables();
-	rootUser.name :="MONGO_INITDB_ROOT_USERNAME";
-	rootUser.value := "root";	
-	
-	
-	var rootPassword := new EnviromentVariables();
-	rootPassword.name :="MONGO_INITDB_ROOT_PASSWORD";
-	rootPassword.value := self.getString(mongoStereotype, "rootPassword");		
-	
-	deployment.enviromentVariables += rootUser;
-	deployment.enviromentVariables += rootPassword;
 }
 
 

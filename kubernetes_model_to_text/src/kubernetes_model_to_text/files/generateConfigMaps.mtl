@@ -26,7 +26,6 @@ stringData:
   [o/]
 	[/for]
 [/if]
-	
 [else]
 ---
 apiVersion: v1
@@ -39,9 +38,11 @@ data:
   [envar.name/]: [replaceVariables(envar.value,anInfrastructure.namespace)/]
  [/for]
 [if (configMap.fileName.replaceAll('"', '').size() > 0)]	
-
 	[if (configMap.isDump)]
-[readDumpFile(configMap.fileName)/]	
+   mysql_usermgmt.sql: |-
+    [for (str : String | readDumpFile(configMap.fileName))]
+     [str/]
+	[/for]
 
     [/if]
 [/if]

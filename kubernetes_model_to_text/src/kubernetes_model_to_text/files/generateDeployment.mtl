@@ -31,7 +31,11 @@ spec:
 		 [for (volume: Volume | deployment.volumes)]
        - name: [volume.name/]
          [volume.type/]:
+		 [if (volume.type.toString() = 'configMap')]
+           name: [volume.configMapName/]
+			[else]
            claimName: [volume.claimName/]
+		 [/if]        
 		 [/for]
 	 [/if]
 [comment temp-volume/]
@@ -133,7 +137,7 @@ spec:
           volumeMounts:
           [for (vm: VolumeMount | deployment.volumeMounts)]
             - name: [vm.name/]
-              mountPath: [vm.mountPath/]			
+              mountPath: [vm.mountPath/]
 		  [/for]
 	 [/if]
 	[if (deployment.service->notEmpty())]	

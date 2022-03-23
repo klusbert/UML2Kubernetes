@@ -18,9 +18,12 @@ spec:
        - name: mysql-persistent-storage
          persistentVolumeClaim:
            claimName: mysql-pvc
+       - name: usermanagement-dbcreation-script
+         configMap:
+           name: mysql-sql-dump
       containers:
         - name: mysql
-          image: mysql
+          image: mysql:8.0.28
           ports:
             - containerPort: 3306
           env:
@@ -36,7 +39,9 @@ spec:
                   key: password
           volumeMounts:
             - name: mysql-persistent-storage
-              mountPath: /var/lib/mysql			
+              mountPath: /var/lib/mysql
+            - name: usermanagement-dbcreation-script
+              mountPath: /docker-entrypoint-initdb.d
 ---
 apiVersion: v1
 kind: Service
