@@ -148,6 +148,33 @@ public interface Kubernetes_metamodelFactory extends EFactory {
 	Dependency createDependency();
 
 	/**
+	 * Returns a new object of class '<em>Volume</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Volume</em>'.
+	 * @generated
+	 */
+	Volume createVolume();
+
+	/**
+	 * Returns a new object of class '<em>Volume Mount</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Volume Mount</em>'.
+	 * @generated
+	 */
+	VolumeMount createVolumeMount();
+
+	/**
+	 * Returns a new object of class '<em>Persistent Volume Claim</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Persistent Volume Claim</em>'.
+	 * @generated
+	 */
+	PersistentVolumeClaim createPersistentVolumeClaim();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

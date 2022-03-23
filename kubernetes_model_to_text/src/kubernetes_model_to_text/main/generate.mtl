@@ -4,6 +4,7 @@
 
 [import kubernetes_model_to_text::files::generateDeployment/]
 [import kubernetes_model_to_text::files::generateConfigMaps/]
+[import kubernetes_model_to_text::files::generatePVC/]
 
 
 [import kubernetes_model_to_text::requests::generateJavaExtensions/]
@@ -14,6 +15,7 @@
 
 [generateDeployment(anInfrastructure)/]
 [generateConfigMaps(anInfrastructure)/]
+[generatePVC(anInfrastructure)/]
 
 [comment @main/]
 [file ('00-namepsace.yml', false, 'UTF-8')]

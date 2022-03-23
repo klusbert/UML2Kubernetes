@@ -29,16 +29,16 @@ spec:
                 configMapKeyRef:
                   name: config-map
                   key: PMA_HOST
-            - name: WORDPRESS_DB_USER
-              valueFrom:
-                configMapKeyRef:
-                  name: config-map
-                  key: WORDPRESS_DB_USER
             - name: WORDPRESS_DB_NAME
               valueFrom:
                 configMapKeyRef:
                   name: config-map
                   key: WORDPRESS_DB_NAME
+            - name: WORDPRESS_DB_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: config-map
+                  key: WORDPRESS_DB_USER
             - name: WORDPRESS_DB_PASSWORD
               valueFrom:
                 secretKeyRef:
@@ -46,20 +46,7 @@ spec:
                   key: password
           volumeMounts:
             - name: wordpress-persistent-storage
-              mountPath: /var/www/html
-
----
-kind: PersistentVolumeClaim
-apiVersion: v1
-metadata:
-  name: wordpress-pvc
-  namespace: uml
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 5Gi
+              mountPath: /var/www/html			
 ---
 kind: Service
 apiVersion: v1

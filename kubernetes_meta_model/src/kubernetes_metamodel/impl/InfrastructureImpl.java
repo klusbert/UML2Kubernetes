@@ -9,6 +9,7 @@ import kubernetes_metamodel.ConfigMap;
 import kubernetes_metamodel.Deployment;
 import kubernetes_metamodel.Infrastructure;
 import kubernetes_metamodel.Kubernetes_metamodelPackage;
+import kubernetes_metamodel.PersistentVolumeClaim;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 
@@ -32,6 +33,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link kubernetes_metamodel.impl.InfrastructureImpl#getAccessibilityType <em>Accessibility Type</em>}</li>
  *   <li>{@link kubernetes_metamodel.impl.InfrastructureImpl#getConfigMaps <em>Config Maps</em>}</li>
  *   <li>{@link kubernetes_metamodel.impl.InfrastructureImpl#getObjectsCount <em>Objects Count</em>}</li>
+ *   <li>{@link kubernetes_metamodel.impl.InfrastructureImpl#getPersistentVolumeClaims <em>Persistent Volume Claims</em>}</li>
  * </ul>
  *
  * @generated
@@ -156,6 +158,16 @@ public class InfrastructureImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected int objectsCount = OBJECTS_COUNT_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getPersistentVolumeClaims() <em>Persistent Volume Claims</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPersistentVolumeClaims()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<PersistentVolumeClaim> persistentVolumeClaims;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -308,6 +320,18 @@ public class InfrastructureImpl extends MinimalEObjectImpl.Container implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<PersistentVolumeClaim> getPersistentVolumeClaims() {
+		if (persistentVolumeClaims == null) {
+			persistentVolumeClaims = new EObjectResolvingEList<PersistentVolumeClaim>(PersistentVolumeClaim.class, this, Kubernetes_metamodelPackage.INFRASTRUCTURE__PERSISTENT_VOLUME_CLAIMS);
+		}
+		return persistentVolumeClaims;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public String getRandomPassword() {
@@ -357,6 +381,8 @@ public class InfrastructureImpl extends MinimalEObjectImpl.Container implements 
 				return getConfigMaps();
 			case Kubernetes_metamodelPackage.INFRASTRUCTURE__OBJECTS_COUNT:
 				return getObjectsCount();
+			case Kubernetes_metamodelPackage.INFRASTRUCTURE__PERSISTENT_VOLUME_CLAIMS:
+				return getPersistentVolumeClaims();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -393,6 +419,10 @@ public class InfrastructureImpl extends MinimalEObjectImpl.Container implements 
 			case Kubernetes_metamodelPackage.INFRASTRUCTURE__OBJECTS_COUNT:
 				setObjectsCount((Integer)newValue);
 				return;
+			case Kubernetes_metamodelPackage.INFRASTRUCTURE__PERSISTENT_VOLUME_CLAIMS:
+				getPersistentVolumeClaims().clear();
+				getPersistentVolumeClaims().addAll((Collection<? extends PersistentVolumeClaim>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -426,6 +456,9 @@ public class InfrastructureImpl extends MinimalEObjectImpl.Container implements 
 			case Kubernetes_metamodelPackage.INFRASTRUCTURE__OBJECTS_COUNT:
 				setObjectsCount(OBJECTS_COUNT_EDEFAULT);
 				return;
+			case Kubernetes_metamodelPackage.INFRASTRUCTURE__PERSISTENT_VOLUME_CLAIMS:
+				getPersistentVolumeClaims().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -452,6 +485,8 @@ public class InfrastructureImpl extends MinimalEObjectImpl.Container implements 
 				return configMaps != null && !configMaps.isEmpty();
 			case Kubernetes_metamodelPackage.INFRASTRUCTURE__OBJECTS_COUNT:
 				return objectsCount != OBJECTS_COUNT_EDEFAULT;
+			case Kubernetes_metamodelPackage.INFRASTRUCTURE__PERSISTENT_VOLUME_CLAIMS:
+				return persistentVolumeClaims != null && !persistentVolumeClaims.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -20,11 +20,10 @@ import kubernetes_metamodel.impl.EnviromentVariablesImpl;
 
 public class JavaExtensions {
 
-	public static Integer counter = 0;
 
 	public String padZeros(Integer i) {
 
-		return String.format("%02d", i + counter);
+		return String.format("%02d", i);
 	}
 
 	public String formatVariables(String input, String nameSpace) {
@@ -73,6 +72,11 @@ public class JavaExtensions {
 		}
 		return null;
 
+	}
+	public String readDumpFile(String fileName) {
+		
+		
+		return "asd";
 	}
 
 	/**

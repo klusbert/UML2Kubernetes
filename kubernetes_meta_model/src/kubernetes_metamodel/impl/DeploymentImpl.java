@@ -15,6 +15,8 @@ import kubernetes_metamodel.ResourceAllocation;
 import kubernetes_metamodel.SecurityContext;
 import kubernetes_metamodel.Service;
 
+import kubernetes_metamodel.Volume;
+import kubernetes_metamodel.VolumeMount;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -56,6 +58,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link kubernetes_metamodel.impl.DeploymentImpl#getAdditionalPorts <em>Additional Ports</em>}</li>
  *   <li>{@link kubernetes_metamodel.impl.DeploymentImpl#getId <em>Id</em>}</li>
  *   <li>{@link kubernetes_metamodel.impl.DeploymentImpl#getConfigMapDependencies <em>Config Map Dependencies</em>}</li>
+ *   <li>{@link kubernetes_metamodel.impl.DeploymentImpl#getVolumes <em>Volumes</em>}</li>
+ *   <li>{@link kubernetes_metamodel.impl.DeploymentImpl#getVolumeMounts <em>Volume Mounts</em>}</li>
  * </ul>
  *
  * @generated
@@ -310,6 +314,26 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 	 * @ordered
 	 */
 	protected EList<ConfigMapDependency> configMapDependencies;
+
+	/**
+	 * The cached value of the '{@link #getVolumes() <em>Volumes</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVolumes()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Volume> volumes;
+
+	/**
+	 * The cached value of the '{@link #getVolumeMounts() <em>Volume Mounts</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVolumeMounts()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<VolumeMount> volumeMounts;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -746,6 +770,30 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Volume> getVolumes() {
+		if (volumes == null) {
+			volumes = new EObjectResolvingEList<Volume>(Volume.class, this, Kubernetes_metamodelPackage.DEPLOYMENT__VOLUMES);
+		}
+		return volumes;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<VolumeMount> getVolumeMounts() {
+		if (volumeMounts == null) {
+			volumeMounts = new EObjectResolvingEList<VolumeMount>(VolumeMount.class, this, Kubernetes_metamodelPackage.DEPLOYMENT__VOLUME_MOUNTS);
+		}
+		return volumeMounts;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -803,6 +851,10 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 				return getId();
 			case Kubernetes_metamodelPackage.DEPLOYMENT__CONFIG_MAP_DEPENDENCIES:
 				return getConfigMapDependencies();
+			case Kubernetes_metamodelPackage.DEPLOYMENT__VOLUMES:
+				return getVolumes();
+			case Kubernetes_metamodelPackage.DEPLOYMENT__VOLUME_MOUNTS:
+				return getVolumeMounts();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -871,6 +923,14 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 				getConfigMapDependencies().clear();
 				getConfigMapDependencies().addAll((Collection<? extends ConfigMapDependency>)newValue);
 				return;
+			case Kubernetes_metamodelPackage.DEPLOYMENT__VOLUMES:
+				getVolumes().clear();
+				getVolumes().addAll((Collection<? extends Volume>)newValue);
+				return;
+			case Kubernetes_metamodelPackage.DEPLOYMENT__VOLUME_MOUNTS:
+				getVolumeMounts().clear();
+				getVolumeMounts().addAll((Collection<? extends VolumeMount>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -934,6 +994,12 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 			case Kubernetes_metamodelPackage.DEPLOYMENT__CONFIG_MAP_DEPENDENCIES:
 				getConfigMapDependencies().clear();
 				return;
+			case Kubernetes_metamodelPackage.DEPLOYMENT__VOLUMES:
+				getVolumes().clear();
+				return;
+			case Kubernetes_metamodelPackage.DEPLOYMENT__VOLUME_MOUNTS:
+				getVolumeMounts().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -980,6 +1046,10 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 				return id != ID_EDEFAULT;
 			case Kubernetes_metamodelPackage.DEPLOYMENT__CONFIG_MAP_DEPENDENCIES:
 				return configMapDependencies != null && !configMapDependencies.isEmpty();
+			case Kubernetes_metamodelPackage.DEPLOYMENT__VOLUMES:
+				return volumes != null && !volumes.isEmpty();
+			case Kubernetes_metamodelPackage.DEPLOYMENT__VOLUME_MOUNTS:
+				return volumeMounts != null && !volumeMounts.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

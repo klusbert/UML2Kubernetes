@@ -18,3 +18,9 @@
 [query public getEnVarsFromDisk(arg0 : String) : Set(String)
 = invoke('kubernetes_model_to_text.main.JavaExtensions', 
 	'getEnVarsFromDisk(java.lang.String)', Sequence{arg0})/]
+
+
+[query public readDumpFile(arg0 : String) : Set(String)
+= invoke('kubernetes_model_to_text.main.JavaExtensions', 
+	'readDumpFile(java.lang.String)', Sequence{arg0})/]
+

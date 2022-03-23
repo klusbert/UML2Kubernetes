@@ -2,24 +2,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mongo
+  name: invalid
   namespace: uml
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mongo
+      app: invalid
   template:
     metadata:
       labels:
-        app: mongo
+        app: invalid
     spec:
-      volumes:
-       - name: mongo-persistent-storage
-         persistentVolumeClaim:
-           claimName: mongo-pvc
       containers:
-        - name: mongo
+        - name: invalid
           image: mongo
           ports:
             - containerPort: 27017
@@ -28,27 +24,11 @@ spec:
               value: root
             - name: MONGO_INITDB_ROOT_PASSWORD
               value: password
-          volumeMounts:
-            - name: mongo-persistent-storage
-              mountPath: /data/db
-
----
-kind: PersistentVolumeClaim
-apiVersion: v1
-metadata:
-  name: mongo-pvc
-  namespace: uml
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 3Gi
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: mongo
+  name: invalid
   namespace: uml
 spec:  
   ports:
@@ -56,4 +36,4 @@ spec:
       protocol: TCP
       targetPort: 27017
   selector:
-    app: mongo
+    app: invalid

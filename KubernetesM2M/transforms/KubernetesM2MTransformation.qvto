@@ -103,8 +103,9 @@ mapping UML::Artifact::artifactToConfigMap() : KuberntesMetaModel::ConfigMap
 	};
 	if( mysqlDump<> null){
 		self.artifactToMySqlDump(result, mysqlDump);
-		result.pipeText := true; // dumps are ussally long pipe the text
+		result.isDump := true; // dumps are ussally long pipe the text
 	};
+	
 
 	containerInfra.objectsCount := containerInfra.objectsCount +1;
 	result.id := containerInfra.objectsCount;	
@@ -242,7 +243,7 @@ mapping UML::Node::nodesToDeployment() : KuberntesMetaModel::Deployment
 	
 	result.namespace := containerInfra.namespace;
 	if(deploymentStereotype <> null ){		
-		self.deploymentToDeployment(result, deploymentStereotype);
+		self.deploymentToDeployment(result, deploymentStereotype,containerInfra);
 	};
 	if(mysqlStereotype <> null){
 		self.mysqlToDeployment(result, mysqlStereotype);		
@@ -250,7 +251,7 @@ mapping UML::Node::nodesToDeployment() : KuberntesMetaModel::Deployment
 	if(mongoStereotype<> null){
 		self.mongoToDeployment(result, mongoStereotype);
 	};
-	result.name := self.name;
+	
 	
 	containerInfra.objectsCount := containerInfra.objectsCount +1;
 	result.id := containerInfra.objectsCount;

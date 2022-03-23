@@ -131,13 +131,22 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	int INFRASTRUCTURE__OBJECTS_COUNT = 6;
 
 	/**
+	 * The feature id for the '<em><b>Persistent Volume Claims</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFRASTRUCTURE__PERSISTENT_VOLUME_CLAIMS = 7;
+
+	/**
 	 * The number of structural features of the '<em>Infrastructure</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INFRASTRUCTURE_FEATURE_COUNT = 7;
+	int INFRASTRUCTURE_FEATURE_COUNT = 8;
 
 	/**
 	 * The number of operations of the '<em>Infrastructure</em>' class.
@@ -312,13 +321,31 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	int DEPLOYMENT__CONFIG_MAP_DEPENDENCIES = 16;
 
 	/**
+	 * The feature id for the '<em><b>Volumes</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPLOYMENT__VOLUMES = 17;
+
+	/**
+	 * The feature id for the '<em><b>Volume Mounts</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPLOYMENT__VOLUME_MOUNTS = 18;
+
+	/**
 	 * The number of structural features of the '<em>Deployment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEPLOYMENT_FEATURE_COUNT = 17;
+	int DEPLOYMENT_FEATURE_COUNT = 19;
 
 	/**
 	 * The number of operations of the '<em>Deployment</em>' class.
@@ -889,13 +916,22 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	int CONFIG_MAP__FILE_NAME = 4;
 
 	/**
+	 * The feature id for the '<em><b>Pipe Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIG_MAP__PIPE_TEXT = 5;
+
+	/**
 	 * The number of structural features of the '<em>Config Map</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIG_MAP_FEATURE_COUNT = 5;
+	int CONFIG_MAP_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Config Map</em>' class.
@@ -1008,6 +1044,171 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	int DEPENDENCY_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link kubernetes_metamodel.impl.VolumeImpl <em>Volume</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see kubernetes_metamodel.impl.VolumeImpl
+	 * @see kubernetes_metamodel.impl.Kubernetes_metamodelPackageImpl#getVolume()
+	 * @generated
+	 */
+	int VOLUME = 14;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VOLUME__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VOLUME__TYPE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Claim Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VOLUME__CLAIM_NAME = 2;
+
+	/**
+	 * The feature id for the '<em><b>Config Map Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VOLUME__CONFIG_MAP_NAME = 3;
+
+	/**
+	 * The number of structural features of the '<em>Volume</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VOLUME_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of operations of the '<em>Volume</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VOLUME_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link kubernetes_metamodel.impl.VolumeMountImpl <em>Volume Mount</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see kubernetes_metamodel.impl.VolumeMountImpl
+	 * @see kubernetes_metamodel.impl.Kubernetes_metamodelPackageImpl#getVolumeMount()
+	 * @generated
+	 */
+	int VOLUME_MOUNT = 15;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VOLUME_MOUNT__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Mount Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VOLUME_MOUNT__MOUNT_PATH = 1;
+
+	/**
+	 * The number of structural features of the '<em>Volume Mount</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VOLUME_MOUNT_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Volume Mount</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VOLUME_MOUNT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link kubernetes_metamodel.impl.PersistentVolumeClaimImpl <em>Persistent Volume Claim</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see kubernetes_metamodel.impl.PersistentVolumeClaimImpl
+	 * @see kubernetes_metamodel.impl.Kubernetes_metamodelPackageImpl#getPersistentVolumeClaim()
+	 * @generated
+	 */
+	int PERSISTENT_VOLUME_CLAIM = 16;
+
+	/**
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSISTENT_VOLUME_CLAIM__SIZE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSISTENT_VOLUME_CLAIM__NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSISTENT_VOLUME_CLAIM__ID = 2;
+
+	/**
+	 * The number of structural features of the '<em>Persistent Volume Claim</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSISTENT_VOLUME_CLAIM_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Persistent Volume Claim</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSISTENT_VOLUME_CLAIM_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link kubernetes_metamodel.AccessibilityType <em>Accessibility Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1015,7 +1216,7 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	 * @see kubernetes_metamodel.impl.Kubernetes_metamodelPackageImpl#getAccessibilityType()
 	 * @generated
 	 */
-	int ACCESSIBILITY_TYPE = 14;
+	int ACCESSIBILITY_TYPE = 17;
 
 
 	/**
@@ -1026,7 +1227,18 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	 * @see kubernetes_metamodel.impl.Kubernetes_metamodelPackageImpl#getProtocol()
 	 * @generated
 	 */
-	int PROTOCOL = 15;
+	int PROTOCOL = 18;
+
+
+	/**
+	 * The meta object id for the '{@link kubernetes_metamodel.VolumeType <em>Volume Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see kubernetes_metamodel.VolumeType
+	 * @see kubernetes_metamodel.impl.Kubernetes_metamodelPackageImpl#getVolumeType()
+	 * @generated
+	 */
+	int VOLUME_TYPE = 19;
 
 
 	/**
@@ -1115,6 +1327,17 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getInfrastructure_ObjectsCount();
+
+	/**
+	 * Returns the meta object for the reference list '{@link kubernetes_metamodel.Infrastructure#getPersistentVolumeClaims <em>Persistent Volume Claims</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Persistent Volume Claims</em>'.
+	 * @see kubernetes_metamodel.Infrastructure#getPersistentVolumeClaims()
+	 * @see #getInfrastructure()
+	 * @generated
+	 */
+	EReference getInfrastructure_PersistentVolumeClaims();
 
 	/**
 	 * Returns the meta object for class '{@link kubernetes_metamodel.Deployment <em>Deployment</em>}'.
@@ -1312,6 +1535,28 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDeployment_ConfigMapDependencies();
+
+	/**
+	 * Returns the meta object for the reference list '{@link kubernetes_metamodel.Deployment#getVolumes <em>Volumes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Volumes</em>'.
+	 * @see kubernetes_metamodel.Deployment#getVolumes()
+	 * @see #getDeployment()
+	 * @generated
+	 */
+	EReference getDeployment_Volumes();
+
+	/**
+	 * Returns the meta object for the reference list '{@link kubernetes_metamodel.Deployment#getVolumeMounts <em>Volume Mounts</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Volume Mounts</em>'.
+	 * @see kubernetes_metamodel.Deployment#getVolumeMounts()
+	 * @see #getDeployment()
+	 * @generated
+	 */
+	EReference getDeployment_VolumeMounts();
 
 	/**
 	 * Returns the meta object for class '{@link kubernetes_metamodel.EnviromentVariables <em>Enviroment Variables</em>}'.
@@ -1777,6 +2022,17 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	EAttribute getConfigMap_FileName();
 
 	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.ConfigMap#isPipeText <em>Pipe Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Pipe Text</em>'.
+	 * @see kubernetes_metamodel.ConfigMap#isPipeText()
+	 * @see #getConfigMap()
+	 * @generated
+	 */
+	EAttribute getConfigMap_PipeText();
+
+	/**
 	 * Returns the meta object for class '{@link kubernetes_metamodel.ConfigMapDependency <em>Config Map Dependency</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1852,6 +2108,135 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	EAttribute getDependency_KeyName();
 
 	/**
+	 * Returns the meta object for class '{@link kubernetes_metamodel.Volume <em>Volume</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Volume</em>'.
+	 * @see kubernetes_metamodel.Volume
+	 * @generated
+	 */
+	EClass getVolume();
+
+	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.Volume#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see kubernetes_metamodel.Volume#getName()
+	 * @see #getVolume()
+	 * @generated
+	 */
+	EAttribute getVolume_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.Volume#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see kubernetes_metamodel.Volume#getType()
+	 * @see #getVolume()
+	 * @generated
+	 */
+	EAttribute getVolume_Type();
+
+	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.Volume#getClaimName <em>Claim Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Claim Name</em>'.
+	 * @see kubernetes_metamodel.Volume#getClaimName()
+	 * @see #getVolume()
+	 * @generated
+	 */
+	EAttribute getVolume_ClaimName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.Volume#getConfigMapName <em>Config Map Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Config Map Name</em>'.
+	 * @see kubernetes_metamodel.Volume#getConfigMapName()
+	 * @see #getVolume()
+	 * @generated
+	 */
+	EAttribute getVolume_ConfigMapName();
+
+	/**
+	 * Returns the meta object for class '{@link kubernetes_metamodel.VolumeMount <em>Volume Mount</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Volume Mount</em>'.
+	 * @see kubernetes_metamodel.VolumeMount
+	 * @generated
+	 */
+	EClass getVolumeMount();
+
+	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.VolumeMount#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see kubernetes_metamodel.VolumeMount#getName()
+	 * @see #getVolumeMount()
+	 * @generated
+	 */
+	EAttribute getVolumeMount_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.VolumeMount#getMountPath <em>Mount Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Mount Path</em>'.
+	 * @see kubernetes_metamodel.VolumeMount#getMountPath()
+	 * @see #getVolumeMount()
+	 * @generated
+	 */
+	EAttribute getVolumeMount_MountPath();
+
+	/**
+	 * Returns the meta object for class '{@link kubernetes_metamodel.PersistentVolumeClaim <em>Persistent Volume Claim</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Persistent Volume Claim</em>'.
+	 * @see kubernetes_metamodel.PersistentVolumeClaim
+	 * @generated
+	 */
+	EClass getPersistentVolumeClaim();
+
+	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.PersistentVolumeClaim#getSize <em>Size</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Size</em>'.
+	 * @see kubernetes_metamodel.PersistentVolumeClaim#getSize()
+	 * @see #getPersistentVolumeClaim()
+	 * @generated
+	 */
+	EAttribute getPersistentVolumeClaim_Size();
+
+	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.PersistentVolumeClaim#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see kubernetes_metamodel.PersistentVolumeClaim#getName()
+	 * @see #getPersistentVolumeClaim()
+	 * @generated
+	 */
+	EAttribute getPersistentVolumeClaim_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.PersistentVolumeClaim#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see kubernetes_metamodel.PersistentVolumeClaim#getId()
+	 * @see #getPersistentVolumeClaim()
+	 * @generated
+	 */
+	EAttribute getPersistentVolumeClaim_Id();
+
+	/**
 	 * Returns the meta object for enum '{@link kubernetes_metamodel.AccessibilityType <em>Accessibility Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1870,6 +2255,16 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getProtocol();
+
+	/**
+	 * Returns the meta object for enum '{@link kubernetes_metamodel.VolumeType <em>Volume Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Volume Type</em>'.
+	 * @see kubernetes_metamodel.VolumeType
+	 * @generated
+	 */
+	EEnum getVolumeType();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1959,6 +2354,14 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute INFRASTRUCTURE__OBJECTS_COUNT = eINSTANCE.getInfrastructure_ObjectsCount();
+
+		/**
+		 * The meta object literal for the '<em><b>Persistent Volume Claims</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INFRASTRUCTURE__PERSISTENT_VOLUME_CLAIMS = eINSTANCE.getInfrastructure_PersistentVolumeClaims();
 
 		/**
 		 * The meta object literal for the '{@link kubernetes_metamodel.impl.DeploymentImpl <em>Deployment</em>}' class.
@@ -2105,6 +2508,22 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DEPLOYMENT__CONFIG_MAP_DEPENDENCIES = eINSTANCE.getDeployment_ConfigMapDependencies();
+
+		/**
+		 * The meta object literal for the '<em><b>Volumes</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DEPLOYMENT__VOLUMES = eINSTANCE.getDeployment_Volumes();
+
+		/**
+		 * The meta object literal for the '<em><b>Volume Mounts</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DEPLOYMENT__VOLUME_MOUNTS = eINSTANCE.getDeployment_VolumeMounts();
 
 		/**
 		 * The meta object literal for the '{@link kubernetes_metamodel.impl.EnviromentVariablesImpl <em>Enviroment Variables</em>}' class.
@@ -2471,6 +2890,14 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 		EAttribute CONFIG_MAP__FILE_NAME = eINSTANCE.getConfigMap_FileName();
 
 		/**
+		 * The meta object literal for the '<em><b>Pipe Text</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONFIG_MAP__PIPE_TEXT = eINSTANCE.getConfigMap_PipeText();
+
+		/**
 		 * The meta object literal for the '{@link kubernetes_metamodel.impl.ConfigMapDependencyImpl <em>Config Map Dependency</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2531,6 +2958,108 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 		EAttribute DEPENDENCY__KEY_NAME = eINSTANCE.getDependency_KeyName();
 
 		/**
+		 * The meta object literal for the '{@link kubernetes_metamodel.impl.VolumeImpl <em>Volume</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see kubernetes_metamodel.impl.VolumeImpl
+		 * @see kubernetes_metamodel.impl.Kubernetes_metamodelPackageImpl#getVolume()
+		 * @generated
+		 */
+		EClass VOLUME = eINSTANCE.getVolume();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VOLUME__NAME = eINSTANCE.getVolume_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VOLUME__TYPE = eINSTANCE.getVolume_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Claim Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VOLUME__CLAIM_NAME = eINSTANCE.getVolume_ClaimName();
+
+		/**
+		 * The meta object literal for the '<em><b>Config Map Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VOLUME__CONFIG_MAP_NAME = eINSTANCE.getVolume_ConfigMapName();
+
+		/**
+		 * The meta object literal for the '{@link kubernetes_metamodel.impl.VolumeMountImpl <em>Volume Mount</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see kubernetes_metamodel.impl.VolumeMountImpl
+		 * @see kubernetes_metamodel.impl.Kubernetes_metamodelPackageImpl#getVolumeMount()
+		 * @generated
+		 */
+		EClass VOLUME_MOUNT = eINSTANCE.getVolumeMount();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VOLUME_MOUNT__NAME = eINSTANCE.getVolumeMount_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Mount Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VOLUME_MOUNT__MOUNT_PATH = eINSTANCE.getVolumeMount_MountPath();
+
+		/**
+		 * The meta object literal for the '{@link kubernetes_metamodel.impl.PersistentVolumeClaimImpl <em>Persistent Volume Claim</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see kubernetes_metamodel.impl.PersistentVolumeClaimImpl
+		 * @see kubernetes_metamodel.impl.Kubernetes_metamodelPackageImpl#getPersistentVolumeClaim()
+		 * @generated
+		 */
+		EClass PERSISTENT_VOLUME_CLAIM = eINSTANCE.getPersistentVolumeClaim();
+
+		/**
+		 * The meta object literal for the '<em><b>Size</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PERSISTENT_VOLUME_CLAIM__SIZE = eINSTANCE.getPersistentVolumeClaim_Size();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PERSISTENT_VOLUME_CLAIM__NAME = eINSTANCE.getPersistentVolumeClaim_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PERSISTENT_VOLUME_CLAIM__ID = eINSTANCE.getPersistentVolumeClaim_Id();
+
+		/**
 		 * The meta object literal for the '{@link kubernetes_metamodel.AccessibilityType <em>Accessibility Type</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2549,6 +3078,16 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum PROTOCOL = eINSTANCE.getProtocol();
+
+		/**
+		 * The meta object literal for the '{@link kubernetes_metamodel.VolumeType <em>Volume Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see kubernetes_metamodel.VolumeType
+		 * @see kubernetes_metamodel.impl.Kubernetes_metamodelPackageImpl#getVolumeType()
+		 * @generated
+		 */
+		EEnum VOLUME_TYPE = eINSTANCE.getVolumeType();
 
 	}
 

@@ -1,0 +1,13 @@
+
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: wordpress_dump
+  namespace: uml
+data:
+
+asd	
+
+

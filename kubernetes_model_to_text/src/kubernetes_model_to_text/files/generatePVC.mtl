@@ -1,13 +1,28 @@
+
+
 [comment encoding = UTF-8 /]
 [module generatePVC('http://www.example.org/kubernetesModel')]
-
+[import kubernetes_model_to_text::requests::generateJavaExtensions/]
 
 [template public generatePVC(anInfrastructure : Infrastructure)]
 
-[if (anInfrastructure.deployments->notEmpty())]
-	[for (deployment: Deployment | anInfrastructure.deployments)]
-	Current index: [i/]
-	
+[if (anInfrastructure.persistentVolumeClaims->notEmpty())]
+	[for (pvc: PersistentVolumeClaim | anInfrastructure.persistentVolumeClaims)]
+		[file (padZeros(pvc.id) +'-pvc-'+ pvc.name.replaceVariables('-pvc') +'.yml', false, 'UTF-8')]
+
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: [pvc.name/]
+  namespace: [anInfrastructure.namespace.toLowerCase()/]
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: [pvc.size/]Gi
+		[/file]
 	[/for]
 [/if]
 [/template]

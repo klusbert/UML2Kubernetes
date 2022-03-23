@@ -15,12 +15,16 @@ import kubernetes_metamodel.Kubernetes_metamodelFactory;
 import kubernetes_metamodel.Kubernetes_metamodelPackage;
 import kubernetes_metamodel.MysqlDump;
 import kubernetes_metamodel.PersistentData;
+import kubernetes_metamodel.PersistentVolumeClaim;
 import kubernetes_metamodel.Port;
 import kubernetes_metamodel.Protocol;
 import kubernetes_metamodel.ResourceAllocation;
 import kubernetes_metamodel.SecurityContext;
 import kubernetes_metamodel.Service;
 
+import kubernetes_metamodel.Volume;
+import kubernetes_metamodel.VolumeMount;
+import kubernetes_metamodel.VolumeType;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -139,6 +143,27 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass volumeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass volumeMountEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass persistentVolumeClaimEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum accessibilityTypeEEnum = null;
 
 	/**
@@ -147,6 +172,13 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 	 * @generated
 	 */
 	private EEnum protocolEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum volumeTypeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -279,6 +311,15 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 	 */
 	public EAttribute getInfrastructure_ObjectsCount() {
 		return (EAttribute)infrastructureEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInfrastructure_PersistentVolumeClaims() {
+		return (EReference)infrastructureEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -441,6 +482,24 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 	 */
 	public EReference getDeployment_ConfigMapDependencies() {
 		return (EReference)deploymentEClass.getEStructuralFeatures().get(16);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDeployment_Volumes() {
+		return (EReference)deploymentEClass.getEStructuralFeatures().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDeployment_VolumeMounts() {
+		return (EReference)deploymentEClass.getEStructuralFeatures().get(18);
 	}
 
 	/**
@@ -835,6 +894,15 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getConfigMap_PipeText() {
+		return (EAttribute)configMapEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getConfigMapDependency() {
 		return configMapDependencyEClass;
 	}
@@ -898,6 +966,114 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getVolume() {
+		return volumeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getVolume_Name() {
+		return (EAttribute)volumeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getVolume_Type() {
+		return (EAttribute)volumeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getVolume_ClaimName() {
+		return (EAttribute)volumeEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getVolume_ConfigMapName() {
+		return (EAttribute)volumeEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getVolumeMount() {
+		return volumeMountEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getVolumeMount_Name() {
+		return (EAttribute)volumeMountEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getVolumeMount_MountPath() {
+		return (EAttribute)volumeMountEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPersistentVolumeClaim() {
+		return persistentVolumeClaimEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPersistentVolumeClaim_Size() {
+		return (EAttribute)persistentVolumeClaimEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPersistentVolumeClaim_Name() {
+		return (EAttribute)persistentVolumeClaimEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPersistentVolumeClaim_Id() {
+		return (EAttribute)persistentVolumeClaimEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getAccessibilityType() {
 		return accessibilityTypeEEnum;
 	}
@@ -909,6 +1085,15 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 	 */
 	public EEnum getProtocol() {
 		return protocolEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getVolumeType() {
+		return volumeTypeEEnum;
 	}
 
 	/**
@@ -947,6 +1132,7 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 		createEAttribute(infrastructureEClass, INFRASTRUCTURE__ACCESSIBILITY_TYPE);
 		createEReference(infrastructureEClass, INFRASTRUCTURE__CONFIG_MAPS);
 		createEAttribute(infrastructureEClass, INFRASTRUCTURE__OBJECTS_COUNT);
+		createEReference(infrastructureEClass, INFRASTRUCTURE__PERSISTENT_VOLUME_CLAIMS);
 
 		deploymentEClass = createEClass(DEPLOYMENT);
 		createEAttribute(deploymentEClass, DEPLOYMENT__IMAGE);
@@ -966,6 +1152,8 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 		createEReference(deploymentEClass, DEPLOYMENT__ADDITIONAL_PORTS);
 		createEAttribute(deploymentEClass, DEPLOYMENT__ID);
 		createEReference(deploymentEClass, DEPLOYMENT__CONFIG_MAP_DEPENDENCIES);
+		createEReference(deploymentEClass, DEPLOYMENT__VOLUMES);
+		createEReference(deploymentEClass, DEPLOYMENT__VOLUME_MOUNTS);
 
 		enviromentVariablesEClass = createEClass(ENVIROMENT_VARIABLES);
 		createEAttribute(enviromentVariablesEClass, ENVIROMENT_VARIABLES__NAME);
@@ -1019,6 +1207,7 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 		createEAttribute(configMapEClass, CONFIG_MAP__ID);
 		createEAttribute(configMapEClass, CONFIG_MAP__IS_SECRET);
 		createEAttribute(configMapEClass, CONFIG_MAP__FILE_NAME);
+		createEAttribute(configMapEClass, CONFIG_MAP__PIPE_TEXT);
 
 		configMapDependencyEClass = createEClass(CONFIG_MAP_DEPENDENCY);
 		createEAttribute(configMapDependencyEClass, CONFIG_MAP_DEPENDENCY__CONFIG_MAP_NAME);
@@ -1029,9 +1218,25 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 		createEAttribute(dependencyEClass, DEPENDENCY__ENV_NAME);
 		createEAttribute(dependencyEClass, DEPENDENCY__KEY_NAME);
 
+		volumeEClass = createEClass(VOLUME);
+		createEAttribute(volumeEClass, VOLUME__NAME);
+		createEAttribute(volumeEClass, VOLUME__TYPE);
+		createEAttribute(volumeEClass, VOLUME__CLAIM_NAME);
+		createEAttribute(volumeEClass, VOLUME__CONFIG_MAP_NAME);
+
+		volumeMountEClass = createEClass(VOLUME_MOUNT);
+		createEAttribute(volumeMountEClass, VOLUME_MOUNT__NAME);
+		createEAttribute(volumeMountEClass, VOLUME_MOUNT__MOUNT_PATH);
+
+		persistentVolumeClaimEClass = createEClass(PERSISTENT_VOLUME_CLAIM);
+		createEAttribute(persistentVolumeClaimEClass, PERSISTENT_VOLUME_CLAIM__SIZE);
+		createEAttribute(persistentVolumeClaimEClass, PERSISTENT_VOLUME_CLAIM__NAME);
+		createEAttribute(persistentVolumeClaimEClass, PERSISTENT_VOLUME_CLAIM__ID);
+
 		// Create enums
 		accessibilityTypeEEnum = createEEnum(ACCESSIBILITY_TYPE);
 		protocolEEnum = createEEnum(PROTOCOL);
+		volumeTypeEEnum = createEEnum(VOLUME_TYPE);
 	}
 
 	/**
@@ -1072,6 +1277,7 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 		initEAttribute(getInfrastructure_AccessibilityType(), this.getAccessibilityType(), "accessibilityType", null, 0, 1, Infrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getInfrastructure_ConfigMaps(), this.getConfigMap(), null, "configMaps", null, 0, -1, Infrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getInfrastructure_ObjectsCount(), ecorePackage.getEInt(), "objectsCount", "0", 0, 1, Infrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInfrastructure_PersistentVolumeClaims(), this.getPersistentVolumeClaim(), null, "persistentVolumeClaims", null, 0, -1, Infrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(deploymentEClass, Deployment.class, "Deployment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDeployment_Image(), ecorePackage.getEString(), "image", null, 0, 1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1091,6 +1297,8 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 		initEReference(getDeployment_AdditionalPorts(), this.getPort(), null, "additionalPorts", null, 0, -1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDeployment_Id(), ecorePackage.getEInt(), "id", null, 0, 1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDeployment_ConfigMapDependencies(), this.getConfigMapDependency(), null, "configMapDependencies", null, 0, -1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDeployment_Volumes(), this.getVolume(), null, "volumes", null, 0, -1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDeployment_VolumeMounts(), this.getVolumeMount(), null, "volumeMounts", null, 0, -1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(enviromentVariablesEClass, EnviromentVariables.class, "EnviromentVariables", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEnviromentVariables_Name(), ecorePackage.getEString(), "name", null, 0, 1, EnviromentVariables.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1144,6 +1352,7 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 		initEAttribute(getConfigMap_Id(), ecorePackage.getEInt(), "id", null, 0, 1, ConfigMap.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConfigMap_IsSecret(), ecorePackage.getEBooleanObject(), "isSecret", null, 0, 1, ConfigMap.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConfigMap_FileName(), ecorePackage.getEString(), "fileName", "", 0, 1, ConfigMap.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConfigMap_PipeText(), ecorePackage.getEBoolean(), "pipeText", null, 0, 1, ConfigMap.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(configMapDependencyEClass, ConfigMapDependency.class, "ConfigMapDependency", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getConfigMapDependency_ConfigMapName(), ecorePackage.getEString(), "configMapName", null, 0, 1, ConfigMapDependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1153,6 +1362,21 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 		initEClass(dependencyEClass, Dependency.class, "Dependency", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDependency_EnvName(), ecorePackage.getEString(), "envName", null, 0, 1, Dependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDependency_KeyName(), ecorePackage.getEString(), "keyName", null, 0, 1, Dependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(volumeEClass, Volume.class, "Volume", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getVolume_Name(), ecorePackage.getEString(), "name", null, 0, 1, Volume.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVolume_Type(), this.getVolumeType(), "type", null, 0, 1, Volume.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVolume_ClaimName(), ecorePackage.getEString(), "claimName", null, 0, 1, Volume.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVolume_ConfigMapName(), ecorePackage.getEString(), "configMapName", null, 0, 1, Volume.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(volumeMountEClass, VolumeMount.class, "VolumeMount", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getVolumeMount_Name(), ecorePackage.getEString(), "name", null, 0, 1, VolumeMount.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVolumeMount_MountPath(), ecorePackage.getEString(), "mountPath", null, 0, 1, VolumeMount.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(persistentVolumeClaimEClass, PersistentVolumeClaim.class, "PersistentVolumeClaim", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPersistentVolumeClaim_Size(), ecorePackage.getEInt(), "size", null, 0, 1, PersistentVolumeClaim.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPersistentVolumeClaim_Name(), ecorePackage.getEString(), "name", null, 0, 1, PersistentVolumeClaim.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPersistentVolumeClaim_Id(), ecorePackage.getEInt(), "id", null, 0, 1, PersistentVolumeClaim.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(accessibilityTypeEEnum, AccessibilityType.class, "AccessibilityType");
@@ -1164,6 +1388,10 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 		addEEnumLiteral(protocolEEnum, Protocol.TCP);
 		addEEnumLiteral(protocolEEnum, Protocol.UDP);
 		addEEnumLiteral(protocolEEnum, Protocol.HTTP);
+
+		initEEnum(volumeTypeEEnum, VolumeType.class, "VolumeType");
+		addEEnumLiteral(volumeTypeEEnum, VolumeType.PERSISTENT_VOLUME_CLAIM);
+		addEEnumLiteral(volumeTypeEEnum, VolumeType.CONFIG_MAP);
 
 		// Create resource
 		createResource(eNS_URI);

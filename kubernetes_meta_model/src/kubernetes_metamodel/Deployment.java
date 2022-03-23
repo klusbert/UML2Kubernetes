@@ -32,6 +32,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link kubernetes_metamodel.Deployment#getAdditionalPorts <em>Additional Ports</em>}</li>
  *   <li>{@link kubernetes_metamodel.Deployment#getId <em>Id</em>}</li>
  *   <li>{@link kubernetes_metamodel.Deployment#getConfigMapDependencies <em>Config Map Dependencies</em>}</li>
+ *   <li>{@link kubernetes_metamodel.Deployment#getVolumes <em>Volumes</em>}</li>
+ *   <li>{@link kubernetes_metamodel.Deployment#getVolumeMounts <em>Volume Mounts</em>}</li>
  * </ul>
  *
  * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getDeployment()
@@ -373,5 +375,29 @@ public interface Deployment extends EObject {
 	 * @generated
 	 */
 	EList<ConfigMapDependency> getConfigMapDependencies();
+
+	/**
+	 * Returns the value of the '<em><b>Volumes</b></em>' reference list.
+	 * The list contents are of type {@link kubernetes_metamodel.Volume}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Volumes</em>' reference list.
+	 * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getDeployment_Volumes()
+	 * @model
+	 * @generated
+	 */
+	EList<Volume> getVolumes();
+
+	/**
+	 * Returns the value of the '<em><b>Volume Mounts</b></em>' reference list.
+	 * The list contents are of type {@link kubernetes_metamodel.VolumeMount}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Volume Mounts</em>' reference list.
+	 * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getDeployment_VolumeMounts()
+	 * @model
+	 * @generated
+	 */
+	EList<VolumeMount> getVolumeMounts();
 
 } // Deployment

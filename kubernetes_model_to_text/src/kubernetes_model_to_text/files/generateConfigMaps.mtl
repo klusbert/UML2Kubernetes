@@ -6,7 +6,10 @@
 [template public generateConfigMaps(anInfrastructure : Infrastructure)]
 
 [for (configMap: ConfigMap | anInfrastructure.configMaps)]
+
 [file (padZeros(configMap.id) +'-' +configMap.name +'.yml', false, 'UTF-8')]
+
+
 [if (configMap.isSecret)]
 ---
 apiVersion: v1
@@ -23,6 +26,7 @@ stringData:
   [o/]
 	[/for]
 [/if]
+	
 [else]
 ---
 apiVersion: v1
@@ -34,6 +38,13 @@ data:
  [for (envar: EnviromentVariables | configMap.data)]
   [envar.name/]: [replaceVariables(envar.value,anInfrastructure.namespace)/]
  [/for]
+[if (configMap.fileName.replaceAll('"', '').size() > 0)]	
+
+	[if (configMap.isDump)]
+[readDumpFile(configMap.fileName)/]	
+
+    [/if]
+[/if]
 [/if]
 [comment if filePaht exist return a list of envira/]
 

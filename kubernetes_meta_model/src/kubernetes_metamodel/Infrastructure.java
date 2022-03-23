@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link kubernetes_metamodel.Infrastructure#getAccessibilityType <em>Accessibility Type</em>}</li>
  *   <li>{@link kubernetes_metamodel.Infrastructure#getConfigMaps <em>Config Maps</em>}</li>
  *   <li>{@link kubernetes_metamodel.Infrastructure#getObjectsCount <em>Objects Count</em>}</li>
+ *   <li>{@link kubernetes_metamodel.Infrastructure#getPersistentVolumeClaims <em>Persistent Volume Claims</em>}</li>
  * </ul>
  *
  * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getInfrastructure()
@@ -167,6 +168,18 @@ public interface Infrastructure extends EObject {
 	 * @generated
 	 */
 	void setObjectsCount(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Persistent Volume Claims</b></em>' reference list.
+	 * The list contents are of type {@link kubernetes_metamodel.PersistentVolumeClaim}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Persistent Volume Claims</em>' reference list.
+	 * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getInfrastructure_PersistentVolumeClaims()
+	 * @model
+	 * @generated
+	 */
+	EList<PersistentVolumeClaim> getPersistentVolumeClaims();
 
 	/**
 	 * Returns the value of the '<em><b>Random Password</b></em>' attribute.
