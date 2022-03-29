@@ -916,13 +916,13 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	int CONFIG_MAP__FILE_NAME = 4;
 
 	/**
-	 * The feature id for the '<em><b>Pipe Text</b></em>' attribute.
+	 * The feature id for the '<em><b>Is Dump</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIG_MAP__PIPE_TEXT = 5;
+	int CONFIG_MAP__IS_DUMP = 5;
 
 	/**
 	 * The number of structural features of the '<em>Config Map</em>' class.
@@ -2022,15 +2022,15 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	EAttribute getConfigMap_FileName();
 
 	/**
-	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.ConfigMap#isPipeText <em>Pipe Text</em>}'.
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.ConfigMap#isIsDump <em>Is Dump</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Pipe Text</em>'.
-	 * @see kubernetes_metamodel.ConfigMap#isPipeText()
+	 * @return the meta object for the attribute '<em>Is Dump</em>'.
+	 * @see kubernetes_metamodel.ConfigMap#isIsDump()
 	 * @see #getConfigMap()
 	 * @generated
 	 */
-	EAttribute getConfigMap_PipeText();
+	EAttribute getConfigMap_IsDump();
 
 	/**
 	 * Returns the meta object for class '{@link kubernetes_metamodel.ConfigMapDependency <em>Config Map Dependency</em>}'.
@@ -2890,12 +2890,12 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 		EAttribute CONFIG_MAP__FILE_NAME = eINSTANCE.getConfigMap_FileName();
 
 		/**
-		 * The meta object literal for the '<em><b>Pipe Text</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Is Dump</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CONFIG_MAP__PIPE_TEXT = eINSTANCE.getConfigMap_PipeText();
+		EAttribute CONFIG_MAP__IS_DUMP = eINSTANCE.getConfigMap_IsDump();
 
 		/**
 		 * The meta object literal for the '{@link kubernetes_metamodel.impl.ConfigMapDependencyImpl <em>Config Map Dependency</em>}' class.

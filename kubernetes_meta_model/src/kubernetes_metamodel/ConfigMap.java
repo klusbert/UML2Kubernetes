@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link kubernetes_metamodel.ConfigMap#getId <em>Id</em>}</li>
  *   <li>{@link kubernetes_metamodel.ConfigMap#getIsSecret <em>Is Secret</em>}</li>
  *   <li>{@link kubernetes_metamodel.ConfigMap#getFileName <em>File Name</em>}</li>
- *   <li>{@link kubernetes_metamodel.ConfigMap#isPipeText <em>Pipe Text</em>}</li>
+ *   <li>{@link kubernetes_metamodel.ConfigMap#isIsDump <em>Is Dump</em>}</li>
  * </ul>
  *
  * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getConfigMap()
@@ -130,25 +130,26 @@ public interface ConfigMap extends EObject {
 	void setFileName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Pipe Text</b></em>' attribute.
+	 * Returns the value of the '<em><b>Is Dump</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Pipe Text</em>' attribute.
-	 * @see #setPipeText(boolean)
-	 * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getConfigMap_PipeText()
-	 * @model
+	 * @return the value of the '<em>Is Dump</em>' attribute.
+	 * @see #setIsDump(boolean)
+	 * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getConfigMap_IsDump()
+	 * @model default="false"
 	 * @generated
 	 */
-	boolean isPipeText();
+	boolean isIsDump();
 
 	/**
-	 * Sets the value of the '{@link kubernetes_metamodel.ConfigMap#isPipeText <em>Pipe Text</em>}' attribute.
+	 * Sets the value of the '{@link kubernetes_metamodel.ConfigMap#isIsDump <em>Is Dump</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Pipe Text</em>' attribute.
-	 * @see #isPipeText()
+	 * @param value the new value of the '<em>Is Dump</em>' attribute.
+	 * @see #isIsDump()
 	 * @generated
 	 */
-	void setPipeText(boolean value);
+	void setIsDump(boolean value);
 
 } // ConfigMap
