@@ -103,7 +103,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//ConfigMap/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//ConfigMap/isSecret"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//ConfigMap/fileName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//ConfigMap/pipeText"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//ConfigMap/isDump"/>
     </genClasses>
     <genClasses ecoreClass="kubernetes_metamodel.ecore#//ConfigMapDependency">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//ConfigMapDependency/configMapName"/>

@@ -61,7 +61,7 @@
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_novvt6UVEeyzk76f4D3PIA"/>
         </children>
         <element xmi:type="uml:Artifact" href="KubernetesUMLDeplyoment.uml#_nokJgKUVEeyzk76f4D3PIA"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_novvsaUVEeyzk76f4D3PIA" x="555" y="863"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_novvsaUVEeyzk76f4D3PIA" x="615" y="863"/>
       </children>
       <children xmi:type="notation:Shape" xmi:id="_1HEZMKUZEeyLEbzeSRaKiA" type="Node_Shape">
         <children xmi:type="notation:DecorationNode" xmi:id="_1HFnUKUZEeyLEbzeSRaKiA" type="Node_NameLabel"/>
@@ -72,145 +72,125 @@
         <element xmi:type="uml:Node" href="KubernetesUMLDeplyoment.uml#_1HAHwKUZEeyLEbzeSRaKiA"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1HEZMaUZEeyLEbzeSRaKiA" x="115" y="763"/>
       </children>
-      <children xmi:type="notation:Shape" xmi:id="_HpY7QKXSEeyqXcBsl6kgzw" type="Artifact_Shape_CCN">
-        <children xmi:type="notation:DecorationNode" xmi:id="_HpZiUKXSEeyqXcBsl6kgzw" type="Artifact_NameLabel_CCN"/>
-        <children xmi:type="notation:DecorationNode" xmi:id="_HpZiUaXSEeyqXcBsl6kgzw" type="Artifact_FloatingNameLabel_CCN">
-          <layoutConstraint xmi:type="notation:Location" xmi:id="_HpZiUqXSEeyqXcBsl6kgzw" x="25"/>
-        </children>
-        <children xmi:type="notation:BasicCompartment" xmi:id="_HpZiU6XSEeyqXcBsl6kgzw" type="Artifact_NestedArtifactCompartment_CCN">
-          <styles xmi:type="notation:TitleStyle" xmi:id="_HpZiVKXSEeyqXcBsl6kgzw"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HpZiVaXSEeyqXcBsl6kgzw"/>
-        </children>
-        <element xmi:type="uml:Artifact" href="KubernetesUMLDeplyoment.uml#_HpLf4KXSEeyqXcBsl6kgzw"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HpY7QaXSEeyqXcBsl6kgzw" x="415" y="115"/>
-      </children>
-      <children xmi:type="notation:Shape" xmi:id="_QXP5vaqoEeyhO-tN7N6fOw" type="StereotypeComment">
-        <styles xmi:type="notation:TitleStyle" xmi:id="_QXP5vqqoEeyhO-tN7N6fOw"/>
-        <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QXQgwKqoEeyhO-tN7N6fOw" name="BASE_ELEMENT">
+      <children xmi:type="notation:Shape" xmi:id="_xsjZja8yEeytZrp4MKp0IA" type="StereotypeComment">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_xsjZjq8yEeytZrp4MKp0IA"/>
+        <styles xmi:type="notation:EObjectValueStyle" xmi:id="_xsjZkK8yEeytZrp4MKp0IA" name="BASE_ELEMENT">
           <eObjectValue xmi:type="uml:Node" href="KubernetesUMLDeplyoment.uml#_8a_zIH9kEeyXt-NBRolQsA"/>
         </styles>
         <element xsi:nil="true"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QXP5v6qoEeyhO-tN7N6fOw" x="315" y="543"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xsjZj68yEeytZrp4MKp0IA" x="315" y="543"/>
       </children>
-      <children xmi:type="notation:Shape" xmi:id="_QXS9AKqoEeyhO-tN7N6fOw" type="StereotypeComment">
-        <styles xmi:type="notation:TitleStyle" xmi:id="_QXS9AaqoEeyhO-tN7N6fOw"/>
-        <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QXS9A6qoEeyhO-tN7N6fOw" name="BASE_ELEMENT">
+      <children xmi:type="notation:Shape" xmi:id="_xslOsK8yEeytZrp4MKp0IA" type="StereotypeComment">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_xslOsa8yEeytZrp4MKp0IA"/>
+        <styles xmi:type="notation:EObjectValueStyle" xmi:id="_xslOs68yEeytZrp4MKp0IA" name="BASE_ELEMENT">
           <eObjectValue xmi:type="uml:Dependency" href="KubernetesUMLDeplyoment.uml#_MdbboKUaEeyLEbzeSRaKiA"/>
         </styles>
         <element xsi:nil="true"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QXS9AqqoEeyhO-tN7N6fOw" x="100" y="100"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xslOsq8yEeytZrp4MKp0IA" x="100" y="100"/>
       </children>
-      <children xmi:type="notation:Shape" xmi:id="_QXUyMKqoEeyhO-tN7N6fOw" type="StereotypeComment">
-        <styles xmi:type="notation:TitleStyle" xmi:id="_QXUyMaqoEeyhO-tN7N6fOw"/>
-        <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QXUyM6qoEeyhO-tN7N6fOw" name="BASE_ELEMENT">
+      <children xmi:type="notation:Shape" xmi:id="_xsmc0K8yEeytZrp4MKp0IA" type="StereotypeComment">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_xsmc0a8yEeytZrp4MKp0IA"/>
+        <styles xmi:type="notation:EObjectValueStyle" xmi:id="_xsmc068yEeytZrp4MKp0IA" name="BASE_ELEMENT">
           <eObjectValue xmi:type="uml:Dependency" href="KubernetesUMLDeplyoment.uml#_9xlb0KUlEeya8JRebvDoqg"/>
         </styles>
         <element xsi:nil="true"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QXUyMqqoEeyhO-tN7N6fOw" x="100" y="100"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xsmc0q8yEeytZrp4MKp0IA" x="100" y="100"/>
       </children>
-      <children xmi:type="notation:Shape" xmi:id="_QXX1gKqoEeyhO-tN7N6fOw" type="StereotypeComment">
-        <styles xmi:type="notation:TitleStyle" xmi:id="_QXX1gaqoEeyhO-tN7N6fOw"/>
-        <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QXX1g6qoEeyhO-tN7N6fOw" name="BASE_ELEMENT">
+      <children xmi:type="notation:Shape" xmi:id="_xsoSDa8yEeytZrp4MKp0IA" type="StereotypeComment">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_xsoSDq8yEeytZrp4MKp0IA"/>
+        <styles xmi:type="notation:EObjectValueStyle" xmi:id="_xsoSEK8yEeytZrp4MKp0IA" name="BASE_ELEMENT">
           <eObjectValue xmi:type="uml:Node" href="KubernetesUMLDeplyoment.uml#_NFM8QJCgEey5pfBfWsdixw"/>
         </styles>
         <element xsi:nil="true"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QXX1gqqoEeyhO-tN7N6fOw" x="315" y="957"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xsoSD68yEeytZrp4MKp0IA" x="315" y="957"/>
       </children>
-      <children xmi:type="notation:Shape" xmi:id="_QXaRwKqoEeyhO-tN7N6fOw" type="StereotypeComment">
-        <styles xmi:type="notation:TitleStyle" xmi:id="_QXaRwaqoEeyhO-tN7N6fOw"/>
-        <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QXaRw6qoEeyhO-tN7N6fOw" name="BASE_ELEMENT">
+      <children xmi:type="notation:Shape" xmi:id="_xs3ikK8yEeytZrp4MKp0IA" type="StereotypeComment">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_xs3ika8yEeytZrp4MKp0IA"/>
+        <styles xmi:type="notation:EObjectValueStyle" xmi:id="_xs3ik68yEeytZrp4MKp0IA" name="BASE_ELEMENT">
           <eObjectValue xmi:type="uml:Dependency" href="KubernetesUMLDeplyoment.uml#_J-QDcKUaEeyLEbzeSRaKiA"/>
         </styles>
         <element xsi:nil="true"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QXaRwqqoEeyhO-tN7N6fOw" x="100" y="100"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xs3ikq8yEeytZrp4MKp0IA" x="100" y="100"/>
       </children>
-      <children xmi:type="notation:Shape" xmi:id="_QXcG8KqoEeyhO-tN7N6fOw" type="StereotypeComment">
-        <styles xmi:type="notation:TitleStyle" xmi:id="_QXcG8aqoEeyhO-tN7N6fOw"/>
-        <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QXcuAKqoEeyhO-tN7N6fOw" name="BASE_ELEMENT">
+      <children xmi:type="notation:Shape" xmi:id="_xs4wsK8yEeytZrp4MKp0IA" type="StereotypeComment">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_xs4wsa8yEeytZrp4MKp0IA"/>
+        <styles xmi:type="notation:EObjectValueStyle" xmi:id="_xs4ws68yEeytZrp4MKp0IA" name="BASE_ELEMENT">
           <eObjectValue xmi:type="uml:Dependency" href="KubernetesUMLDeplyoment.uml#_lvDbcKUbEeyLEbzeSRaKiA"/>
         </styles>
         <element xsi:nil="true"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QXcG8qqoEeyhO-tN7N6fOw" x="100" y="100"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xs4wsq8yEeytZrp4MKp0IA" x="100" y="100"/>
       </children>
-      <children xmi:type="notation:Shape" xmi:id="_QXejMKqoEeyhO-tN7N6fOw" type="StereotypeComment">
-        <styles xmi:type="notation:TitleStyle" xmi:id="_QXejMaqoEeyhO-tN7N6fOw"/>
-        <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QXejM6qoEeyhO-tN7N6fOw" name="BASE_ELEMENT">
+      <children xmi:type="notation:Shape" xmi:id="_xs5-068yEeytZrp4MKp0IA" type="StereotypeComment">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_xs5-1K8yEeytZrp4MKp0IA"/>
+        <styles xmi:type="notation:EObjectValueStyle" xmi:id="_xs5-1q8yEeytZrp4MKp0IA" name="BASE_ELEMENT">
           <eObjectValue xmi:type="uml:Dependency" href="KubernetesUMLDeplyoment.uml#_VONdEKXQEeyqXcBsl6kgzw"/>
         </styles>
         <element xsi:nil="true"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QXejMqqoEeyhO-tN7N6fOw" x="100" y="100"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xs5-1a8yEeytZrp4MKp0IA" x="100" y="100"/>
       </children>
-      <children xmi:type="notation:Shape" xmi:id="_QXiNl6qoEeyhO-tN7N6fOw" type="StereotypeComment">
-        <styles xmi:type="notation:TitleStyle" xmi:id="_QXiNmKqoEeyhO-tN7N6fOw"/>
-        <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QXiNmqqoEeyhO-tN7N6fOw" name="BASE_ELEMENT">
+      <children xmi:type="notation:Shape" xmi:id="_xs8bEK8yEeytZrp4MKp0IA" type="StereotypeComment">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_xs8bEa8yEeytZrp4MKp0IA"/>
+        <styles xmi:type="notation:EObjectValueStyle" xmi:id="_xs8bE68yEeytZrp4MKp0IA" name="BASE_ELEMENT">
           <eObjectValue xmi:type="uml:Node" href="KubernetesUMLDeplyoment.uml#_R_8t8JSQEeykRpNdXmxuDg"/>
         </styles>
         <element xsi:nil="true"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QXiNmaqoEeyhO-tN7N6fOw" x="795" y="323"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xs8bEq8yEeytZrp4MKp0IA" x="795" y="323"/>
       </children>
-      <children xmi:type="notation:Shape" xmi:id="_QXl396qoEeyhO-tN7N6fOw" type="StereotypeComment">
-        <styles xmi:type="notation:TitleStyle" xmi:id="_QXl3-KqoEeyhO-tN7N6fOw"/>
-        <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QXl3-qqoEeyhO-tN7N6fOw" name="BASE_ELEMENT">
+      <children xmi:type="notation:Shape" xmi:id="_xs-QUa8yEeytZrp4MKp0IA" type="StereotypeComment">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_xs-QUq8yEeytZrp4MKp0IA"/>
+        <styles xmi:type="notation:EObjectValueStyle" xmi:id="_xs-QVK8yEeytZrp4MKp0IA" name="BASE_ELEMENT">
           <eObjectValue xmi:type="uml:Node" href="KubernetesUMLDeplyoment.uml#_ZN3GIJSQEeykRpNdXmxuDg"/>
         </styles>
         <element xsi:nil="true"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QXl3-aqoEeyhO-tN7N6fOw" x="315" y="363"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xs-QU68yEeytZrp4MKp0IA" x="315" y="363"/>
       </children>
-      <children xmi:type="notation:Shape" xmi:id="_QXoUMKqoEeyhO-tN7N6fOw" type="StereotypeComment">
-        <styles xmi:type="notation:TitleStyle" xmi:id="_QXoUMaqoEeyhO-tN7N6fOw"/>
-        <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QXoUM6qoEeyhO-tN7N6fOw" name="BASE_ELEMENT">
+      <children xmi:type="notation:Shape" xmi:id="_xtAsgK8yEeytZrp4MKp0IA" type="StereotypeComment">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_xtAsga8yEeytZrp4MKp0IA"/>
+        <styles xmi:type="notation:EObjectValueStyle" xmi:id="_xtAsg68yEeytZrp4MKp0IA" name="BASE_ELEMENT">
           <eObjectValue xmi:type="uml:Dependency" href="KubernetesUMLDeplyoment.uml#_C52moJSSEeykRpNdXmxuDg"/>
         </styles>
         <element xsi:nil="true"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QXoUMqqoEeyhO-tN7N6fOw" x="100" y="100"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xtAsgq8yEeytZrp4MKp0IA" x="100" y="100"/>
       </children>
-      <children xmi:type="notation:Shape" xmi:id="_QXr-k6qoEeyhO-tN7N6fOw" type="StereotypeComment">
-        <styles xmi:type="notation:TitleStyle" xmi:id="_QXr-lKqoEeyhO-tN7N6fOw"/>
-        <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QXr-lqqoEeyhO-tN7N6fOw" name="BASE_ELEMENT">
+      <children xmi:type="notation:Shape" xmi:id="_xtDIw68yEeytZrp4MKp0IA" type="StereotypeComment">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_xtDIxK8yEeytZrp4MKp0IA"/>
+        <styles xmi:type="notation:EObjectValueStyle" xmi:id="_xtDIxq8yEeytZrp4MKp0IA" name="BASE_ELEMENT">
           <eObjectValue xmi:type="uml:Artifact" href="KubernetesUMLDeplyoment.uml#_OxMIsKRDEeySO5GnGG28Tw"/>
         </styles>
         <element xsi:nil="true"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QXr-laqoEeyhO-tN7N6fOw" x="835" y="623"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xtDIxa8yEeytZrp4MKp0IA" x="835" y="623"/>
       </children>
-      <children xmi:type="notation:Shape" xmi:id="_QXvB6aqoEeyhO-tN7N6fOw" type="StereotypeComment">
-        <styles xmi:type="notation:TitleStyle" xmi:id="_QXvB6qqoEeyhO-tN7N6fOw"/>
-        <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QXvB7KqoEeyhO-tN7N6fOw" name="BASE_ELEMENT">
+      <children xmi:type="notation:Shape" xmi:id="_xtE9-a8yEeytZrp4MKp0IA" type="StereotypeComment">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_xtE9-q8yEeytZrp4MKp0IA"/>
+        <styles xmi:type="notation:EObjectValueStyle" xmi:id="_xtE9_K8yEeytZrp4MKp0IA" name="BASE_ELEMENT">
           <eObjectValue xmi:type="uml:Artifact" href="KubernetesUMLDeplyoment.uml#_nokJgKUVEeyzk76f4D3PIA"/>
         </styles>
         <element xsi:nil="true"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QXvB66qoEeyhO-tN7N6fOw" x="755" y="863"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xtE9-68yEeytZrp4MKp0IA" x="815" y="863"/>
       </children>
-      <children xmi:type="notation:Shape" xmi:id="_QXysQKqoEeyhO-tN7N6fOw" type="StereotypeComment">
-        <styles xmi:type="notation:TitleStyle" xmi:id="_QXysQaqoEeyhO-tN7N6fOw"/>
-        <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QXysQ6qoEeyhO-tN7N6fOw" name="BASE_ELEMENT">
+      <children xmi:type="notation:Shape" xmi:id="_xtHaNa8yEeytZrp4MKp0IA" type="StereotypeComment">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_xtHaNq8yEeytZrp4MKp0IA"/>
+        <styles xmi:type="notation:EObjectValueStyle" xmi:id="_xtHaOK8yEeytZrp4MKp0IA" name="BASE_ELEMENT">
           <eObjectValue xmi:type="uml:Node" href="KubernetesUMLDeplyoment.uml#_1HAHwKUZEeyLEbzeSRaKiA"/>
         </styles>
         <element xsi:nil="true"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QXysQqqoEeyhO-tN7N6fOw" x="315" y="763"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xtHaN68yEeytZrp4MKp0IA" x="315" y="763"/>
       </children>
-      <children xmi:type="notation:Shape" xmi:id="_QX1IgKqoEeyhO-tN7N6fOw" type="StereotypeComment">
-        <styles xmi:type="notation:TitleStyle" xmi:id="_QX1IgaqoEeyhO-tN7N6fOw"/>
-        <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QX1Ig6qoEeyhO-tN7N6fOw" name="BASE_ELEMENT">
+      <children xmi:type="notation:Shape" xmi:id="_xtJPYK8yEeytZrp4MKp0IA" type="StereotypeComment">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_xtJPYa8yEeytZrp4MKp0IA"/>
+        <styles xmi:type="notation:EObjectValueStyle" xmi:id="_xtJPY68yEeytZrp4MKp0IA" name="BASE_ELEMENT">
           <eObjectValue xmi:type="uml:Dependency" href="KubernetesUMLDeplyoment.uml#_z_ZJAKUlEeya8JRebvDoqg"/>
         </styles>
         <element xsi:nil="true"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QX1IgqqoEeyhO-tN7N6fOw" x="100" y="100"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xtJPYq8yEeytZrp4MKp0IA" x="100" y="100"/>
       </children>
-      <children xmi:type="notation:Shape" xmi:id="_QX3kwKqoEeyhO-tN7N6fOw" type="StereotypeComment">
-        <styles xmi:type="notation:TitleStyle" xmi:id="_QX3kwaqoEeyhO-tN7N6fOw"/>
-        <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QX3kw6qoEeyhO-tN7N6fOw" name="BASE_ELEMENT">
+      <children xmi:type="notation:Shape" xmi:id="_xtKdgK8yEeytZrp4MKp0IA" type="StereotypeComment">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_xtKdga8yEeytZrp4MKp0IA"/>
+        <styles xmi:type="notation:EObjectValueStyle" xmi:id="_xtKdg68yEeytZrp4MKp0IA" name="BASE_ELEMENT">
           <eObjectValue xmi:type="uml:Dependency" href="KubernetesUMLDeplyoment.uml#_NX_HsKXQEeyqXcBsl6kgzw"/>
         </styles>
         <element xsi:nil="true"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QX3kwqqoEeyhO-tN7N6fOw" x="100" y="100"/>
-      </children>
-      <children xmi:type="notation:Shape" xmi:id="_QX6oEKqoEeyhO-tN7N6fOw" type="StereotypeComment">
-        <styles xmi:type="notation:TitleStyle" xmi:id="_QX6oEaqoEeyhO-tN7N6fOw"/>
-        <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QX6oE6qoEeyhO-tN7N6fOw" name="BASE_ELEMENT">
-          <eObjectValue xmi:type="uml:Artifact" href="KubernetesUMLDeplyoment.uml#_HpLf4KXSEeyqXcBsl6kgzw"/>
-        </styles>
-        <element xsi:nil="true"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QX6oEqqoEeyhO-tN7N6fOw" x="615" y="115"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xtKdgq8yEeytZrp4MKp0IA" x="100" y="100"/>
       </children>
       <styles xmi:type="notation:TitleStyle" xmi:id="_2k8lwn9kEeyXt-NBRolQsA"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2k8lw39kEeyXt-NBRolQsA"/>
@@ -227,37 +207,37 @@
     <element xmi:type="uml:Node" href="KubernetesUMLDeplyoment.uml#_TSIpoI8hEeyInqig3yfUpA"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TSMUAY8hEeyInqig3yfUpA" x="-160" y="140"/>
   </children>
-  <children xmi:type="notation:Shape" xmi:id="_QXM2aaqoEeyhO-tN7N6fOw" type="StereotypeComment">
-    <styles xmi:type="notation:TitleStyle" xmi:id="_QXM2aqqoEeyhO-tN7N6fOw"/>
-    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QXNdcKqoEeyhO-tN7N6fOw" name="BASE_ELEMENT">
+  <children xmi:type="notation:Shape" xmi:id="_xshkXa8yEeytZrp4MKp0IA" type="StereotypeComment">
+    <styles xmi:type="notation:TitleStyle" xmi:id="_xshkXq8yEeytZrp4MKp0IA"/>
+    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_xshkYK8yEeytZrp4MKp0IA" name="BASE_ELEMENT">
       <eObjectValue xmi:type="uml:ExecutionEnvironment" href="KubernetesUMLDeplyoment.uml#_2k7XoH9kEeyXt-NBRolQsA"/>
     </styles>
     <element xsi:nil="true"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QXM2a6qoEeyhO-tN7N6fOw" x="400" y="-400"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xshkX68yEeytZrp4MKp0IA" x="400" y="-400"/>
   </children>
-  <children xmi:type="notation:Shape" xmi:id="_QX9rYKqoEeyhO-tN7N6fOw" type="StereotypeComment">
-    <styles xmi:type="notation:TitleStyle" xmi:id="_QX9rYaqoEeyhO-tN7N6fOw"/>
-    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QX9rY6qoEeyhO-tN7N6fOw" name="BASE_ELEMENT">
+  <children xmi:type="notation:Shape" xmi:id="_xtMSsK8yEeytZrp4MKp0IA" type="StereotypeComment">
+    <styles xmi:type="notation:TitleStyle" xmi:id="_xtMSsa8yEeytZrp4MKp0IA"/>
+    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_xtMSs68yEeytZrp4MKp0IA" name="BASE_ELEMENT">
       <eObjectValue xmi:type="uml:Dependency" href="KubernetesUMLDeplyoment.uml#_T7l2UI8hEeyInqig3yfUpA"/>
     </styles>
     <element xsi:nil="true"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QX9rYqqoEeyhO-tN7N6fOw" x="40" y="40"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xtMSsq8yEeytZrp4MKp0IA" x="40" y="40"/>
   </children>
-  <children xmi:type="notation:Shape" xmi:id="_QX_gkKqoEeyhO-tN7N6fOw" type="StereotypeComment">
-    <styles xmi:type="notation:TitleStyle" xmi:id="_QX_gkaqoEeyhO-tN7N6fOw"/>
-    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QX_gk6qoEeyhO-tN7N6fOw" name="BASE_ELEMENT">
+  <children xmi:type="notation:Shape" xmi:id="_xtNg068yEeytZrp4MKp0IA" type="StereotypeComment">
+    <styles xmi:type="notation:TitleStyle" xmi:id="_xtNg1K8yEeytZrp4MKp0IA"/>
+    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_xtNg1q8yEeytZrp4MKp0IA" name="BASE_ELEMENT">
       <eObjectValue xmi:type="uml:Dependency" href="KubernetesUMLDeplyoment.uml#_js_ogJCgEey5pfBfWsdixw"/>
     </styles>
     <element xsi:nil="true"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QX_gkqqoEeyhO-tN7N6fOw" x="40" y="40"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xtNg1a8yEeytZrp4MKp0IA" x="40" y="40"/>
   </children>
-  <children xmi:type="notation:Shape" xmi:id="_QYBVwKqoEeyhO-tN7N6fOw" type="StereotypeComment">
-    <styles xmi:type="notation:TitleStyle" xmi:id="_QYBVwaqoEeyhO-tN7N6fOw"/>
-    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QYBVw6qoEeyhO-tN7N6fOw" name="BASE_ELEMENT">
+  <children xmi:type="notation:Shape" xmi:id="_xtOu868yEeytZrp4MKp0IA" type="StereotypeComment">
+    <styles xmi:type="notation:TitleStyle" xmi:id="_xtOu9K8yEeytZrp4MKp0IA"/>
+    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_xtOu9q8yEeytZrp4MKp0IA" name="BASE_ELEMENT">
       <eObjectValue xmi:type="uml:Dependency" href="KubernetesUMLDeplyoment.uml#_xyhO0JoOEeymdqnPIdiJ5w"/>
     </styles>
     <element xsi:nil="true"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QYBVwqqoEeyhO-tN7N6fOw" x="40" y="40"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xtOu9a8yEeytZrp4MKp0IA" x="40" y="40"/>
   </children>
   <styles xmi:type="notation:StringValueStyle" xmi:id="__cfqsX9jEeyXt-NBRolQsA" name="diagram_compatibility_version" stringValue="1.4.0"/>
   <styles xmi:type="notation:DiagramStyle" xmi:id="__cfqsn9jEeyXt-NBRolQsA"/>
@@ -430,230 +410,194 @@
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_VOnFsKXQEeyqXcBsl6kgzw" id="(1.0,0.6666666666666666)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_VOnFsaXQEeyqXcBsl6kgzw" id="(0.26666666666666666,0.9914529914529905)"/>
   </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_SZaU0KqfEeyWldjoSkrbyQ" type="Dependency_Edge" source="_ZN4UQJSQEeykRpNdXmxuDg" target="_HpY7QKXSEeyqXcBsl6kgzw">
-    <children xmi:type="notation:DecorationNode" xmi:id="_SZa74KqfEeyWldjoSkrbyQ" type="Dependency_NameLabel">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_SZa74aqfEeyWldjoSkrbyQ" y="40"/>
-    </children>
-    <children xmi:type="notation:DecorationNode" xmi:id="_SZa74qqfEeyWldjoSkrbyQ" type="Dependency_StereotypeLabel">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_SZa746qfEeyWldjoSkrbyQ" y="60"/>
-    </children>
-    <styles xmi:type="notation:FontStyle" xmi:id="_SZaU0aqfEeyWldjoSkrbyQ"/>
-    <element xmi:type="uml:Dependency" href="KubernetesUMLDeplyoment.uml#_SZZtwKqfEeyWldjoSkrbyQ"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_SZaU0qqfEeyWldjoSkrbyQ" points="[400, 40, -643984, -643984]$[700, -130, -643984, -643984]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_SZvsAKqfEeyWldjoSkrbyQ" id="(0.5333333333333333,0.0)"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_SZvsAaqfEeyWldjoSkrbyQ" id="(0.5333333333333333,1.0)"/>
-  </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_TON14KqfEeyWldjoSkrbyQ" type="Dependency_Edge" source="_SAC0kJSQEeykRpNdXmxuDg" target="_HpY7QKXSEeyqXcBsl6kgzw">
-    <children xmi:type="notation:DecorationNode" xmi:id="_TON146qfEeyWldjoSkrbyQ" type="Dependency_NameLabel">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_TON15KqfEeyWldjoSkrbyQ" y="40"/>
-    </children>
-    <children xmi:type="notation:DecorationNode" xmi:id="_TON15aqfEeyWldjoSkrbyQ" type="Dependency_StereotypeLabel">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_TON15qqfEeyWldjoSkrbyQ" y="60"/>
-    </children>
-    <styles xmi:type="notation:FontStyle" xmi:id="_TON14aqfEeyWldjoSkrbyQ"/>
-    <element xmi:type="uml:Dependency" href="KubernetesUMLDeplyoment.uml#_TOMAsKqfEeyWldjoSkrbyQ"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_TON14qqfEeyWldjoSkrbyQ" points="[880, 0, -643984, -643984]$[700, -130, -643984, -643984]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_TOe7oKqfEeyWldjoSkrbyQ" id="(0.5333333333333333,0.0)"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_TOfisKqfEeyWldjoSkrbyQ" id="(0.5333333333333333,1.0)"/>
-  </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_QXNdcaqoEeyhO-tN7N6fOw" type="StereotypeCommentLink" source="_2k7-sH9kEeyXt-NBRolQsA" target="_QXM2aaqoEeyhO-tN7N6fOw">
-    <styles xmi:type="notation:FontStyle" xmi:id="_QXNdcqqoEeyhO-tN7N6fOw"/>
-    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QXNddqqoEeyhO-tN7N6fOw" name="BASE_ELEMENT">
+  <edges xmi:type="notation:Connector" xmi:id="_xshkYa8yEeytZrp4MKp0IA" type="StereotypeCommentLink" source="_2k7-sH9kEeyXt-NBRolQsA" target="_xshkXa8yEeytZrp4MKp0IA">
+    <styles xmi:type="notation:FontStyle" xmi:id="_xshkYq8yEeytZrp4MKp0IA"/>
+    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_xshkZq8yEeytZrp4MKp0IA" name="BASE_ELEMENT">
       <eObjectValue xmi:type="uml:ExecutionEnvironment" href="KubernetesUMLDeplyoment.uml#_2k7XoH9kEeyXt-NBRolQsA"/>
     </styles>
     <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_QXNdc6qoEeyhO-tN7N6fOw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QXNddKqoEeyhO-tN7N6fOw"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QXNddaqoEeyhO-tN7N6fOw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xshkY68yEeytZrp4MKp0IA" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xshkZK8yEeytZrp4MKp0IA"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xshkZa8yEeytZrp4MKp0IA"/>
   </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_QXQgwaqoEeyhO-tN7N6fOw" type="StereotypeCommentLink" source="_8bAaMH9kEeyXt-NBRolQsA" target="_QXP5vaqoEeyhO-tN7N6fOw">
-    <styles xmi:type="notation:FontStyle" xmi:id="_QXQgwqqoEeyhO-tN7N6fOw"/>
-    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QXQgxqqoEeyhO-tN7N6fOw" name="BASE_ELEMENT">
+  <edges xmi:type="notation:Connector" xmi:id="_xsjZka8yEeytZrp4MKp0IA" type="StereotypeCommentLink" source="_8bAaMH9kEeyXt-NBRolQsA" target="_xsjZja8yEeytZrp4MKp0IA">
+    <styles xmi:type="notation:FontStyle" xmi:id="_xsjZkq8yEeytZrp4MKp0IA"/>
+    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_xsjZlq8yEeytZrp4MKp0IA" name="BASE_ELEMENT">
       <eObjectValue xmi:type="uml:Node" href="KubernetesUMLDeplyoment.uml#_8a_zIH9kEeyXt-NBRolQsA"/>
     </styles>
     <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_QXQgw6qoEeyhO-tN7N6fOw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QXQgxKqoEeyhO-tN7N6fOw"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QXQgxaqoEeyhO-tN7N6fOw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xsjZk68yEeytZrp4MKp0IA" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xsjZlK8yEeytZrp4MKp0IA"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xsjZla8yEeytZrp4MKp0IA"/>
   </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_QXS9BKqoEeyhO-tN7N6fOw" type="StereotypeCommentLink" source="_MdcpwKUaEeyLEbzeSRaKiA" target="_QXS9AKqoEeyhO-tN7N6fOw">
-    <styles xmi:type="notation:FontStyle" xmi:id="_QXS9BaqoEeyhO-tN7N6fOw"/>
-    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QXS9CaqoEeyhO-tN7N6fOw" name="BASE_ELEMENT">
+  <edges xmi:type="notation:Connector" xmi:id="_xslOtK8yEeytZrp4MKp0IA" type="StereotypeCommentLink" source="_MdcpwKUaEeyLEbzeSRaKiA" target="_xslOsK8yEeytZrp4MKp0IA">
+    <styles xmi:type="notation:FontStyle" xmi:id="_xslOta8yEeytZrp4MKp0IA"/>
+    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_xslOua8yEeytZrp4MKp0IA" name="BASE_ELEMENT">
       <eObjectValue xmi:type="uml:Dependency" href="KubernetesUMLDeplyoment.uml#_MdbboKUaEeyLEbzeSRaKiA"/>
     </styles>
     <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_QXS9BqqoEeyhO-tN7N6fOw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QXS9B6qoEeyhO-tN7N6fOw"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QXS9CKqoEeyhO-tN7N6fOw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xslOtq8yEeytZrp4MKp0IA" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xslOt68yEeytZrp4MKp0IA"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xslOuK8yEeytZrp4MKp0IA"/>
   </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_QXUyNKqoEeyhO-tN7N6fOw" type="StereotypeCommentLink" source="_9xmp8KUlEeya8JRebvDoqg" target="_QXUyMKqoEeyhO-tN7N6fOw">
-    <styles xmi:type="notation:FontStyle" xmi:id="_QXUyNaqoEeyhO-tN7N6fOw"/>
-    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QXUyOaqoEeyhO-tN7N6fOw" name="BASE_ELEMENT">
+  <edges xmi:type="notation:Connector" xmi:id="_xsmc1K8yEeytZrp4MKp0IA" type="StereotypeCommentLink" source="_9xmp8KUlEeya8JRebvDoqg" target="_xsmc0K8yEeytZrp4MKp0IA">
+    <styles xmi:type="notation:FontStyle" xmi:id="_xsmc1a8yEeytZrp4MKp0IA"/>
+    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_xsmc2a8yEeytZrp4MKp0IA" name="BASE_ELEMENT">
       <eObjectValue xmi:type="uml:Dependency" href="KubernetesUMLDeplyoment.uml#_9xlb0KUlEeya8JRebvDoqg"/>
     </styles>
     <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_QXUyNqqoEeyhO-tN7N6fOw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QXUyN6qoEeyhO-tN7N6fOw"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QXUyOKqoEeyhO-tN7N6fOw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xsmc1q8yEeytZrp4MKp0IA" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xsmc168yEeytZrp4MKp0IA"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xsmc2K8yEeytZrp4MKp0IA"/>
   </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_QXX1hKqoEeyhO-tN7N6fOw" type="StereotypeCommentLink" source="_NFNjUJCgEey5pfBfWsdixw" target="_QXX1gKqoEeyhO-tN7N6fOw">
-    <styles xmi:type="notation:FontStyle" xmi:id="_QXX1haqoEeyhO-tN7N6fOw"/>
-    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QXX1iaqoEeyhO-tN7N6fOw" name="BASE_ELEMENT">
+  <edges xmi:type="notation:Connector" xmi:id="_xsoSEa8yEeytZrp4MKp0IA" type="StereotypeCommentLink" source="_NFNjUJCgEey5pfBfWsdixw" target="_xsoSDa8yEeytZrp4MKp0IA">
+    <styles xmi:type="notation:FontStyle" xmi:id="_xsoSEq8yEeytZrp4MKp0IA"/>
+    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_xsoSFq8yEeytZrp4MKp0IA" name="BASE_ELEMENT">
       <eObjectValue xmi:type="uml:Node" href="KubernetesUMLDeplyoment.uml#_NFM8QJCgEey5pfBfWsdixw"/>
     </styles>
     <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_QXX1hqqoEeyhO-tN7N6fOw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QXX1h6qoEeyhO-tN7N6fOw"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QXX1iKqoEeyhO-tN7N6fOw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xsoSE68yEeytZrp4MKp0IA" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xsoSFK8yEeytZrp4MKp0IA"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xsoSFa8yEeytZrp4MKp0IA"/>
   </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_QXaRxKqoEeyhO-tN7N6fOw" type="StereotypeCommentLink" source="_J-Tt0KUaEeyLEbzeSRaKiA" target="_QXaRwKqoEeyhO-tN7N6fOw">
-    <styles xmi:type="notation:FontStyle" xmi:id="_QXaRxaqoEeyhO-tN7N6fOw"/>
-    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QXaRyaqoEeyhO-tN7N6fOw" name="BASE_ELEMENT">
+  <edges xmi:type="notation:Connector" xmi:id="_xs3ilK8yEeytZrp4MKp0IA" type="StereotypeCommentLink" source="_J-Tt0KUaEeyLEbzeSRaKiA" target="_xs3ikK8yEeytZrp4MKp0IA">
+    <styles xmi:type="notation:FontStyle" xmi:id="_xs3ila8yEeytZrp4MKp0IA"/>
+    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_xs3ima8yEeytZrp4MKp0IA" name="BASE_ELEMENT">
       <eObjectValue xmi:type="uml:Dependency" href="KubernetesUMLDeplyoment.uml#_J-QDcKUaEeyLEbzeSRaKiA"/>
     </styles>
     <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_QXaRxqqoEeyhO-tN7N6fOw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QXaRx6qoEeyhO-tN7N6fOw"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QXaRyKqoEeyhO-tN7N6fOw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xs3ilq8yEeytZrp4MKp0IA" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xs3il68yEeytZrp4MKp0IA"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xs3imK8yEeytZrp4MKp0IA"/>
   </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_QXcuAaqoEeyhO-tN7N6fOw" type="StereotypeCommentLink" source="_lvFQoKUbEeyLEbzeSRaKiA" target="_QXcG8KqoEeyhO-tN7N6fOw">
-    <styles xmi:type="notation:FontStyle" xmi:id="_QXcuAqqoEeyhO-tN7N6fOw"/>
-    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QXcuBqqoEeyhO-tN7N6fOw" name="BASE_ELEMENT">
+  <edges xmi:type="notation:Connector" xmi:id="_xs4wtK8yEeytZrp4MKp0IA" type="StereotypeCommentLink" source="_lvFQoKUbEeyLEbzeSRaKiA" target="_xs4wsK8yEeytZrp4MKp0IA">
+    <styles xmi:type="notation:FontStyle" xmi:id="_xs4wta8yEeytZrp4MKp0IA"/>
+    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_xs4wua8yEeytZrp4MKp0IA" name="BASE_ELEMENT">
       <eObjectValue xmi:type="uml:Dependency" href="KubernetesUMLDeplyoment.uml#_lvDbcKUbEeyLEbzeSRaKiA"/>
     </styles>
     <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_QXcuA6qoEeyhO-tN7N6fOw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QXcuBKqoEeyhO-tN7N6fOw"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QXcuBaqoEeyhO-tN7N6fOw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xs4wtq8yEeytZrp4MKp0IA" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xs4wt68yEeytZrp4MKp0IA"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xs4wuK8yEeytZrp4MKp0IA"/>
   </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_QXejNKqoEeyhO-tN7N6fOw" type="StereotypeCommentLink" source="_VOP5UKXQEeyqXcBsl6kgzw" target="_QXejMKqoEeyhO-tN7N6fOw">
-    <styles xmi:type="notation:FontStyle" xmi:id="_QXejNaqoEeyhO-tN7N6fOw"/>
-    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QXejOaqoEeyhO-tN7N6fOw" name="BASE_ELEMENT">
+  <edges xmi:type="notation:Connector" xmi:id="_xs6l4K8yEeytZrp4MKp0IA" type="StereotypeCommentLink" source="_VOP5UKXQEeyqXcBsl6kgzw" target="_xs5-068yEeytZrp4MKp0IA">
+    <styles xmi:type="notation:FontStyle" xmi:id="_xs6l4a8yEeytZrp4MKp0IA"/>
+    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_xs6l5a8yEeytZrp4MKp0IA" name="BASE_ELEMENT">
       <eObjectValue xmi:type="uml:Dependency" href="KubernetesUMLDeplyoment.uml#_VONdEKXQEeyqXcBsl6kgzw"/>
     </styles>
     <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_QXejNqqoEeyhO-tN7N6fOw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QXejN6qoEeyhO-tN7N6fOw"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QXejOKqoEeyhO-tN7N6fOw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xs6l4q8yEeytZrp4MKp0IA" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xs6l468yEeytZrp4MKp0IA"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xs6l5K8yEeytZrp4MKp0IA"/>
   </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_QXiNm6qoEeyhO-tN7N6fOw" type="StereotypeCommentLink" source="_SAC0kJSQEeykRpNdXmxuDg" target="_QXiNl6qoEeyhO-tN7N6fOw">
-    <styles xmi:type="notation:FontStyle" xmi:id="_QXiNnKqoEeyhO-tN7N6fOw"/>
-    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QXi0oqqoEeyhO-tN7N6fOw" name="BASE_ELEMENT">
+  <edges xmi:type="notation:Connector" xmi:id="_xs8bFK8yEeytZrp4MKp0IA" type="StereotypeCommentLink" source="_SAC0kJSQEeykRpNdXmxuDg" target="_xs8bEK8yEeytZrp4MKp0IA">
+    <styles xmi:type="notation:FontStyle" xmi:id="_xs8bFa8yEeytZrp4MKp0IA"/>
+    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_xs8bGa8yEeytZrp4MKp0IA" name="BASE_ELEMENT">
       <eObjectValue xmi:type="uml:Node" href="KubernetesUMLDeplyoment.uml#_R_8t8JSQEeykRpNdXmxuDg"/>
     </styles>
     <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_QXiNnaqoEeyhO-tN7N6fOw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QXi0oKqoEeyhO-tN7N6fOw"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QXi0oaqoEeyhO-tN7N6fOw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xs8bFq8yEeytZrp4MKp0IA" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xs8bF68yEeytZrp4MKp0IA"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xs8bGK8yEeytZrp4MKp0IA"/>
   </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_QXl3-6qoEeyhO-tN7N6fOw" type="StereotypeCommentLink" source="_ZN4UQJSQEeykRpNdXmxuDg" target="_QXl396qoEeyhO-tN7N6fOw">
-    <styles xmi:type="notation:FontStyle" xmi:id="_QXl3_KqoEeyhO-tN7N6fOw"/>
-    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QXl4AKqoEeyhO-tN7N6fOw" name="BASE_ELEMENT">
+  <edges xmi:type="notation:Connector" xmi:id="_xs-QVa8yEeytZrp4MKp0IA" type="StereotypeCommentLink" source="_ZN4UQJSQEeykRpNdXmxuDg" target="_xs-QUa8yEeytZrp4MKp0IA">
+    <styles xmi:type="notation:FontStyle" xmi:id="_xs-QVq8yEeytZrp4MKp0IA"/>
+    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_xs-3Uq8yEeytZrp4MKp0IA" name="BASE_ELEMENT">
       <eObjectValue xmi:type="uml:Node" href="KubernetesUMLDeplyoment.uml#_ZN3GIJSQEeykRpNdXmxuDg"/>
     </styles>
     <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_QXl3_aqoEeyhO-tN7N6fOw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QXl3_qqoEeyhO-tN7N6fOw"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QXl3_6qoEeyhO-tN7N6fOw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xs-QV68yEeytZrp4MKp0IA" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xs-3UK8yEeytZrp4MKp0IA"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xs-3Ua8yEeytZrp4MKp0IA"/>
   </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_QXoUNKqoEeyhO-tN7N6fOw" type="StereotypeCommentLink" source="_C54b0JSSEeykRpNdXmxuDg" target="_QXoUMKqoEeyhO-tN7N6fOw">
-    <styles xmi:type="notation:FontStyle" xmi:id="_QXoUNaqoEeyhO-tN7N6fOw"/>
-    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QXoUOaqoEeyhO-tN7N6fOw" name="BASE_ELEMENT">
+  <edges xmi:type="notation:Connector" xmi:id="_xtAshK8yEeytZrp4MKp0IA" type="StereotypeCommentLink" source="_C54b0JSSEeykRpNdXmxuDg" target="_xtAsgK8yEeytZrp4MKp0IA">
+    <styles xmi:type="notation:FontStyle" xmi:id="_xtAsha8yEeytZrp4MKp0IA"/>
+    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_xtAsia8yEeytZrp4MKp0IA" name="BASE_ELEMENT">
       <eObjectValue xmi:type="uml:Dependency" href="KubernetesUMLDeplyoment.uml#_C52moJSSEeykRpNdXmxuDg"/>
     </styles>
     <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_QXoUNqqoEeyhO-tN7N6fOw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QXoUN6qoEeyhO-tN7N6fOw"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QXoUOKqoEeyhO-tN7N6fOw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xtAshq8yEeytZrp4MKp0IA" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xtAsh68yEeytZrp4MKp0IA"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xtAsiK8yEeytZrp4MKp0IA"/>
   </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_QXr-l6qoEeyhO-tN7N6fOw" type="StereotypeCommentLink" source="_OxeckKRDEeySO5GnGG28Tw" target="_QXr-k6qoEeyhO-tN7N6fOw">
-    <styles xmi:type="notation:FontStyle" xmi:id="_QXr-mKqoEeyhO-tN7N6fOw"/>
-    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QXr-nKqoEeyhO-tN7N6fOw" name="BASE_ELEMENT">
+  <edges xmi:type="notation:Connector" xmi:id="_xtDIx68yEeytZrp4MKp0IA" type="StereotypeCommentLink" source="_OxeckKRDEeySO5GnGG28Tw" target="_xtDIw68yEeytZrp4MKp0IA">
+    <styles xmi:type="notation:FontStyle" xmi:id="_xtDIyK8yEeytZrp4MKp0IA"/>
+    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_xtDIzK8yEeytZrp4MKp0IA" name="BASE_ELEMENT">
       <eObjectValue xmi:type="uml:Artifact" href="KubernetesUMLDeplyoment.uml#_OxMIsKRDEeySO5GnGG28Tw"/>
     </styles>
     <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_QXr-maqoEeyhO-tN7N6fOw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QXr-mqqoEeyhO-tN7N6fOw"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QXr-m6qoEeyhO-tN7N6fOw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xtDIya8yEeytZrp4MKp0IA" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xtDIyq8yEeytZrp4MKp0IA"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xtDIy68yEeytZrp4MKp0IA"/>
   </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_QXvo8KqoEeyhO-tN7N6fOw" type="StereotypeCommentLink" source="_novvsKUVEeyzk76f4D3PIA" target="_QXvB6aqoEeyhO-tN7N6fOw">
-    <styles xmi:type="notation:FontStyle" xmi:id="_QXvo8aqoEeyhO-tN7N6fOw"/>
-    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QXvo9aqoEeyhO-tN7N6fOw" name="BASE_ELEMENT">
+  <edges xmi:type="notation:Connector" xmi:id="_xtE9_a8yEeytZrp4MKp0IA" type="StereotypeCommentLink" source="_novvsKUVEeyzk76f4D3PIA" target="_xtE9-a8yEeytZrp4MKp0IA">
+    <styles xmi:type="notation:FontStyle" xmi:id="_xtE9_q8yEeytZrp4MKp0IA"/>
+    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_xtFlAK8yEeytZrp4MKp0IA" name="BASE_ELEMENT">
       <eObjectValue xmi:type="uml:Artifact" href="KubernetesUMLDeplyoment.uml#_nokJgKUVEeyzk76f4D3PIA"/>
     </styles>
     <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_QXvo8qqoEeyhO-tN7N6fOw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QXvo86qoEeyhO-tN7N6fOw"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QXvo9KqoEeyhO-tN7N6fOw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xtE9_68yEeytZrp4MKp0IA" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xtE-AK8yEeytZrp4MKp0IA"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xtE-Aa8yEeytZrp4MKp0IA"/>
   </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_QXysRKqoEeyhO-tN7N6fOw" type="StereotypeCommentLink" source="_1HEZMKUZEeyLEbzeSRaKiA" target="_QXysQKqoEeyhO-tN7N6fOw">
-    <styles xmi:type="notation:FontStyle" xmi:id="_QXysRaqoEeyhO-tN7N6fOw"/>
-    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QXysSaqoEeyhO-tN7N6fOw" name="BASE_ELEMENT">
+  <edges xmi:type="notation:Connector" xmi:id="_xtHaOa8yEeytZrp4MKp0IA" type="StereotypeCommentLink" source="_1HEZMKUZEeyLEbzeSRaKiA" target="_xtHaNa8yEeytZrp4MKp0IA">
+    <styles xmi:type="notation:FontStyle" xmi:id="_xtHaOq8yEeytZrp4MKp0IA"/>
+    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_xtHaPq8yEeytZrp4MKp0IA" name="BASE_ELEMENT">
       <eObjectValue xmi:type="uml:Node" href="KubernetesUMLDeplyoment.uml#_1HAHwKUZEeyLEbzeSRaKiA"/>
     </styles>
     <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_QXysRqqoEeyhO-tN7N6fOw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QXysR6qoEeyhO-tN7N6fOw"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QXysSKqoEeyhO-tN7N6fOw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xtHaO68yEeytZrp4MKp0IA" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xtHaPK8yEeytZrp4MKp0IA"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xtHaPa8yEeytZrp4MKp0IA"/>
   </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_QX1IhKqoEeyhO-tN7N6fOw" type="StereotypeCommentLink" source="_z_kIIKUlEeya8JRebvDoqg" target="_QX1IgKqoEeyhO-tN7N6fOw">
-    <styles xmi:type="notation:FontStyle" xmi:id="_QX1IhaqoEeyhO-tN7N6fOw"/>
-    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QX1IiaqoEeyhO-tN7N6fOw" name="BASE_ELEMENT">
+  <edges xmi:type="notation:Connector" xmi:id="_xtJPZK8yEeytZrp4MKp0IA" type="StereotypeCommentLink" source="_z_kIIKUlEeya8JRebvDoqg" target="_xtJPYK8yEeytZrp4MKp0IA">
+    <styles xmi:type="notation:FontStyle" xmi:id="_xtJPZa8yEeytZrp4MKp0IA"/>
+    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_xtJPaa8yEeytZrp4MKp0IA" name="BASE_ELEMENT">
       <eObjectValue xmi:type="uml:Dependency" href="KubernetesUMLDeplyoment.uml#_z_ZJAKUlEeya8JRebvDoqg"/>
     </styles>
     <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_QX1IhqqoEeyhO-tN7N6fOw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QX1Ih6qoEeyhO-tN7N6fOw"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QX1IiKqoEeyhO-tN7N6fOw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xtJPZq8yEeytZrp4MKp0IA" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xtJPZ68yEeytZrp4MKp0IA"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xtJPaK8yEeytZrp4MKp0IA"/>
   </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_QX3kxKqoEeyhO-tN7N6fOw" type="StereotypeCommentLink" source="_NYKt4KXQEeyqXcBsl6kgzw" target="_QX3kwKqoEeyhO-tN7N6fOw">
-    <styles xmi:type="notation:FontStyle" xmi:id="_QX3kxaqoEeyhO-tN7N6fOw"/>
-    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QX3kyaqoEeyhO-tN7N6fOw" name="BASE_ELEMENT">
+  <edges xmi:type="notation:Connector" xmi:id="_xtKdhK8yEeytZrp4MKp0IA" type="StereotypeCommentLink" source="_NYKt4KXQEeyqXcBsl6kgzw" target="_xtKdgK8yEeytZrp4MKp0IA">
+    <styles xmi:type="notation:FontStyle" xmi:id="_xtKdha8yEeytZrp4MKp0IA"/>
+    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_xtKdia8yEeytZrp4MKp0IA" name="BASE_ELEMENT">
       <eObjectValue xmi:type="uml:Dependency" href="KubernetesUMLDeplyoment.uml#_NX_HsKXQEeyqXcBsl6kgzw"/>
     </styles>
     <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_QX3kxqqoEeyhO-tN7N6fOw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QX3kx6qoEeyhO-tN7N6fOw"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QX3kyKqoEeyhO-tN7N6fOw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xtKdhq8yEeytZrp4MKp0IA" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xtKdh68yEeytZrp4MKp0IA"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xtKdiK8yEeytZrp4MKp0IA"/>
   </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_QX6oFKqoEeyhO-tN7N6fOw" type="StereotypeCommentLink" source="_HpY7QKXSEeyqXcBsl6kgzw" target="_QX6oEKqoEeyhO-tN7N6fOw">
-    <styles xmi:type="notation:FontStyle" xmi:id="_QX6oFaqoEeyhO-tN7N6fOw"/>
-    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QX6oGaqoEeyhO-tN7N6fOw" name="BASE_ELEMENT">
-      <eObjectValue xmi:type="uml:Artifact" href="KubernetesUMLDeplyoment.uml#_HpLf4KXSEeyqXcBsl6kgzw"/>
-    </styles>
-    <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_QX6oFqqoEeyhO-tN7N6fOw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QX6oF6qoEeyhO-tN7N6fOw"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QX6oGKqoEeyhO-tN7N6fOw"/>
-  </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_QX9rZKqoEeyhO-tN7N6fOw" type="StereotypeCommentLink" source="_T7oSkI8hEeyInqig3yfUpA" target="_QX9rYKqoEeyhO-tN7N6fOw">
-    <styles xmi:type="notation:FontStyle" xmi:id="_QX9rZaqoEeyhO-tN7N6fOw"/>
-    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QX9raaqoEeyhO-tN7N6fOw" name="BASE_ELEMENT">
+  <edges xmi:type="notation:Connector" xmi:id="_xtMStK8yEeytZrp4MKp0IA" type="StereotypeCommentLink" source="_T7oSkI8hEeyInqig3yfUpA" target="_xtMSsK8yEeytZrp4MKp0IA">
+    <styles xmi:type="notation:FontStyle" xmi:id="_xtMSta8yEeytZrp4MKp0IA"/>
+    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_xtMSua8yEeytZrp4MKp0IA" name="BASE_ELEMENT">
       <eObjectValue xmi:type="uml:Dependency" href="KubernetesUMLDeplyoment.uml#_T7l2UI8hEeyInqig3yfUpA"/>
     </styles>
     <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_QX9rZqqoEeyhO-tN7N6fOw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QX9rZ6qoEeyhO-tN7N6fOw"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QX9raKqoEeyhO-tN7N6fOw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xtMStq8yEeytZrp4MKp0IA" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xtMSt68yEeytZrp4MKp0IA"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xtMSuK8yEeytZrp4MKp0IA"/>
   </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_QX_glKqoEeyhO-tN7N6fOw" type="StereotypeCommentLink" source="_jtBdsJCgEey5pfBfWsdixw" target="_QX_gkKqoEeyhO-tN7N6fOw">
-    <styles xmi:type="notation:FontStyle" xmi:id="_QX_glaqoEeyhO-tN7N6fOw"/>
-    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QX_gmaqoEeyhO-tN7N6fOw" name="BASE_ELEMENT">
+  <edges xmi:type="notation:Connector" xmi:id="_xtNg168yEeytZrp4MKp0IA" type="StereotypeCommentLink" source="_jtBdsJCgEey5pfBfWsdixw" target="_xtNg068yEeytZrp4MKp0IA">
+    <styles xmi:type="notation:FontStyle" xmi:id="_xtNg2K8yEeytZrp4MKp0IA"/>
+    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_xtNg3K8yEeytZrp4MKp0IA" name="BASE_ELEMENT">
       <eObjectValue xmi:type="uml:Dependency" href="KubernetesUMLDeplyoment.uml#_js_ogJCgEey5pfBfWsdixw"/>
     </styles>
     <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_QX_glqqoEeyhO-tN7N6fOw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QX_gl6qoEeyhO-tN7N6fOw"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QX_gmKqoEeyhO-tN7N6fOw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xtNg2a8yEeytZrp4MKp0IA" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xtNg2q8yEeytZrp4MKp0IA"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xtNg268yEeytZrp4MKp0IA"/>
   </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_QYBVxKqoEeyhO-tN7N6fOw" type="StereotypeCommentLink" source="_xymuYJoOEeymdqnPIdiJ5w" target="_QYBVwKqoEeyhO-tN7N6fOw">
-    <styles xmi:type="notation:FontStyle" xmi:id="_QYBVxaqoEeyhO-tN7N6fOw"/>
-    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_QYBVyaqoEeyhO-tN7N6fOw" name="BASE_ELEMENT">
+  <edges xmi:type="notation:Connector" xmi:id="_xtPWAK8yEeytZrp4MKp0IA" type="StereotypeCommentLink" source="_xymuYJoOEeymdqnPIdiJ5w" target="_xtOu868yEeytZrp4MKp0IA">
+    <styles xmi:type="notation:FontStyle" xmi:id="_xtPWAa8yEeytZrp4MKp0IA"/>
+    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_xtPWBa8yEeytZrp4MKp0IA" name="BASE_ELEMENT">
       <eObjectValue xmi:type="uml:Dependency" href="KubernetesUMLDeplyoment.uml#_xyhO0JoOEeymdqnPIdiJ5w"/>
     </styles>
     <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_QYBVxqqoEeyhO-tN7N6fOw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QYBVx6qoEeyhO-tN7N6fOw"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QYBVyKqoEeyhO-tN7N6fOw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xtPWAq8yEeytZrp4MKp0IA" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xtPWA68yEeytZrp4MKp0IA"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xtPWBK8yEeytZrp4MKp0IA"/>
   </edges>
 </notation:Diagram>

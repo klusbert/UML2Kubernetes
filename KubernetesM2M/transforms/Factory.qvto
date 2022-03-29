@@ -1,0 +1,55 @@
+library Factory;
+
+
+modeltype UML uses 'http://www.eclipse.org/uml2/5.0.0/UML';
+modeltype KuberntesMetaModel uses 'http://www.example.org/kubernetesModel';
+modeltype kuberProfile uses 'http://kubernetesProfile';
+
+
+helper createEnviromentVariable(variableName : String, variableValue : String): EnviromentVariables {
+
+	var envar := new EnviromentVariables();
+	envar.name := variableName;
+	envar.value := variableValue;
+	return envar;
+}
+
+helper createVolumeMount(volumeName : String, mountPath : String): VolumeMount {
+	var volumeMount := new VolumeMount();
+	volumeMount.name := volumeName;
+	volumeMount.mountPath := mountPath;
+	 return volumeMount;
+}
+
+helper createVolume(volumeName : String, pvcName:String, type : KuberntesMetaModel::VolumeType): Volume{
+	var volume := new Volume();
+	
+	if(type = KuberntesMetaModel::VolumeType::configMap){
+		volume.configMapName := pvcName;
+	
+	}else{
+		volume.claimName := pvcName;
+	}; 
+	volume.name := volumeName;
+	volume.type := type;
+	
+	
+	return volume;
+	
+}
+
+helper createPersistentVolumeClaim(sizeInGB : Integer, pvcName : String): PersistentVolumeClaim{
+	var pvc := new PersistentVolumeClaim();
+	pvc.size := sizeInGB;
+	pvc.name := pvcName;
+	return pvc;
+}
+
+helper createConfigMap(configMapName : String, isDump : Boolean, fileName: String):ConfigMap{
+	var configMap := new ConfigMap();
+	configMap.name := configMapName;
+	configMap.isDump := isDump;
+	configMap.fileName := fileName; 		
+
+	return configMap;
+}

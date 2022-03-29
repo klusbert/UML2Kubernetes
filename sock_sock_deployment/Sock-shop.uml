@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:KubernetesUMLProfile="http:///schemas/KubernetesUMLProfile/_d9MIEKRfEey_H4qySQWDSg/138" xmlns:KubernetesUMLProfile.DataTypes="http:///KubernetesUMLProfile/DataTypes.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/KubernetesUMLProfile/_d9MIEKRfEey_H4qySQWDSg/138 /KubernetesUMLProfile/KubernetesUMLProfile.profile.uml#_d9MvIKRfEey_H4qySQWDSg http:///KubernetesUMLProfile/DataTypes.ecore /KubernetesUMLProfile/KubernetesUMLProfile.profile.uml#_d9MvdqRfEey_H4qySQWDSg">
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:KubernetesUMLProfile="http:///schemas/KubernetesUMLProfile/_YFClcKqgEeyWldjoSkrbyQ/154" xmlns:KubernetesUMLProfile.DataTypes="http:///KubernetesUMLProfile/DataTypes.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/KubernetesUMLProfile/_YFClcKqgEeyWldjoSkrbyQ/154 /KubernetesUMLProfile/KubernetesUMLProfile.profile.uml#_YFClcaqgEeyWldjoSkrbyQ http:///KubernetesUMLProfile/DataTypes.ecore /KubernetesUMLProfile/KubernetesUMLProfile.profile.uml#_YFDMl6qgEeyWldjoSkrbyQ">
   <uml:Model xmi:id="_DVheYJrGEeyFoIN4a6CPFg" name="Sock-shop">
     <packageImport xmi:type="uml:PackageImport" xmi:id="_DaI4oJrGEeyFoIN4a6CPFg">
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
@@ -36,15 +36,15 @@
     <packagedElement xmi:type="uml:Dependency" xmi:id="_BZAl8JuYEeywKYGRF4MZfg" client="_1NnL4JruEey3UtMeXcAOlA" supplier="_U-t38JrtEey3UtMeXcAOlA"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_4lAjQJujEeywKYGRF4MZfg" client="_yrU8gJrGEeyFoIN4a6CPFg" supplier="_2aFj0JujEeywKYGRF4MZfg"/>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_DZW1gJrGEeyFoIN4a6CPFg">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_jfnnIKRlEey_H4qySQWDSg" source="PapyrusVersion">
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_jfnnIaRlEey_H4qySQWDSg" key="Version" value="0.0.139"/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_jfnnIqRlEey_H4qySQWDSg" key="Comment" value=""/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_jfnnI6RlEey_H4qySQWDSg" key="Copyright" value=""/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_jfnnJKRlEey_H4qySQWDSg" key="Date" value="2022-03-15"/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_jfnnJaRlEey_H4qySQWDSg" key="Author" value=""/>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_FCTd4KqsEeyhO-tN7N6fOw" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FCTd4aqsEeyhO-tN7N6fOw" key="Version" value="0.0.155"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FCTd4qqsEeyhO-tN7N6fOw" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FCTd46qsEeyhO-tN7N6fOw" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FCTd5KqsEeyhO-tN7N6fOw" key="Date" value="2022-03-23"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FCTd5aqsEeyhO-tN7N6fOw" key="Author" value=""/>
       </eAnnotations>
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_DZXckJrGEeyFoIN4a6CPFg" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="/KubernetesUMLProfile/KubernetesUMLProfile.profile.uml#_d9MvIKRfEey_H4qySQWDSg"/>
+        <references xmi:type="ecore:EPackage" href="/KubernetesUMLProfile/KubernetesUMLProfile.profile.uml#_YFClcaqgEeyWldjoSkrbyQ"/>
       </eAnnotations>
       <appliedProfile xmi:type="uml:Profile" href="/KubernetesUMLProfile/KubernetesUMLProfile.profile.uml#_y3Fe0H9iEeyXt-NBRolQsA"/>
     </profileApplication>
