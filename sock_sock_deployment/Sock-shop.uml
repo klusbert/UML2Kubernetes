@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:KubernetesUMLProfile="http:///schemas/KubernetesUMLProfile/_YFClcKqgEeyWldjoSkrbyQ/154" xmlns:KubernetesUMLProfile.DataTypes="http:///KubernetesUMLProfile/DataTypes.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/KubernetesUMLProfile/_YFClcKqgEeyWldjoSkrbyQ/154 /KubernetesUMLProfile/KubernetesUMLProfile.profile.uml#_YFClcaqgEeyWldjoSkrbyQ http:///KubernetesUMLProfile/DataTypes.ecore /KubernetesUMLProfile/KubernetesUMLProfile.profile.uml#_YFDMl6qgEeyWldjoSkrbyQ">
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:KubernetesUMLProfile="http:///schemas/KubernetesUMLProfile/_DBMDkLWVEeyOv823Hrx4Bw/166" xmlns:KubernetesUMLProfile.DataTypes="http:///KubernetesUMLProfile/DataTypes.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/KubernetesUMLProfile/_DBMDkLWVEeyOv823Hrx4Bw/166 /KubernetesUMLProfile/KubernetesUMLProfile.profile.uml#_DBN4wLWVEeyOv823Hrx4Bw http:///KubernetesUMLProfile/DataTypes.ecore /KubernetesUMLProfile/KubernetesUMLProfile.profile.uml#_DBN5HrWVEeyOv823Hrx4Bw">
   <uml:Model xmi:id="_DVheYJrGEeyFoIN4a6CPFg" name="Sock-shop">
     <packageImport xmi:type="uml:PackageImport" xmi:id="_DaI4oJrGEeyFoIN4a6CPFg">
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
@@ -36,21 +36,23 @@
     <packagedElement xmi:type="uml:Dependency" xmi:id="_BZAl8JuYEeywKYGRF4MZfg" client="_1NnL4JruEey3UtMeXcAOlA" supplier="_U-t38JrtEey3UtMeXcAOlA"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_4lAjQJujEeywKYGRF4MZfg" client="_yrU8gJrGEeyFoIN4a6CPFg" supplier="_2aFj0JujEeywKYGRF4MZfg"/>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_DZW1gJrGEeyFoIN4a6CPFg">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_FCTd4KqsEeyhO-tN7N6fOw" source="PapyrusVersion">
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FCTd4aqsEeyhO-tN7N6fOw" key="Version" value="0.0.155"/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FCTd4qqsEeyhO-tN7N6fOw" key="Comment" value=""/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FCTd46qsEeyhO-tN7N6fOw" key="Copyright" value=""/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FCTd5KqsEeyhO-tN7N6fOw" key="Date" value="2022-03-23"/>
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FCTd5aqsEeyhO-tN7N6fOw" key="Author" value=""/>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_M-g9cLWXEeyOv823Hrx4Bw" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_M-g9cbWXEeyOv823Hrx4Bw" key="Version" value="0.0.167"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_M-g9crWXEeyOv823Hrx4Bw" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_M-g9c7WXEeyOv823Hrx4Bw" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_M-g9dLWXEeyOv823Hrx4Bw" key="Date" value="2022-04-06"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_M-g9dbWXEeyOv823Hrx4Bw" key="Author" value=""/>
       </eAnnotations>
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_DZXckJrGEeyFoIN4a6CPFg" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="/KubernetesUMLProfile/KubernetesUMLProfile.profile.uml#_YFClcaqgEeyWldjoSkrbyQ"/>
+        <references xmi:type="ecore:EPackage" href="/KubernetesUMLProfile/KubernetesUMLProfile.profile.uml#_DBN4wLWVEeyOv823Hrx4Bw"/>
       </eAnnotations>
       <appliedProfile xmi:type="uml:Profile" href="/KubernetesUMLProfile/KubernetesUMLProfile.profile.uml#_y3Fe0H9iEeyXt-NBRolQsA"/>
     </profileApplication>
   </uml:Model>
   <KubernetesUMLProfile:Kubernetes xmi:id="_Iex3MJrGEeyFoIN4a6CPFg" namespace="sock-shop" base_ExecutionEnvironment="_G2rQ8JrGEeyFoIN4a6CPFg"/>
-  <KubernetesUMLProfile:Accessibility xmi:id="_23pL8JrGEeyFoIN4a6CPFg" base_Dependency="_1O2CIJrGEeyFoIN4a6CPFg"/>
+  <KubernetesUMLProfile:Accessibility xmi:id="_23pL8JrGEeyFoIN4a6CPFg" base_Dependency="_1O2CIJrGEeyFoIN4a6CPFg">
+    <ingress xmi:type="KubernetesUMLProfile.DataTypes:Ingress" xmi:id="_O94NILWXEeyOv823Hrx4Bw" host="2dv50e.xyz" path="/sock-shop"/>
+  </KubernetesUMLProfile:Accessibility>
   <KubernetesUMLProfile:AdvancedDeployment xmi:id="_0MkDwJrcEeyEssjOJXJ4_A" base_Node="_yrU8gJrGEeyFoIN4a6CPFg" image="weaveworksdemos/front-end:0.3.12" port="8079">
     <environmentVariables xmi:type="KubernetesUMLProfile.DataTypes:EnviromentVariables" xmi:id="_Bn8_8JrfEeyEssjOJXJ4_A" name="SESSION_REDIS" value="&quot;true&quot;"/>
     <securityContext xmi:type="KubernetesUMLProfile.DataTypes:SecurityContext" xmi:id="_0mcjYJrcEeyEssjOJXJ4_A" runAsRoot="true" runAsUser="10001" readOnlyRootFilesystem="true">
@@ -187,6 +189,7 @@
   <KubernetesUMLProfile:Accessibility xmi:id="_CrNNoJuYEeywKYGRF4MZfg" base_Dependency="_BZAl8JuYEeywKYGRF4MZfg"/>
   <KubernetesUMLProfile:Accessibility xmi:id="_EPdOoJuYEeywKYGRF4MZfg" base_Dependency="_6t4KsJuXEeywKYGRF4MZfg"/>
   <KubernetesUMLProfile:AdvancedDeployment xmi:id="_NGhuQJueEeywKYGRF4MZfg" base_Node="_VVlywJrgEeyEssjOJXJ4_A" image="mongo" port="27017">
+    <dataPersistent xmi:type="KubernetesUMLProfile.DataTypes:PersistentData" xmi:id="_TvlzMLWYEeyOv823Hrx4Bw" sizeInGB="1" mountPath="/tmp"/>
     <securityContext xmi:type="KubernetesUMLProfile.DataTypes:SecurityContext" xmi:id="_VXLV0JueEeywKYGRF4MZfg" readOnlyRootFilesystem="true">
       <capabilities xmi:type="KubernetesUMLProfile.DataTypes:Capabilities" xmi:id="_Wna1sJueEeywKYGRF4MZfg">
         <add>CHOWN</add>
@@ -195,7 +198,6 @@
         <drop>all</drop>
       </capabilities>
     </securityContext>
-    <memoryMount xmi:type="KubernetesUMLProfile.DataTypes:MemoryMount" xmi:id="_eeUggJueEeywKYGRF4MZfg"/>
   </KubernetesUMLProfile:AdvancedDeployment>
   <KubernetesUMLProfile:Accessibility xmi:id="_5YxigJujEeywKYGRF4MZfg" base_Dependency="_4lAjQJujEeywKYGRF4MZfg"/>
   <KubernetesUMLProfile:AdvancedDeployment xmi:id="_6Po5EJujEeywKYGRF4MZfg" base_Node="_2aFj0JujEeywKYGRF4MZfg" image="redis:alpine" port="6379">

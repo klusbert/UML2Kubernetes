@@ -29,6 +29,8 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference kubernetes_metamodel.ecore#//Infrastructure/configMaps"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//Infrastructure/objectsCount"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference kubernetes_metamodel.ecore#//Infrastructure/persistentVolumeClaims"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference kubernetes_metamodel.ecore#//Infrastructure/service"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//Infrastructure/allocatedNodePorts"/>
     </genClasses>
     <genClasses ecoreClass="kubernetes_metamodel.ecore#//Deployment">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//Deployment/image"/>
@@ -39,7 +41,6 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference kubernetes_metamodel.ecore#//Deployment/service"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference kubernetes_metamodel.ecore#//Deployment/dataPersistent"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//Deployment/namespace"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference kubernetes_metamodel.ecore#//Deployment/ingress"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference kubernetes_metamodel.ecore#//Deployment/securityContext"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference kubernetes_metamodel.ecore#//Deployment/resourceAllocation"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//Deployment/command"/>
@@ -62,6 +63,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//Service/accessibilityType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//Service/protocol"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//Service/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//Service/multipleEndpoints"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference kubernetes_metamodel.ecore#//Service/ingress"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//Service/deploymentName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//Service/deploymentPort"/>
     </genClasses>
     <genClasses ecoreClass="kubernetes_metamodel.ecore#//PersistentData">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//PersistentData/mountPath"/>
@@ -70,6 +75,8 @@
     </genClasses>
     <genClasses ecoreClass="kubernetes_metamodel.ecore#//Ingress">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//Ingress/path"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//Ingress/host"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//Ingress/className"/>
     </genClasses>
     <genClasses ecoreClass="kubernetes_metamodel.ecore#//SecurityContext">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kubernetes_metamodel.ecore#//SecurityContext/runAsRoot"/>

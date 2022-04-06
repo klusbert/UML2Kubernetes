@@ -140,57 +140,6 @@ spec:
               mountPath: [vm.mountPath/]
 		  [/for]
 	 [/if]
-	[if (deployment.service->notEmpty())]	
-[if (deployment.service.publicAccess)]
----
-kind: Service
-apiVersion: v1
-metadata:
-  name: [deployment.service.name.toLowerCase() /]
-  namespace: [anInfrastructure.namespace.toLowerCase() /]
-spec:
-  selector:
-    app: [deployment.name.toLowerCase() /]
-  type: [deployment.service.accessibilityType /]
-  ports:  
-    - port: [deployment.service.port /]
-      protocol: [deployment.service.protocol.toString() /]     
-      targetPort: [deployment.port /]
-[else]
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: [deployment.service.name.toLowerCase()/]
-  namespace: [anInfrastructure.namespace.toLowerCase() /]
-spec:  
-  ports:
-    - port: [deployment.service.port /]        
-      protocol: [deployment.service.protocol.toString() /]
-      targetPort: [deployment.port /]
-  selector:
-    app: [deployment.name.toLowerCase() /]
-[/if]
-[/if]
-[if (deployment.ingress->notEmpty())]
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: [deployment.name.toLowerCase() +'-ingress'/]
-  namespace: [anInfrastructure.namespace.toLowerCase() /]
-spec:
-  rules:
-  - http:
-      paths:
-      - path: [deployment.ingress.path /]
-        backend:
-          service:
-            name: [deployment.name.toLowerCase() /]
-            port:
-              number: [deployment.service.port /]
-        pathType: Exact
-			[/if]	
 		[/file]
 	[/for]
 [/if]

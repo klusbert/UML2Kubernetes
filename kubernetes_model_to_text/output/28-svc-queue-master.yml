@@ -1,0 +1,16 @@
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: queue-master
+  namespace: sock-shop
+spec:
+  selector:
+    app: queue-master
+  type: ClusterIP
+  ports:  
+    - port: 80
+      protocol: TCP     
+      targetPort: 80
+

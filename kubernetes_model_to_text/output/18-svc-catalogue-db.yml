@@ -1,0 +1,16 @@
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: catalogue-db
+  namespace: sock-shop
+spec:
+  selector:
+    app: catalogue-db
+  type: ClusterIP
+  ports:  
+    - port: 3306
+      protocol: TCP     
+      targetPort: 3306
+

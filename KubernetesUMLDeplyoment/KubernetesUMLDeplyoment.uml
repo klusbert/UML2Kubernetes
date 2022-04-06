@@ -8,7 +8,7 @@
       <nestedClassifier xmi:type="uml:Node" xmi:id="_8a_zIH9kEeyXt-NBRolQsA" name="phpMyAdmin"/>
       <nestedClassifier xmi:type="uml:Node" xmi:id="_NFM8QJCgEey5pfBfWsdixw" name="wordpress"/>
       <nestedClassifier xmi:type="uml:Node" xmi:id="_R_8t8JSQEeykRpNdXmxuDg" name="mongo"/>
-      <nestedClassifier xmi:type="uml:Node" xmi:id="_ZN3GIJSQEeykRpNdXmxuDg" name="mongoExpress"/>
+      <nestedClassifier xmi:type="uml:Node" xmi:id="_ZN3GIJSQEeykRpNdXmxuDg" name="adminer"/>
       <nestedClassifier xmi:type="uml:Artifact" xmi:id="_OxMIsKRDEeySO5GnGG28Tw" name="config-map" fileName=""/>
       <nestedClassifier xmi:type="uml:Artifact" xmi:id="_nokJgKUVEeyzk76f4D3PIA" name="mysql-password" fileName=""/>
       <nestedClassifier xmi:type="uml:Node" xmi:id="_1HAHwKUZEeyLEbzeSRaKiA" name="mysql"/>
@@ -49,12 +49,10 @@
     <ingress xmi:type="KubernetesUMLProfile.DataTypes:Ingress" xmi:id="_v5VhYKRbEey_H4qySQWDSg" path="/test"/>
   </KubernetesUMLProfile:Accessibility>
   <KubernetesUMLProfile:MongoDB xmi:id="_Uxx8YJSQEeykRpNdXmxuDg" base_Node="_R_8t8JSQEeykRpNdXmxuDg" storageSizeInGB="1">
-    <databaseUser xmi:type="KubernetesUMLProfile.DataTypes:DatabaseUser" xmi:id="__eb1AK8yEeytZrp4MKp0IA" userName="mongo"/>
+    <databaseUser xmi:type="KubernetesUMLProfile.DataTypes:DatabaseUser" xmi:id="__eb1AK8yEeytZrp4MKp0IA" userName="mongo" password="password"/>
   </KubernetesUMLProfile:MongoDB>
-  <KubernetesUMLProfile:Deployment xmi:id="_bEBWgJSQEeykRpNdXmxuDg" base_Node="_ZN3GIJSQEeykRpNdXmxuDg" image="mongo-express" port="8081">
-    <environmentVariables xmi:type="KubernetesUMLProfile.DataTypes:EnviromentVariables" xmi:id="_iA5CAJSQEeykRpNdXmxuDg" name="ME_CONFIG_MONGODB_ADMINUSERNAME" value="mongo"/>
-    <environmentVariables xmi:type="KubernetesUMLProfile.DataTypes:EnviromentVariables" xmi:id="_jV5tIJSQEeykRpNdXmxuDg" name="ME_CONFIG_MONGODB_ADMINPASSWORD" value="secret_password"/>
-    <environmentVariables xmi:type="KubernetesUMLProfile.DataTypes:EnviromentVariables" xmi:id="_oNhjYJSQEeykRpNdXmxuDg" name="ME_CONFIG_MONGODB_URL" value="mongodb://mongo:secret_password@mongo.$dns:27017/"/>
+  <KubernetesUMLProfile:Deployment xmi:id="_bEBWgJSQEeykRpNdXmxuDg" base_Node="_ZN3GIJSQEeykRpNdXmxuDg" image=" dockette/adminer:full">
+    <environmentVariables xmi:type="KubernetesUMLProfile.DataTypes:EnviromentVariables" xmi:id="_KiYmcK86Eey5opBtgvaRXg" name="ADMINER_DEFAULT_SERVER" value="mongodb"/>
   </KubernetesUMLProfile:Deployment>
   <KubernetesUMLProfile:Accessibility xmi:id="_FS2eUJSSEeykRpNdXmxuDg" base_Dependency="_C52moJSSEeykRpNdXmxuDg"/>
   <KubernetesUMLProfile:Accessibility xmi:id="__9mBoJ-ZEey3W6UkuVHSYQ" base_Dependency="_xyhO0JoOEeymdqnPIdiJ5w"/>

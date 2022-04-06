@@ -467,13 +467,22 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	int SERVICE__ID = 5;
 
 	/**
+	 * The feature id for the '<em><b>Multiple Endpoints</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE__MULTIPLE_ENDPOINTS = 6;
+
+	/**
 	 * The number of structural features of the '<em>Service</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE_FEATURE_COUNT = 6;
+	int SERVICE_FEATURE_COUNT = 7;
 
 	/**
 	 * The number of operations of the '<em>Service</em>' class.
@@ -1667,6 +1676,17 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	EAttribute getService_Id();
 
 	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.Service#isMultipleEndpoints <em>Multiple Endpoints</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Multiple Endpoints</em>'.
+	 * @see kubernetes_metamodel.Service#isMultipleEndpoints()
+	 * @see #getService()
+	 * @generated
+	 */
+	EAttribute getService_MultipleEndpoints();
+
+	/**
 	 * Returns the meta object for class '{@link kubernetes_metamodel.PersistentData <em>Persistent Data</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2608,6 +2628,14 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SERVICE__ID = eINSTANCE.getService_Id();
+
+		/**
+		 * The meta object literal for the '<em><b>Multiple Endpoints</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SERVICE__MULTIPLE_ENDPOINTS = eINSTANCE.getService_MultipleEndpoints();
 
 		/**
 		 * The meta object literal for the '{@link kubernetes_metamodel.impl.PersistentDataImpl <em>Persistent Data</em>}' class.

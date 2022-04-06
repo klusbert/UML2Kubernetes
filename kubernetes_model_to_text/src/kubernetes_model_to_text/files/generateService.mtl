@@ -1,0 +1,49 @@
+[comment encoding = UTF-8 /]
+[module generateService('http://www.example.org/kubernetesModel')]
+[import kubernetes_model_to_text::requests::generateJavaExtensions/]
+
+[template public generateService(anInfrastructure : Infrastructure)]
+[if (anInfrastructure.deployments->notEmpty())]
+	[for (svc: Service | anInfrastructure.service)]
+		[file (padZeros(svc.id) +'-svc-' + svc.name +'.yml', false, 'UTF-8')]
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: [svc.name.toLowerCase() /]
+  namespace: [anInfrastructure.namespace.toLowerCase() /]
+spec:
+  selector:
+    app: [svc.deploymentName.toLowerCase() /]
+  type: [svc.accessibilityType /]
+  ports:  
+    - port: [svc.port /]
+      protocol: [svc.protocol.toString() /]     
+      targetPort: [svc.deploymentPort /]
+
+[if (svc.ingress->notEmpty())]
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: [svc.name.toLowerCase() +'-ingress'/]
+  namespace: [anInfrastructure.namespace.toLowerCase() /]
+spec:
+  rules:
+    - host: [svc.ingress.host/]
+      http:
+        paths:
+          - path: [svc.ingress.path/]
+            pathType: Prefix
+            backend:
+              service: #Dependency to a service
+                name: [svc.name.toLowerCase()/]
+                port:
+                  number: [svc.port /]
+  ingressClassName: [svc.ingress.className.toLowerCase()/]
+[/if]
+		[/file]
+	[/for]
+[/if]
+[/template]

@@ -1,0 +1,16 @@
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: catalogue
+  namespace: sock-shop
+spec:
+  selector:
+    app: catalogue
+  type: ClusterIP
+  ports:  
+    - port: 80
+      protocol: TCP     
+      targetPort: 80
+

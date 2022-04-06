@@ -1,0 +1,16 @@
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: user-db
+  namespace: sock-shop
+spec:
+  selector:
+    app: user-db
+  type: ClusterIP
+  ports:  
+    - port: 27017
+      protocol: TCP     
+      targetPort: 27017
+

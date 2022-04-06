@@ -40,7 +40,9 @@ import kubernetes_model_to_text.main.Generate;
 
 public class Main {
 
-	private final String PATH_TO_UML = "../KubernetesUMLDeplyoment/KubernetesUMLDeplyoment.uml";
+	//private final String PATH_TO_UML = "../KubernetesUMLDeplyoment/KubernetesUMLDeplyoment.uml";
+	private final String PATH_TO_UML = "../Sock-shop/Sock-shop.uml";
+	
 	// private final String PATH_TO_UML =
 	// "platform:/resource/KubernetesUMLDeplyoment/KubernetesUMLDeplyoment.uml";
 	// private final String PATH_TO_UML = "../DAMprofile/DAM.profile.uml";

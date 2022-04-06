@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link kubernetes_metamodel.Service#getAccessibilityType <em>Accessibility Type</em>}</li>
  *   <li>{@link kubernetes_metamodel.Service#getProtocol <em>Protocol</em>}</li>
  *   <li>{@link kubernetes_metamodel.Service#getId <em>Id</em>}</li>
+ *   <li>{@link kubernetes_metamodel.Service#isMultipleEndpoints <em>Multiple Endpoints</em>}</li>
  * </ul>
  *
  * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getService()
@@ -163,5 +164,27 @@ public interface Service extends EObject {
 	 * @generated
 	 */
 	void setId(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Multiple Endpoints</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Multiple Endpoints</em>' attribute.
+	 * @see #setMultipleEndpoints(boolean)
+	 * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getService_MultipleEndpoints()
+	 * @model
+	 * @generated
+	 */
+	boolean isMultipleEndpoints();
+
+	/**
+	 * Sets the value of the '{@link kubernetes_metamodel.Service#isMultipleEndpoints <em>Multiple Endpoints</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Multiple Endpoints</em>' attribute.
+	 * @see #isMultipleEndpoints()
+	 * @generated
+	 */
+	void setMultipleEndpoints(boolean value);
 
 } // Service

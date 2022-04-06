@@ -597,6 +597,15 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getService_MultipleEndpoints() {
+		return (EAttribute)serviceEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPersistentData() {
 		return persistentDataEClass;
 	}
@@ -1166,6 +1175,7 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 		createEAttribute(serviceEClass, SERVICE__ACCESSIBILITY_TYPE);
 		createEAttribute(serviceEClass, SERVICE__PROTOCOL);
 		createEAttribute(serviceEClass, SERVICE__ID);
+		createEAttribute(serviceEClass, SERVICE__MULTIPLE_ENDPOINTS);
 
 		persistentDataEClass = createEClass(PERSISTENT_DATA);
 		createEAttribute(persistentDataEClass, PERSISTENT_DATA__MOUNT_PATH);
@@ -1311,6 +1321,7 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 		initEAttribute(getService_AccessibilityType(), this.getAccessibilityType(), "accessibilityType", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getService_Protocol(), this.getProtocol(), "protocol", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getService_Id(), ecorePackage.getEInt(), "id", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getService_MultipleEndpoints(), ecorePackage.getEBoolean(), "multipleEndpoints", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(persistentDataEClass, PersistentData.class, "PersistentData", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPersistentData_MountPath(), ecorePackage.getEString(), "mountPath", null, 0, 1, PersistentData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

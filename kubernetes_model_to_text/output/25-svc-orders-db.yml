@@ -1,0 +1,16 @@
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: orders-db
+  namespace: sock-shop
+spec:
+  selector:
+    app: orders-db
+  type: ClusterIP
+  ports:  
+    - port: 27017
+      protocol: TCP     
+      targetPort: 27017
+
