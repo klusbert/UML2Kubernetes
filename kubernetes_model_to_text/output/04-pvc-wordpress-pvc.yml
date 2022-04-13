@@ -3,11 +3,11 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: carts-db-pvc
-  namespace: sock-shop
+  name: wordpress-pvc
+  namespace: uml
 spec:
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 1Gi
+      storage: 5Gi

@@ -3,12 +3,12 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: user
-  namespace: sock-shop
+  name: adminer
+  namespace: uml
 spec:
   selector:
-    app: user
-  type: ClusterIP
+    app: adminer
+  type: LoadBalancer
   ports:  
     - port: 80
       protocol: TCP     

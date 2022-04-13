@@ -1,133 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:kubernetes_metamodel="http://www.example.org/kubernetesModel" xsi:schemaLocation="http://www.example.org/kubernetesModel ../../kubernetes_meta_model/model/kubernetes_metamodel.ecore">
-  <kubernetes_metamodel:Infrastructure namespace="sock-shop" apiVersion="1" name="Sock-shop" deployments="/1 /4 /8 /12 /13 /17 /20 /24 /31 /33 /37 /41 /45 /48" accessibilityType="LoadBalancer" objectsCount="29" persistentVolumeClaims="/26" service="/51 /53 /54 /55 /56 /57 /58 /59 /60 /61 /62 /63 /64 /65"/>
-  <kubernetes_metamodel:Deployment image="weaveworksdemos/front-end:0.3.12" port="8079" replicas="1" name="front-end" namespace="sock-shop" securityContext="/2" id="1">
-    <enviromentVariables name="SESSION_REDIS" value="&quot;true&quot;"/>
+  <kubernetes_metamodel:Infrastructure namespace="UML" apiVersion="1" name="KubernetesUMLDeplyoment" deployments="/7 /8 /13 /17 /18" accessibilityType="LoadBalancer" configMaps="/1 /5 /22" objectsCount="17" persistentVolumeClaims="/10 /14 /19" service="/37 /38 /40 /41 /42 /43"/>
+  <kubernetes_metamodel:ConfigMap data="/2 /3 /4" name="config-map" id="1"/>
+  <kubernetes_metamodel:EnviromentVariables name="WORDPRESS_DB_NAME" value="wordpress"/>
+  <kubernetes_metamodel:EnviromentVariables name="PMA_HOST" value="mysql.$dns"/>
+  <kubernetes_metamodel:EnviromentVariables name="WORDPRESS_DB_USER" value="root"/>
+  <kubernetes_metamodel:ConfigMap data="/6" name="mysql-password" id="2" isSecret="true"/>
+  <kubernetes_metamodel:EnviromentVariables name="password" value="rootpassword"/>
+  <kubernetes_metamodel:Deployment image="phpmyadmin/phpmyadmin" port="80" replicas="1" name="phpMyAdmin" namespace="UML" id="3" configMapDependencies="/31"/>
+  <kubernetes_metamodel:Deployment image="wordpress" port="80" replicas="1" name="wordpress" dataPersistent="/9" namespace="UML" id="5" configMapDependencies="/25 /35" volumes="/11" volumeMounts="/12"/>
+  <kubernetes_metamodel:PersistentData mountPath="/var/www/html" sizeInGB="5"/>
+  <kubernetes_metamodel:PersistentVolumeClaim size="5" name="wordpress-pvc" id="4"/>
+  <kubernetes_metamodel:Volume name="wordpress-persistent-storage" claimName="wordpress-pvc"/>
+  <kubernetes_metamodel:VolumeMount name="wordpress-persistent-storage" mountPath="/var/www/html"/>
+  <kubernetes_metamodel:Deployment image="mongo" port="27017" replicas="1" name="mongo" namespace="UML" id="7">
+    <enviromentVariables name="MONGO_INITDB_ROOT_USERNAME" value="mongo"/>
+    <enviromentVariables name="MONGO_INITDB_ROOT_PASSWORD" value="password"/>
   </kubernetes_metamodel:Deployment>
-  <kubernetes_metamodel:SecurityContext runAsRoot="true" runAsUser="10001" runAsGroup="-1" fsGroup="-1" readOnlyRootFilesystem="true" capabilities="/3"/>
-  <kubernetes_metamodel:Capabilities>
-    <drop>all</drop>
-  </kubernetes_metamodel:Capabilities>
-  <kubernetes_metamodel:Deployment image="weaveworksdemos/carts:0.4.8" port="80" replicas="1" name="carts" namespace="sock-shop" securityContext="/5" resourceAllocation="/7" memoryMount="/tmp" id="2">
-    <enviromentVariables name="JAVA_OPTS" value="-Xms64m -Xmx128m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom -Dspring.zipkin.enabled=false"/>
+  <kubernetes_metamodel:PersistentVolumeClaim size="1" name="mongo-pvc" id="6"/>
+  <kubernetes_metamodel:Volume name="mongo-persistent-storage" claimName="mongo-pvc"/>
+  <kubernetes_metamodel:VolumeMount name="mongo-persistent-storage" mountPath="/data/db/"/>
+  <kubernetes_metamodel:Deployment image=" dockette/adminer:full" port="80" replicas="1" name="adminer" namespace="UML" id="8">
+    <enviromentVariables name="ADMINER_DEFAULT_SERVER" value="mongodb"/>
   </kubernetes_metamodel:Deployment>
-  <kubernetes_metamodel:SecurityContext runAsRoot="true" runAsUser="10001" runAsGroup="-1" fsGroup="-1" readOnlyRootFilesystem="true" capabilities="/6"/>
-  <kubernetes_metamodel:Capabilities>
-    <drop>all</drop>
-    <add>NET_BIND_SERVICE</add>
-  </kubernetes_metamodel:Capabilities>
-  <kubernetes_metamodel:ResourceAllocation cpuLimit="300m" cpuRequest="100m" memoryLimit="500Mi" memoryRequest="200Mi"/>
-  <kubernetes_metamodel:Deployment image="weaveworksdemos/catalogue:0.3.5" port="80" replicas="1" name="catalogue" namespace="sock-shop" securityContext="/9" resourceAllocation="/11" command="/app" id="3">
-    <args>-port=80</args>
-  </kubernetes_metamodel:Deployment>
-  <kubernetes_metamodel:SecurityContext runAsRoot="true" runAsUser="10001" runAsGroup="-1" fsGroup="-1" readOnlyRootFilesystem="true" capabilities="/10"/>
-  <kubernetes_metamodel:Capabilities>
-    <drop>all</drop>
-    <add>NET_BIND_SERVICE</add>
-  </kubernetes_metamodel:Capabilities>
-  <kubernetes_metamodel:ResourceAllocation cpuLimit="200m" cpuRequest="100m" memoryLimit="200Mi" memoryRequest="100Mi"/>
-  <kubernetes_metamodel:Deployment image=" weaveworksdemos/catalogue-db:0.3.0" port="3306" replicas="1" name="catalogue-db" namespace="sock-shop" id="4">
-    <enviromentVariables name="MYSQL_DATABASE" value="socksdb"/>
-    <enviromentVariables name="MYSQL_ROOT_PASSWORD" value="fake_password"/>
-  </kubernetes_metamodel:Deployment>
-  <kubernetes_metamodel:Deployment image="weaveworksdemos/orders:0.4.7" port="80" replicas="1" name="orders" namespace="sock-shop" securityContext="/14" resourceAllocation="/16" memoryMount="/tmp" id="5">
-    <enviromentVariables name="JAVA_OPTS" value="-Xms64m -Xmx128m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom -Dspring.zipkin.enabled=false"/>
-  </kubernetes_metamodel:Deployment>
-  <kubernetes_metamodel:SecurityContext runAsRoot="true" runAsUser="10001" runAsGroup="-1" fsGroup="-1" readOnlyRootFilesystem="true" capabilities="/15"/>
-  <kubernetes_metamodel:Capabilities>
-    <drop>all</drop>
-    <add>NET_BIND_SERVICE</add>
-  </kubernetes_metamodel:Capabilities>
-  <kubernetes_metamodel:ResourceAllocation cpuLimit="500m" cpuRequest="100m" memoryLimit="500Mi" memoryRequest="300Mi"/>
-  <kubernetes_metamodel:Deployment image="mongo" port="27017" replicas="1" name="orders-db" namespace="sock-shop" securityContext="/18" memoryMount="/tmp" id="6"/>
-  <kubernetes_metamodel:SecurityContext runAsUser="-1" runAsGroup="-1" fsGroup="-1" readOnlyRootFilesystem="true" capabilities="/19"/>
-  <kubernetes_metamodel:Capabilities>
-    <drop>all</drop>
-    <add>CHOWN</add>
-    <add>SETGID</add>
-    <add>SETUID</add>
-  </kubernetes_metamodel:Capabilities>
-  <kubernetes_metamodel:Deployment image="weaveworksdemos/payment:0.4.3" port="80" replicas="1" name="payment" namespace="sock-shop" securityContext="/21" resourceAllocation="/23" id="7"/>
-  <kubernetes_metamodel:SecurityContext runAsRoot="true" runAsUser="10001" runAsGroup="-1" fsGroup="-1" readOnlyRootFilesystem="true" capabilities="/22"/>
-  <kubernetes_metamodel:Capabilities>
-    <drop>all</drop>
-    <add>NET_BIND_SERVICE</add>
-  </kubernetes_metamodel:Capabilities>
-  <kubernetes_metamodel:ResourceAllocation cpuLimit="200m" cpuRequest="90m" memoryLimit="200Mi" memoryRequest="100Mi"/>
-  <kubernetes_metamodel:Deployment image="mongo" port="27017" replicas="1" name="carts-db" dataPersistent="/25" namespace="sock-shop" securityContext="/29" id="9" volumes="/27" volumeMounts="/28"/>
-  <kubernetes_metamodel:PersistentData mountPath="/tmp" sizeInGB="1"/>
-  <kubernetes_metamodel:PersistentVolumeClaim size="1" name="carts-db-pvc" id="8"/>
-  <kubernetes_metamodel:Volume name="carts-db-persistent-storage" claimName="carts-db-pvc"/>
-  <kubernetes_metamodel:VolumeMount name="carts-db-persistent-storage" mountPath="/tmp"/>
-  <kubernetes_metamodel:SecurityContext runAsUser="-1" runAsGroup="-1" fsGroup="-1" readOnlyRootFilesystem="true" capabilities="/30"/>
-  <kubernetes_metamodel:Capabilities>
-    <drop>all</drop>
-    <add>CHOWN</add>
-    <add>SETGID</add>
-    <add>SETUID</add>
-  </kubernetes_metamodel:Capabilities>
-  <kubernetes_metamodel:Deployment image="weaveworksdemos/queue-master:0.3.1" port="80" replicas="1" name="queue-master" namespace="sock-shop" resourceAllocation="/32" id="10">
-    <enviromentVariables name="JAVA_OPTS" value="-Xms64m -Xmx128m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom -Dspring.zipkin.enabled=false"/>
-  </kubernetes_metamodel:Deployment>
-  <kubernetes_metamodel:ResourceAllocation cpuLimit="300m" cpuRequest="100m" memoryLimit="500Mi" memoryRequest="300Mi"/>
-  <kubernetes_metamodel:Deployment image="weaveworksdemos/shipping:0.4.8" port="80" replicas="1" name="shipping" namespace="sock-shop" securityContext="/34" resourceAllocation="/36" memoryMount="/tmp" id="11">
-    <enviromentVariables name="ZIPKIN" value="zipkin.jaeger.svc.cluster.local"/>
-    <enviromentVariables name="JAVA_OPTS" value="-Xms64m -Xmx128m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom -Dspring.zipkin.enabled=false"/>
-  </kubernetes_metamodel:Deployment>
-  <kubernetes_metamodel:SecurityContext runAsRoot="true" runAsUser="10001" runAsGroup="-1" fsGroup="-1" readOnlyRootFilesystem="true" capabilities="/35"/>
-  <kubernetes_metamodel:Capabilities>
-    <drop>all</drop>
-    <add>NET_BIND_SERVICE</add>
-  </kubernetes_metamodel:Capabilities>
-  <kubernetes_metamodel:ResourceAllocation cpuLimit="300m" cpuRequest="100m" memoryLimit="500Mi" memoryRequest="300Mi"/>
-  <kubernetes_metamodel:Deployment image="rabbitmq:3.6.8-management" port="5672" replicas="1" name="rabbitmq" namespace="sock-shop" securityContext="/38" additionalPorts="/40" id="12"/>
-  <kubernetes_metamodel:SecurityContext runAsUser="-1" runAsGroup="-1" fsGroup="-1" readOnlyRootFilesystem="true" capabilities="/39"/>
-  <kubernetes_metamodel:Capabilities>
-    <drop>all</drop>
-    <add>CHOWN</add>
-    <add>SETGID</add>
-    <add>SETUID</add>
-    <add>DAC_OVERRIDE</add>
-  </kubernetes_metamodel:Capabilities>
-  <kubernetes_metamodel:Port number="15672" name="management"/>
-  <kubernetes_metamodel:Deployment image="weaveworksdemos/user:0.4.7" port="80" replicas="1" name="user" namespace="sock-shop" securityContext="/42" resourceAllocation="/44" id="13">
-    <enviromentVariables name="mongo" value="user-db:27017"/>
-  </kubernetes_metamodel:Deployment>
-  <kubernetes_metamodel:SecurityContext runAsRoot="true" runAsUser="10001" runAsGroup="-1" fsGroup="-1" readOnlyRootFilesystem="true" capabilities="/43"/>
-  <kubernetes_metamodel:Capabilities>
-    <drop>all</drop>
-    <add>NET_BIND_SERVICE</add>
-  </kubernetes_metamodel:Capabilities>
-  <kubernetes_metamodel:ResourceAllocation cpuLimit="300m" cpuRequest="100m" memoryLimit="200Mi" memoryRequest="100Mi"/>
-  <kubernetes_metamodel:Deployment image="weaveworksdemos/user-db:0.3.0" port="27017" replicas="1" name="user-db" namespace="sock-shop" securityContext="/46" memoryMount="/tmp" id="14"/>
-  <kubernetes_metamodel:SecurityContext runAsUser="-1" runAsGroup="-1" fsGroup="-1" readOnlyRootFilesystem="true" capabilities="/47"/>
-  <kubernetes_metamodel:Capabilities>
-    <drop>all</drop>
-    <add>CHOWN</add>
-    <add>SETGID</add>
-    <add>SETUID</add>
-  </kubernetes_metamodel:Capabilities>
-  <kubernetes_metamodel:Deployment image="redis:alpine" port="6379" replicas="1" name="session-db" namespace="sock-shop" securityContext="/49" id="15"/>
-  <kubernetes_metamodel:SecurityContext runAsUser="-1" runAsGroup="-1" fsGroup="-1" readOnlyRootFilesystem="true" capabilities="/50"/>
-  <kubernetes_metamodel:Capabilities>
-    <drop>all</drop>
-    <add>CHOWN</add>
-    <add>SETGID</add>
-    <add>SETUID</add>
-  </kubernetes_metamodel:Capabilities>
-  <kubernetes_metamodel:Service port="80" name="front-end" accessibilityType="ClusterIP" id="16" ingress="/52" deploymentName="front-end" deploymentPort="8079"/>
-  <kubernetes_metamodel:Ingress path="/sock-shop" host="2dv50e.xyz" className="nginx"/>
-  <kubernetes_metamodel:Service port="80" name="catalogue" accessibilityType="ClusterIP" id="17" deploymentName="catalogue" deploymentPort="80"/>
-  <kubernetes_metamodel:Service port="3306" name="catalogue-db" accessibilityType="ClusterIP" id="18" deploymentName="catalogue-db" deploymentPort="3306"/>
-  <kubernetes_metamodel:Service port="80" name="carts" accessibilityType="ClusterIP" id="19" deploymentName="carts" deploymentPort="80"/>
-  <kubernetes_metamodel:Service port="27017" name="carts-db" accessibilityType="ClusterIP" id="20" deploymentName="carts-db" deploymentPort="27017"/>
-  <kubernetes_metamodel:Service port="80" name="user" accessibilityType="ClusterIP" id="21" deploymentName="user" deploymentPort="80"/>
-  <kubernetes_metamodel:Service port="27017" name="user-db" accessibilityType="ClusterIP" id="22" deploymentName="user-db" deploymentPort="27017"/>
-  <kubernetes_metamodel:Service port="80" name="payment" accessibilityType="ClusterIP" id="23" deploymentName="payment" deploymentPort="80"/>
-  <kubernetes_metamodel:Service port="80" name="orders" accessibilityType="ClusterIP" id="24" deploymentName="orders" deploymentPort="80"/>
-  <kubernetes_metamodel:Service port="27017" name="orders-db" accessibilityType="ClusterIP" id="25" deploymentName="orders-db" deploymentPort="27017"/>
-  <kubernetes_metamodel:Service port="80" name="shipping" accessibilityType="ClusterIP" id="26" deploymentName="shipping" deploymentPort="80"/>
-  <kubernetes_metamodel:Service port="5672" name="rabbitmq" accessibilityType="ClusterIP" id="27" deploymentName="rabbitmq" deploymentPort="5672"/>
-  <kubernetes_metamodel:Service port="80" name="queue-master" accessibilityType="ClusterIP" id="28" deploymentName="queue-master" deploymentPort="80"/>
-  <kubernetes_metamodel:Service port="6379" name="session-db" accessibilityType="ClusterIP" id="29" deploymentName="session-db" deploymentPort="6379"/>
+  <kubernetes_metamodel:Deployment image="mysql:8.0.28" port="3306" replicas="1" name="mysql" namespace="UML" id="11" configMapDependencies="/29 /33" volumes="/20 /23" volumeMounts="/21 /24"/>
+  <kubernetes_metamodel:PersistentVolumeClaim size="3" name="mysql-pvc" id="10"/>
+  <kubernetes_metamodel:Volume name="mysql-persistent-storage" claimName="mysql-pvc"/>
+  <kubernetes_metamodel:VolumeMount name="mysql-persistent-storage" mountPath="/var/lib/mysql"/>
+  <kubernetes_metamodel:ConfigMap name="mysql-sql-dump" id="9" fileName="C:\Users\klusb\Documents\2dv50e-kubernetes-deployment\wordpress.sql" isDump="true"/>
+  <kubernetes_metamodel:Volume name="usermanagement-dbcreation-script" type="configMap" configMapName="mysql-sql-dump"/>
+  <kubernetes_metamodel:VolumeMount name="usermanagement-dbcreation-script" mountPath="/docker-entrypoint-initdb.d"/>
+  <kubernetes_metamodel:ConfigMapDependency configMapName="config-map" dependency="/26 /27 /28"/>
+  <kubernetes_metamodel:Dependency envName="WORDPRESS_DB_USER" keyName="WORDPRESS_DB_USER"/>
+  <kubernetes_metamodel:Dependency envName="WORDPRESS_DB_NAME" keyName="WORDPRESS_DB_NAME"/>
+  <kubernetes_metamodel:Dependency envName="WORDPRESS_DB_HOST" keyName="PMA_HOST"/>
+  <kubernetes_metamodel:ConfigMapDependency configMapName="config-map" dependency="/30"/>
+  <kubernetes_metamodel:Dependency envName="MYSQL_DATABASE" keyName="WORDPRESS_DB_NAME"/>
+  <kubernetes_metamodel:ConfigMapDependency configMapName="config-map" dependency="/32"/>
+  <kubernetes_metamodel:Dependency envName="PMA_HOST" keyName="PMA_HOST"/>
+  <kubernetes_metamodel:ConfigMapDependency configMapName="mysql-password" isSecret="true" dependency="/34"/>
+  <kubernetes_metamodel:Dependency envName="MYSQL_ROOT_PASSWORD" keyName="password"/>
+  <kubernetes_metamodel:ConfigMapDependency configMapName="mysql-password" isSecret="true" dependency="/36"/>
+  <kubernetes_metamodel:Dependency envName="WORDPRESS_DB_PASSWORD" keyName="password"/>
+  <kubernetes_metamodel:Service port="80" name="phpMyAdmin" accessibilityType="LoadBalancer" id="12" deploymentName="phpMyAdmin" deploymentPort="80"/>
+  <kubernetes_metamodel:Service port="80" name="wordpress" accessibilityType="ClusterIP" id="13" ingress="/39" deploymentName="wordpress" deploymentPort="80"/>
+  <kubernetes_metamodel:Ingress path="/test" host="example.com" className="nginx"/>
+  <kubernetes_metamodel:Service port="27017" name="mongo" accessibilityType="ClusterIP" id="14" deploymentName="mongo" deploymentPort="27017"/>
+  <kubernetes_metamodel:Service port="80" name="adminer" accessibilityType="LoadBalancer" id="15" deploymentName="adminer" deploymentPort="80"/>
+  <kubernetes_metamodel:Service port="3306" name="mysql" accessibilityType="ClusterIP" id="16" deploymentName="mysql" deploymentPort="3306"/>
+  <kubernetes_metamodel:Service port="3306" name="mysql" accessibilityType="ClusterIP" id="17" deploymentName="mysql" deploymentPort="3306"/>
 </xmi:XMI>

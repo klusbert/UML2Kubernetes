@@ -3,12 +3,12 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: orders
-  namespace: sock-shop
+  name: phpmyadmin
+  namespace: uml
 spec:
   selector:
-    app: orders
-  type: ClusterIP
+    app: phpmyadmin
+  type: LoadBalancer
   ports:  
     - port: 80
       protocol: TCP     

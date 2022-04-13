@@ -3,33 +3,33 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: front-end
-  namespace: sock-shop
+  name: wordpress
+  namespace: uml
 spec:
   selector:
-    app: front-end
+    app: wordpress
   type: ClusterIP
   ports:  
     - port: 80
       protocol: TCP     
-      targetPort: 8079
+      targetPort: 80
 
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: front-end-ingress
-  namespace: sock-shop
+  name: wordpress-ingress
+  namespace: uml
 spec:
   rules:
-    - host: 2dv50e.xyz
+    - host: example.com
       http:
         paths:
-          - path: /sock-shop
+          - path: /test
             pathType: Prefix
             backend:
               service: #Dependency to a service
-                name: front-end
+                name: wordpress
                 port:
                   number: 80
   ingressClassName: nginx
