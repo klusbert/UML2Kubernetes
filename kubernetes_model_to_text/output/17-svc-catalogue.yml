@@ -3,14 +3,14 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: mysql
-  namespace: uml
+  name: catalogue
+  namespace: sock-shop
 spec:
   selector:
-    app: mysql
+    app: catalogue
   type: ClusterIP
   ports:  
-    - port: 3306
+    - port: 80
       protocol: TCP     
-      targetPort: 3306
+      targetPort: 80
 

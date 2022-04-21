@@ -1,0 +1,31 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: session-db
+  namespace: sock-shop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: session-db
+  template:
+    metadata:
+      labels:
+        app: session-db
+    spec:
+      containers:
+        - name: session-db
+          image: redis:alpine
+          ports:
+            - containerPort: 6379
+          securityContext:
+            runAsNonRoot: false
+            capabilities:
+              drop:
+                - all             
+              add:
+                - CHOWN             
+                - SETGID             
+                - SETUID             
+            readOnlyRootFilesystem: true

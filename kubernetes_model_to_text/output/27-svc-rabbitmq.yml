@@ -1,0 +1,16 @@
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: rabbitmq
+  namespace: sock-shop
+spec:
+  selector:
+    app: rabbitmq
+  type: ClusterIP
+  ports:  
+    - port: 5672
+      protocol: TCP     
+      targetPort: 5672
+

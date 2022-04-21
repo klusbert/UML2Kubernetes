@@ -3,14 +3,14 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: mongo
-  namespace: uml
+  name: catalogue-db
+  namespace: sock-shop
 spec:
   selector:
-    app: mongo
+    app: catalogue-db
   type: ClusterIP
   ports:  
-    - port: 27017
+    - port: 3306
       protocol: TCP     
-      targetPort: 27017
+      targetPort: 3306
 

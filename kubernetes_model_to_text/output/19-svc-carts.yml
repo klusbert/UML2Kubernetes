@@ -1,0 +1,16 @@
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: carts
+  namespace: sock-shop
+spec:
+  selector:
+    app: carts
+  type: ClusterIP
+  ports:  
+    - port: 80
+      protocol: TCP     
+      targetPort: 80
+

@@ -50,9 +50,7 @@
     </profileApplication>
   </uml:Model>
   <KubernetesUMLProfile:Kubernetes xmi:id="_Iex3MJrGEeyFoIN4a6CPFg" namespace="sock-shop" base_ExecutionEnvironment="_G2rQ8JrGEeyFoIN4a6CPFg"/>
-  <KubernetesUMLProfile:Accessibility xmi:id="_23pL8JrGEeyFoIN4a6CPFg" base_Dependency="_1O2CIJrGEeyFoIN4a6CPFg">
-    <ingress xmi:type="KubernetesUMLProfile.DataTypes:Ingress" xmi:id="_O94NILWXEeyOv823Hrx4Bw" host="2dv50e.xyz" path="/sock-shop"/>
-  </KubernetesUMLProfile:Accessibility>
+  <KubernetesUMLProfile:Accessibility xmi:id="_23pL8JrGEeyFoIN4a6CPFg" base_Dependency="_1O2CIJrGEeyFoIN4a6CPFg"/>
   <KubernetesUMLProfile:AdvancedDeployment xmi:id="_0MkDwJrcEeyEssjOJXJ4_A" base_Node="_yrU8gJrGEeyFoIN4a6CPFg" image="weaveworksdemos/front-end:0.3.12" port="8079">
     <environmentVariables xmi:type="KubernetesUMLProfile.DataTypes:EnviromentVariables" xmi:id="_Bn8_8JrfEeyEssjOJXJ4_A" name="SESSION_REDIS" value="&quot;true&quot;"/>
     <securityContext xmi:type="KubernetesUMLProfile.DataTypes:SecurityContext" xmi:id="_0mcjYJrcEeyEssjOJXJ4_A" runAsRoot="true" runAsUser="10001" readOnlyRootFilesystem="true">

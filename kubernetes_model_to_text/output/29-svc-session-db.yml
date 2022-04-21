@@ -1,0 +1,16 @@
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: session-db
+  namespace: sock-shop
+spec:
+  selector:
+    app: session-db
+  type: ClusterIP
+  ports:  
+    - port: 6379
+      protocol: TCP     
+      targetPort: 6379
+

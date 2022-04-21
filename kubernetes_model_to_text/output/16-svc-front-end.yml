@@ -3,14 +3,14 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: phpmyadmin
-  namespace: uml
+  name: front-end
+  namespace: sock-shop
 spec:
   selector:
-    app: phpmyadmin
+    app: front-end
   type: LoadBalancer
   ports:  
     - port: 80
       protocol: TCP     
-      targetPort: 80
+      targetPort: 8079
 
