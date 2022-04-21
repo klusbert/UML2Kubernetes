@@ -8,7 +8,7 @@
 [if (anInfrastructure.deployments->notEmpty())]
 	[for (deployment: Deployment | anInfrastructure.deployments)]
 
-		[file (padZeros(deployment.id) +'-deployment-' + deployment.name +'.yml', false, 'UTF-8')]
+		[file (anInfrastructure.name +'/' +padZeros(deployment.id) +'-deployment-' + deployment.name +'.yml', false, 'UTF-8')]
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -82,7 +82,7 @@ spec:
 				[else]	
                 configMapKeyRef:
 			  [/if]           
-                  name: [confDep.configMapName/]
+                  name: [confDep.configMapName.toLowerCase()/]
                   key: [dep.keyName/]
 			[/for]
 		  [/for]

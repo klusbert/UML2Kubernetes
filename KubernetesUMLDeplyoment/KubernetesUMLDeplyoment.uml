@@ -83,7 +83,5 @@
   <KubernetesUMLProfile:SecretDependency xmi:id="_WGkocKXQEeyqXcBsl6kgzw" base_Dependency="_VONdEKXQEeyqXcBsl6kgzw">
     <dependencies xmi:type="KubernetesUMLProfile.DataTypes:PullEnviromentVariables" xmi:id="_YaKbsKXQEeyqXcBsl6kgzw" name="WORDPRESS_DB_PASSWORD" keyName="password"/>
   </KubernetesUMLProfile:SecretDependency>
-  <KubernetesUMLProfile:MysqlDB xmi:id="_gzfyEKqaEeyWldjoSkrbyQ" base_Node="_1HAHwKUZEeyLEbzeSRaKiA">
-    <mysqlDumpFile xmi:type="KubernetesUMLProfile.DataTypes:MySQLDumpfile" xmi:id="_nTOVALr1EeyFNNYPBWnPhw" filePath="C:\Users\klusb\Documents\2dv50e-kubernetes-deployment\wordpress.sql"/>
-  </KubernetesUMLProfile:MysqlDB>
+  <KubernetesUMLProfile:MysqlDB xmi:id="_gzfyEKqaEeyWldjoSkrbyQ" base_Node="_1HAHwKUZEeyLEbzeSRaKiA"/>
 </xmi:XMI>

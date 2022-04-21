@@ -3,6 +3,7 @@
 package kubernetes_metamodel.impl;
 
 import kubernetes_metamodel.AccessibilityType;
+import kubernetes_metamodel.Ingress;
 import kubernetes_metamodel.Kubernetes_metamodelPackage;
 import kubernetes_metamodel.Protocol;
 import kubernetes_metamodel.Service;
@@ -11,6 +12,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -29,6 +31,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link kubernetes_metamodel.impl.ServiceImpl#getProtocol <em>Protocol</em>}</li>
  *   <li>{@link kubernetes_metamodel.impl.ServiceImpl#getId <em>Id</em>}</li>
  *   <li>{@link kubernetes_metamodel.impl.ServiceImpl#isMultipleEndpoints <em>Multiple Endpoints</em>}</li>
+ *   <li>{@link kubernetes_metamodel.impl.ServiceImpl#getIngress <em>Ingress</em>}</li>
+ *   <li>{@link kubernetes_metamodel.impl.ServiceImpl#getDeploymentName <em>Deployment Name</em>}</li>
+ *   <li>{@link kubernetes_metamodel.impl.ServiceImpl#getDeploymentPort <em>Deployment Port</em>}</li>
  * </ul>
  *
  * @generated
@@ -173,6 +178,56 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
 	 * @ordered
 	 */
 	protected boolean multipleEndpoints = MULTIPLE_ENDPOINTS_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getIngress() <em>Ingress</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIngress()
+	 * @generated
+	 * @ordered
+	 */
+	protected Ingress ingress;
+
+	/**
+	 * The default value of the '{@link #getDeploymentName() <em>Deployment Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDeploymentName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DEPLOYMENT_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDeploymentName() <em>Deployment Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDeploymentName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String deploymentName = DEPLOYMENT_NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDeploymentPort() <em>Deployment Port</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDeploymentPort()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int DEPLOYMENT_PORT_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getDeploymentPort() <em>Deployment Port</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDeploymentPort()
+	 * @generated
+	 * @ordered
+	 */
+	protected int deploymentPort = DEPLOYMENT_PORT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -345,6 +400,86 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Ingress getIngress() {
+		if (ingress != null && ingress.eIsProxy()) {
+			InternalEObject oldIngress = (InternalEObject)ingress;
+			ingress = (Ingress)eResolveProxy(oldIngress);
+			if (ingress != oldIngress) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, Kubernetes_metamodelPackage.SERVICE__INGRESS, oldIngress, ingress));
+			}
+		}
+		return ingress;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Ingress basicGetIngress() {
+		return ingress;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIngress(Ingress newIngress) {
+		Ingress oldIngress = ingress;
+		ingress = newIngress;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, Kubernetes_metamodelPackage.SERVICE__INGRESS, oldIngress, ingress));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getDeploymentName() {
+		return deploymentName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDeploymentName(String newDeploymentName) {
+		String oldDeploymentName = deploymentName;
+		deploymentName = newDeploymentName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, Kubernetes_metamodelPackage.SERVICE__DEPLOYMENT_NAME, oldDeploymentName, deploymentName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getDeploymentPort() {
+		return deploymentPort;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDeploymentPort(int newDeploymentPort) {
+		int oldDeploymentPort = deploymentPort;
+		deploymentPort = newDeploymentPort;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, Kubernetes_metamodelPackage.SERVICE__DEPLOYMENT_PORT, oldDeploymentPort, deploymentPort));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -362,6 +497,13 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
 				return getId();
 			case Kubernetes_metamodelPackage.SERVICE__MULTIPLE_ENDPOINTS:
 				return isMultipleEndpoints();
+			case Kubernetes_metamodelPackage.SERVICE__INGRESS:
+				if (resolve) return getIngress();
+				return basicGetIngress();
+			case Kubernetes_metamodelPackage.SERVICE__DEPLOYMENT_NAME:
+				return getDeploymentName();
+			case Kubernetes_metamodelPackage.SERVICE__DEPLOYMENT_PORT:
+				return getDeploymentPort();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -394,6 +536,15 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
 				return;
 			case Kubernetes_metamodelPackage.SERVICE__MULTIPLE_ENDPOINTS:
 				setMultipleEndpoints((Boolean)newValue);
+				return;
+			case Kubernetes_metamodelPackage.SERVICE__INGRESS:
+				setIngress((Ingress)newValue);
+				return;
+			case Kubernetes_metamodelPackage.SERVICE__DEPLOYMENT_NAME:
+				setDeploymentName((String)newValue);
+				return;
+			case Kubernetes_metamodelPackage.SERVICE__DEPLOYMENT_PORT:
+				setDeploymentPort((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -428,6 +579,15 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
 			case Kubernetes_metamodelPackage.SERVICE__MULTIPLE_ENDPOINTS:
 				setMultipleEndpoints(MULTIPLE_ENDPOINTS_EDEFAULT);
 				return;
+			case Kubernetes_metamodelPackage.SERVICE__INGRESS:
+				setIngress((Ingress)null);
+				return;
+			case Kubernetes_metamodelPackage.SERVICE__DEPLOYMENT_NAME:
+				setDeploymentName(DEPLOYMENT_NAME_EDEFAULT);
+				return;
+			case Kubernetes_metamodelPackage.SERVICE__DEPLOYMENT_PORT:
+				setDeploymentPort(DEPLOYMENT_PORT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -454,6 +614,12 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
 				return id != ID_EDEFAULT;
 			case Kubernetes_metamodelPackage.SERVICE__MULTIPLE_ENDPOINTS:
 				return multipleEndpoints != MULTIPLE_ENDPOINTS_EDEFAULT;
+			case Kubernetes_metamodelPackage.SERVICE__INGRESS:
+				return ingress != null;
+			case Kubernetes_metamodelPackage.SERVICE__DEPLOYMENT_NAME:
+				return DEPLOYMENT_NAME_EDEFAULT == null ? deploymentName != null : !DEPLOYMENT_NAME_EDEFAULT.equals(deploymentName);
+			case Kubernetes_metamodelPackage.SERVICE__DEPLOYMENT_PORT:
+				return deploymentPort != DEPLOYMENT_PORT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -482,6 +648,10 @@ public class ServiceImpl extends MinimalEObjectImpl.Container implements Service
 		result.append(id);
 		result.append(", multipleEndpoints: ");
 		result.append(multipleEndpoints);
+		result.append(", deploymentName: ");
+		result.append(deploymentName);
+		result.append(", deploymentPort: ");
+		result.append(deploymentPort);
 		result.append(')');
 		return result.toString();
 	}

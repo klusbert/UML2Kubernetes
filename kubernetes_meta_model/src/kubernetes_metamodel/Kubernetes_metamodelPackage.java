@@ -140,13 +140,31 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	int INFRASTRUCTURE__PERSISTENT_VOLUME_CLAIMS = 7;
 
 	/**
+	 * The feature id for the '<em><b>Service</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFRASTRUCTURE__SERVICE = 8;
+
+	/**
+	 * The feature id for the '<em><b>Allocated Node Ports</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFRASTRUCTURE__ALLOCATED_NODE_PORTS = 9;
+
+	/**
 	 * The number of structural features of the '<em>Infrastructure</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INFRASTRUCTURE_FEATURE_COUNT = 8;
+	int INFRASTRUCTURE_FEATURE_COUNT = 10;
 
 	/**
 	 * The number of operations of the '<em>Infrastructure</em>' class.
@@ -240,22 +258,13 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	int DEPLOYMENT__NAMESPACE = 7;
 
 	/**
-	 * The feature id for the '<em><b>Ingress</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEPLOYMENT__INGRESS = 8;
-
-	/**
 	 * The feature id for the '<em><b>Security Context</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEPLOYMENT__SECURITY_CONTEXT = 9;
+	int DEPLOYMENT__SECURITY_CONTEXT = 8;
 
 	/**
 	 * The feature id for the '<em><b>Resource Allocation</b></em>' reference.
@@ -264,7 +273,7 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DEPLOYMENT__RESOURCE_ALLOCATION = 10;
+	int DEPLOYMENT__RESOURCE_ALLOCATION = 9;
 
 	/**
 	 * The feature id for the '<em><b>Command</b></em>' attribute.
@@ -273,7 +282,7 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DEPLOYMENT__COMMAND = 11;
+	int DEPLOYMENT__COMMAND = 10;
 
 	/**
 	 * The feature id for the '<em><b>Args</b></em>' attribute list.
@@ -282,7 +291,7 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DEPLOYMENT__ARGS = 12;
+	int DEPLOYMENT__ARGS = 11;
 
 	/**
 	 * The feature id for the '<em><b>Memory Mount</b></em>' attribute.
@@ -291,7 +300,7 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DEPLOYMENT__MEMORY_MOUNT = 13;
+	int DEPLOYMENT__MEMORY_MOUNT = 12;
 
 	/**
 	 * The feature id for the '<em><b>Additional Ports</b></em>' reference list.
@@ -300,7 +309,7 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DEPLOYMENT__ADDITIONAL_PORTS = 14;
+	int DEPLOYMENT__ADDITIONAL_PORTS = 13;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -309,7 +318,7 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DEPLOYMENT__ID = 15;
+	int DEPLOYMENT__ID = 14;
 
 	/**
 	 * The feature id for the '<em><b>Config Map Dependencies</b></em>' reference list.
@@ -318,7 +327,7 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DEPLOYMENT__CONFIG_MAP_DEPENDENCIES = 16;
+	int DEPLOYMENT__CONFIG_MAP_DEPENDENCIES = 15;
 
 	/**
 	 * The feature id for the '<em><b>Volumes</b></em>' reference list.
@@ -327,7 +336,7 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DEPLOYMENT__VOLUMES = 17;
+	int DEPLOYMENT__VOLUMES = 16;
 
 	/**
 	 * The feature id for the '<em><b>Volume Mounts</b></em>' reference list.
@@ -336,7 +345,7 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DEPLOYMENT__VOLUME_MOUNTS = 18;
+	int DEPLOYMENT__VOLUME_MOUNTS = 17;
 
 	/**
 	 * The number of structural features of the '<em>Deployment</em>' class.
@@ -345,7 +354,7 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DEPLOYMENT_FEATURE_COUNT = 19;
+	int DEPLOYMENT_FEATURE_COUNT = 18;
 
 	/**
 	 * The number of operations of the '<em>Deployment</em>' class.
@@ -476,13 +485,40 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	int SERVICE__MULTIPLE_ENDPOINTS = 6;
 
 	/**
+	 * The feature id for the '<em><b>Ingress</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE__INGRESS = 7;
+
+	/**
+	 * The feature id for the '<em><b>Deployment Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE__DEPLOYMENT_NAME = 8;
+
+	/**
+	 * The feature id for the '<em><b>Deployment Port</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE__DEPLOYMENT_PORT = 9;
+
+	/**
 	 * The number of structural features of the '<em>Service</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE_FEATURE_COUNT = 7;
+	int SERVICE_FEATURE_COUNT = 10;
 
 	/**
 	 * The number of operations of the '<em>Service</em>' class.
@@ -568,13 +604,31 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	int INGRESS__PATH = 0;
 
 	/**
+	 * The feature id for the '<em><b>Host</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INGRESS__HOST = 1;
+
+	/**
+	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INGRESS__CLASS_NAME = 2;
+
+	/**
 	 * The number of structural features of the '<em>Ingress</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INGRESS_FEATURE_COUNT = 1;
+	int INGRESS_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Ingress</em>' class.
@@ -1349,6 +1403,28 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	EReference getInfrastructure_PersistentVolumeClaims();
 
 	/**
+	 * Returns the meta object for the reference list '{@link kubernetes_metamodel.Infrastructure#getService <em>Service</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Service</em>'.
+	 * @see kubernetes_metamodel.Infrastructure#getService()
+	 * @see #getInfrastructure()
+	 * @generated
+	 */
+	EReference getInfrastructure_Service();
+
+	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.Infrastructure#getAllocatedNodePorts <em>Allocated Node Ports</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Allocated Node Ports</em>'.
+	 * @see kubernetes_metamodel.Infrastructure#getAllocatedNodePorts()
+	 * @see #getInfrastructure()
+	 * @generated
+	 */
+	EAttribute getInfrastructure_AllocatedNodePorts();
+
+	/**
 	 * Returns the meta object for class '{@link kubernetes_metamodel.Deployment <em>Deployment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1445,17 +1521,6 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getDeployment_Namespace();
-
-	/**
-	 * Returns the meta object for the reference '{@link kubernetes_metamodel.Deployment#getIngress <em>Ingress</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Ingress</em>'.
-	 * @see kubernetes_metamodel.Deployment#getIngress()
-	 * @see #getDeployment()
-	 * @generated
-	 */
-	EReference getDeployment_Ingress();
 
 	/**
 	 * Returns the meta object for the reference '{@link kubernetes_metamodel.Deployment#getSecurityContext <em>Security Context</em>}'.
@@ -1687,6 +1752,39 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	EAttribute getService_MultipleEndpoints();
 
 	/**
+	 * Returns the meta object for the reference '{@link kubernetes_metamodel.Service#getIngress <em>Ingress</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Ingress</em>'.
+	 * @see kubernetes_metamodel.Service#getIngress()
+	 * @see #getService()
+	 * @generated
+	 */
+	EReference getService_Ingress();
+
+	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.Service#getDeploymentName <em>Deployment Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Deployment Name</em>'.
+	 * @see kubernetes_metamodel.Service#getDeploymentName()
+	 * @see #getService()
+	 * @generated
+	 */
+	EAttribute getService_DeploymentName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.Service#getDeploymentPort <em>Deployment Port</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Deployment Port</em>'.
+	 * @see kubernetes_metamodel.Service#getDeploymentPort()
+	 * @see #getService()
+	 * @generated
+	 */
+	EAttribute getService_DeploymentPort();
+
+	/**
 	 * Returns the meta object for class '{@link kubernetes_metamodel.PersistentData <em>Persistent Data</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1749,6 +1847,28 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getIngress_Path();
+
+	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.Ingress#getHost <em>Host</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Host</em>'.
+	 * @see kubernetes_metamodel.Ingress#getHost()
+	 * @see #getIngress()
+	 * @generated
+	 */
+	EAttribute getIngress_Host();
+
+	/**
+	 * Returns the meta object for the attribute '{@link kubernetes_metamodel.Ingress#getClassName <em>Class Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Class Name</em>'.
+	 * @see kubernetes_metamodel.Ingress#getClassName()
+	 * @see #getIngress()
+	 * @generated
+	 */
+	EAttribute getIngress_ClassName();
 
 	/**
 	 * Returns the meta object for class '{@link kubernetes_metamodel.SecurityContext <em>Security Context</em>}'.
@@ -2384,6 +2504,22 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 		EReference INFRASTRUCTURE__PERSISTENT_VOLUME_CLAIMS = eINSTANCE.getInfrastructure_PersistentVolumeClaims();
 
 		/**
+		 * The meta object literal for the '<em><b>Service</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INFRASTRUCTURE__SERVICE = eINSTANCE.getInfrastructure_Service();
+
+		/**
+		 * The meta object literal for the '<em><b>Allocated Node Ports</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INFRASTRUCTURE__ALLOCATED_NODE_PORTS = eINSTANCE.getInfrastructure_AllocatedNodePorts();
+
+		/**
 		 * The meta object literal for the '{@link kubernetes_metamodel.impl.DeploymentImpl <em>Deployment</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2456,14 +2592,6 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DEPLOYMENT__NAMESPACE = eINSTANCE.getDeployment_Namespace();
-
-		/**
-		 * The meta object literal for the '<em><b>Ingress</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DEPLOYMENT__INGRESS = eINSTANCE.getDeployment_Ingress();
 
 		/**
 		 * The meta object literal for the '<em><b>Security Context</b></em>' reference feature.
@@ -2638,6 +2766,30 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 		EAttribute SERVICE__MULTIPLE_ENDPOINTS = eINSTANCE.getService_MultipleEndpoints();
 
 		/**
+		 * The meta object literal for the '<em><b>Ingress</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SERVICE__INGRESS = eINSTANCE.getService_Ingress();
+
+		/**
+		 * The meta object literal for the '<em><b>Deployment Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SERVICE__DEPLOYMENT_NAME = eINSTANCE.getService_DeploymentName();
+
+		/**
+		 * The meta object literal for the '<em><b>Deployment Port</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SERVICE__DEPLOYMENT_PORT = eINSTANCE.getService_DeploymentPort();
+
+		/**
 		 * The meta object literal for the '{@link kubernetes_metamodel.impl.PersistentDataImpl <em>Persistent Data</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2688,6 +2840,22 @@ public interface Kubernetes_metamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute INGRESS__PATH = eINSTANCE.getIngress_Path();
+
+		/**
+		 * The meta object literal for the '<em><b>Host</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INGRESS__HOST = eINSTANCE.getIngress_Host();
+
+		/**
+		 * The meta object literal for the '<em><b>Class Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INGRESS__CLASS_NAME = eINSTANCE.getIngress_ClassName();
 
 		/**
 		 * The meta object literal for the '{@link kubernetes_metamodel.impl.SecurityContextImpl <em>Security Context</em>}' class.

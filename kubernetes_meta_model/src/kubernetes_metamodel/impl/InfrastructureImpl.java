@@ -10,6 +10,7 @@ import kubernetes_metamodel.Deployment;
 import kubernetes_metamodel.Infrastructure;
 import kubernetes_metamodel.Kubernetes_metamodelPackage;
 import kubernetes_metamodel.PersistentVolumeClaim;
+import kubernetes_metamodel.Service;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 
@@ -34,6 +35,8 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link kubernetes_metamodel.impl.InfrastructureImpl#getConfigMaps <em>Config Maps</em>}</li>
  *   <li>{@link kubernetes_metamodel.impl.InfrastructureImpl#getObjectsCount <em>Objects Count</em>}</li>
  *   <li>{@link kubernetes_metamodel.impl.InfrastructureImpl#getPersistentVolumeClaims <em>Persistent Volume Claims</em>}</li>
+ *   <li>{@link kubernetes_metamodel.impl.InfrastructureImpl#getService <em>Service</em>}</li>
+ *   <li>{@link kubernetes_metamodel.impl.InfrastructureImpl#getAllocatedNodePorts <em>Allocated Node Ports</em>}</li>
  * </ul>
  *
  * @generated
@@ -168,6 +171,36 @@ public class InfrastructureImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected EList<PersistentVolumeClaim> persistentVolumeClaims;
+
+	/**
+	 * The cached value of the '{@link #getService() <em>Service</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getService()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Service> service;
+
+	/**
+	 * The default value of the '{@link #getAllocatedNodePorts() <em>Allocated Node Ports</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAllocatedNodePorts()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int ALLOCATED_NODE_PORTS_EDEFAULT = 30000;
+
+	/**
+	 * The cached value of the '{@link #getAllocatedNodePorts() <em>Allocated Node Ports</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAllocatedNodePorts()
+	 * @generated
+	 * @ordered
+	 */
+	protected int allocatedNodePorts = ALLOCATED_NODE_PORTS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -332,6 +365,39 @@ public class InfrastructureImpl extends MinimalEObjectImpl.Container implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Service> getService() {
+		if (service == null) {
+			service = new EObjectResolvingEList<Service>(Service.class, this, Kubernetes_metamodelPackage.INFRASTRUCTURE__SERVICE);
+		}
+		return service;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getAllocatedNodePorts() {
+		return allocatedNodePorts;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAllocatedNodePorts(int newAllocatedNodePorts) {
+		int oldAllocatedNodePorts = allocatedNodePorts;
+		allocatedNodePorts = newAllocatedNodePorts;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, Kubernetes_metamodelPackage.INFRASTRUCTURE__ALLOCATED_NODE_PORTS, oldAllocatedNodePorts, allocatedNodePorts));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public String getRandomPassword() {
@@ -383,6 +449,10 @@ public class InfrastructureImpl extends MinimalEObjectImpl.Container implements 
 				return getObjectsCount();
 			case Kubernetes_metamodelPackage.INFRASTRUCTURE__PERSISTENT_VOLUME_CLAIMS:
 				return getPersistentVolumeClaims();
+			case Kubernetes_metamodelPackage.INFRASTRUCTURE__SERVICE:
+				return getService();
+			case Kubernetes_metamodelPackage.INFRASTRUCTURE__ALLOCATED_NODE_PORTS:
+				return getAllocatedNodePorts();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -423,6 +493,13 @@ public class InfrastructureImpl extends MinimalEObjectImpl.Container implements 
 				getPersistentVolumeClaims().clear();
 				getPersistentVolumeClaims().addAll((Collection<? extends PersistentVolumeClaim>)newValue);
 				return;
+			case Kubernetes_metamodelPackage.INFRASTRUCTURE__SERVICE:
+				getService().clear();
+				getService().addAll((Collection<? extends Service>)newValue);
+				return;
+			case Kubernetes_metamodelPackage.INFRASTRUCTURE__ALLOCATED_NODE_PORTS:
+				setAllocatedNodePorts((Integer)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -459,6 +536,12 @@ public class InfrastructureImpl extends MinimalEObjectImpl.Container implements 
 			case Kubernetes_metamodelPackage.INFRASTRUCTURE__PERSISTENT_VOLUME_CLAIMS:
 				getPersistentVolumeClaims().clear();
 				return;
+			case Kubernetes_metamodelPackage.INFRASTRUCTURE__SERVICE:
+				getService().clear();
+				return;
+			case Kubernetes_metamodelPackage.INFRASTRUCTURE__ALLOCATED_NODE_PORTS:
+				setAllocatedNodePorts(ALLOCATED_NODE_PORTS_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -487,6 +570,10 @@ public class InfrastructureImpl extends MinimalEObjectImpl.Container implements 
 				return objectsCount != OBJECTS_COUNT_EDEFAULT;
 			case Kubernetes_metamodelPackage.INFRASTRUCTURE__PERSISTENT_VOLUME_CLAIMS:
 				return persistentVolumeClaims != null && !persistentVolumeClaims.isEmpty();
+			case Kubernetes_metamodelPackage.INFRASTRUCTURE__SERVICE:
+				return service != null && !service.isEmpty();
+			case Kubernetes_metamodelPackage.INFRASTRUCTURE__ALLOCATED_NODE_PORTS:
+				return allocatedNodePorts != ALLOCATED_NODE_PORTS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -511,6 +598,8 @@ public class InfrastructureImpl extends MinimalEObjectImpl.Container implements 
 		result.append(accessibilityType);
 		result.append(", objectsCount: ");
 		result.append(objectsCount);
+		result.append(", allocatedNodePorts: ");
+		result.append(allocatedNodePorts);
 		result.append(')');
 		return result.toString();
 	}

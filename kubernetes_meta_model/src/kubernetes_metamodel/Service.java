@@ -20,6 +20,9 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link kubernetes_metamodel.Service#getProtocol <em>Protocol</em>}</li>
  *   <li>{@link kubernetes_metamodel.Service#getId <em>Id</em>}</li>
  *   <li>{@link kubernetes_metamodel.Service#isMultipleEndpoints <em>Multiple Endpoints</em>}</li>
+ *   <li>{@link kubernetes_metamodel.Service#getIngress <em>Ingress</em>}</li>
+ *   <li>{@link kubernetes_metamodel.Service#getDeploymentName <em>Deployment Name</em>}</li>
+ *   <li>{@link kubernetes_metamodel.Service#getDeploymentPort <em>Deployment Port</em>}</li>
  * </ul>
  *
  * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getService()
@@ -186,5 +189,71 @@ public interface Service extends EObject {
 	 * @generated
 	 */
 	void setMultipleEndpoints(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Ingress</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Ingress</em>' reference.
+	 * @see #setIngress(Ingress)
+	 * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getService_Ingress()
+	 * @model
+	 * @generated
+	 */
+	Ingress getIngress();
+
+	/**
+	 * Sets the value of the '{@link kubernetes_metamodel.Service#getIngress <em>Ingress</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Ingress</em>' reference.
+	 * @see #getIngress()
+	 * @generated
+	 */
+	void setIngress(Ingress value);
+
+	/**
+	 * Returns the value of the '<em><b>Deployment Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Deployment Name</em>' attribute.
+	 * @see #setDeploymentName(String)
+	 * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getService_DeploymentName()
+	 * @model
+	 * @generated
+	 */
+	String getDeploymentName();
+
+	/**
+	 * Sets the value of the '{@link kubernetes_metamodel.Service#getDeploymentName <em>Deployment Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Deployment Name</em>' attribute.
+	 * @see #getDeploymentName()
+	 * @generated
+	 */
+	void setDeploymentName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Deployment Port</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Deployment Port</em>' attribute.
+	 * @see #setDeploymentPort(int)
+	 * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getService_DeploymentPort()
+	 * @model
+	 * @generated
+	 */
+	int getDeploymentPort();
+
+	/**
+	 * Sets the value of the '{@link kubernetes_metamodel.Service#getDeploymentPort <em>Deployment Port</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Deployment Port</em>' attribute.
+	 * @see #getDeploymentPort()
+	 * @generated
+	 */
+	void setDeploymentPort(int value);
 
 } // Service

@@ -23,7 +23,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link kubernetes_metamodel.Deployment#getService <em>Service</em>}</li>
  *   <li>{@link kubernetes_metamodel.Deployment#getDataPersistent <em>Data Persistent</em>}</li>
  *   <li>{@link kubernetes_metamodel.Deployment#getNamespace <em>Namespace</em>}</li>
- *   <li>{@link kubernetes_metamodel.Deployment#getIngress <em>Ingress</em>}</li>
  *   <li>{@link kubernetes_metamodel.Deployment#getSecurityContext <em>Security Context</em>}</li>
  *   <li>{@link kubernetes_metamodel.Deployment#getResourceAllocation <em>Resource Allocation</em>}</li>
  *   <li>{@link kubernetes_metamodel.Deployment#getCommand <em>Command</em>}</li>
@@ -206,28 +205,6 @@ public interface Deployment extends EObject {
 	 * @generated
 	 */
 	void setNamespace(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Ingress</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Ingress</em>' reference.
-	 * @see #setIngress(Ingress)
-	 * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getDeployment_Ingress()
-	 * @model
-	 * @generated
-	 */
-	Ingress getIngress();
-
-	/**
-	 * Sets the value of the '{@link kubernetes_metamodel.Deployment#getIngress <em>Ingress</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Ingress</em>' reference.
-	 * @see #getIngress()
-	 * @generated
-	 */
-	void setIngress(Ingress value);
 
 	/**
 	 * Returns the value of the '<em><b>Security Context</b></em>' reference.

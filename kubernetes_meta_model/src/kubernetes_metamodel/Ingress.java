@@ -14,6 +14,8 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link kubernetes_metamodel.Ingress#getPath <em>Path</em>}</li>
+ *   <li>{@link kubernetes_metamodel.Ingress#getHost <em>Host</em>}</li>
+ *   <li>{@link kubernetes_metamodel.Ingress#getClassName <em>Class Name</em>}</li>
  * </ul>
  *
  * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getIngress()
@@ -42,5 +44,49 @@ public interface Ingress extends EObject {
 	 * @generated
 	 */
 	void setPath(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Host</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Host</em>' attribute.
+	 * @see #setHost(String)
+	 * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getIngress_Host()
+	 * @model
+	 * @generated
+	 */
+	String getHost();
+
+	/**
+	 * Sets the value of the '{@link kubernetes_metamodel.Ingress#getHost <em>Host</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Host</em>' attribute.
+	 * @see #getHost()
+	 * @generated
+	 */
+	void setHost(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Class Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Class Name</em>' attribute.
+	 * @see #setClassName(String)
+	 * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getIngress_ClassName()
+	 * @model
+	 * @generated
+	 */
+	String getClassName();
+
+	/**
+	 * Sets the value of the '{@link kubernetes_metamodel.Ingress#getClassName <em>Class Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Class Name</em>' attribute.
+	 * @see #getClassName()
+	 * @generated
+	 */
+	void setClassName(String value);
 
 } // Ingress

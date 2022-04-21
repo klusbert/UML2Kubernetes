@@ -327,6 +327,24 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getInfrastructure_Service() {
+		return (EReference)infrastructureEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getInfrastructure_AllocatedNodePorts() {
+		return (EAttribute)infrastructureEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDeployment() {
 		return deploymentEClass;
 	}
@@ -408,7 +426,7 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDeployment_Ingress() {
+	public EReference getDeployment_SecurityContext() {
 		return (EReference)deploymentEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -417,7 +435,7 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDeployment_SecurityContext() {
+	public EReference getDeployment_ResourceAllocation() {
 		return (EReference)deploymentEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -426,17 +444,8 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDeployment_ResourceAllocation() {
-		return (EReference)deploymentEClass.getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getDeployment_Command() {
-		return (EAttribute)deploymentEClass.getEStructuralFeatures().get(11);
+		return (EAttribute)deploymentEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -445,7 +454,7 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 	 * @generated
 	 */
 	public EAttribute getDeployment_Args() {
-		return (EAttribute)deploymentEClass.getEStructuralFeatures().get(12);
+		return (EAttribute)deploymentEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -454,7 +463,7 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 	 * @generated
 	 */
 	public EAttribute getDeployment_MemoryMount() {
-		return (EAttribute)deploymentEClass.getEStructuralFeatures().get(13);
+		return (EAttribute)deploymentEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -463,7 +472,7 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 	 * @generated
 	 */
 	public EReference getDeployment_AdditionalPorts() {
-		return (EReference)deploymentEClass.getEStructuralFeatures().get(14);
+		return (EReference)deploymentEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -472,7 +481,7 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 	 * @generated
 	 */
 	public EAttribute getDeployment_Id() {
-		return (EAttribute)deploymentEClass.getEStructuralFeatures().get(15);
+		return (EAttribute)deploymentEClass.getEStructuralFeatures().get(14);
 	}
 
 	/**
@@ -481,7 +490,7 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 	 * @generated
 	 */
 	public EReference getDeployment_ConfigMapDependencies() {
-		return (EReference)deploymentEClass.getEStructuralFeatures().get(16);
+		return (EReference)deploymentEClass.getEStructuralFeatures().get(15);
 	}
 
 	/**
@@ -490,7 +499,7 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 	 * @generated
 	 */
 	public EReference getDeployment_Volumes() {
-		return (EReference)deploymentEClass.getEStructuralFeatures().get(17);
+		return (EReference)deploymentEClass.getEStructuralFeatures().get(16);
 	}
 
 	/**
@@ -499,7 +508,7 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 	 * @generated
 	 */
 	public EReference getDeployment_VolumeMounts() {
-		return (EReference)deploymentEClass.getEStructuralFeatures().get(18);
+		return (EReference)deploymentEClass.getEStructuralFeatures().get(17);
 	}
 
 	/**
@@ -606,6 +615,33 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getService_Ingress() {
+		return (EReference)serviceEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getService_DeploymentName() {
+		return (EAttribute)serviceEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getService_DeploymentPort() {
+		return (EAttribute)serviceEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPersistentData() {
 		return persistentDataEClass;
 	}
@@ -653,6 +689,24 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 	 */
 	public EAttribute getIngress_Path() {
 		return (EAttribute)ingressEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIngress_Host() {
+		return (EAttribute)ingressEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIngress_ClassName() {
+		return (EAttribute)ingressEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1142,6 +1196,8 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 		createEReference(infrastructureEClass, INFRASTRUCTURE__CONFIG_MAPS);
 		createEAttribute(infrastructureEClass, INFRASTRUCTURE__OBJECTS_COUNT);
 		createEReference(infrastructureEClass, INFRASTRUCTURE__PERSISTENT_VOLUME_CLAIMS);
+		createEReference(infrastructureEClass, INFRASTRUCTURE__SERVICE);
+		createEAttribute(infrastructureEClass, INFRASTRUCTURE__ALLOCATED_NODE_PORTS);
 
 		deploymentEClass = createEClass(DEPLOYMENT);
 		createEAttribute(deploymentEClass, DEPLOYMENT__IMAGE);
@@ -1152,7 +1208,6 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 		createEReference(deploymentEClass, DEPLOYMENT__SERVICE);
 		createEReference(deploymentEClass, DEPLOYMENT__DATA_PERSISTENT);
 		createEAttribute(deploymentEClass, DEPLOYMENT__NAMESPACE);
-		createEReference(deploymentEClass, DEPLOYMENT__INGRESS);
 		createEReference(deploymentEClass, DEPLOYMENT__SECURITY_CONTEXT);
 		createEReference(deploymentEClass, DEPLOYMENT__RESOURCE_ALLOCATION);
 		createEAttribute(deploymentEClass, DEPLOYMENT__COMMAND);
@@ -1176,6 +1231,9 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 		createEAttribute(serviceEClass, SERVICE__PROTOCOL);
 		createEAttribute(serviceEClass, SERVICE__ID);
 		createEAttribute(serviceEClass, SERVICE__MULTIPLE_ENDPOINTS);
+		createEReference(serviceEClass, SERVICE__INGRESS);
+		createEAttribute(serviceEClass, SERVICE__DEPLOYMENT_NAME);
+		createEAttribute(serviceEClass, SERVICE__DEPLOYMENT_PORT);
 
 		persistentDataEClass = createEClass(PERSISTENT_DATA);
 		createEAttribute(persistentDataEClass, PERSISTENT_DATA__MOUNT_PATH);
@@ -1184,6 +1242,8 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 
 		ingressEClass = createEClass(INGRESS);
 		createEAttribute(ingressEClass, INGRESS__PATH);
+		createEAttribute(ingressEClass, INGRESS__HOST);
+		createEAttribute(ingressEClass, INGRESS__CLASS_NAME);
 
 		securityContextEClass = createEClass(SECURITY_CONTEXT);
 		createEAttribute(securityContextEClass, SECURITY_CONTEXT__RUN_AS_ROOT);
@@ -1288,6 +1348,8 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 		initEReference(getInfrastructure_ConfigMaps(), this.getConfigMap(), null, "configMaps", null, 0, -1, Infrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getInfrastructure_ObjectsCount(), ecorePackage.getEInt(), "objectsCount", "0", 0, 1, Infrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getInfrastructure_PersistentVolumeClaims(), this.getPersistentVolumeClaim(), null, "persistentVolumeClaims", null, 0, -1, Infrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInfrastructure_Service(), this.getService(), null, "service", null, 0, -1, Infrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInfrastructure_AllocatedNodePorts(), ecorePackage.getEInt(), "allocatedNodePorts", "30000", 0, 1, Infrastructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(deploymentEClass, Deployment.class, "Deployment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDeployment_Image(), ecorePackage.getEString(), "image", null, 0, 1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1298,7 +1360,6 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 		initEReference(getDeployment_Service(), this.getService(), null, "service", null, 0, 1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDeployment_DataPersistent(), this.getPersistentData(), null, "dataPersistent", null, 0, 1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDeployment_Namespace(), ecorePackage.getEString(), "namespace", null, 0, 1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDeployment_Ingress(), this.getIngress(), null, "ingress", null, 0, 1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDeployment_SecurityContext(), this.getSecurityContext(), null, "securityContext", null, 0, 1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDeployment_ResourceAllocation(), this.getResourceAllocation(), null, "resourceAllocation", null, 0, 1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDeployment_Command(), ecorePackage.getEString(), "command", null, 0, 1, Deployment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1322,6 +1383,9 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 		initEAttribute(getService_Protocol(), this.getProtocol(), "protocol", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getService_Id(), ecorePackage.getEInt(), "id", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getService_MultipleEndpoints(), ecorePackage.getEBoolean(), "multipleEndpoints", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getService_Ingress(), this.getIngress(), null, "ingress", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getService_DeploymentName(), ecorePackage.getEString(), "deploymentName", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getService_DeploymentPort(), ecorePackage.getEInt(), "deploymentPort", null, 0, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(persistentDataEClass, PersistentData.class, "PersistentData", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPersistentData_MountPath(), ecorePackage.getEString(), "mountPath", null, 0, 1, PersistentData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1330,6 +1394,8 @@ public class Kubernetes_metamodelPackageImpl extends EPackageImpl implements Kub
 
 		initEClass(ingressEClass, Ingress.class, "Ingress", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIngress_Path(), ecorePackage.getEString(), "path", null, 0, 1, Ingress.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIngress_Host(), ecorePackage.getEString(), "host", null, 0, 1, Ingress.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIngress_ClassName(), ecorePackage.getEString(), "className", null, 0, 1, Ingress.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(securityContextEClass, SecurityContext.class, "SecurityContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSecurityContext_RunAsRoot(), ecorePackage.getEBoolean(), "runAsRoot", null, 0, 1, SecurityContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

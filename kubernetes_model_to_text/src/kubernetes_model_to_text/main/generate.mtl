@@ -20,7 +20,7 @@
 [generateService(anInfrastructure)/]
 
 [comment @main/]
-[file ('00-namepsace.yml', false, 'UTF-8')]
+[file (anInfrastructure.name +'/00-namepsace.yml', false, 'UTF-8')]
 ---
 kind: Namespace
 apiVersion: v1

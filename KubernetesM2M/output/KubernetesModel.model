@@ -27,8 +27,8 @@
   </kubernetes_metamodel:Capabilities>
   <kubernetes_metamodel:ResourceAllocation cpuLimit="200m" cpuRequest="100m" memoryLimit="200Mi" memoryRequest="100Mi"/>
   <kubernetes_metamodel:Deployment image=" weaveworksdemos/catalogue-db:0.3.0" port="3306" replicas="1" name="catalogue-db" namespace="sock-shop" id="4">
-    <enviromentVariables name="MYSQL_ROOT_PASSWORD" value="fake_password"/>
     <enviromentVariables name="MYSQL_DATABASE" value="socksdb"/>
+    <enviromentVariables name="MYSQL_ROOT_PASSWORD" value="fake_password"/>
   </kubernetes_metamodel:Deployment>
   <kubernetes_metamodel:Deployment image="weaveworksdemos/orders:0.4.7" port="80" replicas="1" name="orders" namespace="sock-shop" securityContext="/14" resourceAllocation="/16" memoryMount="/tmp" id="5">
     <enviromentVariables name="JAVA_OPTS" value="-Xms64m -Xmx128m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom -Dspring.zipkin.enabled=false"/>

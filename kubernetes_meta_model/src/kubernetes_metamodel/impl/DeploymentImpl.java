@@ -7,7 +7,6 @@ import java.util.Collection;
 import kubernetes_metamodel.ConfigMapDependency;
 import kubernetes_metamodel.Deployment;
 import kubernetes_metamodel.EnviromentVariables;
-import kubernetes_metamodel.Ingress;
 import kubernetes_metamodel.Kubernetes_metamodelPackage;
 import kubernetes_metamodel.PersistentData;
 import kubernetes_metamodel.Port;
@@ -49,7 +48,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link kubernetes_metamodel.impl.DeploymentImpl#getService <em>Service</em>}</li>
  *   <li>{@link kubernetes_metamodel.impl.DeploymentImpl#getDataPersistent <em>Data Persistent</em>}</li>
  *   <li>{@link kubernetes_metamodel.impl.DeploymentImpl#getNamespace <em>Namespace</em>}</li>
- *   <li>{@link kubernetes_metamodel.impl.DeploymentImpl#getIngress <em>Ingress</em>}</li>
  *   <li>{@link kubernetes_metamodel.impl.DeploymentImpl#getSecurityContext <em>Security Context</em>}</li>
  *   <li>{@link kubernetes_metamodel.impl.DeploymentImpl#getResourceAllocation <em>Resource Allocation</em>}</li>
  *   <li>{@link kubernetes_metamodel.impl.DeploymentImpl#getCommand <em>Command</em>}</li>
@@ -194,16 +192,6 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 	 * @ordered
 	 */
 	protected String namespace = NAMESPACE_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getIngress() <em>Ingress</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIngress()
-	 * @generated
-	 * @ordered
-	 */
-	protected Ingress ingress;
 
 	/**
 	 * The cached value of the '{@link #getSecurityContext() <em>Security Context</em>}' reference.
@@ -557,44 +545,6 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Ingress getIngress() {
-		if (ingress != null && ingress.eIsProxy()) {
-			InternalEObject oldIngress = (InternalEObject)ingress;
-			ingress = (Ingress)eResolveProxy(oldIngress);
-			if (ingress != oldIngress) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, Kubernetes_metamodelPackage.DEPLOYMENT__INGRESS, oldIngress, ingress));
-			}
-		}
-		return ingress;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Ingress basicGetIngress() {
-		return ingress;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setIngress(Ingress newIngress) {
-		Ingress oldIngress = ingress;
-		ingress = newIngress;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Kubernetes_metamodelPackage.DEPLOYMENT__INGRESS, oldIngress, ingress));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public SecurityContext getSecurityContext() {
 		if (securityContext != null && securityContext.eIsProxy()) {
 			InternalEObject oldSecurityContext = (InternalEObject)securityContext;
@@ -830,9 +780,6 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 				return basicGetDataPersistent();
 			case Kubernetes_metamodelPackage.DEPLOYMENT__NAMESPACE:
 				return getNamespace();
-			case Kubernetes_metamodelPackage.DEPLOYMENT__INGRESS:
-				if (resolve) return getIngress();
-				return basicGetIngress();
 			case Kubernetes_metamodelPackage.DEPLOYMENT__SECURITY_CONTEXT:
 				if (resolve) return getSecurityContext();
 				return basicGetSecurityContext();
@@ -892,9 +839,6 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 				return;
 			case Kubernetes_metamodelPackage.DEPLOYMENT__NAMESPACE:
 				setNamespace((String)newValue);
-				return;
-			case Kubernetes_metamodelPackage.DEPLOYMENT__INGRESS:
-				setIngress((Ingress)newValue);
 				return;
 			case Kubernetes_metamodelPackage.DEPLOYMENT__SECURITY_CONTEXT:
 				setSecurityContext((SecurityContext)newValue);
@@ -967,9 +911,6 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 			case Kubernetes_metamodelPackage.DEPLOYMENT__NAMESPACE:
 				setNamespace(NAMESPACE_EDEFAULT);
 				return;
-			case Kubernetes_metamodelPackage.DEPLOYMENT__INGRESS:
-				setIngress((Ingress)null);
-				return;
 			case Kubernetes_metamodelPackage.DEPLOYMENT__SECURITY_CONTEXT:
 				setSecurityContext((SecurityContext)null);
 				return;
@@ -1028,8 +969,6 @@ public class DeploymentImpl extends MinimalEObjectImpl.Container implements Depl
 				return dataPersistent != null;
 			case Kubernetes_metamodelPackage.DEPLOYMENT__NAMESPACE:
 				return NAMESPACE_EDEFAULT == null ? namespace != null : !NAMESPACE_EDEFAULT.equals(namespace);
-			case Kubernetes_metamodelPackage.DEPLOYMENT__INGRESS:
-				return ingress != null;
 			case Kubernetes_metamodelPackage.DEPLOYMENT__SECURITY_CONTEXT:
 				return securityContext != null;
 			case Kubernetes_metamodelPackage.DEPLOYMENT__RESOURCE_ALLOCATION:

@@ -4,7 +4,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -40,8 +41,9 @@ import kubernetes_model_to_text.main.Generate;
 
 public class Main {
 
-	//private final String PATH_TO_UML = "../KubernetesUMLDeplyoment/KubernetesUMLDeplyoment.uml";
-	private final String PATH_TO_UML = "../Sock-shop/Sock-shop.uml";
+	//private final static String PATH_TO_UML = "../KubernetesUMLDeplyoment/KubernetesUMLDeplyoment.uml";
+	//
+	private final static String   PATH_TO_UML = "../sock_sock_deployment/Sock-shop.uml";
 	
 	// private final String PATH_TO_UML =
 	// "platform:/resource/KubernetesUMLDeplyoment/KubernetesUMLDeplyoment.uml";
@@ -51,21 +53,44 @@ public class Main {
 	private final String PATH_TO_QVT = "../KubernetesM2M/transforms/KubernetesM2MTransformation.qvto";
 	private final String PATH_TO_RESULT_M2M = "./outputs/KubernetesUMLDeplyoment.model";
 	private final String FOLDER_TO_RESULT_M2T = "./outputs/";
-
 	private static ResourceSet resourceSet;
 
 	public static void main(String[] args) throws IOException {
 
 		Main transformer = new Main();
+		
+		updatePaths();
 		transformer.transform();
-
+	
 	}
 
+	private static void updatePaths() {
+		
+	/*	String modelName = getModelNameFromPath(PATH_TO_UML);
+		FOLDER_TO_RESULT_M2T = "./outputs/" + modelName;
+		PATH_TO_RESULT_M2M = "./outputs/" + modelName + "/"+ modelName + ".model";
+		File theDir = new File(FOLDER_TO_RESULT_M2T + modelName);
+		if (!theDir.exists()){
+		    theDir.mkdirs();
+		}
+		*/
+	}
+	
+	private static String getModelNameFromPath(String modelPath) {
+		
+		Path path = Paths.get(modelPath);
+		return path.getFileName().toString().replaceAll(".uml", "");
+	}
 	private void transform() throws IOException {
 		// checkFile(PATH_TO_UML);
 
+		
 		registerpackages();
 		Model inputUMLmodel = loadUMLModel(PATH_TO_UML);
+		
+		
+	
+	
 		System.out.println("Model name is: " + inputUMLmodel.getName() + " and label is:" + inputUMLmodel.getLabel());
 		m2m(inputUMLmodel);
 		System.out.println("M2M finished");

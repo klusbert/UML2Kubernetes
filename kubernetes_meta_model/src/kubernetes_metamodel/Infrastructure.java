@@ -23,6 +23,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link kubernetes_metamodel.Infrastructure#getConfigMaps <em>Config Maps</em>}</li>
  *   <li>{@link kubernetes_metamodel.Infrastructure#getObjectsCount <em>Objects Count</em>}</li>
  *   <li>{@link kubernetes_metamodel.Infrastructure#getPersistentVolumeClaims <em>Persistent Volume Claims</em>}</li>
+ *   <li>{@link kubernetes_metamodel.Infrastructure#getService <em>Service</em>}</li>
+ *   <li>{@link kubernetes_metamodel.Infrastructure#getAllocatedNodePorts <em>Allocated Node Ports</em>}</li>
  * </ul>
  *
  * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getInfrastructure()
@@ -180,6 +182,41 @@ public interface Infrastructure extends EObject {
 	 * @generated
 	 */
 	EList<PersistentVolumeClaim> getPersistentVolumeClaims();
+
+	/**
+	 * Returns the value of the '<em><b>Service</b></em>' reference list.
+	 * The list contents are of type {@link kubernetes_metamodel.Service}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Service</em>' reference list.
+	 * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getInfrastructure_Service()
+	 * @model
+	 * @generated
+	 */
+	EList<Service> getService();
+
+	/**
+	 * Returns the value of the '<em><b>Allocated Node Ports</b></em>' attribute.
+	 * The default value is <code>"30000"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Allocated Node Ports</em>' attribute.
+	 * @see #setAllocatedNodePorts(int)
+	 * @see kubernetes_metamodel.Kubernetes_metamodelPackage#getInfrastructure_AllocatedNodePorts()
+	 * @model default="30000"
+	 * @generated
+	 */
+	int getAllocatedNodePorts();
+
+	/**
+	 * Sets the value of the '{@link kubernetes_metamodel.Infrastructure#getAllocatedNodePorts <em>Allocated Node Ports</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Allocated Node Ports</em>' attribute.
+	 * @see #getAllocatedNodePorts()
+	 * @generated
+	 */
+	void setAllocatedNodePorts(int value);
 
 	/**
 	 * Returns the value of the '<em><b>Random Password</b></em>' attribute.

@@ -21,6 +21,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link kubernetes_metamodel.impl.IngressImpl#getPath <em>Path</em>}</li>
+ *   <li>{@link kubernetes_metamodel.impl.IngressImpl#getHost <em>Host</em>}</li>
+ *   <li>{@link kubernetes_metamodel.impl.IngressImpl#getClassName <em>Class Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -45,6 +47,46 @@ public class IngressImpl extends MinimalEObjectImpl.Container implements Ingress
 	 * @ordered
 	 */
 	protected String path = PATH_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getHost() <em>Host</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHost()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String HOST_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getHost() <em>Host</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHost()
+	 * @generated
+	 * @ordered
+	 */
+	protected String host = HOST_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getClassName() <em>Class Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getClassName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CLASS_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getClassName() <em>Class Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getClassName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String className = CLASS_NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -91,11 +133,57 @@ public class IngressImpl extends MinimalEObjectImpl.Container implements Ingress
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getHost() {
+		return host;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setHost(String newHost) {
+		String oldHost = host;
+		host = newHost;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, Kubernetes_metamodelPackage.INGRESS__HOST, oldHost, host));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getClassName() {
+		return className;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setClassName(String newClassName) {
+		String oldClassName = className;
+		className = newClassName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, Kubernetes_metamodelPackage.INGRESS__CLASS_NAME, oldClassName, className));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case Kubernetes_metamodelPackage.INGRESS__PATH:
 				return getPath();
+			case Kubernetes_metamodelPackage.INGRESS__HOST:
+				return getHost();
+			case Kubernetes_metamodelPackage.INGRESS__CLASS_NAME:
+				return getClassName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -110,6 +198,12 @@ public class IngressImpl extends MinimalEObjectImpl.Container implements Ingress
 		switch (featureID) {
 			case Kubernetes_metamodelPackage.INGRESS__PATH:
 				setPath((String)newValue);
+				return;
+			case Kubernetes_metamodelPackage.INGRESS__HOST:
+				setHost((String)newValue);
+				return;
+			case Kubernetes_metamodelPackage.INGRESS__CLASS_NAME:
+				setClassName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -126,6 +220,12 @@ public class IngressImpl extends MinimalEObjectImpl.Container implements Ingress
 			case Kubernetes_metamodelPackage.INGRESS__PATH:
 				setPath(PATH_EDEFAULT);
 				return;
+			case Kubernetes_metamodelPackage.INGRESS__HOST:
+				setHost(HOST_EDEFAULT);
+				return;
+			case Kubernetes_metamodelPackage.INGRESS__CLASS_NAME:
+				setClassName(CLASS_NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -140,6 +240,10 @@ public class IngressImpl extends MinimalEObjectImpl.Container implements Ingress
 		switch (featureID) {
 			case Kubernetes_metamodelPackage.INGRESS__PATH:
 				return PATH_EDEFAULT == null ? path != null : !PATH_EDEFAULT.equals(path);
+			case Kubernetes_metamodelPackage.INGRESS__HOST:
+				return HOST_EDEFAULT == null ? host != null : !HOST_EDEFAULT.equals(host);
+			case Kubernetes_metamodelPackage.INGRESS__CLASS_NAME:
+				return CLASS_NAME_EDEFAULT == null ? className != null : !CLASS_NAME_EDEFAULT.equals(className);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -156,6 +260,10 @@ public class IngressImpl extends MinimalEObjectImpl.Container implements Ingress
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (path: ");
 		result.append(path);
+		result.append(", host: ");
+		result.append(host);
+		result.append(", className: ");
+		result.append(className);
 		result.append(')');
 		return result.toString();
 	}

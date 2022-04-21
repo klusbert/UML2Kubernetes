@@ -8,7 +8,7 @@
 
 [if (anInfrastructure.persistentVolumeClaims->notEmpty())]
 	[for (pvc: PersistentVolumeClaim | anInfrastructure.persistentVolumeClaims)]
-		[file (padZeros(pvc.id) +'-pvc-'+ pvc.name.replaceVariables('-pvc') +'.yml', false, 'UTF-8')]
+		[file (anInfrastructure.name +'/' +padZeros(pvc.id) +'-pvc-'+ pvc.name.replaceVariables('-pvc') +'.yml', false, 'UTF-8')]
 
 ---
 kind: PersistentVolumeClaim

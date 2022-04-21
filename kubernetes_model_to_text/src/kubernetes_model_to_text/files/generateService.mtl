@@ -3,9 +3,8 @@
 [import kubernetes_model_to_text::requests::generateJavaExtensions/]
 
 [template public generateService(anInfrastructure : Infrastructure)]
-[if (anInfrastructure.deployments->notEmpty())]
 	[for (svc: Service | anInfrastructure.service)]
-		[file (padZeros(svc.id) +'-svc-' + svc.name +'.yml', false, 'UTF-8')]
+		[file (anInfrastructure.name +'/' +padZeros(svc.id) +'-svc-' + svc.name +'.yml', false, 'UTF-8')]
 
 ---
 kind: Service
@@ -45,5 +44,5 @@ spec:
 [/if]
 		[/file]
 	[/for]
-[/if]
+
 [/template]
