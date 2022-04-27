@@ -15,9 +15,9 @@ spec:
         app: carts-db
     spec:
       volumes:
-       - name: carts-db-persistent-storage
-         persistentVolumeClaim:
-           claimName: carts-db-pvc
+       - name: temp-volume
+         emptyDir: 
+           medium: Memory
       containers:
         - name: carts-db
           image: mongo
@@ -34,5 +34,5 @@ spec:
                 - SETUID             
             readOnlyRootFilesystem: true
           volumeMounts:
-            - name: carts-db-persistent-storage
-              mountPath: /tmp
+            - mountPath: /tmp
+              name: temp-volume				  			

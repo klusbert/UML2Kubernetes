@@ -187,7 +187,6 @@
   <KubernetesUMLProfile:Accessibility xmi:id="_CrNNoJuYEeywKYGRF4MZfg" base_Dependency="_BZAl8JuYEeywKYGRF4MZfg"/>
   <KubernetesUMLProfile:Accessibility xmi:id="_EPdOoJuYEeywKYGRF4MZfg" base_Dependency="_6t4KsJuXEeywKYGRF4MZfg"/>
   <KubernetesUMLProfile:AdvancedDeployment xmi:id="_NGhuQJueEeywKYGRF4MZfg" base_Node="_VVlywJrgEeyEssjOJXJ4_A" image="mongo" port="27017">
-    <dataPersistent xmi:type="KubernetesUMLProfile.DataTypes:PersistentData" xmi:id="_TvlzMLWYEeyOv823Hrx4Bw" sizeInGB="1" mountPath="/tmp"/>
     <securityContext xmi:type="KubernetesUMLProfile.DataTypes:SecurityContext" xmi:id="_VXLV0JueEeywKYGRF4MZfg" readOnlyRootFilesystem="true">
       <capabilities xmi:type="KubernetesUMLProfile.DataTypes:Capabilities" xmi:id="_Wna1sJueEeywKYGRF4MZfg">
         <add>CHOWN</add>
@@ -196,6 +195,7 @@
         <drop>all</drop>
       </capabilities>
     </securityContext>
+    <memoryMount xmi:type="KubernetesUMLProfile.DataTypes:MemoryMount" xmi:id="_9QItYMYbEeysbqQmMpvRcw"/>
   </KubernetesUMLProfile:AdvancedDeployment>
   <KubernetesUMLProfile:Accessibility xmi:id="_5YxigJujEeywKYGRF4MZfg" base_Dependency="_4lAjQJujEeywKYGRF4MZfg"/>
   <KubernetesUMLProfile:AdvancedDeployment xmi:id="_6Po5EJujEeywKYGRF4MZfg" base_Node="_2aFj0JujEeywKYGRF4MZfg" image="redis:alpine" port="6379">
