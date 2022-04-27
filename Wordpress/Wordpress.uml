@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:KubernetesUMLProfile="http:///schemas/KubernetesUMLProfile/_DBMDkLWVEeyOv823Hrx4Bw/166" xmlns:KubernetesUMLProfile.DataTypes="http:///KubernetesUMLProfile/DataTypes.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/KubernetesUMLProfile/_DBMDkLWVEeyOv823Hrx4Bw/166 /KubernetesUMLProfile/KubernetesUMLProfile.profile.uml#_DBN4wLWVEeyOv823Hrx4Bw http:///KubernetesUMLProfile/DataTypes.ecore /KubernetesUMLProfile/KubernetesUMLProfile.profile.uml#_DBN5HrWVEeyOv823Hrx4Bw">
+  <uml:Model xmi:id="_iVsK4MX0EeyrWZ_x3jNpKg" name="Wordpress">
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_iZa0UMX0EeyrWZ_x3jNpKg">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:ExecutionEnvironment" xmi:id="_k_8xsMX0EeyrWZ_x3jNpKg" name="worpressDeployment">
+      <nestedClassifier xmi:type="uml:Node" xmi:id="_lpuugMX0EeyrWZ_x3jNpKg" name="wordpress"/>
+      <nestedClassifier xmi:type="uml:Node" xmi:id="_sS8eMMX0EeyrWZ_x3jNpKg" name="mysql"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_w0rkAMX0EeyrWZ_x3jNpKg" client="_lpuugMX0EeyrWZ_x3jNpKg" supplier="_sS8eMMX0EeyrWZ_x3jNpKg"/>
+    <packagedElement xmi:type="uml:Node" xmi:id="_BdBPQMX1EeyrWZ_x3jNpKg" name="outsider"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_C_WksMX1EeyrWZ_x3jNpKg" client="_BdBPQMX1EeyrWZ_x3jNpKg" supplier="_lpuugMX0EeyrWZ_x3jNpKg"/>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_iZJHgMX0EeyrWZ_x3jNpKg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_iZK8sMX0EeyrWZ_x3jNpKg" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_iZK8scX0EeyrWZ_x3jNpKg" key="Version" value="0.0.167"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_iZK8ssX0EeyrWZ_x3jNpKg" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_iZK8s8X0EeyrWZ_x3jNpKg" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_iZK8tMX0EeyrWZ_x3jNpKg" key="Date" value="2022-04-06"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_iZK8tcX0EeyrWZ_x3jNpKg" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_iZJukMX0EeyrWZ_x3jNpKg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="/KubernetesUMLProfile/KubernetesUMLProfile.profile.uml#_DBN4wLWVEeyOv823Hrx4Bw"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="/KubernetesUMLProfile/KubernetesUMLProfile.profile.uml#_y3Fe0H9iEeyXt-NBRolQsA"/>
+    </profileApplication>
+  </uml:Model>
+  <KubernetesUMLProfile:Deployment xmi:id="_pu1isMX0EeyrWZ_x3jNpKg" base_Node="_lpuugMX0EeyrWZ_x3jNpKg" image="wordpress">
+    <environmentVariables xmi:type="KubernetesUMLProfile.DataTypes:EnviromentVariables" xmi:id="_64SW8MX0EeyrWZ_x3jNpKg" name="WORDPRESS_DB_HOST" value="mysql"/>
+    <environmentVariables xmi:type="KubernetesUMLProfile.DataTypes:EnviromentVariables" xmi:id="_70jK4MX0EeyrWZ_x3jNpKg" name="WORDPRESS_DB_USER" value="root"/>
+    <environmentVariables xmi:type="KubernetesUMLProfile.DataTypes:EnviromentVariables" xmi:id="_9Lg90MX0EeyrWZ_x3jNpKg" name="WORDPRESS_DB_PASSWORD" value="password"/>
+    <environmentVariables xmi:type="KubernetesUMLProfile.DataTypes:EnviromentVariables" xmi:id="_YWvZAMX1EeyrWZ_x3jNpKg" name="WORDPRESS_DB_NAME" value="wordpress"/>
+  </KubernetesUMLProfile:Deployment>
+  <KubernetesUMLProfile:MysqlDB xmi:id="_uagnoMX0EeyrWZ_x3jNpKg" base_Node="_sS8eMMX0EeyrWZ_x3jNpKg">
+    <dataBase xmi:type="KubernetesUMLProfile.DataTypes:MySqlDatabase" xmi:id="__czrAMX0EeyrWZ_x3jNpKg" name="wordpress"/>
+    <rootPassword xmi:type="KubernetesUMLProfile.DataTypes:RootPassword" xmi:id="_vhOYEMX0EeyrWZ_x3jNpKg" passsword="password"/>
+  </KubernetesUMLProfile:MysqlDB>
+  <KubernetesUMLProfile:Accessibility xmi:id="_xqLBkMX0EeyrWZ_x3jNpKg" base_Dependency="_w0rkAMX0EeyrWZ_x3jNpKg"/>
+  <KubernetesUMLProfile:Kubernetes xmi:id="_zWcWIMX0EeyrWZ_x3jNpKg" namespace="wordpress" base_ExecutionEnvironment="_k_8xsMX0EeyrWZ_x3jNpKg"/>
+  <KubernetesUMLProfile:Accessibility xmi:id="_EDGgsMX1EeyrWZ_x3jNpKg" base_Dependency="_C_WksMX1EeyrWZ_x3jNpKg"/>
+</xmi:XMI>
