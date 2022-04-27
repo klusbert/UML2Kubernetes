@@ -12,14 +12,6 @@
         <element xmi:type="uml:Node" href="Wordpress.uml#_lpuugMX0EeyrWZ_x3jNpKg"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lpwjscX0EeyrWZ_x3jNpKg" x="35" y="58"/>
       </children>
-      <children xmi:type="notation:Shape" xmi:id="_pvDlIMX0EeyrWZ_x3jNpKg" type="StereotypeComment">
-        <styles xmi:type="notation:TitleStyle" xmi:id="_pvDlIcX0EeyrWZ_x3jNpKg"/>
-        <styles xmi:type="notation:EObjectValueStyle" xmi:id="_pvDlI8X0EeyrWZ_x3jNpKg" name="BASE_ELEMENT">
-          <eObjectValue xmi:type="uml:Node" href="Wordpress.uml#_lpuugMX0EeyrWZ_x3jNpKg"/>
-        </styles>
-        <element xsi:nil="true"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pvDlIsX0EeyrWZ_x3jNpKg" x="235" y="58"/>
-      </children>
       <children xmi:type="notation:Shape" xmi:id="_sS9sUMX0EeyrWZ_x3jNpKg" type="Node_Shape">
         <children xmi:type="notation:DecorationNode" xmi:id="_sS9sUsX0EeyrWZ_x3jNpKg" type="Node_NameLabel"/>
         <children xmi:type="notation:BasicCompartment" xmi:id="_sS9sU8X0EeyrWZ_x3jNpKg" type="Node_NestedNodeCompartment">
@@ -29,35 +21,35 @@
         <element xmi:type="uml:Node" href="Wordpress.uml#_sS8eMMX0EeyrWZ_x3jNpKg"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sS9sUcX0EeyrWZ_x3jNpKg" x="275" y="58"/>
       </children>
-      <children xmi:type="notation:Shape" xmi:id="_uanVUMX0EeyrWZ_x3jNpKg" type="StereotypeComment">
-        <styles xmi:type="notation:TitleStyle" xmi:id="_uanVUcX0EeyrWZ_x3jNpKg"/>
-        <styles xmi:type="notation:EObjectValueStyle" xmi:id="_uanVU8X0EeyrWZ_x3jNpKg" name="BASE_ELEMENT">
-          <eObjectValue xmi:type="uml:Node" href="Wordpress.uml#_sS8eMMX0EeyrWZ_x3jNpKg"/>
+      <children xmi:type="notation:Shape" xmi:id="_ZnNr88YBEey-uvRbDVdXIQ" type="StereotypeComment">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_ZnNr9MYBEey-uvRbDVdXIQ"/>
+        <styles xmi:type="notation:EObjectValueStyle" xmi:id="_ZnNr9sYBEey-uvRbDVdXIQ" name="BASE_ELEMENT">
+          <eObjectValue xmi:type="uml:Node" href="Wordpress.uml#_lpuugMX0EeyrWZ_x3jNpKg"/>
         </styles>
         <element xsi:nil="true"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uanVUsX0EeyrWZ_x3jNpKg" x="435" y="58"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZnNr9cYBEey-uvRbDVdXIQ" x="235" y="58"/>
       </children>
-      <children xmi:type="notation:Shape" xmi:id="_xqQhI8X0EeyrWZ_x3jNpKg" type="StereotypeComment">
-        <styles xmi:type="notation:TitleStyle" xmi:id="_xqQhJMX0EeyrWZ_x3jNpKg"/>
-        <styles xmi:type="notation:EObjectValueStyle" xmi:id="_xqQhJsX0EeyrWZ_x3jNpKg" name="BASE_ELEMENT">
+      <children xmi:type="notation:Shape" xmi:id="_ZnR9YMYBEey-uvRbDVdXIQ" type="StereotypeComment">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_ZnR9YcYBEey-uvRbDVdXIQ"/>
+        <styles xmi:type="notation:EObjectValueStyle" xmi:id="_ZnR9Y8YBEey-uvRbDVdXIQ" name="BASE_ELEMENT">
           <eObjectValue xmi:type="uml:Dependency" href="Wordpress.uml#_w0rkAMX0EeyrWZ_x3jNpKg"/>
         </styles>
         <element xsi:nil="true"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xqQhJcX0EeyrWZ_x3jNpKg" x="100" y="100"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZnR9YsYBEey-uvRbDVdXIQ" x="100" y="100"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_ZnW15cYBEey-uvRbDVdXIQ" type="StereotypeComment">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_ZnW15sYBEey-uvRbDVdXIQ"/>
+        <styles xmi:type="notation:EObjectValueStyle" xmi:id="_ZnW16MYBEey-uvRbDVdXIQ" name="BASE_ELEMENT">
+          <eObjectValue xmi:type="uml:Node" href="Wordpress.uml#_sS8eMMX0EeyrWZ_x3jNpKg"/>
+        </styles>
+        <element xsi:nil="true"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZnW158YBEey-uvRbDVdXIQ" x="475" y="58"/>
       </children>
       <styles xmi:type="notation:TitleStyle" xmi:id="_lABqMsX0EeyrWZ_x3jNpKg"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lABqM8X0EeyrWZ_x3jNpKg"/>
     </children>
     <element xmi:type="uml:ExecutionEnvironment" href="Wordpress.uml#_k_8xsMX0EeyrWZ_x3jNpKg"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lABDIcX0EeyrWZ_x3jNpKg" x="140" y="160" width="461" height="341"/>
-  </children>
-  <children xmi:type="notation:Shape" xmi:id="_zWicwsX0EeyrWZ_x3jNpKg" type="StereotypeComment">
-    <styles xmi:type="notation:TitleStyle" xmi:id="_zWicw8X0EeyrWZ_x3jNpKg"/>
-    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_zWicxcX0EeyrWZ_x3jNpKg" name="BASE_ELEMENT">
-      <eObjectValue xmi:type="uml:ExecutionEnvironment" href="Wordpress.uml#_k_8xsMX0EeyrWZ_x3jNpKg"/>
-    </styles>
-    <element xsi:nil="true"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zWicxMX0EeyrWZ_x3jNpKg" x="340" y="160"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_BdB2UMX1EeyrWZ_x3jNpKg" type="Node_Shape">
     <children xmi:type="notation:DecorationNode" xmi:id="_BdB2UsX1EeyrWZ_x3jNpKg" type="Node_NameLabel"/>
@@ -68,13 +60,21 @@
     <element xmi:type="uml:Node" href="Wordpress.uml#_BdBPQMX1EeyrWZ_x3jNpKg"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BdB2UcX1EeyrWZ_x3jNpKg" x="-80" y="300"/>
   </children>
-  <children xmi:type="notation:Shape" xmi:id="_EDLZM8X1EeyrWZ_x3jNpKg" type="StereotypeComment">
-    <styles xmi:type="notation:TitleStyle" xmi:id="_EDLZNMX1EeyrWZ_x3jNpKg"/>
-    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_EDMAQMX1EeyrWZ_x3jNpKg" name="BASE_ELEMENT">
+  <children xmi:type="notation:Shape" xmi:id="_ZnIMYMYBEey-uvRbDVdXIQ" type="StereotypeComment">
+    <styles xmi:type="notation:TitleStyle" xmi:id="_ZnIMYcYBEey-uvRbDVdXIQ"/>
+    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_ZnIzcMYBEey-uvRbDVdXIQ" name="BASE_ELEMENT">
+      <eObjectValue xmi:type="uml:ExecutionEnvironment" href="Wordpress.uml#_k_8xsMX0EeyrWZ_x3jNpKg"/>
+    </styles>
+    <element xsi:nil="true"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZnIMYsYBEey-uvRbDVdXIQ" x="340" y="160"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_ZnbHUMYBEey-uvRbDVdXIQ" type="StereotypeComment">
+    <styles xmi:type="notation:TitleStyle" xmi:id="_ZnbHUcYBEey-uvRbDVdXIQ"/>
+    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_ZnbHU8YBEey-uvRbDVdXIQ" name="BASE_ELEMENT">
       <eObjectValue xmi:type="uml:Dependency" href="Wordpress.uml#_C_WksMX1EeyrWZ_x3jNpKg"/>
     </styles>
     <element xsi:nil="true"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_EDLZNcX1EeyrWZ_x3jNpKg" x="120" y="200"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZnbHUsYBEey-uvRbDVdXIQ" x="120" y="200"/>
   </children>
   <styles xmi:type="notation:StringValueStyle" xmi:id="_iWSn0cX0EeyrWZ_x3jNpKg" name="diagram_compatibility_version" stringValue="1.4.0"/>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_iWSn0sX0EeyrWZ_x3jNpKg"/>
@@ -82,26 +82,6 @@
     <owner xmi:type="uml:Model" href="Wordpress.uml#_iVsK4MX0EeyrWZ_x3jNpKg"/>
   </styles>
   <element xmi:type="uml:Model" href="Wordpress.uml#_iVsK4MX0EeyrWZ_x3jNpKg"/>
-  <edges xmi:type="notation:Connector" xmi:id="_pvDlJMX0EeyrWZ_x3jNpKg" type="StereotypeCommentLink" source="_lpwjsMX0EeyrWZ_x3jNpKg" target="_pvDlIMX0EeyrWZ_x3jNpKg">
-    <styles xmi:type="notation:FontStyle" xmi:id="_pvDlJcX0EeyrWZ_x3jNpKg"/>
-    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_pvEMMsX0EeyrWZ_x3jNpKg" name="BASE_ELEMENT">
-      <eObjectValue xmi:type="uml:Node" href="Wordpress.uml#_lpuugMX0EeyrWZ_x3jNpKg"/>
-    </styles>
-    <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_pvDlJsX0EeyrWZ_x3jNpKg" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_pvEMMMX0EeyrWZ_x3jNpKg"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_pvEMMcX0EeyrWZ_x3jNpKg"/>
-  </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_uanVVMX0EeyrWZ_x3jNpKg" type="StereotypeCommentLink" source="_sS9sUMX0EeyrWZ_x3jNpKg" target="_uanVUMX0EeyrWZ_x3jNpKg">
-    <styles xmi:type="notation:FontStyle" xmi:id="_uanVVcX0EeyrWZ_x3jNpKg"/>
-    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_uan8YsX0EeyrWZ_x3jNpKg" name="BASE_ELEMENT">
-      <eObjectValue xmi:type="uml:Node" href="Wordpress.uml#_sS8eMMX0EeyrWZ_x3jNpKg"/>
-    </styles>
-    <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_uanVVsX0EeyrWZ_x3jNpKg" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_uan8YMX0EeyrWZ_x3jNpKg"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_uan8YcX0EeyrWZ_x3jNpKg"/>
-  </edges>
   <edges xmi:type="notation:Connector" xmi:id="_w0tZMMX0EeyrWZ_x3jNpKg" type="Dependency_Edge" source="_lpwjsMX0EeyrWZ_x3jNpKg" target="_sS9sUMX0EeyrWZ_x3jNpKg">
     <children xmi:type="notation:DecorationNode" xmi:id="_w0uAQMX0EeyrWZ_x3jNpKg" type="Dependency_NameLabel">
       <styles xmi:type="notation:BooleanValueStyle" xmi:id="_x0WRQMX0EeyrWZ_x3jNpKg" name="IS_UPDATED_POSITION" booleanValue="true"/>
@@ -117,26 +97,6 @@
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_w08CsMX0EeyrWZ_x3jNpKg" id="(1.0,0.5333333333333333)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_w08CscX0EeyrWZ_x3jNpKg" id="(0.0,0.5333333333333333)"/>
   </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_xqQhJ8X0EeyrWZ_x3jNpKg" type="StereotypeCommentLink" source="_w0tZMMX0EeyrWZ_x3jNpKg" target="_xqQhI8X0EeyrWZ_x3jNpKg">
-    <styles xmi:type="notation:FontStyle" xmi:id="_xqQhKMX0EeyrWZ_x3jNpKg"/>
-    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_xqRIMsX0EeyrWZ_x3jNpKg" name="BASE_ELEMENT">
-      <eObjectValue xmi:type="uml:Dependency" href="Wordpress.uml#_w0rkAMX0EeyrWZ_x3jNpKg"/>
-    </styles>
-    <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xqQhKcX0EeyrWZ_x3jNpKg" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xqRIMMX0EeyrWZ_x3jNpKg"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xqRIMcX0EeyrWZ_x3jNpKg"/>
-  </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_zWicxsX0EeyrWZ_x3jNpKg" type="StereotypeCommentLink" source="_lABDIMX0EeyrWZ_x3jNpKg" target="_zWicwsX0EeyrWZ_x3jNpKg">
-    <styles xmi:type="notation:FontStyle" xmi:id="_zWicx8X0EeyrWZ_x3jNpKg"/>
-    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_zWicy8X0EeyrWZ_x3jNpKg" name="BASE_ELEMENT">
-      <eObjectValue xmi:type="uml:ExecutionEnvironment" href="Wordpress.uml#_k_8xsMX0EeyrWZ_x3jNpKg"/>
-    </styles>
-    <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_zWicyMX0EeyrWZ_x3jNpKg" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_zWicycX0EeyrWZ_x3jNpKg"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_zWicysX0EeyrWZ_x3jNpKg"/>
-  </edges>
   <edges xmi:type="notation:Connector" xmi:id="_C_Xy0MX1EeyrWZ_x3jNpKg" type="Dependency_Edge" source="_BdB2UMX1EeyrWZ_x3jNpKg" target="_lpwjsMX0EeyrWZ_x3jNpKg">
     <children xmi:type="notation:DecorationNode" xmi:id="_C_Xy08X1EeyrWZ_x3jNpKg" type="Dependency_NameLabel">
       <layoutConstraint xmi:type="notation:Location" xmi:id="_C_Xy1MX1EeyrWZ_x3jNpKg" y="40"/>
@@ -150,14 +110,54 @@
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_C_nqcMX1EeyrWZ_x3jNpKg" id="(1.0,0.4)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_C_nqccX1EeyrWZ_x3jNpKg" id="(0.0,0.41333333333333333)"/>
   </edges>
-  <edges xmi:type="notation:Connector" xmi:id="_EDMAQcX1EeyrWZ_x3jNpKg" type="StereotypeCommentLink" source="_C_Xy0MX1EeyrWZ_x3jNpKg" target="_EDLZM8X1EeyrWZ_x3jNpKg">
-    <styles xmi:type="notation:FontStyle" xmi:id="_EDMAQsX1EeyrWZ_x3jNpKg"/>
-    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_EDMARsX1EeyrWZ_x3jNpKg" name="BASE_ELEMENT">
+  <edges xmi:type="notation:Connector" xmi:id="_ZnIzccYBEey-uvRbDVdXIQ" type="StereotypeCommentLink" source="_lABDIMX0EeyrWZ_x3jNpKg" target="_ZnIMYMYBEey-uvRbDVdXIQ">
+    <styles xmi:type="notation:FontStyle" xmi:id="_ZnIzcsYBEey-uvRbDVdXIQ"/>
+    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_ZnIzdsYBEey-uvRbDVdXIQ" name="BASE_ELEMENT">
+      <eObjectValue xmi:type="uml:ExecutionEnvironment" href="Wordpress.uml#_k_8xsMX0EeyrWZ_x3jNpKg"/>
+    </styles>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ZnIzc8YBEey-uvRbDVdXIQ" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ZnIzdMYBEey-uvRbDVdXIQ"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ZnIzdcYBEey-uvRbDVdXIQ"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_ZnNr98YBEey-uvRbDVdXIQ" type="StereotypeCommentLink" source="_lpwjsMX0EeyrWZ_x3jNpKg" target="_ZnNr88YBEey-uvRbDVdXIQ">
+    <styles xmi:type="notation:FontStyle" xmi:id="_ZnNr-MYBEey-uvRbDVdXIQ"/>
+    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_ZnOTAsYBEey-uvRbDVdXIQ" name="BASE_ELEMENT">
+      <eObjectValue xmi:type="uml:Node" href="Wordpress.uml#_lpuugMX0EeyrWZ_x3jNpKg"/>
+    </styles>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ZnNr-cYBEey-uvRbDVdXIQ" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ZnOTAMYBEey-uvRbDVdXIQ"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ZnOTAcYBEey-uvRbDVdXIQ"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_ZnR9ZMYBEey-uvRbDVdXIQ" type="StereotypeCommentLink" source="_w0tZMMX0EeyrWZ_x3jNpKg" target="_ZnR9YMYBEey-uvRbDVdXIQ">
+    <styles xmi:type="notation:FontStyle" xmi:id="_ZnR9ZcYBEey-uvRbDVdXIQ"/>
+    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_ZnR9acYBEey-uvRbDVdXIQ" name="BASE_ELEMENT">
+      <eObjectValue xmi:type="uml:Dependency" href="Wordpress.uml#_w0rkAMX0EeyrWZ_x3jNpKg"/>
+    </styles>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ZnR9ZsYBEey-uvRbDVdXIQ" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ZnR9Z8YBEey-uvRbDVdXIQ"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ZnR9aMYBEey-uvRbDVdXIQ"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_ZnXc8MYBEey-uvRbDVdXIQ" type="StereotypeCommentLink" source="_sS9sUMX0EeyrWZ_x3jNpKg" target="_ZnW15cYBEey-uvRbDVdXIQ">
+    <styles xmi:type="notation:FontStyle" xmi:id="_ZnXc8cYBEey-uvRbDVdXIQ"/>
+    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_ZnXc9cYBEey-uvRbDVdXIQ" name="BASE_ELEMENT">
+      <eObjectValue xmi:type="uml:Node" href="Wordpress.uml#_sS8eMMX0EeyrWZ_x3jNpKg"/>
+    </styles>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ZnXc8sYBEey-uvRbDVdXIQ" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ZnXc88YBEey-uvRbDVdXIQ"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ZnXc9MYBEey-uvRbDVdXIQ"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_ZnbHVMYBEey-uvRbDVdXIQ" type="StereotypeCommentLink" source="_C_Xy0MX1EeyrWZ_x3jNpKg" target="_ZnbHUMYBEey-uvRbDVdXIQ">
+    <styles xmi:type="notation:FontStyle" xmi:id="_ZnbHVcYBEey-uvRbDVdXIQ"/>
+    <styles xmi:type="notation:EObjectValueStyle" xmi:id="_ZnbHWcYBEey-uvRbDVdXIQ" name="BASE_ELEMENT">
       <eObjectValue xmi:type="uml:Dependency" href="Wordpress.uml#_C_WksMX1EeyrWZ_x3jNpKg"/>
     </styles>
     <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_EDMAQ8X1EeyrWZ_x3jNpKg" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_EDMARMX1EeyrWZ_x3jNpKg"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_EDMARcX1EeyrWZ_x3jNpKg"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ZnbHVsYBEey-uvRbDVdXIQ" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ZnbHV8YBEey-uvRbDVdXIQ"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ZnbHWMYBEey-uvRbDVdXIQ"/>
   </edges>
 </notation:Diagram>

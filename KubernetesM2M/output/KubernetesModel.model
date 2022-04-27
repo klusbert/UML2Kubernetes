@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:kubernetes_metamodel="http://www.example.org/kubernetesModel" xsi:schemaLocation="http://www.example.org/kubernetesModel ../../kubernetes_meta_model/model/kubernetes_metamodel.ecore">
-  <kubernetes_metamodel:Infrastructure namespace="wordpress" apiVersion="1" name="Wordpress" deployments="/1 /2" accessibilityType="LoadBalancer" objectsCount="5" persistentVolumeClaims="/3" service="/6 /7"/>
-  <kubernetes_metamodel:Deployment image="wordpress" port="80" replicas="1" name="wordpress" namespace="wordpress" id="1">
-    <enviromentVariables name="WORDPRESS_DB_PASSWORD" value="password"/>
+  <kubernetes_metamodel:Infrastructure namespace="wordpress" apiVersion="1" name="Wordpress" deployments="/1 /6" accessibilityType="LoadBalancer" objectsCount="6" persistentVolumeClaims="/3 /7" service="/10 /11"/>
+  <kubernetes_metamodel:Deployment image="wordpress" port="80" replicas="1" name="wordpress" dataPersistent="/2" namespace="wordpress" id="2" volumes="/4" volumeMounts="/5">
     <enviromentVariables name="WORDPRESS_DB_HOST" value="mysql"/>
-    <enviromentVariables name="WORDPRESS_DB_USER" value="root"/>
     <enviromentVariables name="WORDPRESS_DB_NAME" value="wordpress"/>
+    <enviromentVariables name="WORDPRESS_DB_PASSWORD" value="password"/>
+    <enviromentVariables name="WORDPRESS_DB_USER" value="root"/>
   </kubernetes_metamodel:Deployment>
-  <kubernetes_metamodel:Deployment image="mysql:8.0.28" port="3306" replicas="1" name="mysql" namespace="wordpress" id="3" volumes="/4" volumeMounts="/5">
+  <kubernetes_metamodel:PersistentData mountPath="/var/www/html" sizeInGB="2"/>
+  <kubernetes_metamodel:PersistentVolumeClaim size="2" name="wordpress-pvc" id="1"/>
+  <kubernetes_metamodel:Volume name="wordpress-persistent-storage" claimName="wordpress-pvc"/>
+  <kubernetes_metamodel:VolumeMount name="wordpress-persistent-storage" mountPath="/var/www/html"/>
+  <kubernetes_metamodel:Deployment image="mysql:8.0.28" port="3306" replicas="1" name="mysql" namespace="wordpress" id="4" volumes="/8" volumeMounts="/9">
     <enviromentVariables name="MYSQL_ROOT_PASSWORD" value="password"/>
     <enviromentVariables name="MYSQL_DATABASE" value="wordpress"/>
   </kubernetes_metamodel:Deployment>
-  <kubernetes_metamodel:PersistentVolumeClaim size="3" name="mysql-pvc" id="2"/>
+  <kubernetes_metamodel:PersistentVolumeClaim size="3" name="mysql-pvc" id="3"/>
   <kubernetes_metamodel:Volume name="mysql-persistent-storage" claimName="mysql-pvc"/>
   <kubernetes_metamodel:VolumeMount name="mysql-persistent-storage" mountPath="/var/lib/mysql"/>
-  <kubernetes_metamodel:Service port="3306" name="mysql" accessibilityType="ClusterIP" id="4" deploymentName="mysql" deploymentPort="3306"/>
-  <kubernetes_metamodel:Service port="80" name="wordpress" accessibilityType="LoadBalancer" id="5" deploymentName="wordpress" deploymentPort="80"/>
+  <kubernetes_metamodel:Service port="3306" name="mysql" accessibilityType="ClusterIP" id="5" deploymentName="mysql" deploymentPort="3306"/>
+  <kubernetes_metamodel:Service port="80" name="wordpress" accessibilityType="LoadBalancer" id="6" deploymentName="wordpress" deploymentPort="80"/>
 </xmi:XMI>

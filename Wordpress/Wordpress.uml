@@ -30,6 +30,7 @@
     <environmentVariables xmi:type="KubernetesUMLProfile.DataTypes:EnviromentVariables" xmi:id="_70jK4MX0EeyrWZ_x3jNpKg" name="WORDPRESS_DB_USER" value="root"/>
     <environmentVariables xmi:type="KubernetesUMLProfile.DataTypes:EnviromentVariables" xmi:id="_9Lg90MX0EeyrWZ_x3jNpKg" name="WORDPRESS_DB_PASSWORD" value="password"/>
     <environmentVariables xmi:type="KubernetesUMLProfile.DataTypes:EnviromentVariables" xmi:id="_YWvZAMX1EeyrWZ_x3jNpKg" name="WORDPRESS_DB_NAME" value="wordpress"/>
+    <dataPersistent xmi:type="KubernetesUMLProfile.DataTypes:PersistentData" xmi:id="_fPdG0MYBEey-uvRbDVdXIQ" mountPath="/var/www/html"/>
   </KubernetesUMLProfile:Deployment>
   <KubernetesUMLProfile:MysqlDB xmi:id="_uagnoMX0EeyrWZ_x3jNpKg" base_Node="_sS8eMMX0EeyrWZ_x3jNpKg">
     <dataBase xmi:type="KubernetesUMLProfile.DataTypes:MySqlDatabase" xmi:id="__czrAMX0EeyrWZ_x3jNpKg" name="wordpress"/>
